@@ -1,0 +1,39 @@
+[user]
+  name = Miguel Palhas
+  email = mpalhas@gmail.com
+[alias]
+  ls = log --color --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)[%cn]%Creset %s %Cred(%h)%Creset' --abbrev-commit
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  t = !tig "$@"
+  conflicts = !git ls-files -u | cut -f 2 | sort -u
+  conf      = !git ls-files -u | cut -f 2 | sort -u
+  ps   = push
+  pr   = pull-request
+  pb   = publish
+  pr   = pull-request
+  f    = fetch
+  c    = commit
+  co   = checkout
+  s    = status -sb
+  rb   = rebase
+  rbc  = rebase --continue
+  up   = update
+  lc   = log ORIG_HEAD.. --stat --no-merges
+  new  = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  wdiff = diff --word-diff
+  who = shortlog -sn
+  wip = commit -m 'WIP [ci skip]'
+
+  la = !git config -l | grep alias | cut -c 7-
+[core]
+  editor = vim
+  excludefiles = /home/naps62/.gitignore_global
+  excludesfile = /home/naps62/.gitignore_global
+[color]
+  ui = true
+[push]
+  default = tracking
+[web]
+  browser = google-chrome
+[init]
+  templatedir = ~/.git_template

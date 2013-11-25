@@ -1,0 +1,98 @@
+#!/bin/sh
+
+goto_work () {
+  type = "$1"
+  project_name = ls -d $HOME/"$1"/"$2"* | head -n1
+  cd projet_name
+  if [ -f "Gemfile" ]; then
+    vim
+  fi
+}
+
+project () { goto_work "projects" $@; }
+gb      () { goto_work "gb"       $@; }
+uplay   () { goto_work "uplay"    $@; }
+
+# override git to prevent pull
+git () {
+  if [[ "git $*" =~ $(echo 'git[[:space:]]+pull') ]]; then
+    echo "Put a \$ in the jar, use fetch/rebase, and go f*** yourself, please"
+  else
+    command git "$@"
+  fi
+}
+
+# cd ls
+# enter dir and immediately show contents
+cdls () {
+  cd $*
+  ls
+  #echo '' # open line for clarity
+}
+
+# most used commands list
+most () {
+  history | awk '{
+      cmd[$2]++; count++;
+    }
+    END {
+      for (i in cmd) print cmd[i]/count*100 "%", i
+    }' | sort -nr | head -n20 | column -c3 -s " " -t
+}
+
+# extract archive
+extract () {
+  if [ -f $1 ]; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1    ;;
+      *.tar.gz)    tar xvzf $1    ;;
+      *.tar.xz)    tar xvJf $1    ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xvf $1     ;;
+      *.tbz2)      tar xvjf $1    ;;
+      *.tgz)       tar xvzf $1    ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *.xz)        unxz $1        ;;
+      *.exe)       cabextract $1  ;;
+      *.ace)       unace $1       ;;
+      *.arj)       unarj $1       ;;
+      *)           echo "'$1': unrecognized file compression" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# mkcd
+# create a directory structure and jump to the bottom one
+mkcd () {
+  mkdir -p "$1" && cd "$1"
+}
+
+# mark
+mark () {
+  file=~/.markfile
+  [ -f $file ] || touch $file
+  if grep "^$1=" $file > /dev/null; then
+    sed -i -e "s:$1\=.*$:$1\=${PWD}:g" $file
+    echo "entry $1 changed"
+  else
+    echo "$1=$PWD" >> $file
+    echo "entry $1 added"
+  fi
+}
+
+# goto
+goto () {
+  file=~/.markfile
+  if [ $# -eq 1 ]; then
+    dest=$(grep "^$1=" $file | cut -d= -f2)
+    cd $dest
+  else
+    echo "no mark specified"
+  fi
+}

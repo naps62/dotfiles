@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+alias reboot='sudo reboot'
+alias halt='sudo poweroff'
+
+alias apt='sudo aptitude'
+alias open='xdg-open'
+
+# one-char aliases
+alias b=bundle
+alias be='bundle exec'
+alias g=git
+alias t=tig
+alias o=open
+alias v=vim
+alias m=make
+alias r=rails
+alias rk=rake
+alias a=ack
+alias x=extract
+
+# cd
+alias cd='cdls'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+
+# ls
+alias ll='ls -alF'
+alias la='ls -A'
+alias lla='la -AlF'
+
+
+# alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# proxy
+alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
+alias vim="stty stop '' -ixoff ; vim"
+
+# git
+eval "$(hub alias -s)"

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git branch | sed -n '\/* /s///p'

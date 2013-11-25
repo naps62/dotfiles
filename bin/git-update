@@ -1,0 +1,11 @@
+#!/bin/sh
+
+branch=${1:-dev}
+
+echo "fetching from origin"
+git fetch
+
+git checkout $destiny
+git rebase
+
+git push

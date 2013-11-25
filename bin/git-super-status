@@ -1,0 +1,231 @@
+#!/usr/bin/env perl
+
+use 5.14.1;
+use warnings;
+
+use YAML::XS 'LoadFile';
+use File::pushd;
+use Term::ANSIColor;
+use Getopt::Long;
+use List::Util 'first';
+
+my $data = LoadFile('/home/frew/.gitgot');
+our %config = map { split /\n/, s/super-status\.//r, 2 } split /\0/, qx(git config -z --get-regexp super-status);
+
+{
+   my $re = sprintf q<
+      ^
+      # $base
+      ( .{0,%i} )
+      (?:
+        # $fit
+        ( . )
+          |
+        # $cut
+        ( .{1,} )
+      )$
+      >, 39;
+
+   sub format_repo_name {
+      my $name = shift;
+      my ($base, $fit, $cut) = $name =~ /$re/x;
+      if (defined $fit) {
+        return ( "$base${fit}" . ( ' ' x ( 39 - length $base ) ) )
+      } elsif (!defined $cut) {
+        return ( $base . ( ' ' x ( 40 - length $base ) ) )
+      } else {
+        return "$base\x{2026}";
+      }
+   }
+}
+
+sub get_dirty { split /\0/, qx(git status --porcelain -z) }
+
+sub get_not_tracked {
+   map {
+      if (/^\*?\s+\S+\s+[a-f0-9]{7}\s\[/) {
+         ()
+      } else {
+         $_
+      }
+   } split /\n/, qx(git branch -vv --no-color)
+}
+
+sub get_tracked {
+   map {
+      if (/^\*?\s+(\S+)\s+[a-f0-9]{7}\s\[(\S+)(?::.*)?\]/) {
+         [ $1 => $2 ]
+      } else {
+         ()
+      }
+   } split /\n/, qx(git branch -vv --no-color)
+}
+
+sub unpushed_commits {
+   my @tracked = @_;
+
+   map {
+      my ($a, $b) = @$_;
+      my $cmd = qq(git log $b..$a --oneline --no-color );
+      split /\n/, qx($cmd)
+   } @tracked
+}
+
+sub unmerged_branches {
+   split /\n/, qx(git branch --no-color -a --no-merged $config{master})
+}
+
+sub unreleased_commits {
+   return () unless $config{releasable};
+   return (split /\n/, qx(git log --oneline --no-color )) unless split /\n/, qx(git tag);
+   chomp(my $last_tag = qx(git describe $config{master} --tags --abbrev=0));
+   split /\n/, qx(git log $last_tag..$config{master} --oneline --no-color )
+}
+
+sub header {
+<<'END';
+D      dirty?
+!TP    non-tracking branches
+!PC    total unpushed commits
+!MB    total unmerged branches
+!RC    unreleased commits
+I      issues
+END
+}
+
+my $alpha       = $config{alpha}       // 1;
+my $header      = $config{header}      // 0;
+my $color       = $config{color}       // 0;
+my $multiheader = $config{multiheader} // 1;
+my $pretty      = $config{pretty}      // 0;
+
+my $skip_good   = $config{'skip-good'} // 0;
+my $dirty       = $config{dirty};
+
+GetOptions(
+   'header|h'     => \$header,
+   'multiheader!' => \$multiheader,
+   'color!'       => \$color,
+   'skip-good!'   => \$skip_good,
+   'pretty!'      => \$pretty,
+   'dirty!'       => \$dirty,
+   'alpha'        => \$alpha,
+);
+
+#    12345678901234567890123456789012345678901234567890123456789012345678901234567890
+#             1         2         3         4         5         6         7         8
+print header() if $header;
+
+sub for_summary {
+   my %data = @_;
+
+   return (
+      name       => $data{name},
+      dirty      => scalar @{$data{dirty}},
+      untracked  => scalar @{$data{untracked}},
+      unpushed   => scalar @{$data{unpushed}},
+      unmerged   => scalar @{$data{unmerged}},
+      unreleased => scalar @{$data{unreleased}},
+   )
+}
+
+sub hide_zeros {
+   my %data = @_;
+
+   return (
+      name       => $data{name},
+      dirty      => $data{dirty}      || '',
+      untracked  => $data{untracked}  || '',
+      unpushed   => $data{unpushed}   || '',
+      unmerged   => $data{unmerged}   || '',
+      unreleased => $data{unreleased} || '',
+   )
+}
+
+sub color_value {
+   if ($_[0]) {
+      colored(['red'], $_[0])
+   } else {
+      colored(['green'], $_[0])
+   }
+}
+
+sub with_color {
+   my %data = @_;
+
+   return (
+      name       => colored(['yellow'], $data{name}       ),
+      dirty      => colored(['red']   , $data{dirty}      ),
+      untracked  => colored(['red']   , $data{untracked}  ),
+      unpushed   => colored(['red']   , $data{unpushed}   ),
+      unmerged   => colored(['red']   , $data{unmerged}   ),
+      unreleased => colored(['red']   , $data{unreleased} ),
+   )
+}
+
+sub pre_color_sprintf {
+   my %data = @_;
+
+   return (
+      name       => format_repo_name( $data{name}       ),
+      dirty      => sprintf('%3s',    $data{dirty}      ),
+      untracked  => sprintf('%3s',    $data{untracked}  ),
+      unpushed   => sprintf('%3s',    $data{unpushed}   ),
+      unmerged   => sprintf('%3s',    $data{unmerged}   ),
+      unreleased => sprintf('%3s',    $data{unreleased} ),
+   )
+}
+
+sub fromat {
+   my %data = @_;
+
+   join ' ', $data{name}, $data{dirty}, $data{untracked}, $data{unpushed}, $data{unmerged}, $data{unreleased}, '';
+}
+
+sub si {
+   my ( $x, $y ) = @_;
+   no warnings;
+
+   if (defined $x) {
+      if ($x) {
+         next REPO if !scalar @$y
+      } else {
+         next REPO if scalar @$y
+      }
+   }
+
+}
+
+REPO: for my $repo_info (sort { lc $a->{name} cmp lc $b->{name} } @$data) {
+   state $i = 0;
+
+   my $dir = pushd($repo_info->{path});
+   local %config = map { split /\n/, s/super-status\.//r, 2 } split /\0/, qx(git config -z --get-regexp super-status);
+   local $config{master} = 'master' unless $config{master};
+
+   my %data = (
+      name       => $repo_info->{name},
+   );
+
+   $data{dirty} = [ get_dirty() ];
+   si($dirty, $data{dirty});
+   $data{untracked} = [ get_not_tracked() ];
+   $data{unpushed}  = [ unpushed_commits(get_tracked()) ];
+   $data{unmerged}  = [ unmerged_branches() ];
+   $data{unreleased}= [ unreleased_commits() ];
+
+   %data = for_summary(%data);
+   next if $skip_good && !first { $_ } map $data{$_}, qw(dirty untracked unpushed unmerged unreleased);
+
+   %data = hide_zeros(%data) if $pretty;
+   %data = pre_color_sprintf(%data);
+   %data = with_color(%data) if $color;
+
+   print "\nRepository Name                            D !TP !PC !MB !RC   I\n\n"
+      if $i == 0 || ($multiheader && ( $i % 10 == 0 ));
+
+   say fromat(%data);
+
+   $i++;
+}
+

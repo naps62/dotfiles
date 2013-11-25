@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+# zsh-git-prompt, by olivierverdier @ github
+source $HOME/.shell_files/zsh/git_prompt/zsh-git-prompt.sh
+
+#ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%} ("
+#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[blue]%})"
+#ZSH_THEME_GIT_PROMPT_SEPARATOR="%{$fg_bold[blue]%}|"
+#ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[red]%}"
+#ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}s:"
+#ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}c:"
+#ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}+"
+#ZSH_THEME_GIT_PROMPT_REMOTE=""
+#ZSH_THEME_GIT_PROMPT_UNTRACKED="..."
+#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}A"
+
+repo_name () {
+  basename $(command git remote show -n origin 2>/dev/null | grep Push | cut -d: -f2-) 2>/dev/null
+}
+
+prompt_char () {
+  #command git branch >/dev/null 2>/dev/null && echo '±' && return
+  echo '%#'
+}
+
+case ${SOLARIZED_THEME:-dark} in
+    light) bkg=white;;
+    *)     bkg=black;;
+esac
+
+
+export ZSH_THEME_GIT_PROMPT_NOCACHE=1
+
+PROMPT='
+%{%B%F{green}%}%n%{%B%F{red}%}@%m %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git_super_status)
+%{%B%F{blue}%} `prompt_char`%{%f%k%b%}%{$reset_color%} '

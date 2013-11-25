@@ -1,0 +1,27 @@
+#!/bin/sh
+
+current=$(git rev-parse --abbrev-ref HEAD)
+destiny=${1:-dev}
+
+echo "fetching"
+git fetch
+
+echo "rebasing ${destiny}"
+git checkout $destiny
+# check if branch changed successfully (no staged changes or such things)
+[[ $(git rev-parse --abbrev-ref HEAD) == $destiny ]] || exit "failed"
+git rebase
+
+echo "rebasing ${current} with ${destiny}"
+git checkout $current
+git rebase
+
+echo "interactive rebasing..."
+git rebase -i $destiny
+
+echo "merging"
+git checkout $destiny
+git merge --ff-only $current
+git push
+[[ $(git diff $current..$destiny) == "" ]] && git nuke $current
+

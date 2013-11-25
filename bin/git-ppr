@@ -1,0 +1,10 @@
+#!/bin/sh
+
+current=$(git rev-parse --abbrev-ref HEAD)
+destiny=${1:-dev}
+
+echo "publishing branch if required"
+git publish
+
+echo "creating pull-request"
+hub pull-request -b ${destiny}
