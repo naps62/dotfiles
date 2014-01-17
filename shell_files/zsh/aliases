@@ -7,17 +7,22 @@ alias apt='sudo aptitude'
 alias open='xdg-open'
 
 # one-char aliases
+alias a=ack
 alias b=bundle
 alias be='bundle exec'
+alias c='bundle exec cap'
+alias cu='bundle exec cucumber'
 alias g=git
-alias t=tig
-alias o=open
-alias v=vim
 alias m=make
+alias o=open
 alias r=rails
 alias rk=rake
-alias a=ack
+alias s=ssh
+alias t=tig
+alias v=vim
+alias va=vagrant
 alias x=extract
+alias y=yaourt
 
 # cd
 alias cd='cdls'

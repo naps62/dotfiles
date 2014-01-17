@@ -7,11 +7,13 @@ filetype plugin indent on
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-commentary'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
@@ -32,7 +34,8 @@ Bundle 'scrooloose/syntastic'
 " basics
 set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
-set number        " line numbers
+set relativenumber " relative number on current line
+set number         " line numbers
 set ruler         " cursor position
 set mouse=a       " mouse usage
 set scrolloff=3   " scroll offset
@@ -41,12 +44,13 @@ set showmode
 set showcmd
 "set wildmenu
 set wildmode=list:longest
-set cursorline
+" set cursorline
 set ttyfast
 set lazyredraw
 set laststatus=2
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set noerrorbells
+set clipboard=unnamedplus " X11 clipboard integration
 let mapleader=","
 
 " open split panes to right and bottom, which feels more natural
@@ -66,6 +70,8 @@ au BufNewFile,BufRead *.scala  set filetype=scala
 au BufNewFile,BufRead *.cap    set filetype=ruby
 au BufNewFile,BufRead Capfile  set filetype=ruby
 au BufNewFile,BufRead Puppetfile set filetype=ruby
+au BufNewFile,BufRead *.ejs    set filetype=eruby.html
+au BufNewFile,BufRead *.md     set filetype=markdown
 
 " when editing a file, always jump to the last known cursor position
 " don't do it for commit messages, when the position is invalid, or when
@@ -182,7 +188,7 @@ inoremap <F1> <ESC>
 " Ctrl-S save
 noremap  <silent> <C-s>      :update<CR>
 vnoremap <silent> <C-s> <C-c>:update<CR>
-inoremap <silent> <C-s> <C-o>:update<CR>
+inoremap <silent> <C-s> <C-o>:update<CR><Esc>
 
 " tab navigation
 "nnoremap <C-q> :tabprevious<CR>
@@ -206,6 +212,9 @@ map <leader>A :call MyAlignAt()<CR>
 map <leader>c "+y
 map <leader>v "+p
 map <leader>x "+d
+
+" change word is actually change inner word by default
+map cw ciw
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -266,6 +275,10 @@ function! MyAlignAt() range
   call Tabularize("\/" . nr2char(getchar()) . "\\zs")
 endfunction
 
+
+" SignColumn
+" same color as line column
+highlight clear SignColumn
 
 " Delete buffer while keeping window layout (don't close buffer's windows).
 " Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
