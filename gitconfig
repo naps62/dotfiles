@@ -2,7 +2,7 @@
   name = Miguel Palhas
   email = mpalhas@gmail.com
 [alias]
-  ls = log --color --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)[%cn]%Creset %s %Cred(%h)%Creset' --abbrev-commit
+  ls = log --color --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)[%cn]%Creset %s %Cred(%h)%Creset' --abbrev-commit --first-parent
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   t = !tig "$@"
   conflicts = !git ls-files -u | cut -f 2 | sort -u
