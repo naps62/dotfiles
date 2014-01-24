@@ -84,7 +84,7 @@ autocmd BufReadPost *
 " color scheme
 set background=light
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme github
 
 " indentation without hard tabs
 set expandtab
@@ -235,7 +235,7 @@ map <leader>gg :Git
 
 " statusline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
+" let g:airline_theme = 'railscasts
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 "let g:airline#extensions#bufferline#enabled = 1

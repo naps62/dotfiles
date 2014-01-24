@@ -1,75 +1,60 @@
-*faceName: Source Code Pro
-faceSize: 10
-renderFont: true
+Xcursor*theme:         Vanilla-DMZ-AA
 
-! Solarized color scheme for the X Window System
-!
-! http://ethanschoonover.com/solarized
-
-
-! Common
-
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+Xft.dpi:               110
+Xft.antialias:         true
+Xft.hinting:           true
+Xft.hintstyle:         hintfull
 
 
-! Dark
+XTerm*font:            -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
+XTerm*boldFont:        -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
+XTerm*boldMode:        false
+XTerm*scrollBar:       false
+XTerm*saveLines:       32767
+XTerm*borderLess:      true
+XTerm*cursorColor:     orange
+XTerm*cursorBlink:     true
+XTerm*pastableTabs:    true
+XTerm*jumpScroll:      true
 
-! #define S_base03        #002b36
-! #define S_base02        #073642
-! #define S_base01        #586e75
-! #define S_base00        #657b83
-! #define S_base0         #839496
-! #define S_base1         #93a1a1
-! #define S_base2         #eee8d5
-! #define S_base3         #fdf6e3
+UXTerm*font:            -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
+UXTerm*boldFont:        -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
+UXTerm*boldMode:        false
+UXTerm*scrollBar:       false
+UXTerm*saveLines:       32767
+UXTerm*borderLess:      true
+UXTerm*cursorColor:     orange
+UXTerm*cursorBlink:     true
+UXTerm*pastableTabs:    true
+UXTerm*jumpScroll:      true
 
+alsamixer*scrollBar:   false
 
-! Light
-
-#define S_base03        #fdf6e3
-#define S_base02        #eee8d5
-#define S_base01        #93a1a1
-#define S_base00        #839496
-#define S_base0         #657b83
-#define S_base1         #586e75
-#define S_base2         #073642
-#define S_base3         #002b36
-
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
-
-*background:              S_base03
-*foreground:              S_base0
-*fading:                  40
-*fadeColor:               S_base03
-*cursorColor:             S_base1
-*pointerColorBackground:  S_base01
-*pointerColorForeground:  S_base1
-
-*color0:                  S_base02
-*color1:                  S_red
-*color2:                  S_green
-*color3:                  S_yellow
-*color4:                  S_blue
-*color5:                  S_magenta
-*color6:                  S_cyan
-*color7:                  S_base2
-*color9:                  S_orange
-*color8:                  S_base03
-*color10:                 S_base01
-*color11:                 S_base00
-*color12:                 S_base0
-*color13:                 S_violet
-*color14:                 S_base1
-*color15:                 S_base3
-
+! Xoria256 {{{
+*foreground: #bcbcbc
+*background: #1a1a1a
+!black
+*color0:     #1a1a1a
+*color8:     #808080
+!red
+*color1:     #df8787
+*color9:     #b56e6e
+!green
+*color2:     #9ece9e
+*color10:    #c4edc4
+!yellow
+*color3:     #ffffaf
+*color11:    #d6d693
+!blue
+*color4:     #87afdf
+*color12:    #6e8eb5
+!magenta
+*color5:     #dfaf87
+*color13:    #b58e6e
+!cyan
+*color6:     #afafdf
+*color14:    #8e8eB5
+!white
+*color7:     #d0d0d0
+*color15:    #e2e2e5
+! }}}
