@@ -5,31 +5,34 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 filetype plugin indent on
 
+" UI Features
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-commentary'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'bling/vim-airline'
+
+" Editor features
+Bundle 'tpope/vim-surround'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'bling/vim-airline'
+
+
+" Syntax-only plugins
+Bundle 'slim-template/vim-slim'
+Bundle 'rodjek/vim-puppet'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'slim-template/vim-slim'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'godlygeek/tabular'
-Bundle 'rodjek/vim-puppet'
 Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-abolish'
-Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-git'
 
 " basics
 set encoding=utf-8
@@ -84,7 +87,7 @@ autocmd BufReadPost *
 " color scheme
 set background=light
 let g:solarized_termcolors=256
-colorscheme github
+colorscheme solarized
 
 " indentation without hard tabs
 set expandtab
@@ -203,9 +206,6 @@ map <leader>r :Rake<CR>
 map <leader>s :.Rake<CR> " run current spec or feature
 map <leader>t :Rake<CR>  " run current file
 
-" align
-map <leader>A :call MyAlignAt()<CR>
-
 " <leader>-c copy from clipboard
 " <leader>-v paste from clipboard
 " <leader>-x cut to clipboard
@@ -269,11 +269,6 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
 " snippetsEmu
 " are activated by Shift+Tab
 let g:snippetEmu_key = "<S-Tab>"
-
-" custom functions
-function! MyAlignAt() range
-  call Tabularize("\/" . nr2char(getchar()) . "\\zs")
-endfunction
 
 
 " SignColumn
