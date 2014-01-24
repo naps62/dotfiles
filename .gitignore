@@ -4,3 +4,4 @@ ssh/id_rsa*
 
 config/*
 !config/awesome
+!config/terminator
