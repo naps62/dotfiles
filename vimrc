@@ -24,7 +24,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'Lokaltog/vim-easymotion'
-
+Bundle 'mattn/emmet-vim'
 
 " Syntax-only plugins
 Bundle 'slim-template/vim-slim'
@@ -169,15 +169,17 @@ imap <silent> <c-j> <Esc>:wincmd j<CR>i
 imap <silent> <c-h> <Esc>:wincmd h<CR>i
 imap <silent> <c-l> <Esc>:wincmd l<CR>i
 
-" close current buffer, but keep slipt open
-nmap <silent> <leader>q :Bclose<CR>
+" close current buffer
+nmap <silent> <leader>q :q<CR>
 nmap <silent> <leader>wq :wq<CR>
 
 " switch between the last two files
-"nnoremap <leader><leader> <c-^>
+nmap <Tab> :b#<CR>
 
 " tab navigation
-nmap <silent> <C-t>      :tabnew<CR>
+nnoremap <C-u> :tabprevious<CR>
+nnoremap <C-i> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
 
 " navigate in wrapped lines
 nnoremap j gj
@@ -193,25 +195,11 @@ noremap  <silent> <C-s>      :update<CR>
 vnoremap <silent> <C-s> <C-c>:update<CR>
 inoremap <silent> <C-s> <C-o>:update<CR><Esc>
 
-" tab navigation
-"nnoremap <C-q> :tabprevious<CR>
-"nnoremap <C-e> :tabnext<CR>
-"nnoremap <C-w> :tabnew<CR>
-"inoremap <C-j> <Esc>:tabprevious<CR>i
-"inoremap <C-k> <Esc>:tabnext<CR>i
-"inoremap <C-t> <Esc>:tabnew<CR>"
-
 " rake / spec
-map <leader>r :Rake<CR>
-map <leader>s :.Rake<CR> " run current spec or feature
-map <leader>t :Rake<CR>  " run current file
-
-" <leader>-c copy from clipboard
-" <leader>-v paste from clipboard
-" <leader>-x cut to clipboard
-map <leader>c "+y
-map <leader>v "+p
-map <leader>x "+d
+map <leader>r :call RunAllSpecs()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>f :call RunCurrentSpecFile()<CR>
+map <leader>l :call RunLastSpec()<CR>
 
 " change word is actually change inner word by default
 map cw ciw
@@ -223,7 +211,16 @@ let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn'
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeKeepTreeInNewTab=1
+let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_open_on_gui_startup=0
+let g:NERDTreeMapOpenVSplit="v"
+let g:NERDTreeMapOpenSplit="s"
+" open NERDTree automatically if no files were specified
+autocmd vimenter * if !argc() | NERDTree | endif
+" close vim if NERDTree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Bookmark shortcut
+map <silent> <c-b> :Bookmark<CR>
 
 " fugitive.vim (git wrapper)
 map <leader>gs :Gstatus<CR>
@@ -260,9 +257,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" vim/rspec
-let g:rspec_command = "!bundle exec rspec --drb {spec}"
-
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
 
@@ -270,80 +264,6 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
 " are activated by Shift+Tab
 let g:snippetEmu_key = "<S-Tab>"
 
-
 " SignColumn
 " same color as line column
 highlight clear SignColumn
-
-" Delete buffer while keeping window layout (don't close buffer's windows).
-" Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
-if v:version < 700 || exists('loaded_bclose') || &cp
-  finish
-endif
-let loaded_bclose = 1
-if !exists('bclose_multiple')
-  let bclose_multiple = 1
-endif
-
-" Display an error message.
-function! s:Warn(msg)
-  echohl ErrorMsg
-  echomsg a:msg
-  echohl NONE
-endfunction
-
-" Command ':Bclose' executes ':bd' to delete buffer in current window.
-" The window will show the alternate buffer (Ctrl-^) if it exists,
-" or the previous buffer (:bp), or a blank buffer if no previous.
-" Command ':Bclose!' is the same, but executes ':bd!' (discard changes).
-" An optional argument can specify which buffer to close (name or number).
-function! s:Bclose(bang, buffer)
-  if empty(a:buffer)
-    let btarget = bufnr('%')
-  elseif a:buffer =~ '^\d\+$'
-    let btarget = bufnr(str2nr(a:buffer))
-  else
-    let btarget = bufnr(a:buffer)
-  endif
-  if btarget < 0
-    call s:Warn('No matching buffer for '.a:buffer)
-    return
-  endif
-  if empty(a:bang) && getbufvar(btarget, '&modified')
-    call s:Warn('No write since last change for buffer '.btarget.' (use :Bclose!)')
-    return
-  endif
-  " Numbers of windows that view target buffer which we will delete.
-  let wnums = filter(range(1, winnr('$')), 'winbufnr(v:val) == btarget')
-  if !g:bclose_multiple && len(wnums) > 1
-    call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
-    return
-  endif
-  let wcurrent = winnr()
-  for w in wnums
-    execute w.'wincmd w'
-    let prevbuf = bufnr('#')
-    if prevbuf > 0 && buflisted(prevbuf) && prevbuf != w
-      buffer #
-    else
-      bprevious
-    endif
-    if btarget == bufnr('%')
-      " Numbers of listed buffers which are not the target to be deleted.
-      let blisted = filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != btarget')
-      " Listed, not target, and not displayed.
-      let bhidden = filter(copy(blisted), 'bufwinnr(v:val) < 0')
-      " Take the first buffer, if any (could be more intelligent).
-      let bjump = (bhidden + blisted + [-1])[0]
-      if bjump > 0
-        execute 'buffer '.bjump
-      else
-        execute 'enew'.a:bang
-      endif
-    endif
-  endfor
-  execute 'bdelete'.a:bang.' '.btarget
-  execute wcurrent.'wincmd w'
-endfunction
-command! -bang -complete=buffer -nargs=? Bclose call s:Bclose('<bang>', '<args>')
-nnoremap <silent> <Leader>bd :Bclose<CR>

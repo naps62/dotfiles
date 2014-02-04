@@ -1,6 +1,6 @@
 Xcursor*theme:         Vanilla-DMZ-AA
 
-Xft.dpi:               110
+Xft.dpi:               100
 Xft.antialias:         true
 Xft.hinting:           true
 Xft.hintstyle:         hintfull
