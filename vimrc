@@ -14,13 +14,14 @@ Bundle 'bling/vim-airline'
 
 " Editor features
 Bundle 'tpope/vim-surround'
-Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-dispatch'
+Bundle 'Townk/vim-autoclose'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'Lokaltog/vim-easymotion'
@@ -85,6 +86,13 @@ autocmd BufReadPost *
   \ endif
 
 " color scheme
+if &term =~ '256color'
+  set t_ut=
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
 set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -160,10 +168,10 @@ inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 
 " buffer navigation
 " use ctrl-[hjkl] to select the active split
-nmap <silent> <c-k>      :wincmd k<CR>
-nmap <silent> <c-j>      :wincmd j<CR>
-nmap <silent> <c-h>      :wincmd h<CR>
-nmap <silent> <c-l>      :wincmd l<CR>
+nmap <silent> <C-k>      :wincmd k<CR>
+nmap <silent> <C-j>      :wincmd j<CR>
+nmap <silent> <C-h>      :wincmd h<CR>
+nmap <silent> <C-l>      :wincmd l<CR>
 imap <silent> <c-k> <Esc>:wincmd k<CR>i
 imap <silent> <c-j> <Esc>:wincmd j<CR>i
 imap <silent> <c-h> <Esc>:wincmd h<CR>i
@@ -215,12 +223,15 @@ let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapOpenSplit="s"
-" open NERDTree automatically if no files were specified
-autocmd vimenter * if !argc() | NERDTree | endif
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Bookmark shortcut
 map <silent> <c-b> :Bookmark<CR>
+
+" vim-rspec
+let g:rspec_command = "Dispatch rspec {spec}"
+
+" vim-dispatch
 
 " fugitive.vim (git wrapper)
 map <leader>gs :Gstatus<CR>

@@ -1,32 +1,28 @@
 Xcursor*theme:         Vanilla-DMZ-AA
 
-Xft.dpi:               100
+Xft.dpi:               96
 Xft.antialias:         true
+Xft.rgba:              rgb
 Xft.hinting:           true
 Xft.hintstyle:         hintfull
 
+! UXTerm settings
+UXTerm*faceName:    Source Code Pro for Powerline
+UXTerm*faceSize:    10
+UXTerm*utf8:        1
+XTerm*boldMode:     false
+XTerm*scrollBar:    false
+XTerm*saveLines:    32767
+XTerm*borderLess:   true
+XTerm*cursorBlink:  true
+XTerm*pastableTabs: true
+XTerm*jumpScroll:   true
 
-XTerm*font:            -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
-XTerm*boldFont:        -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
-XTerm*boldMode:        false
-XTerm*scrollBar:       false
-XTerm*saveLines:       32767
-XTerm*borderLess:      true
-XTerm*cursorColor:     orange
-XTerm*cursorBlink:     true
-XTerm*pastableTabs:    true
-XTerm*jumpScroll:      true
+! fix backspace in vim
+*VT100.backarrowKey:false
 
-UXTerm*font:            -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
-UXTerm*boldFont:        -*-ubuntu mono-medium-r-*-*-10-*-*-*-*-*-*-*
-UXTerm*boldMode:        false
-UXTerm*scrollBar:       false
-UXTerm*saveLines:       32767
-UXTerm*borderLess:      true
-UXTerm*cursorColor:     orange
-UXTerm*cursorBlink:     true
-UXTerm*pastableTabs:    true
-UXTerm*jumpScroll:      true
+! fix alt key
+XTerm*eightBitInput: false
 
 alsamixer*scrollBar:   false
 

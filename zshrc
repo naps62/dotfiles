@@ -19,3 +19,6 @@ zsh_reload
 eval "$(direnv hook zsh)"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux
