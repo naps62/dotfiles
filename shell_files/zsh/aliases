@@ -41,7 +41,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # proxy
 alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
-# alias vim="stty stop '' -ixoff ; vim"
+alias vim="stty stop '' -ixoff ; vim"
 
 # git
 eval "$(hub alias -s)"

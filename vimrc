@@ -11,6 +11,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
+Bundle 'altercation/vim-colors-solarized'
 
 " Editor features
 Bundle 'tpope/vim-surround'
@@ -229,7 +230,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 map <silent> <c-b> :Bookmark<CR>
 
 " vim-rspec
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "compiler rspec | Dispatch rspec {spec}"
 
 " vim-dispatch
 

@@ -20,5 +20,7 @@ eval "$(direnv hook zsh)"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# [[ $- != *i* ]] && return
-# [[ -z "$TMUX" ]] && exec tmux
+ttyctl -f
+
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
