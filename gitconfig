@@ -10,7 +10,6 @@
   ps   = push
   pr   = pull-request
   pb   = publish
-  pr   = pull-request
   f    = fetch
   c    = commit
   d    = diff

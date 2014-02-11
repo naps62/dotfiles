@@ -5,7 +5,8 @@ function zsh_reload {
   source ~/.shell_files/zsh/completions
   source ~/.shell_files/env
   source ~/.shell_files/cmds
-  source ~/.shell_files/zsh/aliases
+  source ~/.zsh_aliases
+  eval "$(hub alias -s)"
   source ~/.shell_files/zsh/history
 
   # interactive-only stuff

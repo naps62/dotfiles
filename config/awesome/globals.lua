@@ -6,12 +6,7 @@ terminal = "uxterm"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 browser = "firefox-aurora"
-
-menu_command = "exe=`dmenu_path | dmenu_run -b -p 'DMenu' -i -z -nb '" .. beautiful.bg_normal ..
-              "' -nf '" .. beautiful.fg_normal ..
-              "' -sb '" .. beautiful.bg_focus ..
-              "' -sf '" .. beautiful.fg_focus ..
-              "' -fn 'Inconsolata-10'` && exec $exe"
+menu_command = 'xboomx'
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

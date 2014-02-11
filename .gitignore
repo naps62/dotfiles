@@ -5,3 +5,5 @@ ssh/id_rsa*
 config/*
 !config/awesome
 !config/terminator
+
+xboomx/xboomx.db
