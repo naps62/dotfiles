@@ -13,6 +13,8 @@
   pr   = pull-request
   f    = fetch
   c    = commit
+  d    = diff
+  dc   = diff --cached
   co   = checkout
   s    = status -sb
   rb   = rebase

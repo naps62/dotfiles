@@ -27,6 +27,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mattn/emmet-vim'
+Bundle 'ervandew/supertab'
 
 " Syntax-only plugins
 Bundle 'slim-template/vim-slim'
@@ -39,17 +40,16 @@ Bundle 'tpope/vim-git'
 " basics
 set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
-set relativenumber " relative number on current line
-set number         " line numbers
+set number        " line numbers
 set ruler         " cursor position
 set mouse=a       " mouse usage
 set scrolloff=3   " scroll offset
 set autowrite     " automatically :write before running commands
+set cursorline    " highlight current line
 set showmode
 set showcmd
 "set wildmenu
 set wildmode=list:longest
-" set cursorline
 set ttyfast
 set lazyredraw
 set laststatus=2
@@ -62,46 +62,11 @@ let mapleader=","
 set splitbelow
 set splitright
 
-" switch syntax highlight on when terminal has colors
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
-set re=1
-au BufNewFile,BufRead *.slim   set filetype=slim
-au BufNewFile,BufRead *.coffee set filetype=coffee
-au BufNewFile,BufRead *.pp     set filetype=puppet
-au BufNewFile,BufRead *.scala  set filetype=scala
-au BufNewFile,BufRead *.cap    set filetype=ruby
-au BufNewFile,BufRead Capfile  set filetype=ruby
-au BufNewFile,BufRead Puppetfile set filetype=ruby
-au BufNewFile,BufRead *.ejs    set filetype=eruby.html
-au BufNewFile,BufRead *.md     set filetype=markdown
-
-" when editing a file, always jump to the last known cursor position
-" don't do it for commit messages, when the position is invalid, or when
-" inside an event handler (happens when dropping a file on gvim)
-autocmd BufReadPost *
-  \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g `\"" |
-  \ endif
-
-" color scheme
-if &term =~ '256color'
-  set t_ut=
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
-endif
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
-
 " indentation without hard tabs
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set shiftround    " always indent to a multiple of shiftwidth
 
 " smart indentation
 set autoindent  " copy indentation from previous line
@@ -145,27 +110,48 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.   " show whitespace...
 autocmd filetype html,xml set listchars-=tab:>. " ... except for some file types
 
+" switch syntax highlight on when terminal has colors
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
+
+set re=1
+au BufNewFile,BufRead *.slim   set filetype=slim
+au BufNewFile,BufRead *.coffee set filetype=coffee
+au BufNewFile,BufRead *.pp     set filetype=puppet
+au BufNewFile,BufRead *.scala  set filetype=scala
+au BufNewFile,BufRead *.cap    set filetype=ruby
+au BufNewFile,BufRead Capfile  set filetype=ruby
+au BufNewFile,BufRead Puppetfile set filetype=ruby
+au BufNewFile,BufRead *.ejs    set filetype=eruby.html
+au BufNewFile,BufRead *.md     set filetype=markdown
+
+" when editing a file, always jump to the last known cursor position
+" don't do it for commit messages, when the position is invalid, or when
+" inside an event handler (happens when dropping a file on gvim)
+autocmd BufReadPost *
+  \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g `\"" |
+  \ endif
+
+" color scheme
+if &term =~ '256color'
+  set t_ut=
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
+
 " key maps
 nnoremap ; :
 nnoremap , .
-nmap <silent> <leader>ev :e  $HOME/.vimrc<CR> " edit vimrc
+nmap <silent> <leader>ev :tabe $HOME/.vimrc<CR> " edit vimrc
 nmap <silent> <leader>sv :so $HOME/.vimrc<CR> " reload vimrc
 cmap w!! w !sudo tee % > /dev/null  " still be able to save after forgetting to sudo
-
-" tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-set complete=.,w,t
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 
 " buffer navigation
 " use ctrl-[hjkl] to select the active split
@@ -232,8 +218,6 @@ map <silent> <c-b> :Bookmark<CR>
 " vim-rspec
 let g:rspec_command = "compiler rspec | Dispatch rspec {spec}"
 
-" vim-dispatch
-
 " fugitive.vim (git wrapper)
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
@@ -267,6 +251,8 @@ if executable('ag')
 
   " ag is fast enough that ctrlp doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  map <C-f> :Ag 
 endif
 
 " vim-autoclose
