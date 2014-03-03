@@ -23,5 +23,5 @@ echo "merging"
 git checkout $destiny
 git merge --ff-only $current
 git push
-[[ $(git diff $current..$destiny) == "" ]] && git nuke $current
+[[ $(git diff $current..$destiny) == "" ]] && git nuke $current $destiny
 

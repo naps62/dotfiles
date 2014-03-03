@@ -5,7 +5,7 @@ beautiful.init(awful.util.getdir("config") .. "/themes/dust/theme.lua")
 terminal = "uxterm"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
-browser = "firefox-aurora"
+browser = "google-chrome-stable"
 menu_command = 'xboomx'
 
 -- Default modkey.
