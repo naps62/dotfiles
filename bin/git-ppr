@@ -1,7 +1,7 @@
 #!/bin/sh
 
 current=$(git rev-parse --abbrev-ref HEAD)
-destiny=${1:-dev}
+destiny=${1:-master}
 
 echo "publishing branch if required"
 git publish
