@@ -136,13 +136,6 @@ autocmd BufReadPost *
   \ endif
 
 " color scheme
-if &term =~ '256color'
-  set t_ut=
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
-endif
 set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
