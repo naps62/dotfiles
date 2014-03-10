@@ -1,7 +1,7 @@
 local wibox = require("wibox")
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock("<span color='" .. beautiful.fg_em .. "'>%a %m/%d</span> @ %I:%M %p")
+mytextclock = awful.widget.textclock("<span color='" .. beautiful.fg_normal .. "'>%a %m/%d</span> @ %I:%M %p")
 
 -- Create a wibox for each screen and add it
 mywibox = {}

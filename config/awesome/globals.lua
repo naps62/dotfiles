@@ -1,5 +1,5 @@
 -- Themes define colours, icons, and wallpapers
-beautiful.init(awful.util.getdir("config") .. "/themes/dust/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/nice-and-clean-theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"

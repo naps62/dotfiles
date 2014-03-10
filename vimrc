@@ -170,6 +170,9 @@ nnoremap <C-u> :tabprevious<CR>
 nnoremap <C-i> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
 
+" go back after jumping to tag
+" nmap <C-[> :pop<CR>
+
 " navigate in wrapped lines
 nnoremap j gj
 nnoremap k gk
