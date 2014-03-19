@@ -21,7 +21,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-dispatch'
+" Bundle 'tpope/vim-dispatch'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'thoughtbot/vim-rspec'
@@ -213,7 +213,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 map <silent> <c-b> :Bookmark<CR>
 
 " vim-rspec
-let g:rspec_command = "compiler rspec | Dispatch rspec {spec}"
+" let g:rspec_command = "compiler rspec | Dispatch rspec {spec}"
+let g:rspec_command = "!spring rspec {spec}"
 
 " fugitive.vim (git wrapper)
 map <leader>gs :Gstatus<CR>

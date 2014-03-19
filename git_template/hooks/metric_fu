@@ -1,8 +1,9 @@
 #!/bin/sh
 
 if [ -f Gemfile ] && [ -x $(which metric_fu) ] && [ -n "$METRIC_FU_OUT" ]; then
-  echo "Running metric_fu"
   destination="${METRIC_FU_OUT}/$(basename $PWD)"
+  echo "Running metric_fu at ${destination}"
   mkdir -p $destination
+  export CC_BUILD_ARTIFACTS=$destination
   metric_fu --out $destination
 fi
