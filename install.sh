@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files=`find . -mindepth 1 -maxdepth 1 ! -name install.sh ! -name no_copy`
+files=`find . -mindepth 1 -maxdepth 1 ! -name install.sh ! -name private ! -name dotfiles.sh`
 
 for file in $files; do
   filename=${file//\.\//}
@@ -9,9 +9,9 @@ for file in $files; do
 
   if [ -e $dst ]; then
     echo "backing up $filename"
-    # mv $dst "$HOME/old_$filename"
+    mv $dst "$HOME/old_$filename"
   fi
 
   echo "symlinking $filename"
-  # ln -s $src $dst
+  ln -s $src $dst
 done
