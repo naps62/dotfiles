@@ -101,73 +101,6 @@ networkwidget = wibox.widget.background()
 networkwidget:set_widget(netwidget)
 networkwidget:set_bgimage(beautiful.widget_bg)
 
--- MPD
-mpd_icon = wibox.widget.imagebox()
-mpd_icon:set_image(beautiful.mpd)
-prev_icon = wibox.widget.imagebox()
-prev_icon:set_image(beautiful.prev)
-next_icon = wibox.widget.imagebox()
-next_icon:set_image(beautiful.nex)
-stop_icon = wibox.widget.imagebox()
-stop_icon:set_image(beautiful.stop)
-pause_icon = wibox.widget.imagebox()
-pause_icon:set_image(beautiful.pause)
-play_pause_icon = wibox.widget.imagebox()
-play_pause_icon:set_image(beautiful.play)
-
-mpdwidget = lain.widgets.mpd({
-    settings = function ()
-        if mpd_now.state == "play" then
-            mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
-            mpd_now.title = mpd_now.title:upper():gsub("&.-;", string.lower)
-            widget:set_markup(markup.font("Tamsyn 4", " ")
-                              .. markup.font("Tamsyn 8", 
-                              mpd_now.artist
-                              .. " - " ..
-                              mpd_now.title
-                              .. markup.font("Tamsyn 10", " ")))
-            play_pause_icon:set_image(beautiful.pause)
-        elseif mpd_now.state == "pause" then
-            widget:set_markup(markup.font("Tamsyn 4", " ") ..
-                              markup.font("Tamsyn 8", "MPD PAUSED") ..
-                              markup.font("Tamsyn 10", " "))
-            play_pause_icon:set_image(beautiful.play)
-        else
-            widget:set_markup("")
-            play_pause_icon:set_image(beautiful.play)
-        end
-    end
-})
-
-musicwidget = wibox.widget.background()
-musicwidget:set_widget(mpdwidget)
-musicwidget:set_bgimage(beautiful.widget_bg)
-musicwidget:buttons(awful.util.table.join(awful.button({ }, 1,
-function () awful.util.spawn_with_shell(musicplr) end)))
-mpd_icon:buttons(awful.util.table.join(awful.button({ }, 1,
-function () awful.util.spawn_with_shell(musicplr) end)))
-prev_icon:buttons(awful.util.table.join(awful.button({}, 1,
-function ()
-    awful.util.spawn_with_shell("mpc prev || ncmpcpp prev || ncmpc prev || pms prev")
-    mpdwidget.update()
-end)))
-next_icon:buttons(awful.util.table.join(awful.button({}, 1,
-function ()
-    awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
-    mpdwidget.update()
-end)))
-stop_icon:buttons(awful.util.table.join(awful.button({}, 1,
-function ()
-    play_pause_icon:set_image(beautiful.play)
-    awful.util.spawn_with_shell("mpc stop || ncmpcpp stop || ncmpc stop || pms stop")
-    mpdwidget.update()
-end)))
-play_pause_icon:buttons(awful.util.table.join(awful.button({}, 1,
-function ()
-    awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
-    mpdwidget.update()
-end)))
-
 -- Battery
 batwidget = lain.widgets.bat({
     settings = function()
@@ -322,14 +255,6 @@ for s = 1, screen.count() do
     right_layout:add(calendarwidget)
     right_layout:add(clock_icon)
     right_layout:add(clockwidget)
-    right_layout:add(bar)
-    right_layout:add(prev_icon)
-    right_layout:add(play_pause_icon)
-    right_layout:add(next_icon)
-    right_layout:add(stop_icon)
-    right_layout:add(bar)
-    right_layout:add(mpd_icon)
-    right_layout:add(musicwidget)
     right_layout:add(bar)
     right_layout:add(spr_very_small)
     right_layout:add(volumewidget)
