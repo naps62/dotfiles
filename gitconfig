@@ -11,7 +11,7 @@
   pr   = pull-request
   pb   = publish
   f    = fetch
-  c    = commit
+  c    = commit --verbose
   d    = diff
   dc   = diff --cached
   co   = checkout

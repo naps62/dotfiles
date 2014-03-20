@@ -26,11 +26,13 @@ layouts =
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile,
     -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.max,
-    lain.layout.uselesstile,
+    awful.layout.suit.max,
+    -- lain.layout.uselesstile,
     awful.layout.suit.fair,
-    lain.layout.uselesstile.left,
-    lain.layout.uselesstile.top
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.bottom,
+    -- lain.layout.uselesstile.left,
+    -- lain.layout.uselesstile.top
 }
 
 -- {{{ Naughty presets

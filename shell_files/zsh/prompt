@@ -19,7 +19,8 @@ repo_name () {
 }
 
 prompt_char () {
-  #command git branch >/dev/null 2>/dev/null && echo '±' && return
+  echo -n "%(?..%F{red})"
+  command git branch >/dev/null 2>/dev/null && echo '±' && return
   echo '%#'
 }
 

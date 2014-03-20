@@ -1,9 +1,17 @@
 #!/bin/sh
 
-files=`find . -mindepth 1 -maxdepth 1 ! -name install.sh`
+files=`find . -mindepth 1 -maxdepth 1 ! -name install.sh ! -name no_copy`
 
 for file in $files; do
-	filename=${file//\.\//}
-	echo "symlinking $filename"
-	ln -s "$PWD/$filename" "$HOME/.$filename"
+  filename=${file//\.\//}
+  src=PWD/$filename
+  dst=$HOME/.$filename
+
+  if [ -e $dst ]; then
+    echo "backing up $filename"
+    # mv $dst "$HOME/old_$filename"
+  fi
+
+  echo "symlinking $filename"
+  # ln -s $src $dst
 done
