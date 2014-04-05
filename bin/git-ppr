@@ -3,8 +3,7 @@
 current=$(git rev-parse --abbrev-ref HEAD)
 destiny=${1:-master}
 
-echo "publishing branch if required"
-git publish
+git push
 
 echo "creating pull-request"
 hub pull-request -b ${destiny}
