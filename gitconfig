@@ -5,8 +5,8 @@
   ls = log --color --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)[%cn]%Creset %s %Cred(%h)%Creset' --abbrev-commit --first-parent
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   t = !tig "$@"
-  conflicts = !git ls-files -u | cut -f 2 | sort -u
-  conf      = !git ls-files -u | cut -f 2 | sort -u
+  conf = diff --name-only --diff-filter=U
+  br   = branch
   ps   = push
   pr   = pull-request
   pb   = publish
@@ -33,7 +33,7 @@
 [color]
   ui = true
 [push]
-  default = tracking
+  default = current
 [web]
   browser = google-chrome
 [init]

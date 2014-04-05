@@ -42,7 +42,7 @@ set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
 set number        " line numbers
 set ruler         " cursor position
-set mouse=a       " mouse usage
+" set mouse=a       " mouse usage
 set scrolloff=3   " scroll offset
 set autowrite     " automatically :write before running commands
 set cursorline    " highlight current line

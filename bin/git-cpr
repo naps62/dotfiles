@@ -14,9 +14,6 @@ git rebase
 
 echo "rebasing ${current} with ${destiny}"
 git checkout $current
-git rebase
-
-echo "interactive rebasing..."
 git rebase -i $destiny
 
 echo "merging"

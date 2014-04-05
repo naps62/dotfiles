@@ -255,6 +255,7 @@ for s = 1, screen.count() do
     right_layout:add(calendarwidget)
     right_layout:add(clock_icon)
     right_layout:add(clockwidget)
+    right_layout:add(spr_very_small)
     right_layout:add(bar)
     right_layout:add(spr_very_small)
     right_layout:add(volumewidget)
