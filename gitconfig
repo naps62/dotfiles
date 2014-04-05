@@ -9,6 +9,8 @@
   br   = branch
   ps   = push
   pr   = pull-request
+  ppr  = push-pr
+  cpr  = close-pr
   pb   = publish
   f    = fetch
   c    = commit --verbose
