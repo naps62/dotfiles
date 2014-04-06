@@ -1,17 +1,17 @@
 #!/usr/bin/env zsh
 
 function zsh_reload {
-  source ~/.shell_files/zsh/defaults
-  source ~/.shell_files/zsh/completions
+  source ~/.shell_files/defaults
+  source ~/.shell_files/completions
   source ~/.shell_files/env
   source ~/.shell_files/cmds
   source ~/.zsh_aliases
   eval "$(hub alias -s)"
-  source ~/.shell_files/zsh/history
+  source ~/.shell_files/history
 
   # interactive-only stuff
   [[ $- == *i* ]] || return
-  source ~/.shell_files/zsh/prompt
+  source ~/.shell_files/prompt
 }
 
 zsh_reload

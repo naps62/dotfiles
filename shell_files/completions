@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # add custom completion path
-fpath=(~/.shell_files/zsh/completions.d $fpath)
+fpath=(~/.shell_files/completions.d $fpath)
 
 autoload -U compinit
 compinit

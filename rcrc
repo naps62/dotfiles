@@ -1,0 +1,3 @@
+EXCLUDES="README.md LICENSE Brewfile private"
+SYMLINK_DIRS="vim config bin.local ssh xboomx"
+DOTFILES_DIRS="$HOME/projects/dotfiles-local"

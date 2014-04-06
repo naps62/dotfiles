@@ -5,6 +5,6 @@ xsetroot -cursor_name left_ptr
 setxkbmap -layout pt
 
 # start xfce
-exec startxfce4
+exec awesome
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources

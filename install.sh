@@ -4,9 +4,10 @@ files=`find . -mindepth 1 -maxdepth 1 ! -name install.sh ! -name private ! -name
 
 for file in $files; do
   filename=${file//\.\//}
-  src=PWD/$filename
+  src=$PWD/$filename
   dst=$HOME/.$filename
 
+  echo "looking for $dst"
   if [ -e $dst ]; then
     echo "backing up $filename"
     mv $dst "$HOME/old_$filename"

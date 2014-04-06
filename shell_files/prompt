@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # zsh-git-prompt, by olivierverdier @ github
-source $HOME/.shell_files/zsh/git_prompt/zsh-git-prompt.sh
+source $HOME/.shell_files/git_prompt/zsh-git-prompt.sh
 
 #ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%} ("
 #ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg_bold[blue]%})"
