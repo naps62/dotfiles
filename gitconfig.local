@@ -6,7 +6,7 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   t = !tig "$@"
   conf = diff --name-only --diff-filter=U
-  br   = branch
+  br   = checkout -b
   ps   = push
   pr   = pull-request
   ppr  = push-pr
@@ -26,12 +26,10 @@
   wdiff = diff --word-diff
   who = shortlog -sn
   wip = commit -m 'WIP [ci skip]'
-
   la = !git config -l | grep alias | cut -c 7-
 [core]
   editor = vim
-  excludefiles = /home/naps62/.gitignore_global
-  excludesfile = /home/naps62/.gitignore_global
+  excludesfile = /home/naps62/.gitignore
 [color]
   ui = true
 [push]
