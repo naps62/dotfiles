@@ -8,12 +8,13 @@ env_dir() {
 }
 
 # path
-env_dir PATH /usr/lib/jvm/java-7-openjdk/bin
-env_dir PATH ~/.sbt
-env_dir PATH $HOME/.rvm/bin
-env_dir PATH $HOME/.bin
-env_dir PATH $HOME/.bin.local
-env_dir PATH .git/safe/../bin
+# env_dir PATH /usr/lib/jvm/java-7-openjdk/bin
+# env_dir PATH ~/.sbt
+# env_dir PATH $HOME/.rvm/bin
+# env_dir PATH $HOME/.bin
+# env_dir PATH $HOME/.bin.local
+# env_dir PATH .git/safe/../bin
+env_dir PATH /usr/local/share/npm/bin
 
 export LANG=en_US.utf-8
 export LC_CTYPE=en_US.utf-8

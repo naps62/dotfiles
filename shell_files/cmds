@@ -1,14 +1,5 @@
 #!/bin/sh
 
-# override git to prevent pull
-git () {
-  if [[ "git $*" =~ $(echo 'git[[:space:]]+pull') ]]; then
-    echo "Put a \$ in the jar, use fetch/rebase, and go f*** yourself, please"
-  else
-    command git "$@"
-  fi
-}
-
 # cd ls
 # enter dir and immediately show contents
 cdls () {

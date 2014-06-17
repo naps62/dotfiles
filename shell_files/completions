@@ -6,5 +6,5 @@ fpath=(~/.shell_files/completions.d $fpath)
 autoload -U compinit
 compinit
 
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}
+# zstyle ':completion:*' menu select=2
+# zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}

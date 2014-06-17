@@ -33,7 +33,7 @@
 [color]
   ui = true
 [push]
-  default = current
+  default = upstream
 [web]
   browser = google-chrome
 [init]
