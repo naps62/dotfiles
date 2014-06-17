@@ -17,9 +17,8 @@ function zsh_reload {
 
 zsh_reload
 
-export DEVICE_TARGET="iPad Retina - Simulator - iOS 7.1"
-alias ipad-cucumber='DEVICE_TARGET="d2558de97c1321c940e88020d021d813f06adee0" DEVICE_ENDPOINT=http://10.62.201.19:37265 cucumber'
-alias sym-cucumber='DEVICE_TARGET="iPad Retina - Simulator - iOS 7.1" cucumber'
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+eval "$(hook zsh)"
 
 export CASPER_DEV_DB_USERNAME=''
 export CASPER_DEV_DB_PASSWORD=''
