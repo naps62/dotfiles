@@ -1,4 +1,5 @@
-theme = "holo"
+theme = "awesome-solarized/light"
+-- theme = "holo"
 terminal = "terminator"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor

@@ -22,3 +22,4 @@ eval "$(hook zsh)"
 
 export CASPER_DEV_DB_USERNAME=''
 export CASPER_DEV_DB_PASSWORD=''
+export API_KEY=6b112c164f7ef87081982e938ff4eb85
