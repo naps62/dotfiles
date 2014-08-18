@@ -25,33 +25,20 @@ globalkeys = awful.util.table.join(
     -- show/hide wibox
     awful.key({ modkey }, "b", function ()
         mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
-        mybottomwibox[mouse.screen].visible = not mybottomwibox[mouse.screen].visible
     end),
 
     -- media keys
     awful.key({ }, "XF86AudioRaiseVolume", function()
         awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " " .. myvolumebar.step .. "+")
         myvolumebar.notify()
-        -- awful.util.spawn("amixer sset " .. alsawidget.channel .. " " .. alsawidget.step .. "+")
-        -- vicious.force({ alsawidget.bar })
-        -- alsawidget.notify()
     end),
     awful.key({ }, "XF86AudioLowerVolume", function()
         awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " " .. myvolumebar.step .. "-")
         myvolumebar.notify()
-        -- awful.util.spawn("amixer sset " .. alsawidget.channel .. " " .. alsawidget.step .. "-")
-        -- vicious.force({ alsawidget.bar })
-        -- alsawidget.notify()
     end),
     awful.key({ }, "XF86AudioMute", function()
         awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " playback toggle")
         myvolumebar.notify()
-        -- awful.util.spawn("amixer sset " .. alsawidget.channel .. " toggle")
-        -- The 2 following lines were needed at least on my configuration, otherwise it would get stuck muted
-        -- awful.util.spawn("amixer sset " .. "Speaker" .. " unmute")
-        -- awful.util.spawn("amixer sset " .. "Headphone" .. " unmute")
-        -- vicious.force({ alsawidget.bar })
-        -- alsawidget.notify()
     end),
 
     -- Tag browsing

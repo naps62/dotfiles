@@ -1,5 +1,3 @@
-theme = "awesome-solarized/light"
--- theme = "holo"
 terminal = "terminator"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
@@ -11,7 +9,7 @@ screenshot = 'shutter'
 -- music_player = 
 
 -- Themes define colours, icons, and wallpapers
-beautiful.init(awful.util.getdir("config") .. "/themes/" .. theme .. "/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/theme.lua")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

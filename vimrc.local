@@ -1,44 +1,52 @@
+set nocompatible
+filetype off
+
 " vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 filetype plugin indent on
 
 " UI Features
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rking/ag.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'bling/vim-airline'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
 
 " Editor features
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat'
-" Bundle 'tpope/vim-dispatch'
-Bundle 'Townk/vim-autoclose'
-" Bundle 'tsaleh/vim-matchit'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mattn/emmet-vim'
-Bundle 'ervandew/supertab'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+" Plugin 'tpope/vim-dispatch'
+Plugin 'Townk/vim-autoclose'
+" Plugin 'tsaleh/vim-matchit'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mattn/emmet-vim'
+Plugin 'ervandew/supertab'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 
 " Syntax-only plugins
-Bundle 'slim-template/vim-slim'
-Bundle 'rodjek/vim-puppet'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-git'
+Plugin 'slim-template/vim-slim'
+Plugin 'rodjek/vim-puppet'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-git'
+Plugin 'wting/rust.vim'
+
+call vundle#end()
+filetype plugin indent on
 
 " basics
 set encoding=utf-8
@@ -84,6 +92,9 @@ set smartindent " auto add 1 indentation level in some cases
 " line breaking
 set wrap
 set linebreak
+
+" redraw
+nnoremap <C-l> :redraw<cr>
 
 " search
 nnoremap / /\v
@@ -262,6 +273,10 @@ if executable('ag')
 
   map <C-f> :Ag 
 endif
+
+" syntastic
+" let g:syntastic_disabled_filetypes=['slim', 'html']
+let g:syntastic_slim_checkers = []
 
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
