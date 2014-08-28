@@ -1,10 +1,13 @@
 #!/usr/bin/env zsh
 
 function zsh_reload {
+  # aliases
+
   source ~/.shell_files/defaults
   source ~/.shell_files/completions
   source ~/.shell_files/env
   source ~/.shell_files/cmds
+  [[ -f ~/.aliases ]] && source ~/.aliases
   source ~/.zsh_aliases
   source ~/.shell_files/history
 
@@ -17,8 +20,8 @@ function zsh_reload {
 
 zsh_reload
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-eval "$(hook zsh)"
+env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
+env_dir PATH ./.git/safe/../../bin
 
 export CASPER_DEV_DB_USERNAME=''
 export CASPER_DEV_DB_PASSWORD=''

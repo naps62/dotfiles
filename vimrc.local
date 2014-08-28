@@ -155,7 +155,7 @@ autocmd BufReadPost *
   \   exe "normal g `\"" |
   \ endif
 
-" color scheme
+" " color scheme
 set background=light
 let g:solarized_termcolors=256
 colorscheme solarized

@@ -1,19 +1,16 @@
 #!/bin/sh
 
 env_dir() {
-  var=$1
-  val=$2
+  local var=$1
+  local val=$2
   eval old=\$$var
   export $var=$val:$old
 }
 
 # path
-# env_dir PATH /usr/lib/jvm/java-7-openjdk/bin
-# env_dir PATH ~/.sbt
-# env_dir PATH $HOME/.rvm/bin
-# env_dir PATH $HOME/.bin
-# env_dir PATH $HOME/.bin.local
-# env_dir PATH .git/safe/../bin
+env_dir PATH $HOME/.bin
+env_dir PATH $HOME/.bin.local
+env_dir PATH .git/safe/../bin
 env_dir PATH /usr/local/share/npm/bin
 
 export LANG=en_US.utf-8
