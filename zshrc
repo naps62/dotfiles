@@ -16,8 +16,8 @@ function zsh_reload {
   source ~/.shell_files/prompt
 }
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 zsh_reload
 
 env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting

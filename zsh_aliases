@@ -33,6 +33,7 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 
 # ls
+alias ls='ls --color'
 alias ll='ls -alF'
 alias la='ls -A'
 alias lla='la -AlF'

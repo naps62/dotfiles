@@ -44,6 +44,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-git'
 Plugin 'wting/rust.vim'
+Plugin 'vim-scripts/SyntaxRange'
 
 call vundle#end()
 filetype plugin indent on

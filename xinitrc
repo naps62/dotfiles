@@ -5,7 +5,7 @@ xsetroot -cursor_name left_ptr
 setxkbmap -layout pt
 
 # start session
-DEFAULTSESSION=awesome
+DEFAULTSESSION=gnome-session
 case "$1" in
   awesome) exec awesome ;;
   gnome-session)  exec gnome-session ;;

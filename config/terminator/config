@@ -1,5 +1,5 @@
 [global_config]
-  handle_size = 1
+  handle_size = 2
 [keybindings]
   next_tab = <Alt>i
   go_up = <Alt>k
