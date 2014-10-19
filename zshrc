@@ -14,6 +14,7 @@ function zsh_reload {
   # interactive-only stuff
   [[ $- == *i* ]] || return
   source ~/.shell_files/prompt
+  [[ -z "$TMUX" ]] && exec tmux
 }
 
 

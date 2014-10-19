@@ -12,4 +12,7 @@ case "$1" in
   *) exec $DEFAULTSESSION ;;
 esac
 
+# xcape -e 'Caps_Lock=Control;Control_L=Control_L|O'
+
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+

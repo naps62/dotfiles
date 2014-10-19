@@ -1,0 +1,59 @@
+Xcursor*theme:         Vanilla-DMZ-AA
+
+Xft.dpi:               96
+Xft.antialias:         true
+Xft.rgba:              rgb
+Xft.hinting:           true
+Xft.hintstyle:         hintfull
+
+! UXTerm settings
+UXTerm*faceName:    Source Code Pro for Powerline
+UXTerm*faceSize:    10
+UXTerm*utf8:        1
+UXTerm*boldMode:     false
+UXTerm*scrollBar:    false
+UXTerm*saveLines:    32767
+UXTerm*borderLess:   true
+UXTerm*cursorBlink:  true
+UXTerm*pastableTabs: true
+UXTerm*jumpScroll:   true
+UXTerm*selectToClipboard: true
+UXTerm*metaSendsEscape: true
+*VT100*translations: #override Shift <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY)
+
+! fix backspace in vim
+*VT100.backarrowKey:false
+
+! fix alt key
+XTerm*eightBitInput: false
+
+alsamixer*scrollBar:   false
+
+! Xoria256 {{{
+*foreground: #bcbcbc
+*background: #1a1a1a
+!black
+*color0:     #1a1a1a
+*color8:     #808080
+!red
+*color1:     #df8787
+*color9:     #b56e6e
+!green
+*color2:     #9ece9e
+*color10:    #c4edc4
+!yellow
+*color3:     #ffffaf
+*color11:    #d6d693
+!blue
+*color4:     #87afdf
+*color12:    #6e8eb5
+!magenta
+*color5:     #dfaf87
+*color13:    #b58e6e
+!cyan
+*color6:     #afafdf
+*color14:    #8e8eB5
+!white
+*color7:     #d0d0d0
+*color15:    #e2e2e5
+! }}}

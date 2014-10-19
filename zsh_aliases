@@ -12,7 +12,6 @@ alias open='xdg-open'
 alias a=ack
 alias b=bundle
 alias be='bundle exec'
-alias c='cap'
 alias cu='cucumber'
 alias g=git
 alias m=make
@@ -20,11 +19,22 @@ alias o=open
 alias r=rails
 alias rk=rake
 alias s=ssh
-alias t=tig
 alias v=vim
 alias va=vagrant
 alias x=extract
 alias y=yaourt
+
+alias c=cargo
+alias cb='cargo build'
+alias ct='cargo test'
+
+alias t=tmux
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
+alias ts='tmux switch -t'
+alias td='tmux detach'
+alias tk='tmux kill-session -t'
 
 # cd
 alias cd='cdls'
