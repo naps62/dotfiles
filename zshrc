@@ -26,3 +26,5 @@ env_dir PATH ./.git/safe/../../bin
 export CASPER_DEV_DB_USERNAME=''
 export CASPER_DEV_DB_PASSWORD=''
 export API_KEY=6b112c164f7ef87081982e938ff4eb85
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
