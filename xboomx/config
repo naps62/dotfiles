@@ -1,3 +1,3 @@
 {
-        "dmenu_params": "-b -p \"Dmenu\" -i -z -nb \"#1a1a1a\" -nf \"#aaa\" -sb \"#908884\" -sf \"#111\" -fn \"OpenSans-10\""
+        "dmenu_params": "-b -i -z -nb \"#1a1a1a\" -nf \"#aaa\" -sb \"#908884\" -sf \"#111\" -fn \"OpenSans-10\""
 }

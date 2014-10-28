@@ -35,6 +35,7 @@ alias tl='tmux list-sessions'
 alias ts='tmux switch -t'
 alias td='tmux detach'
 alias tk='tmux kill-session -t'
+alias tt='tmux choose-tree'
 
 # cd
 alias cd='cdls'

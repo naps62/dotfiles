@@ -15,5 +15,5 @@ case ${SOLARIZED_THEME:-dark} in
 esac
 
 PROMPT='
-%{%B%F{green}%}%n%{%B%F{red}%}@%m %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git_prompt_info)
+ %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git_prompt_info)
 `prompt_char`%{%f%k%b%}%{$reset_color%} '
