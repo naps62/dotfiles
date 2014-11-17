@@ -26,7 +26,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 " Plugin 'tpope/vim-dispatch'
-Plugin 'Townk/vim-autoclose'
+" Plugin 'Townk/vim-autoclose'
+Plugin 'jiangmiao/auto-pairs'
 " Plugin 'tsaleh/vim-matchit'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'Lokaltog/vim-easymotion'
@@ -45,6 +46,7 @@ Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-git'
 Plugin 'wting/rust.vim'
 Plugin 'vim-scripts/SyntaxRange'
+Plugin 'elzr/vim-json'
 
 call vundle#end()
 filetype plugin indent on
@@ -147,6 +149,7 @@ au BufNewFile,BufRead Puppetfile set filetype=ruby
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.ejs    set filetype=eruby.html
 au BufNewFile,BufRead *.md     set filetype=markdown
+au BufNewFile,BufRead *.rs     set filetype=rust
 
 " when editing a file, always jump to the last known cursor position
 " don't do it for commit messages, when the position is invalid, or when
@@ -274,6 +277,9 @@ if executable('ag')
 
   map <C-f> :Ag 
 endif
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 " syntastic
 " let g:syntastic_disabled_filetypes=['slim', 'html']
