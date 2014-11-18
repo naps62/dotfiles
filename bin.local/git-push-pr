@@ -6,4 +6,4 @@ destiny=${1:-master}
 git publish
 
 echo "creating pull-request"
-hub pull-request -b ${destiny}
+git pull-request -b ${destiny}
