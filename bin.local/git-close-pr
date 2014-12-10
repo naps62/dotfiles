@@ -1,6 +1,6 @@
 #!/bin/sh
 
-current=$(git rev-parse --abbrev-ref HEAD)
+current=$(git branchname)
 destiny=${1:-master}
 
 echo "fetching"
@@ -9,7 +9,7 @@ git fetch
 echo "rebasing ${destiny}"
 git checkout $destiny
 # check if branch changed successfully (no staged changes or such things)
-[[ $(git rev-parse --abbrev-ref HEAD) == $destiny ]] || exit "failed"
+[[ $? != 0 ]] && exit "failed to switch to $destiny"
 git rebase
 
 echo "rebasing ${current} with ${destiny}"
