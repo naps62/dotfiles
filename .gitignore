@@ -7,5 +7,6 @@ ssh/known_hosts
 config/*
 !config/awesome
 !config/terminator
+!config/spec
 
 xboomx/xboomx.db
