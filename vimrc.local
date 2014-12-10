@@ -237,8 +237,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 map <silent> <c-b> :Bookmark<CR>
 
 " vim-rspec
-" let g:rspec_command = "Dispatch rspec {spec}"
-" let g:rspec_command = "!spring rspec {spec}"
+" let g:rspec_command = "Dispatch rspec --require ~/.config/spec/formatters/vim_formatter.rb {spec}"
+let g:rspec_command = "Dispatch rspec --require ~/.config/spec/formatters/vim_formatter.rb --format VimFormatter {spec}"
 
 " fugitive.vim (git wrapper)
 map <leader>gs :Gstatus<CR>

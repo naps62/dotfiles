@@ -2,29 +2,39 @@
 require 'rspec/core/formatters/base_text_formatter'
 
 class VimFormatter < RSpec::Core::Formatters::BaseTextFormatter
+  RSpec::Core::Formatters.register self, :example_failed
 
-  def example_failed example
-    exception = example.execution_result[:exception]
+  def example_failed notification
+    example = notification.example
+    exception = example.execution_result.exception
+    example_group = example.example_group
     path = $1 if exception.backtrace.find do |frame|
       frame =~ %r{\b(spec/.*_spec\.rb:\d+)(?::|\z)}
     end
-    message = format_message exception.message
-    path    = format_caller path
-    output.puts "#{path}: #{example.example_group.description.strip} " +
-      "#{example.description.strip}: #{message.strip}" if path
+
+    if path
+      output.puts format_message("#{path}: #{example_group.description.strip} #{example.description.strip}: #{exception.message}")
+    end
   end
 
-  def example_pending *args;  end
-  def dump_failures *args; end
-  def dump_pending *args; end
-  def message msg; end
-  def dump_summary *args; end
-  def seed *args; end
+  def dump_summary(a)
 
-private
+    output.puts "asd\n"
+    output.puts "asd\n"
+    output.puts "asd\n"
+    output.puts "asd\n"
+    output.puts "asd\n"
+  end
+
+  def dump_failures(notification)
+    require 'pry'
+    binding.pry
+    output.puts notification.fully_formatted_failed_examples
+  end
+  private
 
   def format_message msg
-    msg.gsub("\n", ' ')[0,80]
+    RSpec::Core::Formatters::ConsoleCodes.wrap(msg.gsub("\n", ' ')[0,80], :failure)
   end
 
 end
