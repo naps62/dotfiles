@@ -9,7 +9,7 @@ git fetch
 echo "rebasing ${destiny}"
 git checkout $destiny
 # check if branch changed successfully (no staged changes or such things)
-[[ $? != 0 ]] && exit "failed to switch to $destiny"
+[[ $? == 0 ]] || exit "failed to switch to $destiny"
 git rebase
 
 echo "rebasing ${current} with ${destiny}"
