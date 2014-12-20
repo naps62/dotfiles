@@ -35,7 +35,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'msanders/snipmate.vim'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
