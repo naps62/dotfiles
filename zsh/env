@@ -10,16 +10,18 @@ env_dir() {
 # path
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.bin.local
-env_dir PATH .git/safe/../bin
 env_dir PATH /usr/local/share/npm/bin
 env_dir PATH $HOME/.meteor
 env_dir LD_LIBRARY_PATH /usr/local/lib
+env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
+env_dir PATH ./.git/safe/../../bin
+
 
 export LANG=en_US.utf-8
 export LC_CTYPE=en_US.utf-8
 export LC_ALL=en_US.utf-8
 export EDITOR=vim
-export METRIC_FU_OUT=$HOME/data/Dropbox/metric_fu
+export METRIC_FU_OUT=$HOME/data/metric_fu
 export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 if [ -z "$TMUX" ]; then
