@@ -51,8 +51,6 @@ set smartcase     " case sensitive search if at least one uppercase is used
 set gdefault      " use /g (replace all on line instead of first) by default
 
 " text wrap
-set wrap
-set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=100
 
