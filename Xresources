@@ -23,6 +23,11 @@ UXTerm*metaSendsEscape: true
 
 ! fix backspace in vim
 *VT100.backarrowKey:false
+UXTerm*ttyModes: erase ^?
+UXTerm*VT100.Translations: \
+        #override <Key>Backspace: string(0x7f) \n\
+                  <Key>Delete:    string(0x1b) string("[3~")
+UXTerm*backArrowKeyIsErase: true
 
 ! fix alt key
 XTerm*eightBitInput: false

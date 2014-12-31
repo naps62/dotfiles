@@ -1,11 +1,11 @@
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-# set PT keyboard layout
-setxkbmap -layout pt
-
 feh --bg-scale /home/naps62/data/wallpaper.jpg
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+# set PT keyboard layout
+setxkbmap -layout pt
 
 # start session
 DEFAULTSESSION=gnome-session
