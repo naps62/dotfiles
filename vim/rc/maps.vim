@@ -7,14 +7,14 @@ cmap w!! w !sudo tee % > /dev/null  " still be able to save after forgetting to 
 
 " buffer navigation
 " use ctrl-[hjkl] to select the active split
-nmap <silent> <C-k>      :wincmd k<CR>
-nmap <silent> <C-j>      :wincmd j<CR>
-nmap <silent> <C-h>      :wincmd h<CR>
-nmap <silent> <C-l>      :wincmd l<CR>
-imap <silent> <c-k> <Esc>:wincmd k<CR>i
-imap <silent> <c-j> <Esc>:wincmd j<CR>i
-imap <silent> <c-h> <Esc>:wincmd h<CR>i
-imap <silent> <c-l> <Esc>:wincmd l<CR>i
+" nmap <silent> <C-k>      :wincmd k<CR>
+" nmap <silent> <C-j>      :wincmd j<CR>
+" nmap <silent> <C-h>      :wincmd h<CR>
+" nmap <silent> <C-l>      :wincmd l<CR>
+" imap <silent> <c-k> <Esc>:wincmd k<CR>i
+" imap <silent> <c-j> <Esc>:wincmd j<CR>i
+" imap <silent> <c-h> <Esc>:wincmd h<CR>i
+" imap <silent> <c-l> <Esc>:wincmd l<CR>i
 
 " close current buffer
 nmap <silent> <leader>q :q<CR>

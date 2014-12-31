@@ -1,3 +1,3 @@
 #!/bin/sh
 
-git diff --exit-code --cached -- Gemfile Gemfile.lock > /dev/null || bundle check
+.git/hooks/check_gemfile

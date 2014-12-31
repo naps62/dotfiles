@@ -1,9 +1,13 @@
 #!/bin/sh
 
-if [ -f Gemfile ] && [ -x $(which metric_fu) ] && [ -n "$METRIC_FU_OUT" ]; then
-  destination="${METRIC_FU_OUT}/$(basename $PWD)"
+branch = $(git rev-parse --symbolic --abbrev-ref HEAD)
+
+if [ "$branch" == "master" ] && [ -f Gemfile ] && [ -x $(which metric_fu) ] && [ -n "$METRIC_FU_OUT" ]; then
+  echo "[hook] [metric_fu]"
+
+  destination=".metric_fu"
   echo "Running metric_fu at ${destination}"
   mkdir -p $destination
   export CC_BUILD_ARTIFACTS=$destination
-  metric_fu --out $destination
+  metric_fu --out $destination > /dev/null 2>&1
 fi

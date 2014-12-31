@@ -12,9 +12,10 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Editor features
 Plugin 'tpope/vim-surround'
@@ -29,10 +30,11 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mattn/emmet-vim'
-Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'msanders/snipmate.vim'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
@@ -115,6 +117,12 @@ let g:syntastic_slim_checkers = []
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
 
-" " snippetsEmu
-" " are activated by Shift+Tab
-" let g:snippetEmu_key = "<S-Tab>"
+" YouCompleteMe
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_use_ultisnips_completer = 1
+
+" UltiSnips
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigget="<c-k>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"

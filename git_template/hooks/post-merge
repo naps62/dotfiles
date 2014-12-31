@@ -1,10 +1,4 @@
 #!/bin/sh
 
-.git/hooks/ctags >/dev/null 2>&1 &
-
-branch=$(git rev-parse --symbolic --abbrev-ref HEAD)
-
-if [ "$branch" == "master" ]; then
-  .git/hooks/metric_fu
-fi
-
+.git/hooks/ctags &
+.git/hooks/metric_fu &
