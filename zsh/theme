@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+if [[ -s $BASE16_SHELL ]]; then
+  source $BASE16_SHELL
+else
+  echo ".config/base16-shell theme not found"
+fi

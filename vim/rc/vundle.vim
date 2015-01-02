@@ -14,7 +14,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Editor features
@@ -22,6 +24,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -33,8 +36,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
@@ -66,6 +69,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Bookmark shortcut
 map <silent> <c-b> :Bookmark<CR>
 
+" TODO this is being overriden by status line
+let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
+
 " vim-rspec
 let g:rspec_command = "Dispatch rspec {spec}"
 
@@ -79,14 +85,22 @@ map <leader>gg :Git
 
 " statusline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
-let g:airline_theme_patch_func = 'AirlineThemePatch'
+" let g:airline_theme = 'solarized'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-"let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#bufferline#enabled = 0
 "let g:bufferline_echo = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
+
+" lightline
+let g:lightline = {
+  \ 'colorscheme': 'base16-default',
+  \ 'separator': { 'left': '⮀', 'right': '⮂'  },
+  \ 'subseparator': { 'left': '⮁', 'right': '⮃'  }
+  \ }
+
+
 
 " ctrlp
 let g:ctrlp_custom_ignore = {
@@ -123,6 +137,8 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
 
 " UltiSnips
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigget="<c-k>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+
+imap <T-a> ads

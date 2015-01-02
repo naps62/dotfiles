@@ -8,6 +8,7 @@ function zsh_reload {
 
   # interactive-only stuff
   [[ $- == *i* ]] || return
+  source ~/.zsh/theme
   source ~/.zsh/completions
   source ~/.zsh/aliases
   source ~/.zsh/history

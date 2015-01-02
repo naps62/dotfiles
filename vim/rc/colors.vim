@@ -4,9 +4,9 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 " " color scheme
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+set background=dark
+let base16colorspace=256
+colorscheme base16-default
 
 " SignColumn
 " same color as line column
