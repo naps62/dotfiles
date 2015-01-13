@@ -38,6 +38,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'AndrewRadev/sideways.vim'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
@@ -49,6 +50,8 @@ Plugin 'tpope/vim-git'
 Plugin 'wting/rust.vim'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'elzr/vim-json'
+Plugin 'cespare/vim-toml'
+Plugin 'nicholaides/words-to-avoid.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -142,3 +145,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 
 imap <T-a> ads
+
+" sideways.vim
+nmap <C-w> :SidewaysLeft<CR>
+nmap <C-e> :SidewaysRight<CR>

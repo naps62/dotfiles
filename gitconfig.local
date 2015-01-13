@@ -19,6 +19,7 @@
   dc   = diff --cached
   co   = checkout
   s    = status -sb
+  b    = browse
   rb   = rebase
   rbc  = rebase --continue
   up   = update

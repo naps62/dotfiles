@@ -1,0 +1,4 @@
+xsetroot -cursor_name left_ptr
+
+setxkbmap -layout pt
+setxkbmap -option caps:escape
