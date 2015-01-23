@@ -24,9 +24,8 @@ alias va=vagrant
 alias x=extract
 alias y=yaourt
 
-alias c=cargo
-alias cb='cargo build'
-alias ct='cargo test'
+alias c=crystal
+alias cg=cargo
 
 alias t=tmux
 alias tn='tmux new -s'

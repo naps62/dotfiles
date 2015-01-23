@@ -15,6 +15,7 @@ git rebase
 echo "rebasing ${current} with ${destiny}"
 git checkout $current
 git rebase -i $destiny
+git push -f
 
 echo "merging"
 git checkout $destiny

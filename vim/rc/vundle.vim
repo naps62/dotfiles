@@ -52,6 +52,7 @@ Plugin 'vim-scripts/SyntaxRange'
 Plugin 'elzr/vim-json'
 Plugin 'cespare/vim-toml'
 Plugin 'nicholaides/words-to-avoid.vim'
+Plugin 'rhysd/vim-crystal'
 
 call vundle#end()
 filetype plugin indent on
