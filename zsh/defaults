@@ -30,6 +30,3 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git-extras hub autojump gem zsh-syntax-highlighting jsontools)
 
 source $ZSH/oh-my-zsh.sh
-
-export CDPATH=/home/naps62/projects:/home/naps62/gb
-setopt auto_cd

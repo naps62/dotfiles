@@ -1,6 +1,8 @@
 set nocompatible
 filetype off
 
+let $PYTHONPATH='/usr/lib/python3.4/site-packages'
+
 " vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
@@ -39,6 +41,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'AndrewRadev/sideways.vim'
+Plugin 'dkprice/vim-easygrep'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
@@ -53,6 +56,7 @@ Plugin 'elzr/vim-json'
 Plugin 'cespare/vim-toml'
 Plugin 'nicholaides/words-to-avoid.vim'
 Plugin 'rhysd/vim-crystal'
+Plugin 'hail2u/vim-css3-syntax'
 
 call vundle#end()
 filetype plugin indent on

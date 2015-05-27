@@ -36,6 +36,9 @@ alias td='tmux detach'
 alias tk='tmux kill-session -t'
 alias tt='tmux choose-tree'
 
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 # cd
 alias cd='cdls'
 alias ..='cd ..'

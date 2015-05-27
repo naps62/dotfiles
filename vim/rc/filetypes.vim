@@ -9,3 +9,4 @@ au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.ejs    set filetype=eruby.html
 au BufNewFile,BufRead *.md     set filetype=markdown
 au BufNewFile,BufRead *.rs     set filetype=rust
+au BufNewFile,BufRead *.es6    set filetype=javascript

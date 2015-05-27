@@ -5,6 +5,7 @@ function zsh_reload {
   source ~/.zsh/defaults
   source ~/.zsh/env
   source ~/.zsh/cmds
+  source /usr/share/nvm/init-nvm.sh
 
   # interactive-only stuff
   [[ $- == *i* ]] || return
