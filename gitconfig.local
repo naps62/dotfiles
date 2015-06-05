@@ -30,8 +30,8 @@
   who = shortlog -sn
   wip = commit -m 'WIP [ci skip]'
   la = !git config -l | grep alias | cut -c 7-
-  pulls = browse pulls
-  issues = browse issues
+  pulls = browse -- pulls
+  issues = browse -- issues
   web = browse
 [core]
   editor = vim
