@@ -40,7 +40,7 @@ autoload -U zmv
 alias mmv='noglob zmv -W'
 
 # cd
-alias cd='cdls'
+#alias cd='cdls'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'

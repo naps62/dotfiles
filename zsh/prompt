@@ -9,11 +9,6 @@ prompt_char () {
   echo '%#'
 }
 
-case ${SOLARIZED_THEME:-dark} in
-    light) bkg=white;;
-    *)     bkg=black;;
-esac
-
 PROMPT='
  %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git_prompt_info)
 `prompt_char`%{%f%k%b%}%{$reset_color%} '

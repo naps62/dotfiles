@@ -1,19 +1,15 @@
 #!/usr/bin/env zsh
 
-function zsh_reload {
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-  source ~/.zsh/defaults
-  source ~/.zsh/env
-  source ~/.zsh/cmds
-  source /usr/share/nvm/init-nvm.sh
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+source ~/.zsh/defaults
+source ~/.zsh/env
+source ~/.zsh/cmds
+source /usr/share/nvm/init-nvm.sh
 
-  # interactive-only stuff
-  [[ $- == *i* ]] || return
-  source ~/.zsh/theme
-  source ~/.zsh/completions
-  source ~/.zsh/aliases
-  source ~/.zsh/history
-  source ~/.zsh/prompt
-}
-
-zsh_reload
+# interactive-only stuff
+[[ $- == *i* ]] || return
+source ~/.zsh/theme
+source ~/.zsh/completions
+source ~/.zsh/aliases
+source ~/.zsh/history
+source ~/.zsh/prompt
