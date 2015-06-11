@@ -16,7 +16,7 @@ set laststatus=2
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set noerrorbells
 set clipboard=unnamed " X11 clipboard integration
-let mapleader=","
+let mapleader="\<Space>"
 
 " open split panes to right and bottom, which feels more natural
 set splitbelow
@@ -42,7 +42,7 @@ nnoremap <C-l> :redraw<cr>
 " search
 nnoremap / /\v
 vnoremap / /\v
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader>, :noh<cr>
 set incsearch     " incremental seach
 set hlsearch      " highligh search results
 set showmatch

@@ -42,6 +42,9 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'vim-scripts/gitignore'
+Plugin 'taiansu/nerdtree-ag'
+Plugin 'gregsexton/gitv'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
