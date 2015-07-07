@@ -1,8 +1,7 @@
 vim/bundle
 vim/undo/*
-ssh/id_rsa*
-ssh/config
-ssh/known_hosts
+ssh/*
+!ssh/config
 
 config/*
 !config/awesome
