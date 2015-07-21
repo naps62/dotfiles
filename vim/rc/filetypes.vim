@@ -6,6 +6,7 @@ au BufNewFile,BufRead *.cap    set filetype=ruby
 au BufNewFile,BufRead Capfile  set filetype=ruby
 au BufNewFile,BufRead Puppetfile set filetype=ruby
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
+au BufNewFile,BufRead *.thor   set filetype=ruby
 au BufNewFile,BufRead *.ejs    set filetype=eruby.html
 au BufNewFile,BufRead *.md     set filetype=markdown
 au BufNewFile,BufRead *.rs     set filetype=rust
