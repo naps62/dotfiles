@@ -7,6 +7,7 @@ xsetroot -cursor_name left_ptr
 # set PT keyboard layout
 setxkbmap -layout pt
 setxkbmap -option caps:escape
+xmodmap ~/.Xmodmap
 
 # start session
 DEFAULTSESSION=gnome-session

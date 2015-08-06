@@ -42,6 +42,11 @@ Host easy.money
   User groupbuddies
   IdentityFile ~/.ssh/easy-money
 
+Host dxrx
+  Hostname 104.236.216.201
+  User deploy
+  IdentityFile ~/.ssh/id_rsa.gb
+
 #
 # GB apps
 #

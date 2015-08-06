@@ -45,6 +45,7 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'vim-scripts/gitignore'
 Plugin 'taiansu/nerdtree-ag'
 Plugin 'gregsexton/gitv'
+Plugin 'marijnh/tern_for_vim'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
@@ -60,6 +61,9 @@ Plugin 'cespare/vim-toml'
 Plugin 'nicholaides/words-to-avoid.vim'
 Plugin 'rhysd/vim-crystal'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on
@@ -138,6 +142,7 @@ let g:vim_json_syntax_conceal = 0
 " syntastic
 " let g:syntastic_disabled_filetypes=['slim', 'html']
 let g:syntastic_slim_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
 
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}

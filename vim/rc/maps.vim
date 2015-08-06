@@ -1,8 +1,8 @@
 " key maps
 nnoremap ; :
 nnoremap , .
-nmap <silent> <leader>ev :tabe $HOME/.vimrc<CR> " edit vimrc
-nmap <silent> <leader>sv :so $HOME/.vimrc<CR> " reload vimrc
+nnoremap <silent> <leader>ev :tabe $HOME/.vimrc<CR> " edit vimrc
+nnoremap <silent> <leader>sv :so $HOME/.vimrc<CR> " reload vimrc
 cmap w!! w !sudo tee % > /dev/null  " still be able to save after forgetting to sudo
 
 " buffer navigation
