@@ -46,6 +46,7 @@ Plugin 'vim-scripts/gitignore'
 Plugin 'taiansu/nerdtree-ag'
 Plugin 'gregsexton/gitv'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'unblevable/quick-scope'
 
 " Syntax-only plugins
 Plugin 'slim-template/vim-slim'
@@ -61,7 +62,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'nicholaides/words-to-avoid.vim'
 Plugin 'rhysd/vim-crystal'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'Slava/vim-spacebars'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
 
