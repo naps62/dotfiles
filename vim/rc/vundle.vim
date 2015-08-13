@@ -20,6 +20,7 @@ Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'airblade/vim-gitgutter'
 
 " Editor features
 Plugin 'tpope/vim-surround'
@@ -163,3 +164,6 @@ imap <T-a> ads
 " sideways.vim
 nmap <C-w> :SidewaysLeft<CR>
 nmap <C-e> :SidewaysRight<CR>
+
+" vim-gitgutter
+let g:gitgutter_sign_column_always = 1
