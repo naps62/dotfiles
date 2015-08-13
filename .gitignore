@@ -11,3 +11,4 @@ config/*
 xboomx/xboomx.db
 
 bin.local/placer
+vim/spell

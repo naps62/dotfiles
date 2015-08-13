@@ -19,7 +19,7 @@ alias o=open
 alias r=rails
 alias rk=rake
 alias s=ssh
-alias v=vim
+alias v=nvim
 alias va=vagrant
 alias x=extract
 alias y=yaourt
@@ -57,4 +57,5 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # proxy
 alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
-alias vim="stty stop '' -ixoff ; vim"
+#alias vim="stty stop '' -ixoff ; vim"
+alias vim=nvim
