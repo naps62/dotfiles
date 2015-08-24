@@ -17,7 +17,6 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 " Plugin 'itchyny/lightline.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
@@ -137,9 +136,6 @@ if executable('ag')
 
   map <C-f> :Ag 
 endif
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
 
 " syntastic
 " let g:syntastic_disabled_filetypes=['slim', 'html']

@@ -33,6 +33,7 @@
   pulls = browse -- pulls
   issues = browse -- issues
   web = browse
+  update = !git fetch && git rebase
 [core]
   editor = vim
   excludesfile = /home/naps62/.gitignore
