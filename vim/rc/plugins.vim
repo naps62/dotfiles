@@ -4,69 +4,69 @@ filetype off
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 
 " vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+Plug 'gmarik/vundle'
 
 " UI Features
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-" Plugin 'itchyny/lightline.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+" Plug 'itchyny/lightline.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-gitgutter'
 
 " Editor features
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-dispatch'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'mattn/emmet-vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'AndrewRadev/sideways.vim'
-Plugin 'dkprice/vim-easygrep'
-Plugin 'vim-scripts/gitignore'
-Plugin 'taiansu/nerdtree-ag'
-Plugin 'gregsexton/gitv'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'unblevable/quick-scope'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
+Plug 'jiangmiao/auto-pairs'
+Plug 'thoughtbot/vim-rspec'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'mattn/emmet-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'AndrewRadev/sideways.vim'
+Plug 'dkprice/vim-easygrep'
+Plug 'vim-scripts/gitignore'
+Plug 'taiansu/nerdtree-ag'
+Plug 'gregsexton/gitv'
+Plug 'marijnh/tern_for_vim'
+Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-projectionist'
 
 " Syntax-only plugins
-Plugin 'slim-template/vim-slim'
-Plugin 'rodjek/vim-puppet'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-git'
-Plugin 'wting/rust.vim'
-Plugin 'vim-scripts/SyntaxRange'
-Plugin 'elzr/vim-json'
-Plugin 'cespare/vim-toml'
-Plugin 'nicholaides/words-to-avoid.vim'
-Plugin 'rhysd/vim-crystal'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'Slava/vim-spacebars'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'pangloss/vim-javascript'
+Plug 'slim-template/vim-slim'
+Plug 'rodjek/vim-puppet'
+Plug 'plasticboy/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-git'
+Plug 'wting/rust.vim'
+Plug 'vim-scripts/SyntaxRange'
+Plug 'elzr/vim-json'
+Plug 'cespare/vim-toml'
+Plug 'nicholaides/words-to-avoid.vim'
+Plug 'rhysd/vim-crystal'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'Slava/vim-spacebars'
+Plug 'digitaltoad/vim-jade'
+Plug 'pangloss/vim-javascript'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 " NERDTree
@@ -129,7 +129,7 @@ if executable('ag')
   set grepprg="ag --nogroup --nocolor"
 
   " use `ag` in ctrlp for listing files
-  let g:ctrlp_User_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that ctrlp doesn't need to cache
   let g:ctrlp_use_caching = 0

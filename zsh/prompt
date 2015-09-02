@@ -9,6 +9,10 @@ prompt_char () {
   echo '%#'
 }
 
+# PROMPT='
+#  %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%}$(git_prompt_info)
+# `prompt_char`%{%f%k%b%}%{$reset_color%} '
+
 PROMPT='
- %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git_prompt_info)
+ %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git-radar --zsh --fetch)
 `prompt_char`%{%f%k%b%}%{$reset_color%} '
