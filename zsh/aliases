@@ -9,12 +9,11 @@ alias open='xdg-open'
 eval "$(hub alias -s)"
 
 # one-char aliases
-alias a=ack
+alias a=ag
 alias b=bundle
 alias be='bundle exec'
-alias cu='cucumber'
+alias d=docker
 alias g=git
-alias m=make
 alias o=open
 alias r=rails
 alias rk=rake
