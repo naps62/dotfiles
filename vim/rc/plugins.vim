@@ -13,7 +13,8 @@ Plug 'gmarik/vundle'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
 " Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
@@ -139,8 +140,11 @@ endif
 
 " syntastic
 " let g:syntastic_disabled_filetypes=['slim', 'html']
-let g:syntastic_slim_checkers = []
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_slim_checkers = []
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" neomake
+autocmd! BufWritePost * Neomake
 
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
