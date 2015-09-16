@@ -13,3 +13,7 @@ source ~/.zsh/completions
 source ~/.zsh/aliases
 source ~/.zsh/history
 source ~/.zsh/prompt
+
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi

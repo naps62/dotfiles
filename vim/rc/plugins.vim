@@ -6,9 +6,6 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 " vundle
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle
-Plug 'gmarik/vundle'
-
 " UI Features
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
@@ -65,6 +62,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'Slava/vim-spacebars'
 Plug 'digitaltoad/vim-jade'
 Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 filetype plugin indent on
@@ -143,7 +141,8 @@ endif
 " let g:syntastic_javascript_checkers = ['eslint']
 
 " neomake
-autocmd! BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_css_enabled_makers = ['scss_lint']
 
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
