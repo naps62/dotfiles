@@ -2,9 +2,9 @@
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 source ~/.zsh/defaults
+source /usr/share/nvm/init-nvm.sh
 source ~/.zsh/env
 source ~/.zsh/cmds
-source /usr/share/nvm/init-nvm.sh
 
 # interactive-only stuff
 [[ $- == *i* ]] || return
