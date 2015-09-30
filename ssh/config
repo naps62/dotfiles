@@ -71,7 +71,7 @@ Host cohive
   User deploy
 
 Host pi
-  Hostname 192.168.1.78
+  Hostname naps62.ddns.net
   User pi
 
 #
