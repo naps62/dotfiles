@@ -23,10 +23,12 @@ alias va=vagrant
 alias x=extract
 alias y=yaourt
 
+alias t=tmux
+alias mux=tmuxinator
+
 alias c=crystal
 alias cg=cargo
 
-alias t=tmux
 alias tn='tmux new -s'
 alias ta='tmux attach -t'
 alias tl='tmux list-sessions'
