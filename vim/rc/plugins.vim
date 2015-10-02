@@ -44,6 +44,8 @@ Plug 'gregsexton/gitv'
 Plug 'marijnh/tern_for_vim'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-projectionist'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'skwp/greplace.vim'
 
 " Syntax-only plugins
 Plug 'slim-template/vim-slim'
@@ -165,3 +167,7 @@ nmap <C-e> :SidewaysRight<CR>
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
+
+" greplace.vim
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'

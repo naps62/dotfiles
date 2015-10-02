@@ -86,3 +86,4 @@ autocmd BufReadPost *
   \ endif
 
 set ttimeoutlen=50
+
