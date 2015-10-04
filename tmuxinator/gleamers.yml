@@ -28,8 +28,12 @@ root: ~/consulting/gleamers
 # post: tmux -CC attach -t gleamers
 
 windows:
+  - server:
+      layout: even-horizontal
+      panes:
+        - ./turtle
+        - git fetch
   - editor:
       root: ~/consulting/gleamers/app
       panes:
         - vim
-  - server: ./turtle
