@@ -1,4 +1,5 @@
 vim/bundle
+vim/plugged
 vim/undo/*
 ssh/*
 !ssh/config
