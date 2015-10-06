@@ -65,6 +65,7 @@ Plug 'Slava/vim-spacebars'
 Plug 'digitaltoad/vim-jade'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-sleuth'
+Plug 'vim-less'
 
 call plug#end()
 filetype plugin indent on
