@@ -1,18 +1,20 @@
 #!/usr/bin/env zsh
 
+zshrc_home=/home/naps62
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-source ~/.zsh/defaults
-source ~/.zsh/env
-source ~/.nvm/nvm.sh
-source ~/.zsh/cmds
+source $zshrc_home/.zsh/defaults
+source $zshrc_home/.zsh/env
+source $zshrc_home/.nvm/nvm.sh
+source $zshrc_home/.zsh/cmds
 
 # interactive-only stuff
 [[ $- == *i* ]] || return
-source ~/.zsh/theme
-source ~/.zsh/completions
-source ~/.zsh/aliases
-source ~/.zsh/history
-source ~/.zsh/prompt
+source $zshrc_home/.zsh/theme
+source $zshrc_home/.zsh/completions
+source $zshrc_home/.zsh/aliases
+source $zshrc_home/.zsh/history
+source $zshrc_home/.zsh/prompt
 
 # if command -v tmux>/dev/null; then
 #   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux

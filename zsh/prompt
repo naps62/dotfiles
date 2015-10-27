@@ -3,16 +3,43 @@
 ZSH_THEME_GIT_PROMPT_PREFIX="${fg[blue]}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_NOCACHE=1
 
-prompt_char () {
-  echo -n "%{%B%} %(?.%F{green}.%F{red})"
-  command git rev-parse --git-dir >/dev/null 2>/dev/null && echo '±' && return
-  echo '%#'
+red_if_root() {
+  [ $USERNAME == "root" ] && echo "red" || echo $1
+    # echo "red"
+  # else
+    # echo $1
+  # fi
 }
 
-# PROMPT='
-#  %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%}$(git_prompt_info)
-# `prompt_char`%{%f%k%b%}%{$reset_color%} '
+blue="%{%B%F{`red_if_root 'blue'`}%}"
+green="%{%B%F{`red_if_root 'green'`}%}"
+red="%{%B%F{red}%}"
 
-PROMPT='
- %{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%} $(git-radar --zsh --fetch)
-`prompt_char`%{%f%k%b%}%{$reset_color%} '
+prompt_char () {
+  echo -n "%(?.${green}.${red})"
+  command git rev-parse --git-dir >/dev/null 2>/dev/null && echo '±' && return
+  [ $USERNAME != "root" ] && echo '$' || echo '#'
+}
+
+git_path () {
+  # echo "gitpath"
+  repo_path=$(git rev-parse --show-toplevel)
+  repo_name=${repo_path##*/}
+
+  path_in_repo=${PWD#$repo_path}
+  path_in_repo=${path_in_repo#/}
+  echo "$green$repo_name"' '$blue$path_in_repo
+}
+
+not_git_path () {
+  echo "%~"
+}
+
+path () {
+  ((git rev-parse 2>/dev/null >/dev/null) && git_path) || not_git_path
+}
+
+PROMPT=$'\n'
+PROMPT=${PROMPT}'${blue}`path`'
+PROMPT=${PROMPT}'$(git-radar --zsh --fetch)'$'\n'
+PROMPT=${PROMPT}'${green}`prompt_char`%{$reset_color%} '
