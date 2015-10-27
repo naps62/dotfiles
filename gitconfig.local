@@ -47,3 +47,6 @@
   templatedir = ~/.git_template
 [interactive]
   singlekey = true
+[commit]
+  template = ~/.gitmessage
+

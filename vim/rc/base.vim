@@ -69,7 +69,7 @@ set noswapfile
 
 " highlight white space
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.   " show whitespace...
+set listchars=tab:>.,trail:~,extends:#,nbsp:.  " show whitespace...
 autocmd filetype html,xml set listchars-=tab:>. " ... except for some file types
 
 set re=1

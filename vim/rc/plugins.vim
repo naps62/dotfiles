@@ -18,6 +18,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
+Plug 'chrisbra/NrrwRgn'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -99,14 +100,8 @@ map <leader>gw :Gbrowse<CR>
 map <leader>gg :Git 
 
 " statusline
+let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
 let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'solarized'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#bufferline#enabled = 0
-"let g:bufferline_echo = 0
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
 
 " ctrlp
 let g:ctrlp_custom_ignore = {
@@ -124,17 +119,13 @@ if executable('ag')
   " ag is fast enough that ctrlp doesn't need to cache
   let g:ctrlp_use_caching = 0
 
-  map <C-f> :Ag 
+  map <C-f> :Ag
 endif
-
-" syntastic
-" let g:syntastic_disabled_filetypes=['slim', 'html']
-" let g:syntastic_slim_checkers = []
-" let g:syntastic_javascript_checkers = ['eslint']
 
 " neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
