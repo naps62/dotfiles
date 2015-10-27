@@ -7,65 +7,63 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 call plug#begin('~/.vim/plugged')
 
 " UI Features
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'taiansu/nerdtree-ag', { 'on': 'NERDTreeToggle' }
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'kien/ctrlp.vim'
-Plug 'rking/ag.vim'
-" Plug 'scrooloose/syntastic'
+Plug 'Valloric/YouCompleteMe'
 Plug 'benekastah/neomake'
 Plug 'bling/vim-airline'
-" Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
+Plug 'unblevable/quick-scope'
 
 " Editor features
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-dispatch'
-Plug 'jiangmiao/auto-pairs'
-Plug 'thoughtbot/vim-rspec'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'mattn/emmet-vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'AndrewRadev/sideways.vim'
-Plug 'dkprice/vim-easygrep'
-Plug 'taiansu/nerdtree-ag'
-Plug 'gregsexton/gitv'
-Plug 'marijnh/tern_for_vim'
-Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-endwise'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dkprice/vim-easygrep'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'skwp/greplace.vim'
+Plug 'Lokaltog/vim-easymotion'
 
-" Syntax-only plugins
-Plug 'slim-template/vim-slim'
-Plug 'rodjek/vim-puppet'
-Plug 'plasticboy/vim-markdown'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-cucumber'
+" Ruby
+Plug 'tpope/vim-rails',      { 'for': 'ruby' }
+Plug 'tpope/vim-rake',       { 'for': 'ruby' }
+Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+
+" JS
+Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'Slava/vim-spacebars',     { 'for': 'html' }
+Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
+
+" HTML
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+
+Plug 'elzr/vim-json',    { 'for': 'json' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+
+" Other syntaxes
 Plug 'tpope/vim-git'
-Plug 'wting/rust.vim'
-Plug 'vim-scripts/SyntaxRange'
-Plug 'elzr/vim-json'
-Plug 'cespare/vim-toml'
+Plug 'vim-less', { 'for': 'less' }
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+Plug 'tpope/vim-cucumber', { 'for': ['cucumber', 'feature'] }
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'nicholaides/words-to-avoid.vim'
-Plug 'rhysd/vim-crystal'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'Slava/vim-spacebars'
-Plug 'digitaltoad/vim-jade'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-sleuth'
-Plug 'vim-less'
+Plug 'vim-scripts/SyntaxRange'
 
 call plug#end()
 filetype plugin indent on
@@ -110,15 +108,6 @@ let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 
-" lightline
-let g:lightline = {
-  \ 'colorscheme': 'base16-default',
-  \ 'separator': { 'left': '⮀', 'right': '⮂'  },
-  \ 'subseparator': { 'left': '⮁', 'right': '⮃'  }
-  \ }
-
-
-
 " ctrlp
 let g:ctrlp_custom_ignore = {
   \ 'dir': 'node_modules\|tmp'
@@ -162,13 +151,12 @@ let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
 
 imap <T-a> ads
 
-" sideways.vim
-nmap <C-w> :SidewaysLeft<CR>
-nmap <C-e> :SidewaysRight<CR>
-
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
 
 " greplace.vim
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
+
+" auto-pairs
+let g:AutoPairsMultilineClose = 0

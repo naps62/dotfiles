@@ -2,8 +2,8 @@
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 source ~/.zsh/defaults
-source /usr/share/nvm/init-nvm.sh
 source ~/.zsh/env
+source ~/.nvm/nvm.sh
 source ~/.zsh/cmds
 
 # interactive-only stuff

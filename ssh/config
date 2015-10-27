@@ -7,11 +7,11 @@ ControlPath /tmp/%r@%h:%p
 ControlPersist yes
 
 IdentityFile ~/.ssh/id_rsa
-IdentityFile ~/.ssh/id_rsa.gb
+IdentityFile ~/.ssh/id_rsa.subvisual
 IdentityFile ~/.ssh/easy-money
 
 #
-# GB servers
+# Subvisual servers
 #
 Host obi-wan
   Hostname obi-wan.servers.groupbuddies.com
@@ -45,14 +45,14 @@ Host easy.money
 Host dxrx
   Hostname 104.236.216.201
   User deploy
-  IdentityFile ~/.ssh/id_rsa.gb
+  IdentityFile ~/.ssh/id_rsa.subvisual
 
 Host 104.236.216.201
   User deploy
   IdentityFile ~/.ssh/id_rsa.gb
 
 #
-# GB apps
+# Subvisual apps
 #
 Host blog
   Hostname blog.groupbuddies.com
@@ -66,22 +66,6 @@ Host zee
   Hostname 37.139.7.70
   User deploy
 
-Host cohive
-  Hostname 198.211.122.171
-  User deploy
-
 Host pi
   Hostname naps62.ddns.net
   User pi
-
-#
-# Clusters
-#
-Host search
-  Hostname search.di.uminho.pt
-  User cpd19808
-
-Host casper
-  Hostname app.casven.com
-  User casper
-  Port 22022
