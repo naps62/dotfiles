@@ -119,7 +119,7 @@ if executable('ag')
   " ag is fast enough that ctrlp doesn't need to cache
   let g:ctrlp_use_caching = 0
 
-  map <C-f> :Ag
+  map <C-f> :Ag 
 endif
 
 " neomake
