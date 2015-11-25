@@ -55,6 +55,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 " Other syntaxes
 Plug 'tpope/vim-git'
 Plug 'vim-less', { 'for': 'less' }
+Plug 'dag/vim2hs', { 'for': 'haskell' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
@@ -71,7 +72,6 @@ filetype plugin indent on
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-"let g:NERDTreeDirArrows=0
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
@@ -102,6 +102,7 @@ map <leader>gg :Git
 " statusline
 let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
 let g:airline_powerline_fonts = 1
+ let g:airline#extensions#tabline#show_buffers = 0
 
 " ctrlp
 let g:ctrlp_custom_ignore = {

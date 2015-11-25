@@ -12,3 +12,4 @@ au BufNewFile,BufRead *.md     set filetype=markdown
 au BufNewFile,BufRead *.rs     set filetype=rust
 au BufNewFile,BufRead *.es6    set filetype=javascript
 au BufNewFile,BufRead *.less.partial set filetype=less
+au BufNewFile,BufRead xmobarrc set filetype=haskell

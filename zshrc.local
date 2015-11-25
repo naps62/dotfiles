@@ -15,6 +15,7 @@ source $zshrc_home/.zsh/completions
 source $zshrc_home/.zsh/aliases
 source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
+# source ~/projects/stalker-zsh/stalker.zsh
 
 # if command -v tmux>/dev/null; then
 #   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
