@@ -12,6 +12,7 @@ env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.bin.local
 env_dir PATH $HOME/.meteor
 env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
+env_dir PATH /usr/local/heroku/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 

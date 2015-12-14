@@ -33,6 +33,8 @@ Plug 'dkprice/vim-easygrep'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Lokaltog/vim-easymotion'
 
+Plug 'wakatime/vim-wakatime'
+
 " Ruby
 Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
@@ -41,9 +43,10 @@ Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'Slava/vim-spacebars',     { 'for': 'html' }
 Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
+Plug 'mxw/vim-jsx',             { 'for': 'javascript.jsx' }
 
 " HTML
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -92,6 +95,7 @@ let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let g:rspec_command = "Dispatch rspec {spec}"
 
 " fugitive.vim (git wrapper)
+set diffopt+=vertical
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 map <leader>gd :Gdiff<CR>
