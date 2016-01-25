@@ -3,10 +3,8 @@
 branch=$(git rev-parse --symbolic --abbrev-ref HEAD)
 
 if [ "$branch" == "master" ] && [ -f Gemfile ] && [ -x $(which metric_fu) ]; then
-  echo "[hook] [metric_fu]"
-
-  destination=".metric_fu"
-  echo "Running metric_fu at ${destination}"
+  destination="../../metric_fu"
+  echo -e "[git hook: metric_fu at ${destination}]"
   mkdir -p $destination
   metric_fu --out $destination > /dev/null 2>&1
 fi

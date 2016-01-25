@@ -109,9 +109,7 @@ let g:airline_powerline_fonts = 1
  let g:airline#extensions#tabline#show_buffers = 0
 
 " ctrlp
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules\|tmp'
-  \ }
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " The Silver Searcher
 if executable('ag')

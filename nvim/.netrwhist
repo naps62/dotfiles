@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/naps62/.tmux'
 let g:netrw_dirhist_2='/home/naps62/.tmuxinator'
 let g:netrw_dirhist_3='/home/naps62/.tmux/plugins'
 let g:netrw_dirhist_4='/home/naps62/consulting/ezm/easy.money'
 let g:netrw_dirhist_5='/home/naps62/consulting/gleamers'
+let g:netrw_dirhist_6='/home/naps62/projects/test/.git/hooks'

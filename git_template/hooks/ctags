@@ -2,7 +2,7 @@
 
 set -e
 
-echo "[hook] [ctags] Updating .git/tags"
+echo -e "[hook: ctags at .git/tags]"
 
 PATH="/usr/local/bin:$PATH"
 trap "rm -f .git/tags.$$" EXIT
