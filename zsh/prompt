@@ -36,5 +36,5 @@ path () {
 
 PROMPT=$'\n'
 PROMPT=${PROMPT}'${blue}`path`'
-PROMPT=${PROMPT}'$(git-radar --zsh --fetch)'$'\n'
+PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'
 PROMPT=${PROMPT}'${green}`prompt_char`%{$reset_color%} '

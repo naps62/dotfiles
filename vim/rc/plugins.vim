@@ -7,14 +7,16 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 call plug#begin('~/.vim/plugged')
 
 " UI Features
+Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'taiansu/nerdtree-ag', { 'on': 'NERDTreeToggle' }
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'benekastah/neomake'
-Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
