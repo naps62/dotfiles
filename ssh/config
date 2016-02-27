@@ -8,7 +8,7 @@ ControlPersist yes
 
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
-IdentityFile ~/.ssh/easy-money
+IdentityFile ~/.ssh/id_rsa.upcase
 
 #
 # Subvisual servers

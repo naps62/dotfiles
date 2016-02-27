@@ -1,0 +1,7 @@
+#!/bin/sh
+
+tmux list-sessions \
+  | sed -E 's/:.*$//' \
+  | grep -v "^$(tmux display-message -p '#$')" \
+  | fzf --reverse \
+  | xargs tmux switch-client -t

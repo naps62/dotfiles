@@ -1,4 +1,5 @@
 " basics
+"
 set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
 set number        " line numbers
@@ -90,3 +91,8 @@ autocmd BufReadPost *
   \ endif
 
 set ttimeoutlen=50
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" runtime macros/matchit.vim

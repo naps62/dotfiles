@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 
 zshrc_home=/home/naps62
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 source $zshrc_home/.zsh/defaults
-source $zshrc_home/.zsh/env
 source $zshrc_home/.nvm/nvm.sh
+source $zshrc_home/.zsh/env
 source $zshrc_home/.zsh/cmds
 
 # interactive-only stuff
@@ -15,8 +15,13 @@ source $zshrc_home/.zsh/completions
 source $zshrc_home/.zsh/aliases
 source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
+
+source /etc/profile.d/fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
 # if command -v tmux>/dev/null; then
 #   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 # fi
+
+~/.bin.local/ensure-tmux-is-running

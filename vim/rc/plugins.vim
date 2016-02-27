@@ -10,17 +10,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'taiansu/nerdtree-ag', { 'on': 'NERDTreeToggle' }
-Plug 'rking/ag.vim', { 'on': 'Ag' }
-Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'benekastah/neomake'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -29,19 +30,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
-Plug 'dkprice/vim-easygrep'
-Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'dkprice/vim-easygrep'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'kana/vim-textobj-user'
 
 Plug 'wakatime/vim-wakatime'
 
 " Ruby
 Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
+Plug 'tpope/vim-endwise',    { 'for': 'ruby' }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
@@ -94,7 +96,7 @@ map <silent> <c-b> :Bookmark<CR>
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
 " vim-rspec
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 
 " fugitive.vim (git wrapper)
 set diffopt+=vertical
@@ -110,21 +112,10 @@ let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
 let g:airline_powerline_fonts = 1
  let g:airline#extensions#tabline#show_buffers = 0
 
-" ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
 " The Silver Searcher
 if executable('ag')
   " use Ag over Grep
   set grepprg="ag --nogroup --nocolor"
-
-  " use `ag` in ctrlp for listing files
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that ctrlp doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  map <C-f> :Ag 
 endif
 
 " neomake
@@ -151,8 +142,19 @@ imap <T-a> ads
 let g:gitgutter_sign_column_always = 1
 
 " greplace.vim
-set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " auto-pairs
 let g:AutoPairsMultilineClose = 0
+
+" Vim Tmux Runner
+" unmap <leader>vo
+" unmap <leader>vs
+nnoremap <leader>co :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
+nnoremap <leader>cs :VtrSendLinesToRunner<CR>
+vnoremap <leader>cs :VtrSendLinesToRunner<CR>
+nnoremap <leader>cc :VtrSendCommand<CR>
+
+" fzf
+nmap <C-p> :Files<CR>
+nmap <C-f> :Ag<CR>

@@ -3,18 +3,20 @@ nnoremap ; :
 nnoremap , .
 nnoremap <silent> <leader>ev :tabe $HOME/.vimrc<CR> " edit vimrc
 nnoremap <silent> <leader>sv :so $HOME/.vimrc<CR> " reload vimrc
-cmap w!! w !sudo tee % > /dev/null  " still be able to save after forgetting to sudo
+
+" still able to save after forgetting to sudo
+cmap w!! w !sudo tee % > /dev/null
 
 " buffer navigation
 " use ctrl-[hjkl] to select the active split
-" nmap <silent> <C-k>      :wincmd k<CR>
-" nmap <silent> <C-j>      :wincmd j<CR>
-" nmap <silent> <C-h>      :wincmd h<CR>
-" nmap <silent> <C-l>      :wincmd l<CR>
-" imap <silent> <c-k> <Esc>:wincmd k<CR>i
-" imap <silent> <c-j> <Esc>:wincmd j<CR>i
-" imap <silent> <c-h> <Esc>:wincmd h<CR>i
-" imap <silent> <c-l> <Esc>:wincmd l<CR>i
+nmap <silent> <C-k>      :wincmd k<CR>
+nmap <silent> <C-j>      :wincmd j<CR>
+nmap <silent> <C-h>      :wincmd h<CR>
+nmap <silent> <C-l>      :wincmd l<CR>
+imap <silent> <c-k> <Esc>:wincmd k<CR>i
+imap <silent> <c-j> <Esc>:wincmd j<CR>i
+imap <silent> <c-h> <Esc>:wincmd h<CR>i
+imap <silent> <c-l> <Esc>:wincmd l<CR>i
 
 " close current buffer
 nmap <silent> <leader>q :q<CR>
@@ -26,7 +28,6 @@ nmap <Tab> :b#<CR>
 " tab navigation
 nnoremap <C-u> :tabprevious<CR>
 nnoremap <C-i> :tabnext<CR>
-nnoremap <C-t> :tabnew<CR>
 
 " go back after jumping to tag
 " nmap <C-[> :pop<CR>
@@ -53,3 +54,7 @@ map <leader>l :call RunLastSpec()<CR>
 
 " change word is actually change inner word by default
 map cw ciw
+
+" zoom / unzoom a vim pane
+nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <leader>= :wincmd =<CR>

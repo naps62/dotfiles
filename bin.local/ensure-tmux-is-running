@@ -1,0 +1,9 @@
+#!/bin/sh
+
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+if _not_inside_tmux; then
+  tat
+fi
