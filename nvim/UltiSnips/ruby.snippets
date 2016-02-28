@@ -1,0 +1,22 @@
+global !p
+import re
+
+def assign_instance_var(arg):
+	regex = re.compile('[*&]*([a-zA-Z0-9_]+)')
+	match = regex.match(arg.strip())
+	if match:
+		return snip.mkline("@{0} = {0}".format(match.group(1)), "  ")
+	else:
+		return ""
+
+def assign_instance_var_list(args):
+	return "\n".join(list(map(assign_instance_var, args.split(',')))).rstrip()
+endglobal
+
+snippet defi "Constructor"
+def initialize(${1:*args})
+`!p
+snip.rv = assign_instance_var_list(t[1])
+`
+end
+endsnippet

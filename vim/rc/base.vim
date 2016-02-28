@@ -2,7 +2,6 @@
 "
 set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
-set number        " line numbers
 set ruler         " cursor position
 set scrolloff=3   " scroll offset
 set autowrite     " automatically :write before running commands
@@ -37,6 +36,13 @@ set smartindent " auto add 1 indentation level in some cases
 " line breaking
 set wrap
 set linebreak
+
+" relative numbering (with absolute current line) in normal mode
+" absolute numbering in insert mode
+set relativenumber
+set number
+autocmd InsertEnter * :set number norelativenumber
+autocmd InsertLeave * :set relativenumber
 
 " redraw
 nnoremap <C-l> :redraw<cr>

@@ -11,3 +11,4 @@ colorscheme base16-default
 " SignColumn
 " same color as line column
 highlight clear SignColumn
+highlight Search ctermbg=blue ctermfg=black

@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
 " UI Features
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'taiansu/nerdtree-ag', { 'on': 'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'benekastah/neomake'
 Plug 'chriskempson/base16-vim'
@@ -22,6 +21,7 @@ Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -132,11 +132,9 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-
-imap <T-a> ads
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
