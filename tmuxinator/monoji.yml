@@ -1,0 +1,8 @@
+# ~/.tmuxinator/cadoo.yml
+
+name: cadoo
+root: ~/consulting/monoji
+
+windows:
+  - editor: vim
+  - server: bin/server

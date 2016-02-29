@@ -1,12 +1,14 @@
 Xcursor*theme:         Vanilla-DMZ-AA
 
-Xft.dpi:               96
+Xft.dpi:               100
 Xft.antialias:         1
 Xft.rgba:              rgb
 Xft.hinting:           1
 Xft.hintstyle:         hintnone
 
 ! UXTerm settings
+XTerm*faceName:    Source Code Pro for Powerline
+XTerm*utf8:        2
 UXTerm*faceName:    Source Code Pro for Powerline
 UXTerm*faceSize:    12
 UXTerm*utf8:        1
@@ -22,12 +24,13 @@ UXTerm*metaSendsEscape: true
 *VT100*translations: #override Shift <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY)
 
 ! fix backspace in vim
-*VT100.backarrowKey:false
+*VT100.backarrowKey: false
 UXTerm*ttyModes: erase ^?
 UXTerm*VT100.Translations: \
         #override <Key>Backspace: string(0x7f) \n\
                   <Key>Delete:    string(0x1b) string("[3~")
 UXTerm*backArrowKeyIsErase: true
+UXTerm*ptyInitialErase: true
 
 ! fix alt key
 XTerm*eightBitInput: false
