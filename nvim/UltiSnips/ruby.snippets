@@ -20,3 +20,11 @@ snip.rv = assign_instance_var_list(t[1])
 `
 end
 endsnippet
+
+snippet spec "spec file template"
+require "spec_helper"
+
+RSpec.describe $1 do
+	$0
+end
+endsnippet

@@ -24,7 +24,7 @@ alias va=vagrant
 alias x=extract
 alias y=yaourt
 
-alias t=tmux
+alias t=todo.sh
 
 alias c=crystal
 alias cg=cargo

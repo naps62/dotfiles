@@ -37,6 +37,8 @@ Plug 'kana/vim-textobj-user'
 
 Plug 'wakatime/vim-wakatime'
 
+Plug 'freitass/todo.txt-vim'
+
 " Ruby
 Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
@@ -135,6 +137,7 @@ let g:ycm_use_ultisnips_completer = 1
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:ycm_key_detailed_diagnostics = ''
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1

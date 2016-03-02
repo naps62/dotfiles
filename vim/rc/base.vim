@@ -17,6 +17,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set noerrorbells
 set clipboard=unnamed " X11 clipboard integration
 let mapleader="\<Space>"
+let maplocalleader = "\<Space>"
 
 " open split panes to right and bottom, which feels more natural
 set splitbelow
@@ -100,5 +101,3 @@ set ttimeoutlen=50
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
-
-" runtime macros/matchit.vim
