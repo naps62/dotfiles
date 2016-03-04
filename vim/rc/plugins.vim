@@ -154,7 +154,7 @@ let g:AutoPairsMultilineClose = 0
 nnoremap <leader>co :VtrOpenRunner {'orientation': 'h', 'percentage': 30}<CR>
 nnoremap <leader>cs :VtrSendLinesToRunner<CR>
 vnoremap <leader>cs :VtrSendLinesToRunner<CR>
-nnoremap <leader>cc :VtrSendCommand<CR>
+nnoremap <leader>cc :VtrSendCommand 
 
 " fzf
 nmap <C-p> :Files<CR>
