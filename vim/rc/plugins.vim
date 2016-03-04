@@ -157,5 +157,6 @@ vnoremap <leader>cs :VtrSendLinesToRunner<CR>
 nnoremap <leader>cc :VtrSendCommand 
 
 " fzf
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 nmap <C-p> :Files<CR>
 nmap <C-f> :Ag<CR>
