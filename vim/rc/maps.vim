@@ -61,3 +61,6 @@ map cw ciw
 " zoom / unzoom a vim pane
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <leader>= :wincmd =<CR>
+
+" insert newline at current cursor position, without leaving normal mode
+map <leader>o maa<CR><Esc>`a

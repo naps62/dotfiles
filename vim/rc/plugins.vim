@@ -151,7 +151,7 @@ let g:AutoPairsMultilineClose = 0
 " Vim Tmux Runner
 " unmap <leader>vo
 " unmap <leader>vs
-nnoremap <leader>co :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
+nnoremap <leader>co :VtrOpenRunner {'orientation': 'h', 'percentage': 30}<CR>
 nnoremap <leader>cs :VtrSendLinesToRunner<CR>
 vnoremap <leader>cs :VtrSendLinesToRunner<CR>
 nnoremap <leader>cc :VtrSendCommand<CR>

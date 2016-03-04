@@ -12,6 +12,7 @@ config/*
 xboomx/xboomx.db
 
 bin.local/placer
+bin.local/ld.gold
 vim/spell
 vim/plugged
 vim/undo
