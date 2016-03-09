@@ -20,8 +20,4 @@ source /etc/profile.d/fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
-# if command -v tmux>/dev/null; then
-#   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-# fi
-
 ~/.bin.local/ensure-tmux-is-running

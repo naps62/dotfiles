@@ -18,11 +18,11 @@ alias g=git
 alias o=open
 alias r=rails
 alias rk=rake
-alias s=ssh
 alias v=nvim
 alias va=vagrant
 alias x=extract
 alias y=yaourt
+alias s=bin/server
 
 alias t=todo.sh
 

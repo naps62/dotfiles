@@ -3,12 +3,8 @@
 ZSH_THEME_GIT_PROMPT_PREFIX="${fg[blue]}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_NOCACHE=1
 
-red_if_root() {
-  [ $USERNAME == "root" ] && echo "red" || echo $1
-}
-
-blue="%{%B%F{`red_if_root 'blue'`}%}"
-green="%{%B%F{`red_if_root 'green'`}%}"
+blue="%{%B%F{blue}%}"
+green="%{%B%F{green}%}"
 red="%{%B%F{red}%}"
 
 prompt_char () {

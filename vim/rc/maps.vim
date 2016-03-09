@@ -45,9 +45,9 @@ inoremap <F1> <ESC>
 inoremap <F1> <ESC>
 
 " Ctrl-S save
-noremap  <silent> <C-s>      :update<CR>
-vnoremap <silent> <C-s> <C-c>:update<CR>
-inoremap <silent> <C-s> <C-o>:update<CR><Esc>
+noremap  <C-s>      :update<CR>
+vnoremap <C-s> <C-c>:update<CR>
+inoremap <C-s> <C-o>:update<CR><Esc>
 
 " rake / spec
 map <leader>r :call RunAllSpecs()<CR>

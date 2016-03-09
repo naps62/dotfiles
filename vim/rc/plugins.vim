@@ -31,13 +31,13 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'dkprice/vim-easygrep'
+Plug 'dkprice/vim-easygrep'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kana/vim-textobj-user'
-
 Plug 'wakatime/vim-wakatime'
-
 Plug 'freitass/todo.txt-vim'
+Plug 'wellle/targets.vim'
+Plug 'scrooloose/syntastic'
 
 " Ruby
 Plug 'tpope/vim-rails',      { 'for': 'ruby' }
@@ -60,6 +60,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 
 Plug 'elzr/vim-json',    { 'for': 'json' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'suan/vim-instant-markdown'
 
 " Other syntaxes
 Plug 'tpope/vim-git'
@@ -110,7 +111,7 @@ map <leader>gw :Gbrowse<CR>
 map <leader>gg :Git 
 
 " statusline
-let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
+let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn', 'syntastic']
 let g:airline_powerline_fonts = 1
  let g:airline#extensions#tabline#show_buffers = 0
 
@@ -160,3 +161,17 @@ nnoremap <leader>cc :VtrSendCommand
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 nmap <C-p> :Files<CR>
 nmap <C-f> :Ag<CR>
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+      \  'mode': 'active',
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': ['sass', 'scss']
+      \ }

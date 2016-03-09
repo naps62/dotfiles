@@ -49,4 +49,9 @@
   singlekey = true
 [commit]
   template = ~/.gitmessage
-
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false
+[mergetool]
+	path = nvim
