@@ -32,12 +32,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dkprice/vim-easygrep'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-textobj-user'
 Plug 'wakatime/vim-wakatime'
 Plug 'freitass/todo.txt-vim'
 Plug 'wellle/targets.vim'
 Plug 'scrooloose/syntastic'
+Plug 'amperser/proselint', { 'rtp': 'plugins/vim/syntastic_proselint' }
+Plug '~/.vim/plugged/custom'
 
 " Ruby
 Plug 'tpope/vim-rails',      { 'for': 'ruby' }
@@ -163,15 +165,30 @@ nmap <C-p> :Files<CR>
 nmap <C-f> :Ag<CR>
 
 " Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
-      \  'mode': 'active',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': ['sass', 'scss']
+      \  'mode': 'passive',
+      \ 'active_filetypes': ['ruby', 'gitcommit'],
+      \ 'passive_filetypes': []
       \ }
+let g:syntastic_markdown_checkers = ['mdl', 'proselint']
+let g:syntastic_gitcommit_checkers = ['mdl', 'proselint']
+let g:syntastic_text_checkers = ['proselint']
+let g:syntastic_html_checkers = ['tidy', 'proselint']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+map <Leader>y :SyntasticCheck<CR>
+
+" easymotion
+" Move to character
+map <Leader><Leader>f <Plug>(easymotion-bd-f)
+" Move to line
+map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+" Move to word
+map <Leader><Leader>w <Plug>(easymotion-bd-w)
+" Move up/down
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
