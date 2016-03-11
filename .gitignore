@@ -8,6 +8,7 @@ config/*
 !config/awesome
 !config/terminator
 !config/spec
+!config/htop
 
 xboomx/xboomx.db
 

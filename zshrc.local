@@ -17,7 +17,7 @@ source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
 
 source /etc/profile.d/fzf.zsh
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
 ~/.bin.local/ensure-tmux-is-running
