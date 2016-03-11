@@ -157,7 +157,7 @@ let g:AutoPairsMultilineClose = 0
 nnoremap <leader>co :VtrOpenRunner {'orientation': 'h', 'percentage': 30}<CR>
 nnoremap <leader>cs :VtrSendLinesToRunner<CR>
 vnoremap <leader>cs :VtrSendLinesToRunner<CR>
-nnoremap <leader>cc :VtrSendCommand 
+nnoremap <leader>cc :VtrSendCommandToRunner q<CR>:VtrClearRunner<CR>:VtrSendCommandToRunner 
 
 " fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
