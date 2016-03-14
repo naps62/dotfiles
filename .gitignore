@@ -17,3 +17,5 @@ bin.local/ld.gold
 vim/spell
 vim/plugged
 vim/undo
+
+nvim/.netrwhist
