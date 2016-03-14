@@ -192,3 +192,5 @@ map <Leader><Leader>w <Plug>(easymotion-bd-w)
 " Move up/down
 map <Leader><Leader>j <Plug>(easymotion-j)
 map <Leader><Leader>k <Plug>(easymotion-k)
+
+" vim-markdonw

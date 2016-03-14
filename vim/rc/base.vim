@@ -38,6 +38,8 @@ set smartindent " auto add 1 indentation level in some cases
 set wrap
 set linebreak
 
+set foldlevelstart=3
+
 " relative numbering (with absolute current line) in normal mode
 " absolute numbering in insert mode
 set relativenumber
@@ -53,7 +55,7 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader>, :noh<cr>
 set incsearch     " incremental seach
-set hlsearch      " highligh search results
+set hlsearch      " highlight search results
 set showmatch
 set ignorecase    " case insensitive search
 set smartcase     " case sensitive search if at least one uppercase is used

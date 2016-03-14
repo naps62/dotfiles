@@ -11,8 +11,8 @@ env_dir() {
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.bin.local
 env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
-env_dir PATH ./.git/safe/../../node_modules/.bin
-env_dir PATH ./.git/safe/../../bin
+# env_dir PATH ./.git/safe/../../node_modules/.bin
+# env_dir PATH ./.git/safe/../../bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
@@ -37,3 +37,8 @@ if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]
 fi
 
 stty -ixon
+
+setopt auto_cd
+cdpath=($HOME/subvisual $HOME/consulting $HOME/downloads)
+
+export downloads=/home/naps62/downloads

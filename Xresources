@@ -7,10 +7,10 @@ Xft.hinting:           1
 Xft.hintstyle:         hintnone
 
 ! UXTerm settings
-UXTerm*faceName:    Source Code Pro for Powerline
-XTerm*utf8:        2
-UXTerm*faceSize:    12
-UXTerm*utf8:        1
+UXTerm*faceName:     Source Code Pro
+XTerm*utf8:          2
+UXTerm*faceSize:     12
+UXTerm*utf8:         1
 UXTerm*boldMode:     false
 UXTerm*scrollBar:    false
 UXTerm*saveLines:    32767
