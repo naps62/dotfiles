@@ -26,7 +26,7 @@ nmap <silent> <leader>q :q<CR>
 nmap <silent> <leader>wq :wq<CR>
 
 " switch between the last two files
-nmap <Tab> :b#<CR>
+map <Tab> :b#<CR>
 
 " tab navigation
 nnoremap <C-u> :tabprevious<CR>
@@ -34,10 +34,6 @@ nnoremap <C-i> :tabnext<CR>
 
 " go back after jumping to tag
 " nmap <C-[> :pop<CR>
-
-" navigate in wrapped lines
-nnoremap j gj
-nnoremap k gk
 
 " disable F1
 inoremap <F1> <ESC>
@@ -55,12 +51,12 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>f :call RunCurrentSpecFile()<CR>
 map <leader>l :call RunLastSpec()<CR>
 
-" change word is actually change inner word by default
-map cw ciw
-
 " zoom / unzoom a vim pane
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <leader>= :wincmd =<CR>
 
-" insert newline at current cursor position, without leaving normal mode
-map <leader>o maa<CR><Esc>`a
+" vim-projectionist
+map <leader>aa :A<CR>
+nmap <leader>av :AV<CR>
+map <leader>as :AS<CR>
+map <leader>at :AT<CR>

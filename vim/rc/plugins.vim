@@ -31,7 +31,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'jiangmiao/auto-pairs'
-Plug 'dkprice/vim-easygrep'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-textobj-user'
 Plug 'wakatime/vim-wakatime'
@@ -89,6 +88,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeKeepTreeInNewTab=1
 let g:NERDTreeShowBookmarks=1
+let g:NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapOpenSplit="s"
