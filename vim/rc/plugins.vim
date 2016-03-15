@@ -172,7 +172,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
       \  'mode': 'passive',
-      \ 'active_filetypes': ['ruby', 'gitcommit'],
+      \ 'active_filetypes': [],
       \ 'passive_filetypes': []
       \ }
 let g:syntastic_markdown_checkers = ['mdl', 'proselint']
