@@ -46,17 +46,11 @@ vnoremap <C-s> <C-c>:update<CR>
 inoremap <C-s> <C-o>:update<CR><Esc>
 
 " rake / spec
-map <leader>r :call RunAllSpecs()<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>f :call RunCurrentSpecFile()<CR>
-map <leader>l :call RunLastSpec()<CR>
+map <leader>sr :call RunAllSpecs()<CR>
+map <leader>ss :call RunNearestSpec()<CR>
+map <leader>sf :call RunCurrentSpecFile()<CR>
+map <leader>sl :call RunLastSpec()<CR>
 
 " zoom / unzoom a vim pane
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <leader>= :wincmd =<CR>
-
-" vim-projectionist
-map <leader>aa :A<CR>
-nmap <leader>av :AV<CR>
-map <leader>as :AS<CR>
-map <leader>at :AT<CR>

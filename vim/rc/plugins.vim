@@ -182,15 +182,27 @@ let g:syntastic_html_checkers = ['tidy', 'proselint']
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 map <Leader>y :SyntasticCheck<CR>
 
+" vim-projectionist
+map <leader>aa :A<CR>
+nmap <leader>av :AV<CR>
+map <leader>as :AS<CR>
+map <leader>at :AT<CR>
+
+" vim-rails
+map <leader>rr :R<CR>
+map <leader>rv :RV<CR>
+map <leader>rs :RS<CR>
+map <leader>rt :RT<CR>
+
 " easymotion
 " Move to character
-map <Leader><Leader>f <Plug>(easymotion-bd-f)
-" Move to line
-map <Leader><Leader>l <Plug>(easymotion-bd-jk)
-" Move to word
-map <Leader><Leader>w <Plug>(easymotion-bd-w)
-" Move up/down
-map <Leader><Leader>j <Plug>(easymotion-j)
-map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader>ff <Plug>(easymotion-bd-f)
+" " Move to line
+map <Leader>fl <Plug>(easymotion-bd-jk)
+" " Move to word
+map <Leader>fw <Plug>(easymotion-bd-w)
+" " Move up/down
+map <Leader>fj <Plug>(easymotion-j)
+map <Leader>fk <Plug>(easymotion-k)
 
 " vim-markdonw
