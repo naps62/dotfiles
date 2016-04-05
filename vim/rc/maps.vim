@@ -53,4 +53,9 @@ map <leader>sl :call RunLastSpec()<CR>
 
 " zoom / unzoom a vim pane
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
-nnoremap <leader>= :wincmd =<CR>
+nnoremap <leader>_ :wincmd =<CR>
+
+" break out to the end of the line in insert mode
+imap <C-a> <Esc>A
+" break out to the next line in insert mode
+imap <C-o> <Esc>o

@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 " UI Features
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Valloric/YouCompleteMe'
 Plug 'benekastah/neomake'
 Plug 'chriskempson/base16-vim'
@@ -83,6 +83,7 @@ filetype plugin indent on
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
