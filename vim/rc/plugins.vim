@@ -50,6 +50,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
+Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'Slava/vim-spacebars',     { 'for': 'html' }
 Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }

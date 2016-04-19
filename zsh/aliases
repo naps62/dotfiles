@@ -14,17 +14,22 @@ alias b=bundle
 alias be='bundle exec'
 alias bc='bundle console'
 alias d=docker
-alias g=git
+# alias g=git
 alias o=open
 alias r=rails
-alias rk=rake
+# alias rk=rake
 alias v=nvim
 alias va=vagrant
 alias x=extract
 alias y=yaourt
 alias s=bin/server
 
-alias t=todo.sh
+function rk() { rake "$@" }
+function g() { git "$@" }
+
+function f () { "$@" | fzf }
+
+# alias t=todo.sh
 
 alias c=crystal
 alias cg=cargo
@@ -36,6 +41,9 @@ alias ts='tmux switch -t'
 alias td='tmux detach'
 alias tk='tmux kill-session -t'
 alias tt='tmux choose-tree'
+
+alias ss="nohup spring start"
+alias st="spring stop"
 
 autoload -U zmv
 alias mmv='noglob zmv -W'
