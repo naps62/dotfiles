@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+timetrap_now=`t n 2> /dev/null`
+if [[ "$timetrap_now" =~ \@[a-zA-Z]* ]]; then
+  project=${BASH_REMATCH[0]}
+  echo "#[fg=green]$project#[default]"
+else
+  echo "#[fg=red]Timetrap not running#[default]"
+  exit 1
+fi
