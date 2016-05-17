@@ -14,6 +14,7 @@ git rebase
 
 echo "rebasing ${current} with ${destiny}"
 git checkout $current
+git pr-description $current | xclip -selection c || true
 git rebase -i $destiny
 git push -f
 

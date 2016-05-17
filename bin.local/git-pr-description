@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require "octokit"
+require "git"
+
+token = File.read(File.join(Dir.home, ".github_token"))
+
+git = Git.open(".")
+github = Octokit::Client.new(access_token: token)
+
+current_branch = ARGV[0] || git.current_branch
+remote_name = git.remote("origin").url.split(":")[1].split(".git")[0]
+organization_name = remote_name.split("/")[0]
+
+pull = github.pulls(remote_name, head: "#{organization_name}:#{current_branch}").first
+
+if pull
+  puts pull[:title]
+  puts
+  puts pull[:body]
+else
+  puts "Pull request not found"
+end

@@ -16,7 +16,6 @@ source $zshrc_home/.zsh/aliases
 source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
 
-source /etc/profile.d/fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
