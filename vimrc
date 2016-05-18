@@ -34,3 +34,4 @@ function! SuitCreate(name)
 endfunction
 
 command! -nargs=* SuitCreate call SuitCreate('<args>')
+set showtabline=1 " only show tab bar if tabs exist

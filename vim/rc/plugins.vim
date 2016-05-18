@@ -15,7 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -115,8 +115,33 @@ map <leader>gg :Git
 
 " statusline
 let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
+let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_powerline_fonts = 1
- let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#windowswap#enabled = 0
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_detect_spell = 0
+let g:airline_detect_iminsert = 0
+let g:airline_mode_map = {
+  \ '__': '_',
+  \ 'n' : 'N',
+  \ 'i' : 'I',
+  \ 'R' : 'R',
+  \ 'c' : 'C',
+  \ 'v' : 'V',
+  \ 'V' : 'V',
+  \ '^V': 'V',
+  \ 's' : 'S',
+  \ 'S' : 'S',
+  \ '^S': 'S',
+  \ }
+
+" c section - file readonly
+let g:airline_section_c = airline#section#create(['%f', ' ', 'readonly'])
+" z section - line:column
+let g:airline_section_z = airline#section#create(['%#__accent_bold#', '%l', ':', '%#__restore__#', '%v'])
 
 " The Silver Searcher
 if executable('ag')
