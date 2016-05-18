@@ -10,13 +10,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Valloric/YouCompleteMe'
-Plug 'benekastah/neomake'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -36,8 +35,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'wakatime/vim-wakatime'
 Plug 'freitass/todo.txt-vim'
 Plug 'wellle/targets.vim'
-Plug 'scrooloose/syntastic'
-Plug 'amperser/proselint', { 'rtp': 'plugins/vim/syntastic_proselint' }
+Plug 'neomake/neomake'
+Plug 'amperser/proselint'
 Plug '~/.vim/plugged/custom'
 
 " Ruby
@@ -115,7 +114,7 @@ map <leader>gw :Gbrowse<CR>
 map <leader>gg :Git 
 
 " statusline
-let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn', 'syntastic']
+let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
 let g:airline_powerline_fonts = 1
  let g:airline#extensions#tabline#show_buffers = 0
 
@@ -124,11 +123,6 @@ if executable('ag')
   " use Ag over Grep
   set grepprg="ag --nogroup --nocolor"
 endif
-
-" neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_css_enabled_makers = ['scss_lint']
-let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " vim-autoclose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
@@ -146,6 +140,7 @@ let g:ycm_key_detailed_diagnostics = ''
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_override_sign_column_highlight = 0
 
 " greplace.vim
 let g:grep_cmd_opts = '--line-numbers --noheading'
@@ -166,23 +161,15 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 nmap <C-p> :Files<CR>
 nmap <C-f> :Ag<CR>
 
-" Syntastic
+" neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_css_enabled_makers = ['scss_lint']
+let g:neomake_ruby_enabled_makers = ['rubocop']
+let g:neomake_warning_sign = {'text': '▶'}
+let g:neomake_error_sign = {'text': '▶'}
 
-let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-      \  'mode': 'passive',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': []
-      \ }
-let g:syntastic_markdown_checkers = ['mdl', 'proselint']
-let g:syntastic_gitcommit_checkers = ['mdl', 'proselint']
-let g:syntastic_text_checkers = ['proselint']
-let g:syntastic_html_checkers = ['tidy', 'proselint']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-map <Leader>y :SyntasticCheck<CR>
+autocmd! BufWritePost * Neomake
+map <Leader>y :Neomake!<CR>
 
 " vim-projectionist
 map <leader>aa :A<CR>
@@ -206,5 +193,3 @@ map <Leader>fw <Plug>(easymotion-bd-w)
 " " Move up/down
 map <Leader>fj <Plug>(easymotion-j)
 map <Leader>fk <Plug>(easymotion-k)
-
-" vim-markdonw

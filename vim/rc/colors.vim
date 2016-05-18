@@ -11,7 +11,12 @@ colorscheme base16-default
 " SignColumn
 " same color as line column
 highlight clear SignColumn
+highlight clear LineNr
+highlight clear CursorLineNr
+highlight LineNr ctermfg=darkgrey
+highlight CursorLineNr ctermfg=darkgrey
 highlight Search ctermbg=blue ctermfg=black
+" hi SignColumn guibg=darkgrey
 
 function! TweakBase16()
   " Override the diff-mode highlights of base16.

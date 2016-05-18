@@ -4,23 +4,23 @@ current=$(git branchname)
 destiny=${1:-master}
 
 echo "fetching"
-git fetch
+git fetch > /dev/null
 
 echo "rebasing ${destiny}"
-git checkout $destiny
+git checkout $destiny > /dev/null
 # check if branch changed successfully (no staged changes or such things)
 [[ $? == 0 ]] || exit "failed to switch to $destiny"
-git rebase
+git rebase > /dev/null
 
 echo "rebasing ${current} with ${destiny}"
-git checkout $current
-git pr-description $current | xclip -selection c || true
+git checkout $current > /dev/null
+(git pr-description $current | xclip -selection c || true) &
 git rebase -i $destiny
-git push -f
+git push -f > /dev/null
 
 echo "merging"
-git checkout $destiny
-git merge --ff-only $current
-git push
-[[ $(git diff $current..$destiny) == "" ]] && git nuke $current $destiny
+git checkout $destiny > /dev/null
+git merge --ff-only $current > /dev/null
+git push > /dev/null
+[[ $(git diff $current..$destiny) == "" ]] && git nuke $current $destiny > /dev/null
 
