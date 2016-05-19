@@ -4,8 +4,6 @@ xsetroot -cursor_name left_ptr
 # feh --bg-scale /home/naps62/data/wallpaper.jpg
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# set PT keyboard layout
-setxkbmap -layout pt
 setxkbmap -option caps:escape
 xmodmap ~/.Xmodmap
 

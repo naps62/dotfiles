@@ -19,3 +19,6 @@ vim/plugged
 vim/undo
 
 nvim/.netrwhist
+
+xmonad/*
+!xmonad/xmonad.hs
