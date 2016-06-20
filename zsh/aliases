@@ -13,6 +13,7 @@ alias a=ag
 alias b=bundle
 alias be='bundle exec'
 alias bc='bundle console'
+alias dc='docker-compose'
 alias d=docker
 # alias g=git
 alias o=open

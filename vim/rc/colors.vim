@@ -16,6 +16,7 @@ highlight clear CursorLineNr
 highlight LineNr ctermfg=darkgrey
 highlight CursorLineNr ctermfg=darkgrey
 highlight Search ctermbg=blue ctermfg=black
+highlight MatchParen ctermbg=blue ctermfg=black
 " hi SignColumn guibg=darkgrey
 
 function! TweakBase16()

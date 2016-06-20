@@ -77,6 +77,7 @@ Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
+Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim/' }
 
 call plug#end()
 filetype plugin indent on

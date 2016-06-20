@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'chronic'
+
+current = `git rev-parse --abbrev-ref HEAD`.strip
+date = Chronic.parse(ARGV.join(' '))
+
+destination = `git rev-list -n1 #{current} --before="#{date}"`
+
+`git checkout #{destination}`
