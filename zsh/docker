@@ -1,0 +1,54 @@
+#!/bin/sh
+
+_supports_docker () {
+  if [[ -f "./docker-compose.yml" ]] && [[ $USE_DOCKER ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+_bin_exists () {
+  if [[ -f "./bin/$1" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+_docker_or_command () {
+  command_name=$1
+  container=${2:-web}
+  if _bin_exists $command_name && _supports_docker; then
+    echo "docker-compose run $container $command_name"
+  else
+    echo "command $command_name"
+  fi
+}
+
+# rspec () {
+#   $(_docker_or_command "rspec") $@
+#   # if _bin_exists ${FUNCNAME[0]} && _supports_docker; then
+#   #   docker-compose run web rspec $@
+#   # else
+#   #   command ${FUNCNAME[0]} $@
+#   # fi
+# }
+
+rails () {
+  $(_docker_or_command "rails") $@
+  # if _bin_exists ${FUNCNAME[0]} && _supports_docker; then
+  #   docker-compose run web rails $@
+  # else
+  #   command ${FUNCNAME[0]} $@
+  # fi
+}
+
+rake () {
+  $(_docker_or_command "rake") $@
+  # if _bin_exists ${FUNCNAME[0]} && _supports_docker; then
+  #   docker-compose run web ${FUNCNAME[0]} $@
+  # else
+  #   command ${FUNCNAME[0]} $@
+  # fi
+}

@@ -1,5 +1,5 @@
 " leader maps
-nnoremap <leader>t :15split /home/naps62/Dropbox/todo.txt<CR>
+nnoremap <leader>t :15split /home/naps62/todo/todo.txt<CR>
 
 " key maps
 nnoremap ; :

@@ -33,7 +33,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-textobj-user'
 Plug 'wakatime/vim-wakatime'
-Plug 'freitass/todo.txt-vim'
 Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
 Plug 'amperser/proselint'
@@ -78,6 +77,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim/' }
+Plug 'freitass/todo.txt-vim', { 'for': 'todo' }
 
 call plug#end()
 filetype plugin indent on

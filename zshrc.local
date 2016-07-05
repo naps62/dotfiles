@@ -10,13 +10,14 @@ source $zshrc_home/.zsh/cmds
 
 # interactive-only stuff
 [[ $- == *i* ]] || return
+source $zshrc_home/.zsh/docker
 source $zshrc_home/.zsh/theme
 source $zshrc_home/.zsh/completions
 source $zshrc_home/.zsh/aliases
 source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore *.png --ignore *.jpg -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
 ~/.bin.local/ensure-tmux-is-running

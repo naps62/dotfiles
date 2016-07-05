@@ -16,7 +16,6 @@ env_dir PATH $HOME/.xmonad/bin
 env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
-env_dir PATH $HOME/subvisual/firestarter/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
@@ -48,4 +47,4 @@ cdpath=($HOME/subvisual $HOME/consulting $HOME/downloads)
 
 export downloads=/home/naps62/downloads
 
-export USE_DOCKER=1
+eval "$(direnv hook zsh)"
