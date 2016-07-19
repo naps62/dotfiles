@@ -17,7 +17,7 @@ source $zshrc_home/.zsh/aliases
 source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore *.png --ignore *.jpg -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore "*.png" --ignore "*.jpg" -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
 ~/.bin.local/ensure-tmux-is-running

@@ -1,4 +1,3 @@
 #!/bin/sh
 
 [ ! -d .git/hooks ] || .git/hooks/ctags &
-[ ! -d .git/hooks ] || .git/hooks/metric_fu &

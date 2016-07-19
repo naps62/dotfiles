@@ -38,6 +38,7 @@
   editor = vim
   excludesfile = /home/naps62/.gitignore
   pager = diff-so-fancy | less --tabs=4 -RFX
+  hooksPath = /home/naps62/.git_template/hooks/
 [color]
   ui = true
 [push]

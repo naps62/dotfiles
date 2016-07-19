@@ -19,8 +19,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
 Plug 'SirVer/ultisnips'
+Plug 'blueyed/vim-diminactive'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -29,7 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
-Plug 'jiangmiao/auto-pairs'
+Plug 'eapache/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-textobj-user'
 Plug 'wakatime/vim-wakatime'
@@ -219,3 +220,6 @@ map <Leader>fw <Plug>(easymotion-bd-w)
 " " Move up/down
 map <Leader>fj <Plug>(easymotion-j)
 map <Leader>fk <Plug>(easymotion-k)
+
+" auto-pairs
+let g:AutoPairsOnlyWhitespace = 1

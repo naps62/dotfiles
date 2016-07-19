@@ -1,11 +1,12 @@
-function OpenTODO()
-  if @% == "" && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    " no filename for current buffer
-    " and only 1 buffer open
-    execute "edit /home/naps62/todo/todo.txt"
-    execute "set syntax=todo"
+function! ConditionalPairMap(open, close)
+  let line = getline('.')
+  let col = col('.')
+  if col < col('$') || stridx(line, a:close, col + 1) != -1
+    return a:open
+  else
+    return a:open . a:close . repeat("\<left>", len(a:close))
   endif
-endfunction
-nmap <localleader>1 iasd<Esc>
-
-au VimEnter * nested call OpenTODO()
+endf
+inoremap <expr> ( ConditionalPairMap('(', ')')
+inoremap <expr> { ConditionalPairMap('{', '}')
+inoremap <expr> [ ConditionalPairMap('[', ']')

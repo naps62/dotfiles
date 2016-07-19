@@ -25,6 +25,10 @@ alias x=extract
 alias y=yaourt
 alias s=bin/server
 
+alias prod=production
+alias stag=staging
+alias dev=development
+
 function rk() { rake "$@" }
 function g() { git "$@" }
 
