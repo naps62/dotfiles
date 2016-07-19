@@ -42,7 +42,7 @@ Plug '~/.vim/plugged/custom'
 " Ruby
 Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
-Plug 'tpope/vim-endwise',    { 'for': 'ruby' }
+Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
