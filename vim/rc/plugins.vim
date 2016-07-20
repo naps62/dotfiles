@@ -79,6 +79,7 @@ Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim/' }
 Plug 'freitass/todo.txt-vim', { 'for': 'todo' }
+Plug 'amadeus/vim-mjml', { 'for': 'mjml' }
 
 call plug#end()
 filetype plugin indent on
