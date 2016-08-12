@@ -96,6 +96,7 @@ let g:NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapOpenSplit="s"
+let g:NERDTreeWinPos = "right"
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Bookmark shortcut

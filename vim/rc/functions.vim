@@ -10,3 +10,8 @@ endf
 inoremap <expr> ( ConditionalPairMap('(', ')')
 inoremap <expr> { ConditionalPairMap('{', '}')
 inoremap <expr> [ ConditionalPairMap('[', ']')
+
+function! RemoveUnwantedWhitespace()
+  :%s/\v(\S\s\zs\s+\ze\S)//
+endf
+au BufWritePre *.rb call RemoveUnwantedWhitespace()

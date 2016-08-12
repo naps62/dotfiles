@@ -29,6 +29,7 @@
   wdiff = diff --word-diff
   who = shortlog -sn
   wip = commit -m 'WIP [ci skip]'
+  rev = commit -m 'code review'
   la = !git config -l | grep alias | cut -c 7-
   pulls = browse -- pulls
   issues = browse -- issues

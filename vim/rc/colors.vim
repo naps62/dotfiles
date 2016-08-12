@@ -19,6 +19,11 @@ highlight LineNr ctermfg=darkgrey
 highlight Search ctermbg=blue ctermfg=black
 highlight MatchParen ctermbg=blue ctermfg=black
 
+highlight ExtraWhitespace ctermbg=red
+" Show trailing whitespace:
+" match ExtraWhitespace /\v(\s+$)|([^\t]\zs\t\+)|((?<=\s)\s+)/
+match ExtraWhitespace /\v(\S\s\zs\s+\ze\S)/
+
 function! TweakBase16()
   " Override the diff-mode highlights of base16.
   highlight DiffAdd    term=bold ctermfg=0 ctermbg=2 guifg=#2b2b2b guibg=#a5c261
