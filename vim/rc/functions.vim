@@ -12,6 +12,8 @@ inoremap <expr> { ConditionalPairMap('{', '}')
 inoremap <expr> [ ConditionalPairMap('[', ']')
 
 function! RemoveUnwantedWhitespace()
+  execute "normal mq"
   :%s/\v(\S\s\zs\s+\ze\S)//
+  execute "normal `q"
 endf
 au BufWritePre *.rb call RemoveUnwantedWhitespace()
