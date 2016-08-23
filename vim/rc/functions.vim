@@ -11,9 +11,25 @@ inoremap <expr> ( ConditionalPairMap('(', ')')
 inoremap <expr> { ConditionalPairMap('{', '}')
 inoremap <expr> [ ConditionalPairMap('[', ']')
 
-function! RemoveUnwantedWhitespace()
-  execute "normal mq"
-  :%s/\v(\S\s\zs\s+\ze\S)//
-  execute "normal `q"
-endf
-au BufWritePre *.rb call RemoveUnwantedWhitespace()
+" function! RemoveUnwantedWhitespace()
+"   execute "normal mq"
+
+"   let s:regex = '(\S\s\zs\s+\ze\S)'
+"   execute 'g/\v' . s:regex . '/s'
+
+"   execute "normal `q"
+" endf
+
+au BufWritePre *.rb call CleanupUnwantedWhitespace()
+
+function! DoProjectWide(files, cmd)
+  echo "Performing " . a:cmd . " on all files matching " . a:files
+
+  execute "args " . a:files
+  execute "silent! argdo silent! " . a:cmd . " | write"
+
+  echo "Done!"
+endfunction
+
+command! -nargs=* ProjectWide call DoProjectWide(<f-args>)
+nmap w: :ProjectWide 

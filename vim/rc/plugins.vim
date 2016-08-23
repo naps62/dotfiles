@@ -23,6 +23,8 @@ Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
 Plug 'SirVer/ultisnips'
 Plug 'blueyed/vim-diminactive'
 
+Plug '~/projects/vim-cleanup'
+
 " Editor features
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'

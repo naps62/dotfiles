@@ -8,6 +8,7 @@ set autowrite     " automatically :write before running commands
 set cursorline    " highlight current line
 set showmode
 set showcmd
+set hidden
 "set wildmenu
 set wildmode=list:longest
 set ttyfast
