@@ -32,4 +32,3 @@ function! DoProjectWide(files, cmd)
 endfunction
 
 command! -nargs=* ProjectWide call DoProjectWide(<f-args>)
-nmap w: :ProjectWide 

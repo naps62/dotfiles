@@ -50,6 +50,11 @@ map <leader>sr :call RunAllSpecs()<CR>
 map <leader>ss :call RunNearestSpec()<CR>
 map <leader>sf :call RunCurrentSpecFile()<CR>
 map <leader>sl :call RunLastSpec()<CR>
+" let g:neoterm_position = 'vertical'
+" map <leader>sr :call neoterm#test#run('all')<CR>
+" map <leader>ss :call neoterm#test#run('current')<CR>
+" map <leader>sf :call neoterm#test#run('file')<CR>
+" map <leader>sl :call neoterm#test#rerun()<CR>
 
 " zoom / unzoom a vim pane
 nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>

@@ -42,6 +42,9 @@ fi
 
 stty -ixon
 
+# vim mode
+bindkey -v
+
 setopt auto_cd
 cdpath=($HOME/subvisual $HOME/consulting $HOME/downloads)
 

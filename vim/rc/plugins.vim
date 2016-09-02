@@ -46,7 +46,7 @@ Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
-Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'thoughtbot/vim-rspec', { 'for': ['ruby'] }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " JS
@@ -74,7 +74,7 @@ Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'tpope/vim-cucumber', { 'for': ['cucumber', 'feature'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'nicholaides/words-to-avoid.vim'
@@ -196,6 +196,7 @@ nmap <C-f> :Ag<CR>
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
+let g:neomake_elixir_enabled_makers = ['credo']
 let g:neomake_warning_sign = {'text': '▶'}
 let g:neomake_error_sign = {'text': '▶'}
 
