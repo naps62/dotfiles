@@ -9,6 +9,8 @@ config/*
 !config/terminator
 !config/spec
 !config/htop
+!config/nvim
+!config/git
 
 xboomx/xboomx.db
 

@@ -30,6 +30,7 @@ path () {
   ((git rev-parse 2>/dev/null >/dev/null) && git_path) || not_git_path
 }
 
+
 PROMPT=$'\n'
 PROMPT=${PROMPT}'${blue}`path`'
 PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'

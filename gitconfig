@@ -37,9 +37,9 @@
   update = !git fetch && git rebase
 [core]
   editor = vim
-  excludesfile = /home/naps62/.gitignore
+  excludesfile = /home/naps62/.config/git/gitignore_global
   pager = diff-so-fancy | less --tabs=4 -RFX
-  hooksPath = /home/naps62/.git_template/hooks/
+  hooksPath = /home/naps62/.config/git/hooks/
 [color]
   ui = true
 [push]
@@ -51,7 +51,7 @@
 [interactive]
   singlekey = true
 [commit]
-  template = ~/.gitmessage
+  template = ~/.config/git/commit_template.gitmessage
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3

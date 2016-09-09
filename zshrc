@@ -1,25 +1,18 @@
 #!/usr/bin/env zsh
 
 zshrc_home=/home/naps62
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+~/.bin/ensure-tmux-is-running
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 source $zshrc_home/.zsh/defaults
 source $zshrc_home/.nvm/nvm.sh
 source $zshrc_home/.zsh/env
 source $zshrc_home/.zsh/cmds
-
-# interactive-only stuff
-[[ $- == *i* ]] || return
-[[ -f $zshrc_home/.zsh/docker ]] && source $zshrc_home/.zsh/docker
 source $zshrc_home/.zsh/theme
 source $zshrc_home/.zsh/completions
 source $zshrc_home/.zsh/aliases
 source $zshrc_home/.zsh/history
 source $zshrc_home/.zsh/prompt
-
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore "*.png" --ignore "*.jpg" -g ""'
-# source ~/projects/stalker-zsh/stalker.zsh
-
-~/.bin/ensure-tmux-is-running
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

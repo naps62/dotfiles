@@ -17,24 +17,12 @@ Host obi-wan
   Hostname obi-wan.servers.groupbuddies.com
   User deploy
 
-Host han-solo
-  Hostname han-solo.servers.groupbuddies.com
-  User deploy
-
 Host death-star
   Hostname death-star.servers.groupbuddies.com
   User deploy
 
-Host anakin
-  Hostname anakin.servers.groupbuddies.com
-  User deploy
-
 Host batman
   Hostname batman.servers.subvisual.co
-  User deploy
-
-Host test.easy.money
-  Hostname 188.226.195.26
   User deploy
 
 Host easy.money
@@ -42,26 +30,9 @@ Host easy.money
   User groupbuddies
   IdentityFile ~/.ssh/easy-money
 
-Host dxrx
-  Hostname 104.236.216.201
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.subvisual
-
-Host 104.236.216.201
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.gb
-
 #
 # Subvisual apps
 #
-Host blog
-  Hostname blog.groupbuddies.com
-  User deploy
-
-Host site
-  Hostname site.groupbuddies.com
-  User deploy
-
 Host zee
   Hostname 37.139.7.70
   User deploy
@@ -69,11 +40,3 @@ Host zee
 Host pi
   Hostname naps62.ddns.net
   User pi
-
-Host gleamers
-  Hostname 128.199.93.37
-  User root
-
-Host gleamers-staging
-  Hostname 128.199.154.153
-  User root

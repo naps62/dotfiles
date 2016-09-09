@@ -1,5 +1,0 @@
-directory = /home/naps62/data/rtorrent/
-session = /home/naps62/.rtorrent_session/
-
-schedule = watch_directory,10,10,load_start=/home/naps62/data/torrents/*.torrent
-schedule = untied_directory,10,10,stop_untied=

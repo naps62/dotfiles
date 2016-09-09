@@ -5,5 +5,5 @@ _not_inside_tmux() {
 }
 
 if _not_inside_tmux; then
-  tat
+  ~/.bin/tat
 fi
