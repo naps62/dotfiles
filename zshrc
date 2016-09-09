@@ -20,4 +20,6 @@ source $zshrc_home/.zsh/prompt
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore "*.png" --ignore "*.jpg" -g ""'
 # source ~/projects/stalker-zsh/stalker.zsh
 
-~/.bin.local/ensure-tmux-is-running
+~/.bin/ensure-tmux-is-running
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

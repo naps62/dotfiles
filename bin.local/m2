@@ -1,3 +1,0 @@
-#!/bin/sh
-
-xrandr --output eDP1 --mode 1366x768 --output VGA1 --mode 1920x1080 --right-of eDP1

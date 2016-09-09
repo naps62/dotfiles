@@ -1,1 +1,1 @@
-/home/naps62/projects/dotfiles-local/nvimrc
+/home/naps62/projects/dotfiles/nvimrc

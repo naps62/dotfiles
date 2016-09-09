@@ -2,6 +2,12 @@
 .DS_Store
 *~
 .ctrlp
+.bundle
+.env
+db/*.sqlite3
+tags
+tmp/**/*
+!tmp/cache/.keep
 
 # Sublime Text
 *.sublime-workspace

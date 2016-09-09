@@ -9,7 +9,6 @@ env_dir() {
 
 # path
 env_dir PATH $HOME/.bin
-env_dir PATH $HOME/.bin.local
 env_dir PATH $HOME/.cabal/bin
 env_dir PATH $HOME/.local/bin
 env_dir PATH $HOME/.xmonad/bin
@@ -41,9 +40,6 @@ if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]
 fi
 
 stty -ixon
-
-# vim mode
-bindkey -v
 
 setopt auto_cd
 cdpath=($HOME/subvisual $HOME/consulting $HOME/downloads)
