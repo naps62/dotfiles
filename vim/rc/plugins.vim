@@ -14,7 +14,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
+Plug 'kassio/neoterm'
+Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
@@ -46,7 +47,6 @@ Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
-Plug 'thoughtbot/vim-rspec', { 'for': ['ruby'] }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " JS
@@ -107,8 +107,17 @@ map <silent> <c-b> :Bookmark<CR>
 " TODO this is being overriden by status line
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
-" vim-rspec
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+" neoterm
+let g:neoterm_position='vertical'
+let g:neoterm_size='60%'
+
+" vim-test
+let test#strategy = "neoterm"
+
+map <leader>sr :TestSuite<CR>
+map <leader>ss :TestNearest<CR>
+map <leader>sf :TestFile<CR>
+map <leader>sl :TestLast<CR>
 
 " fugitive.vim (git wrapper)
 set diffopt+=vertical
@@ -150,9 +159,9 @@ let g:airline_section_c = airline#section#create(['%f', ' ', 'readonly'])
 let g:airline_section_z = airline#section#create(['%#__accent_bold#', '%l', ':', '%#__restore__#', '%v'])
 
 " The Silver Searcher
-if executable('ag')
+if executable('rg')
   " use Ag over Grep
-  set grepprg="ag --nogroup --nocolor"
+  set grepprg="rg --color never --no-heading"
 endif
 
 " vim-autoclose
@@ -178,14 +187,6 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " auto-pairs
 let g:AutoPairsMultilineClose = 0
-
-" Vim Tmux Runner
-" unmap <leader>vo
-" unmap <leader>vs
-nnoremap <leader>co :VtrOpenRunner {'orientation': 'h', 'percentage': 30}<CR>
-nnoremap <leader>cs :VtrSendLinesToRunner<CR>
-vnoremap <leader>cs :VtrSendLinesToRunner<CR>
-nnoremap <leader>cc :VtrSendCommandToRunner q<CR>:VtrClearRunner<CR>:VtrSendCommandToRunner 
 
 " fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'

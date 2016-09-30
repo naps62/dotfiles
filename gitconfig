@@ -46,8 +46,6 @@
   default = upstream
 [web]
   browser = google-chrome
-[init]
-  templatedir = ~/.git_template
 [interactive]
   singlekey = true
 [commit]
