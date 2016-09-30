@@ -20,15 +20,15 @@ inoremap <expr> [ ConditionalPairMap('[', ']')
 "   execute "normal `q"
 " endf
 
-au BufWritePre *.rb call CleanupUnwantedWhitespace()
+" au BufWritePre *.rb call CleanupUnwantedWhitespace()
 
-function! DoProjectWide(files, cmd)
-  echo "Performing " . a:cmd . " on all files matching " . a:files
+" function! DoProjectWide(files, cmd)
+"   echo "Performing " . a:cmd . " on all files matching " . a:files
 
-  execute "args " . a:files
-  execute "silent! argdo silent! " . a:cmd . " | write"
+"   execute "args " . a:files
+"   execute "silent! argdo silent! " . a:cmd . " | write"
 
-  echo "Done!"
-endfunction
+"   echo "Done!"
+" endfunction
 
-command! -nargs=* ProjectWide call DoProjectWide(<f-args>)
+" command! -nargs=* ProjectWide call DoProjectWide(<f-args>)
