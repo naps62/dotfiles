@@ -109,7 +109,7 @@ let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
 " neoterm
 let g:neoterm_position='vertical'
-let g:neoterm_size='60%'
+let g:neoterm_size='60'
 
 " vim-test
 let test#strategy = "neoterm"
