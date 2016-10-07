@@ -36,7 +36,7 @@ function f () { "$@" | fzf }
 
 # alias t=todo.sh
 
-alias c=crystal
+alias c=clear
 alias cg=cargo
 
 alias tn='tmux new -s'

@@ -43,3 +43,4 @@ setopt auto_cd
 cdpath=($HOME/subvisual $HOME/consulting $HOME/downloads)
 
 export downloads=/home/naps62/downloads
+export THEME=light

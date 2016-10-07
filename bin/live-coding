@@ -1,0 +1,16 @@
+#!/bin/sh
+
+resolution=$(xrandr | grep '*' | head -n1 | tr -s ' ' | cut -d ' ' -f2)
+width=$(echo $resolution | cut -d 'x' -f1)
+height=$(echo $resolution | cut -d 'x' -f2)
+
+geometry=${width}x65+0+$(($height - 65))
+
+screenkey \
+  -g $geometry \
+  -p fixed \
+  -m \
+  -t 1 \
+  --no-detach \
+  --no-systray \
+  --persist

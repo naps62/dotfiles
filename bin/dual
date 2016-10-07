@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
 def setup(option)
-  `xrandr --output HDMI2 #{option} eDP1`
+  `xrandr --output HDMI2 --mode 1920x1080i #{option} eDP1`
 end
 
 case ARGV[0]
-when 'clone' then setup('--same-as')
+when 'clone', 'mirror' then setup('--same-as')
 when 'left' then setup('--left-of')
 when 'right' then setup('--right-of')
 else puts "Invalid options #{ARGV}"

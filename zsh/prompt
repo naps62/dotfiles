@@ -6,6 +6,7 @@ ZSH_THEME_GIT_PROMPT_NOCACHE=1
 blue="%{%B%F{blue}%}"
 green="%{%B%F{green}%}"
 red="%{%B%F{red}%}"
+reset="%{$reset_color%}"
 
 prompt_char () {
   echo -n "%(?.${green}.${red})"
@@ -19,7 +20,7 @@ git_path () {
 
   path_in_repo=${PWD#$repo_path}
   path_in_repo=${path_in_repo#/}
-  echo "$green$repo_name"' '$blue$path_in_repo
+  echo "$reset$repo_name"' '$blue$path_in_repo
 }
 
 not_git_path () {
@@ -31,7 +32,9 @@ path () {
 }
 
 
-PROMPT=$'\n'
-PROMPT=${PROMPT}'${blue}`path`'
-PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'
-PROMPT=${PROMPT}'${green}`prompt_char`%{$reset_color%} '
+# PROMPT=$'\n'
+# PROMPT=${PROMPT}'${blue}`path`'
+# PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'
+# PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
+
+PROMPT='${blue}Mastering Your Tools'$'\n''${reset}\$${reset} '

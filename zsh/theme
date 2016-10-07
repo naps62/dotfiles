@@ -1,6 +1,11 @@
 #!/usr/bin/env zsh
 
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
+if [[ $THEME == "dark" ]]; then
+  BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
+else
+  BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-light.sh"
+fi
+
 if [[ -s $BASE16_SHELL ]]; then
   source $BASE16_SHELL
 else

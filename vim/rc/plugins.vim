@@ -11,6 +11,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Valloric/YouCompleteMe'
 Plug 'chriskempson/base16-vim'
+Plug 'johathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
@@ -160,7 +161,7 @@ let g:airline_section_z = airline#section#create(['%#__accent_bold#', '%l', ':',
 
 " The Silver Searcher
 if executable('rg')
-  " use Ag over Grep
+  " use Ripgrep over Grep
   set grepprg="rg --color never --no-heading"
 endif
 

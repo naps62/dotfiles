@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+source $HOME/.zsh/rvm
 source $HOME/.zsh/defaults
 source $HOME/.nvm/nvm.sh
 source $HOME/.zsh/env
