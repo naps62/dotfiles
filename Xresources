@@ -9,7 +9,7 @@ Xft.hintstyle:         hintnone
 ! UXTerm settings
 UXTerm*faceName:     Source Code Pro
 XTerm*utf8:          2
-UXTerm*faceSize:     26
+UXTerm*faceSize:     14
 UXTerm*utf8:         1
 UXTerm*boldMode:     false
 UXTerm*scrollBar:    false
@@ -77,10 +77,12 @@ alsamixer*scrollBar:   false
 ! red
 *.color1:       #db2d20
 *.color9:       #db2d20
+*.color2:       #db2d20
+*.color10:       #db2d20
 
 ! green
-*.color2:       #01a252
-*.color10:      #01a252
+/* *.color2:       #01a252 */
+/* *.color10:      #01a252 */
 
 ! yellow
 *.color3:       #fded02

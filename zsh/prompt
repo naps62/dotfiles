@@ -31,10 +31,11 @@ path () {
   ((git rev-parse 2>/dev/null >/dev/null) && git_path) || not_git_path
 }
 
-
-# PROMPT=$'\n'
-# PROMPT=${PROMPT}'${blue}`path`'
-# PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'
-# PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
-
-PROMPT='${blue}Mastering Your Tools'$'\n''${reset}\$${reset} '
+if [ $LIVE_CODING == "0" ]; then
+  PROMPT=$'\n'
+  PROMPT=${PROMPT}'${blue}`path`'
+  PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'
+  PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
+else
+  PROMPT='${blue}Mastering Your Tools'$'\n''${reset}\$${reset} '
+fi

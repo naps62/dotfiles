@@ -1,16 +1,24 @@
 #!/bin/sh
 
+# grab screen width and height
 resolution=$(xrandr | grep '*' | head -n1 | tr -s ' ' | cut -d ' ' -f2)
-width=$(echo $resolution | cut -d 'x' -f1)
-height=$(echo $resolution | cut -d 'x' -f2)
+resolution_width=$(echo $resolution | cut -d 'x' -f1)
+resolution_height=$(echo $resolution | cut -d 'x' -f2)
 
-geometry=${width}x65+0+$(($height - 65))
+# overlay will have full width, 80px height
+width=$resolution_width
+height=80
 
+# complete overlay geometry, pushing it to the bottom
+geometry=${resolution_width}x${height}+0+$(($resolution_height - $height))
+
+echo "running screenkey overlay..."
 screenkey \
   -g $geometry \
   -p fixed \
-  -m \
+  --mods-only \
   -t 1 \
+  --font "Source Code Pro Bold" \
   --no-detach \
-  --no-systray \
-  --persist
+  --no-systray
+echo "screenkey ended"
