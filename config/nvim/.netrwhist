@@ -1,0 +1,3 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/naps62/.rvm/gems/ruby-2.3.1/gems/timetrap-1.12.0/lib/timetrap/formatters'

@@ -20,7 +20,7 @@ git_path () {
 
   path_in_repo=${PWD#$repo_path}
   path_in_repo=${path_in_repo#/}
-  echo "$reset$repo_name"' '$blue$path_in_repo
+  echo "$green$repo_name"' '$blue$path_in_repo
 }
 
 not_git_path () {
