@@ -11,11 +11,13 @@ eval "$(hub alias -s)"
 # one-char aliases
 alias a=ag
 alias b=bundle
+alias m=mix
 alias be='bundle exec'
 alias bc='bundle console'
 alias dc='docker-compose'
 alias d=docker
 alias g=hub
+alias h=heroku
 alias o=open
 alias r=rails
 # alias rk=rake

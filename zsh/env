@@ -12,6 +12,7 @@ env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.cabal/bin
 env_dir PATH $HOME/.local/bin
 env_dir PATH $HOME/.xmonad/bin
+env_dir PATH $HOME/.linuxbrew/bin
 env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin

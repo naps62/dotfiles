@@ -1,3 +1,3 @@
 #!/bin/sh
 
-[ ! -d .git/hooks ] || .git/hooks/ctags &
+$(dirname "$0")/ctags &

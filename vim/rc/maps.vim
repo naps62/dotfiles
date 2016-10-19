@@ -2,8 +2,6 @@
 nnoremap <leader>t :15split /home/naps62/todo/todo.txt<CR>
 
 " key maps
-nnoremap ; :
-nnoremap , .
 nnoremap <silent> <leader>ev :tabe $HOME/.vimrc<CR> " edit vimrc
 nnoremap <silent> <leader>sv :so $HOME/.vimrc<CR> " reload vimrc
 
