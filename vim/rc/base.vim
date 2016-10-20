@@ -39,7 +39,10 @@ set smartindent " auto add 1 indentation level in some cases
 set wrap
 set linebreak
 
+set foldmethod=syntax
+setlocal foldlevel=20
 setlocal foldlevelstart=3
+autocmd Syntax ruby,slim normal zR
 
 " relative numbering (with absolute current line) in normal mode
 " absolute numbering in insert mode

@@ -11,6 +11,7 @@ config/*
 !config/htop
 !config/nvim
 !config/git
+config/nvim/.netrwhist
 
 xboomx/xboomx.db
 
