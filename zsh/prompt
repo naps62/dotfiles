@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+setopt prompt_subst
+
 ZSH_THEME_GIT_PROMPT_PREFIX="${fg[blue]}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_NOCACHE=1
 

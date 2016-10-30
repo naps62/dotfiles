@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 source $HOME/.zsh/rvm
-source $HOME/.zsh/defaults
 source $HOME/.nvm/nvm.sh
 source $HOME/.zsh/env
 

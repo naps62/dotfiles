@@ -15,7 +15,7 @@ Plug 'johathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'kassio/neoterm'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
@@ -112,8 +112,12 @@ let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let g:neoterm_position='vertical'
 let g:neoterm_size='60'
 
+" vim-tmux-runner
+let g:VtrOrientation = "h"
+let g:VtrPercentage = 30
+
 " vim-test
-let test#strategy = "neoterm"
+let test#strategy = "vtr"
 
 map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>

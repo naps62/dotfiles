@@ -33,6 +33,8 @@
   la = !git config -l | grep alias | cut -c 7-
   pulls = browse -- pulls
   issues = browse -- issues
+  projects = browse -- projects
+  proj = browse -- projects
   web = browse
   update = !git fetch && git rebase
 [core]
