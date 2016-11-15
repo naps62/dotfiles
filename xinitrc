@@ -4,7 +4,7 @@ xsetroot -cursor_name left_ptr
 # feh --bg-scale /home/naps62/data/wallpaper.jpg
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-setxkbmap -option caps:escape
+# setxkbmap -option caps:none
 xmodmap ~/.Xmodmap
 
 # start session
