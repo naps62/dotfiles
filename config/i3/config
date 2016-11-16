@@ -160,7 +160,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # printscreens (via scrot)
-bindsym --release $mod+Insert exec scrot -s -e 'mv $f ~/screenshots/'
+bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/screenshots/'
 
 # network manager applet
 exec --no-startup-ip nm-applet

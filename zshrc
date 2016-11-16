@@ -3,6 +3,7 @@
 source $HOME/.zsh/rvm
 source $HOME/.nvm/nvm.sh
 source $HOME/.zsh/env
+source $HOME/.zsh/bindings
 source $HOME/.zsh/cmds
 source $HOME/.zsh/theme
 
