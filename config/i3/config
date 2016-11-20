@@ -162,11 +162,25 @@ bindsym XF86AudioPrev exec playerctl previous
 # printscreens (via scrot)
 bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/screenshots/'
 
-# network manager applet
-exec --no-startup-ip nm-applet
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
 }
+
+#
+# startup apps
+#
+
+# network manager applet
+exec --no-startup-ip nm-applet
+
+assign [class="UXTerm"] 1
+assign [class="Google-chrome"] 2
+assign [class="Slack"] 3
+assign [class="Spotify"] 4
+
+exec --no-startup-id i3-msg 'exec uxterm'
+exec --no-startup-id i3-msg 'exec google-chrome-stable'
+exec --no-startup-id i3-msg 'exec slack'
+exec --no-startup-id i3-msg 'exec spotify'
