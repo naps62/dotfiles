@@ -9,21 +9,20 @@ call plug#begin('~/.vim/plugged')
 " UI Features
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'Valloric/YouCompleteMe'
 Plug 'chriskempson/base16-vim'
 Plug 'johathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'SirVer/ultisnips'
-Plug 'blueyed/vim-diminactive'
+Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'on': [] }
+Plug 'janko-m/vim-test'
 
 " Plug '~/projects/vim-cleanup'
 
@@ -68,6 +67,8 @@ Plug 'suan/vim-instant-markdown'
 
 " Other syntaxes
 Plug 'tpope/vim-git'
+Plug 'nicholaides/words-to-avoid.vim'
+Plug 'vim-scripts/SyntaxRange'
 Plug 'vim-less', { 'for': 'less' }
 Plug 'dag/vim2hs', { 'for': 'haskell' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
@@ -78,8 +79,6 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'nicholaides/words-to-avoid.vim'
-Plug 'vim-scripts/SyntaxRange'
 Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim/' }
 Plug 'freitass/todo.txt-vim', { 'for': 'todo' }
 Plug 'amadeus/vim-mjml', { 'for': 'mjml' }
@@ -235,3 +234,9 @@ map <Leader>fk <Plug>(easymotion-k)
 
 " auto-pairs
 let g:AutoPairsOnlyWhitespace = 1
+
+augroup load_us_ycm
+  autocmd!
+  autocmd CursorHold,CursorHoldI * call plug#load('ultisnips', 'YouCompleteMe', 'vim-test')
+                      \| autocmd! load_us_ycm
+augroup END

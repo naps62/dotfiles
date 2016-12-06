@@ -105,5 +105,7 @@ autocmd BufReadPost *
 
 set ttimeoutlen=50
 
+set updatetime=2000
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
