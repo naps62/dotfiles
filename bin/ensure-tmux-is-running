@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 _not_inside_tmux() {
   [[ -z "$TMUX" ]]
