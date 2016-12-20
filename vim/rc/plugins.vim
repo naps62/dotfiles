@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'chriskempson/base16-vim'
-Plug 'johathanfilip/vim-lucius'
+Plug 'jonathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
@@ -114,6 +114,7 @@ let g:neoterm_size='60'
 " vim-tmux-runner
 let g:VtrOrientation = "h"
 let g:VtrPercentage = 30
+let g:VtrClearSequence = "q"
 
 " vim-test
 let test#strategy = "vtr"
@@ -185,9 +186,6 @@ let g:ycm_key_detailed_diagnostics = ''
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
-
-" greplace.vim
-let g:grep_cmd_opts = '--line-numbers --noheading'
 
 " auto-pairs
 let g:AutoPairsMultilineClose = 0

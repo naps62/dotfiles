@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-timetrap_now=`/home/naps62/.rvm/gems/ruby-2.3.1/bin/t n 2> /dev/null`
+timetrap_now=`/home/naps62/.rvm/gems/ruby-2.3.0@global/bin/t n 2> /dev/null`
 if [[ "$timetrap_now" =~ \@[a-zA-Z]* ]]; then
   project=${BASH_REMATCH[0]}
   echo "#[fg=green] $project #[default]"
