@@ -16,6 +16,7 @@ env_dir PATH $HOME/.linuxbrew/bin
 # env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
 env_dir PATH $HOME/.rbenv/bin
 env_dir PATH $HOME/.rbenv/plugins/ruby-build/bin
+env_dir PATH $HOME/.cargo/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 

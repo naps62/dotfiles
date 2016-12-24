@@ -36,7 +36,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'eapache/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-textobj-user'
-Plug 'wakatime/vim-wakatime'
 Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
 Plug 'amperser/proselint'
@@ -79,7 +78,6 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'docker/docker', { 'rtp': '/contrib/syntax/vim/' }
 Plug 'freitass/todo.txt-vim', { 'for': 'todo' }
 Plug 'amadeus/vim-mjml', { 'for': 'mjml' }
 
