@@ -12,6 +12,8 @@ config/*
 !config/nvim
 !config/git
 !config/i3
+!config/base16-shell
+!config/git-radar
 config/nvim/.netrwhist
 
 xboomx/xboomx.db

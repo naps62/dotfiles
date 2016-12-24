@@ -36,7 +36,7 @@ path () {
 if [ $LIVE_CODING == "0" ]; then
   PROMPT=$'\n'
   PROMPT=${PROMPT}'${blue}`path`'
-  PROMPT=${PROMPT}'$(~/.git-radar/git-radar --zsh --fetch)'$'\n'
+  PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'$'\n'
   PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
 else
   PROMPT='${blue}Mastering Your Tools'$'\n''${reset}\$${reset} '
