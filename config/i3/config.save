@@ -1,21 +1,21 @@
-set $mod Mod4
+434444our
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro 14
+font pango:Source Code Pro 12
 
 # Set colors from Xresources
-set_from_resource $fg         color20
-set_from_resource $fg-active  color21
-set_from_resource $bg         color0
-set_from_resource $bg-active  color18
+set_from_resource $fg         color20 "blue"
+set_from_resource $fg-active  color21 "blue"
+set_from_resource $bg         color18 "red"
+set_from_resource $bg-active  color19 "red"
 
 set_from_resource $red        color1
 set_from_resource $bright-red color9
 set_from_resource $green      color2
 set_from_resource $blue       color4
-set_from_resource $black      color0
-set_from_resource $dark-grey  color18
+set_from_resource $black      color18
+set_from_resource $dark-grey  color19
 set_from_resource $light-grey color20
 set_from_resource $white      color21
 
@@ -29,7 +29,7 @@ bindsym $mod+Return exec uxterm
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -i -p ">" -l 18 -x 110 -w 1700 -y 100 -h 40 -sb "$bg-active" -sf "$fg-active" -nb "$bg" -nf "$fg" -fn "Source Code Pro-25"
+bindsym $mod+d exec dmenu_run -i -p ">" -l 20 -x 110 -w 1700 -y 100 -h 40 -sb "$bg-active" -sf "$fg-active" -nb "$bg" -nf "$fg" -fn "Source Code Pro-25"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -66,7 +66,7 @@ bindsym $mod+x split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-# bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -161,28 +161,21 @@ bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/screenshots/'
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  i3bar_command i3bar -t
   height 40
   status_command i3status
   mode hide
-  separator_symbol "  "
-  font pango:Source Code Pro 18
+  modifier $mod
+  font "Source Code Pro"
   colors {
-    separator $dark-grey
+    separator $black
     background $black
     statusline $light-grey
     focused_workspace $dark-grey $dark-grey $white
-    # active_workspace #373b41 #373b41 #ffffff
-    inactive_workspace $black $black $light-grey
+    active_workspace #373b41 #373b41 #ffffff
+    inactive_workspace $black $black $white
     urgent_workspace $bright-red $bright-red $white
   }
 }
-
-gaps inner 10
-gaps outer -10
-smart_gaps on
-smart_borders no_gaps
-for_window [class="^.*"] border pixel 1
 
 # class                 border     backgr.    text       indicator  child_border
 client.focused          $bg-active $bg-active $fg-active $fg-active $bg-active
@@ -192,6 +185,12 @@ client.urgent           $bg        $bg        $fg       $bg         $bg
 client.placeholder      $bg        $bg        $fg       $bg         $bg
 
 client.background       $bg
+
+#
+# startup apps
+#
+
+# network manager applet
 exec --no-startup-ip nm-applet
 
 assign [class="UXTerm"] 1
@@ -203,5 +202,3 @@ exec --no-startup-id i3-msg 'exec uxterm'
 exec --no-startup-id i3-msg 'exec google-chrome-stable'
 exec --no-startup-id i3-msg 'exec slack'
 exec --no-startup-id i3-msg 'exec spotify'
-
-exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
