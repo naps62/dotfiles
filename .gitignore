@@ -12,6 +12,7 @@ config/*
 !config/nvim
 !config/git
 !config/i3
+!config/i3status
 !config/base16-shell
 !config/git-radar
 config/nvim/.netrwhist
