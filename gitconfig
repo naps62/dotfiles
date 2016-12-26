@@ -13,6 +13,7 @@
   pr   = pull-request
   ppr  = push-pr
   cpr  = close-pr
+  opr  = open-pr
   pb   = publish
   f    = fetch
   c    = commit --verbose
