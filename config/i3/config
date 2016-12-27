@@ -198,12 +198,12 @@ assign [class="Google-chrome"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
 
+floating_maximum_size 1580 x 730
 for_window [class="^.*"] border pixel 0
 for_window [class="feh"] floating enable
-for_window [class="Gnome-tweak-tool"] floating enable
 for_window [class="feh"] border normal
 for_window [class="feh"] border normal
-floating_maximum_size 1580 x 730
+for_window [window_role="GtkFileChooserDialog"] border normal
 
 
 exec --no-startup-id i3-msg 'exec uxterm'
