@@ -181,8 +181,7 @@ bar {
 gaps inner 10
 gaps outer -10
 smart_gaps on
-smart_borders no_gaps
-for_window [class="^.*"] border pixel 1
+# smart_borders no_gaps
 
 # class                 border     backgr.    text       indicator  child_border
 client.focused          $bg-active $bg-active $fg-active $fg-active $bg-active
@@ -198,6 +197,14 @@ assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
+
+for_window [class="^.*"] border pixel 1
+for_window [class="feh"] floating enable
+for_window [class="Gnome-tweak-tool"] floating enable
+for_window [class="feh"] border normal
+for_window [class="feh"] border normal
+floating_maximum_size 1580 x 730
+
 
 exec --no-startup-id i3-msg 'exec uxterm'
 exec --no-startup-id i3-msg 'exec google-chrome-stable'
