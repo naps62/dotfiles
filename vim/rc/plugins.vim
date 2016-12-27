@@ -131,6 +131,10 @@ map <leader>gc :Gcommit<CR>
 map <leader>gw :Gbrowse<CR>
 map <leader>gg :Git 
 
+" nrrwrgn
+let g:nrrw_rgn_wdth = 30
+let g:nrrw_topbot_leftright = 'botright'
+
 " statusline
 let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
 let g:airline#extensions#tabline#tab_min_count = 2
