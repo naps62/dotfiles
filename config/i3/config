@@ -2,7 +2,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro 14
+font pango:Consolas 13
 
 # Set colors from Xresources
 set_from_resource $fg         color20
@@ -29,7 +29,7 @@ bindsym $mod+Return exec uxterm
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -i -p ">" -l 18 -x 110 -w 1700 -y 100 -h 40 -sb "$bg-active" -sf "$fg-active" -nb "$bg" -nf "$fg" -fn "Source Code Pro-25"
+bindsym $mod+d exec dmenu_run -i -p ">" -l 18 -x 110 -w 1700 -y 100 -h 40 -sb "$bg-active" -sf "$fg-active" -nb "$bg" -nf "$fg" -fn "Consolas-25"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -166,14 +166,14 @@ bar {
   status_command i3status
   mode hide
   separator_symbol "  "
-  font pango:Source Code Pro 18
+  font pango:Consolas 18
   colors {
     separator $dark-grey
-    background $black
+    background $dark-grey
     statusline $light-grey
-    focused_workspace $dark-grey $dark-grey $white
+    focused_workspace $black $black $white
     # active_workspace #373b41 #373b41 #ffffff
-    inactive_workspace $black $black $light-grey
+    inactive_workspace $dark-grey $dark-grey $light-grey
     urgent_workspace $bright-red $bright-red $white
   }
 }
