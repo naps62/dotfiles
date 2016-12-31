@@ -7,6 +7,8 @@ feh --bg-scale /home/naps62/.wallpaper.jpg
 # setxkbmap -option caps:none
 xmodmap ~/.Xmodmap
 
+xrdb -merge ~/.Xresources
+
 # start session
 DEFAULTSESSION=gnome-session
 case "$1" in
