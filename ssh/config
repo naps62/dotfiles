@@ -40,3 +40,7 @@ Host zee
 Host pi
   Hostname naps62.ddns.net
   User pi
+
+Host old-drawstep
+  Hostname drawstep.com
+  user drawstep
