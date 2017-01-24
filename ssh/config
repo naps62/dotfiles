@@ -43,4 +43,4 @@ Host pi
 
 Host old-drawstep
   Hostname drawstep.com
-  user drawstep
+  User drawstep
