@@ -210,3 +210,6 @@ exec --no-startup-id i3-msg 'exec spotify'
 
 exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec /usr/bin/variety
+
+# ability to toggle keyboard layout between US and PT
+exec --no-startup-id setxmkmap us,pt -option 'grp:alt_shift_toggle'
