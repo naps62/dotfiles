@@ -13,5 +13,6 @@ source $HOME/.zsh/completions
 source $HOME/.zsh/aliases
 source $HOME/.zsh/history
 source $HOME/.zsh/prompt
+source $HOME/.zsh/antibody.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
