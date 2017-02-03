@@ -74,7 +74,7 @@ set history=50          " remember more commands and search history
 set undolevels=1000     " use many levels of undo
 set undoreload=1000    " maximum lines to save for undo
 set undofile            " store undo info in a .un~ file
-set undodir=~/.vim/undo " store undo files in a common dir
+set undodir=~/.config/nvim/undo " store undo files in a common dir
 
 " no swap files
 set nobackup

@@ -1,6 +1,6 @@
-vim/bundle
-vim/plugged
-vim/undo/*
+config/nvim/bundle
+config/nvim/plugged
+config/nvim/undo/*
 ssh/*
 !ssh/config
 

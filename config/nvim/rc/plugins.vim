@@ -4,7 +4,7 @@ filetype off
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 
 " vundle
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " UI Features
 Plug 'altercation/vim-colors-solarized'
@@ -20,7 +20,7 @@ Plug 'unblevable/quick-scope'
 Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'janko-m/vim-test'
 
@@ -49,6 +49,7 @@ Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " Elixir
+Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
 " JS
@@ -64,7 +65,6 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 
 Plug 'elzr/vim-json',    { 'for': 'json' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'suan/vim-instant-markdown'
 
 " Other syntaxes
@@ -78,7 +78,6 @@ Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'tpope/vim-cucumber', { 'for': ['cucumber', 'feature'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'freitass/todo.txt-vim', { 'for': 'todo' }
@@ -242,6 +241,6 @@ let g:AutoPairsOnlyWhitespace = 1
 
 augroup load_us_ycm
   autocmd!
-  autocmd CursorHold,CursorHoldI * call plug#load('ultisnips', 'YouCompleteMe', 'vim-test')
+  autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe', 'vim-test')
                       \| autocmd! load_us_ycm
 augroup END
