@@ -1,5 +1,7 @@
-let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog='/usr/bin/python3'
-autocmd FileType c nnoremap <buffer> <silent> <C-]> :YcmCompleter GoTo<cr>
-
-source ~/.vimrc
+so ~/.vim/rc/unix.vim
+so ~/.vim/rc/base.vim
+so ~/.vim/rc/plugins.vim
+so ~/.vim/rc/colors.vim
+so ~/.vim/rc/maps.vim
+so ~/.vim/rc/filetypes.vim
+so ~/.vim/rc/functions.vim
