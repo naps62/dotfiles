@@ -207,8 +207,12 @@ let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_elixir_enabled_makers = ['credo']
 let g:neomake_less_enabled_makers = []
-let g:neomake_warning_sign = {'text': '▶'}
-let g:neomake_error_sign = {'text': '▶'}
+let g:neomake_warning_sign = {'text': '→'}
+let g:neomake_error_sign = {'text': '→'}
+
+let g:neomake_ruby_rubocop_maker = {
+  \ 'args': ['-D']
+  \ }
 
 autocmd! BufWritePost * Neomake
 map <Leader>y :Neomake!<CR>
