@@ -1,18 +1,20 @@
 #!/usr/bin/env zsh
 
-source $HOME/.config/zsh/rvm.zsh
-source $HOME/.nvm/nvm.sh
-source $HOME/.config/zsh/env.zsh
-source $HOME/.config/zsh/bindings.zsh
-source $HOME/.config/zsh/cmds.zsh
-source $HOME/.config/zsh/theme.zsh
+source ~/.config/zsh/rvm.zsh
+source ~/.nvm/nvm.sh
+source ~/.config/zsh/env.zsh
+source ~/.config/zsh/bindings.zsh
+source ~/.config/zsh/cmds.zsh
+source ~/.config/zsh/theme.zsh
 
-$HOME/.bin/ensure-tmux-is-running
+~/.bin/ensure-tmux-is-running
 
-source $HOME/.config/zsh/completions.zsh
-source $HOME/.config/zsh/aliases.zsh
-source $HOME/.config/zsh/history.zsh
-source $HOME/.config/zsh/prompt.zsh
-source $HOME/.config/zsh/antibody.zsh
+source ~/.config/zsh/completions.zsh
+source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/history.zsh
+source ~/.config/zsh/prompt.zsh
+source ~/.config/zsh/antibody.zsh
+
+[ -f ~/.secrets.zsh ] && source ~/.secrets.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

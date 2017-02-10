@@ -39,7 +39,7 @@
   web = browse
   update = !git fetch && git rebase
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = /home/naps62/.config/git/gitignore_global
   pager = diff-so-fancy | less --tabs=4 -RFX
   hooksPath = /home/naps62/.config/git/hooks/
