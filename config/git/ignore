@@ -1,11 +1,11 @@
-# Random stuff
-.DS_Store
-*~
+# vim: set-syntax: config
+
+# Vim
 .ctrlp
-.bundle
+*~
+
+# Ruby / Rails
 .env
-db/*.sqlite3
-tags
 tmp/**/*
 !tmp/cache/.keep
 
@@ -85,6 +85,7 @@ main-blx.bib
 *.log
 *.sql
 *.sqlite
+*.sqlite3
 
 # OS generated files #
 ######################

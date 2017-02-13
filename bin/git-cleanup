@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # prune remote branches
-git remote prune origin
+git remote prune origin &
 
-ag branch -r |\
+git branch -r |\
   awk '{print $1}' |\
   egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) |\
   awk '{print $1}' |\
