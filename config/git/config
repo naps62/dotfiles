@@ -1,0 +1,75 @@
+# vim: set syntax=config
+
+[user]
+  name = Miguel Palhas
+  email = mpalhas@gmail.com
+[alias]
+  ls = log --color --graph --pretty=format:'%C(yellow)%d%Creset %Cgreen(%cr)%Creset %C(bold blue)[%an]%Creset %s %Cred(%h)%Creset' --abbrev-commit --first-parent
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --numstat
+  t = !tig "$@"
+  conf = diff --name-only --diff-filter=U
+  ba   = branch -a
+  br   = checkout -b
+  pb   = publish
+  ps   = push -u
+  pr   = pull-request
+  ppr  = push-pr
+  cpr  = close-pr
+  opr  = open-pr
+  pb   = publish
+  f    = fetch
+  c    = commit --verbose
+  d    = diff
+  dc   = diff --cached
+  co   = checkout
+  s    = status -sb
+  b    = browse
+  rb   = rebase
+  rbc  = rebase --continue
+  up   = update
+  lc   = log ORIG_HEAD.. --stat --no-merges
+  new  = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  wdiff = diff --word-diff
+  who = shortlog -sn
+  wip = commit -m 'WIP [ci skip]'
+  rev = commit -m 'code review'
+  la = !git config -l | grep alias | cut -c 7-
+  pulls = browse -- pulls
+  issues = browse -- issues
+  projects = browse -- projects
+  proj = browse -- projects
+  web = browse
+  update = !git fetch && git rebase
+[core]
+  editor = nvim
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  hooksPath = /home/naps62/.config/git/hooks/
+[color]
+  ui = true
+[push]
+  default = upstream
+[web]
+  browser = google-chrome
+[interactive]
+  singlekey = true
+[commit]
+  template = ~/.config/git/commit-message
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false
+[mergetool]
+	path = nvim
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[credential]
+  helper = cache
+
+# diff formatters
+[diff "image"]
+  textconv = mediainfo
+[diff "text"]
+  textconv = fold -s -w80

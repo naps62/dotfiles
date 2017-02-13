@@ -1,0 +1,14 @@
+# vim: set syntax=config
+
+# ruby
+*.md       diff=text
+*.markdown diff=text
+*.txt      diff=text
+*.text     diff=text
+*.rdoc     diff=text
+
+# image files
+*.png diff=image
+*.jpg diff=image
+*.gif diff=image
+*.ico diff=image
