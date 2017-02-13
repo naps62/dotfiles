@@ -1,6 +1,6 @@
 # vim: set syntax=config
 
-# ruby
+# plain text
 *.md       diff=text
 *.markdown diff=text
 *.txt      diff=text
