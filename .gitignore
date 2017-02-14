@@ -5,7 +5,6 @@ ssh/*
 !ssh/config
 
 config/*
-!config/awesome
 !config/terminator
 !config/spec
 !config/htop
