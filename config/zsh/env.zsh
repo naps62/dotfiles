@@ -33,8 +33,9 @@ export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;34:dsc=0:other=1;35"
 export ES_HOME=/usr/share/elasticsearch
 export NVM_DIR=/home/naps62/.nvm
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 if [ -z "$TMUX" ]; then
   export TERM=xterm-256color
