@@ -44,12 +44,8 @@ setlocal foldlevel=20
 setlocal foldlevelstart=20
 autocmd Syntax ruby,slim :normal zR
 
-" relative numbering (with absolute current line) in normal mode
-" absolute numbering in insert mode
-set relativenumber
+" absolute line numbering
 set number
-autocmd InsertEnter * :set number norelativenumber
-autocmd InsertLeave * :set relativenumber
 
 " redraw
 nnoremap <C-l> :redraw<cr>
