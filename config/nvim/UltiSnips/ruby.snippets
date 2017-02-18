@@ -1,38 +1,12 @@
 global !p
-import re
-import inflection
-
-def assign_instance_var(arg):
-	regex = re.compile("[*&]*([a-zA-Z0-9_]+)")
-	match = regex.match(arg.strip())
-	if match:
-		return snip.mkline("@{0} = {0}".format(match.group(1)), "  ")
-	else:
-		return ""
-
-def assign_instance_var_list(args):
-	return "\n".join(list(map(assign_instance_var, args.split(",")))).rstrip()
-
-def path_without_extension(path):
-	return re.sub(r"(_spec)?.rb$", "", path)
-
-def path_without_first_directory(path):
-	if re.search(r"^(app|spec)\/", path):
-		return re.sub(r"^([a-z-]+\/){2}", "", path)
-	else:
-		return re.sub(r"^([a-z-]+\/){1}", "", path)
-
-def path_as_class_name(path):
-	return "::".join(list(map(inflection.camelize, path.split("/"))))
-
-def inferred_ruby_class_name():
-	return path_as_class_name(path_without_extension(path_without_first_directory(path)))
+from snippet_helpers import *
+import os
 endglobal
 
 snippet defi "Constructor"
 def initialize(${1:*args})
 `!p
-snip.rv = assign_instance_var_list(t[1])
+snip.rv = rb_assign_instance_var_list(t[1])
 `
 end
 endsnippet
@@ -40,7 +14,7 @@ endsnippet
 snippet spec "spec file template"
 require "spec_helper"
 
-RSpec.describe ${1:`!p snip.rv = inferred_ruby_class_name()`} do
+RSpec.describe ${1:`!p snip.rv = rb_class_name(path)`} do
 	$0
 end
 endsnippet
@@ -64,13 +38,13 @@ end
 endsnippet
 
 snippet class "class definition" b
-class `!p snip.rv = inferred_ruby_class_name()`$1
+class `!p snip.rv = rb_class_name(path)`$1
 	$0
 end
 endsnippet
 
 snippet mod "module definition"
-module `!p snip.rv = inferred_ruby_class_name()`$1
+module `!p snip.rv = rb_class_name(path)`$1
 	$2
 end
 endsnippet

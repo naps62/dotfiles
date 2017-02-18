@@ -1,0 +1,54 @@
+global !p
+from snippet_helpers import *
+endglobal
+
+
+snippet mod "module definition"
+defmodule `!p snip.rv = ex_module_name(path)` do
+	$1
+end
+endsnippet
+
+snippet task "task module"
+defmodule Mix.Tasks.`!p snip.rv = ex_module_name(path)` do
+	use Mix.Task
+
+	@shortdoc "$1"
+
+	def run(_args) do
+		$2
+	end
+end
+endsnippet
+
+snippet modelcase "model test case"
+defmodule `!p snip.rv = ex_module_name(path)` do
+	use `!p snip.rv = ex_project_name()`.ModelCase
+
+	import `!p snip.rv = ex_project_name()`.Factory
+
+	$1
+end
+endsnippet
+
+snippet conncase "conn test case"
+defmodule `!p snip.rv = ex_module_name(path)` do
+	use `!p snip.rv = ex_project_name()`.ConnCase
+
+	import `!p snip.rv = ex_project_name()`.Factory
+
+	$1
+end
+endsnippet
+
+snippet test "test" do
+test "$1" do
+	$2
+end
+endsnippet
+
+snippet conntest "conn test" do
+test "$1", %{conn: conn} do
+	$2
+end
+endsnippet
