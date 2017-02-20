@@ -4,3 +4,4 @@ tags
 .git/tags
 tmp
 vcr_cassettes
+Gemfile.lock

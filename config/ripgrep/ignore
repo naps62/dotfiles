@@ -1,0 +1,4 @@
+spec/vcr_cassettes
+Gemfile.lock
+.git
+*.min.js
