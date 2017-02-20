@@ -201,6 +201,7 @@ for_window [class="feh"] floating enable
 for_window [class="feh"] border normal
 for_window [class="feh"] border normal
 for_window [window_role="GtkFileChooserDialog"] border normal
+for_window [title="Add Torrents"] border normal
 
 
 exec --no-startup-id i3-msg 'exec uxterm'
