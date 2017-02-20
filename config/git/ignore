@@ -97,3 +97,6 @@ main-blx.bib
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# cache files
+__pycache__
