@@ -5,3 +5,4 @@ so ~/.config/nvim/rc/colors.vim
 so ~/.config/nvim/rc/maps.vim
 so ~/.config/nvim/rc/filetypes.vim
 so ~/.config/nvim/rc/functions.vim
+so ~/.config/nvim/rc/skel.vim
