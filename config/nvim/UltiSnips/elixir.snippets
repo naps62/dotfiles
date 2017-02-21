@@ -21,13 +21,25 @@ defmodule Mix.Tasks.`!p snip.rv = ex_module_name(path)` do
 end
 endsnippet
 
+snippet ectomodel "Ecto model" do
+defmodule `!p snip.rv = ex_module_name(path)` do
+	use `!p snip.rv = ex_project_name()`.Web, :model
+
+	schema "$1" do
+		$2
+	end
+
+	$0
+end
+endsnippet
+
 snippet modelcase "model test case"
 defmodule `!p snip.rv = ex_module_name(path)`Test do
 	use `!p snip.rv = ex_project_name()`.ModelCase
 
 	import `!p snip.rv = ex_project_name()`.Factory
 
-	$1
+	$0
 end
 endsnippet
 
@@ -37,18 +49,28 @@ defmodule `!p snip.rv = ex_module_name(path)`Test do
 
 	import `!p snip.rv = ex_project_name()`.Factory
 
-	$1
+	$0
 end
 endsnippet
 
 snippet test "test" do
 test "$1" do
-	$2
+	$0
 end
 endsnippet
 
 snippet conntest "conn test" do
 test "$1", %{conn: conn} do
-	$2
+	$0
 end
+endsnippet
+
+snippet def "method" do
+def ${1:name}($2) do
+	$0
+end
+endsnippet
+
+snippet defi "inline method" do
+def $1($2), do: $0
 endsnippet
