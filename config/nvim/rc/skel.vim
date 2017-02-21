@@ -11,6 +11,8 @@ function s:try_insert(skel)
     silent! undo
   endif
 
+  execute "startinsert!"
+
   return g:ulti_expand_res
 endfunction
 

@@ -35,6 +35,14 @@ def ex_project_name():
     return path_as_class_name(current_project_name())
 
 #
+# SCSS
+#
+
+def scss_component_name(path):
+    name = filename_without_extension(path)
+    return path_as_class_name(name)
+
+#
 # Helpers
 #
 
@@ -51,7 +59,11 @@ def path_first_dir(path):
     return re.sub(r"\/.*$", "", path)
 
 def path_as_class_name(path, separator = "::"):
+    path = re.sub(r"^_", "", path)
     return separator.join(list(map(inflection.camelize, path.split("/"))))
 
 def current_project_name():
     return re.sub(r".*\/([^/]*)$", "\\1", os.getcwd())
+
+def filename_without_extension(path):
+    return path.split("/")[-1].split(".")[0]

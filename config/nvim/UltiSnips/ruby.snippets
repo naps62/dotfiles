@@ -12,9 +12,17 @@ end
 endsnippet
 
 snippet spec "spec file template"
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe ${1:`!p snip.rv = rb_class_name(path)`} do
+	$0
+end
+endsnippet
+
+snippet feature "features spec file template"
+require "rails_helper"
+
+RSpec.feature "$1" do
 	$0
 end
 endsnippet
@@ -39,6 +47,12 @@ endsnippet
 
 snippet class "class definition" b
 class `!p snip.rv = rb_class_name(path)`$1
+	$0
+end
+endsnippet
+
+snippet controller "Rails controller definition" b
+class `!p snip.rv = rb_class_name(path)` < ${1:::ApplicationController}
 	$0
 end
 endsnippet
