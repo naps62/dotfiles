@@ -13,8 +13,8 @@ nmap <silent> <leader>q :q<CR>
 map <Tab> :b#<CR>
 
 " tab navigation
-nnoremap <C-u> :tabprevious<CR>
-nnoremap <C-i> :tabnext<CR>
+" nnoremap <C-u> :tabprevious<CR>
+" nnoremap <C-i> :tabnext<CR>
 
 " Ctrl-S save
 noremap  <C-s>      :update<CR>
@@ -23,7 +23,6 @@ inoremap <C-s> <C-o>:update<CR><Esc>
 " zoom / unzoom a vim pane
 nnoremap zz :call FoldToggle()<CR>
 nnoremap <leader>z :call FoldToggle()<CR>
-inoremap <leader>z <C-o>:call FoldToggle()<CR>
 
 " still able to save after forgetting to sudo
 cmap w!! w !sudo tee % > /dev/null

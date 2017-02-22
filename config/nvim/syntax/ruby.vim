@@ -2,6 +2,7 @@ autocmd User ProjectionistDetect
 \ call projectionist#append(getcwd(),
 \ {
 \    'app/*.rb': {
+\      'alternate': 'spec/{}_spec.rb',
 \      'skeleton': 'class'
 \    },
 \    'app/controllers/*.rb': {

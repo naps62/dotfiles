@@ -11,6 +11,7 @@ source ~/.config/zsh/theme.zsh
 
 source ~/.config/zsh/completions.zsh
 source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/hashes.zsh
 source ~/.config/zsh/history.zsh
 source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/antibody.zsh
