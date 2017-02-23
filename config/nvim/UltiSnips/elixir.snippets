@@ -37,6 +37,8 @@ snippet modelcase "model test case"
 defmodule `!p snip.rv = ex_module_name(path)`Test do
 	use `!p snip.rv = ex_project_name()`.ModelCase
 
+	alias `!p snip.rv = ex_module_name(path)`
+
 	import `!p snip.rv = ex_project_name()`.Factory
 
 	$0
@@ -46,6 +48,8 @@ endsnippet
 snippet conncase "conn test case"
 defmodule `!p snip.rv = ex_module_name(path)`Test do
 	use `!p snip.rv = ex_project_name()`.ConnCase
+
+	alias `!p snip.rv = ex_module_name(path)`
 
 	import `!p snip.rv = ex_project_name()`.Factory
 
