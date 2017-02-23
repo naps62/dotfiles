@@ -35,7 +35,7 @@ export ES_HOME=/usr/share/elasticsearch
 export NVM_DIR=/home/naps62/.nvm
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file $HOME/.config/ripgrep/ignore"
 
 if [ -z "$TMUX" ]; then
   export TERM=xterm-256color

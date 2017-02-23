@@ -1,4 +1,33 @@
+# vim: set syntax=conf:
+
+.git/*
 spec/vcr_cassettes
 Gemfile.lock
 .git
 *.min.js
+*.png
+
+# global home directories
+.nvm/*
+.npm/*
+.rvm/*
+.cargo/*
+.multirust/*
+.config/*
+.yarn-cache/*
+.yarn-config/*
+.cache/*
+.bundle/*
+.heroku/*
+.local/*
+.rustup/*
+.zplug/*
+.node-gyp/*
+.hex/*
+.pgadmin4/*
+.gnome/*
+.mozilla/*
+.password-store/*
+
+# ignored projects
+contrib/qmk_firmware/*

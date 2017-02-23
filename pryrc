@@ -1,4 +1,4 @@
-# nvim: set syntax=ruby
+# vim: set syntax=ruby:
 
 Pry.config.prompt = Pry::NAV_PROMPT
 
