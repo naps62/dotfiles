@@ -204,13 +204,13 @@ for_window [window_role="GtkFileChooserDialog"] border normal
 for_window [title="Add Torrents"] border normal
 
 
-exec --no-startup-id i3-msg 'exec uxterm'
-exec --no-startup-id i3-msg 'exec google-chrome-stable'
-exec --no-startup-id i3-msg 'exec slack'
-exec --no-startup-id i3-msg 'exec spotify'
+exec i3-msg 'exec uxterm'
+exec i3-msg 'exec google-chrome-stable'
+exec i3-msg 'exec slack'
+exec i3-msg 'exec spotify'
 
-exec /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-exec /usr/bin/variety
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+exec --no-startup-id /usr/bin/variety
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'
