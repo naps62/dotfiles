@@ -77,7 +77,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -198,6 +198,7 @@ assign [class="Spotify"] 4
 floating_maximum_size 1580 x 730
 for_window [class="^.*"] border pixel 0
 for_window [class="feh"] floating enable
+for_window [class="Cerebro"] floating enable
 for_window [class="feh"] border normal
 for_window [class="feh"] border normal
 for_window [window_role="GtkFileChooserDialog"] border normal
@@ -211,6 +212,7 @@ exec i3-msg 'exec spotify'
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id /usr/bin/variety
+exec --no-startup-id /home/naps62/.bin/cerebro
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'

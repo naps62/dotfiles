@@ -26,6 +26,7 @@ bin.local/ld.gold
 vim/spell
 vim/plugged
 vim/undo
+bin/cerebro*
 
 nvim/.netrwhist
 
