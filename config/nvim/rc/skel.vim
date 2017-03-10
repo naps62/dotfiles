@@ -12,7 +12,6 @@ function s:try_insert(skel)
   endif
 
   execute "startinsert"
-  execute "normal l"
 
   return g:ulti_expand_res
 endfunction
