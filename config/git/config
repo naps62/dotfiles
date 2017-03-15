@@ -54,12 +54,14 @@
   singlekey = true
 [commit]
   template = ~/.config/git/commit-message
+[diff]
+  tool = vimdiff
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
-	prompt = false
-[mergetool]
-	path = nvim
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c "$wincmd w" -c "wincmd J"
+
 [color "diff-highlight"]
   oldNormal = red bold
   oldHighlight = red bold 52
