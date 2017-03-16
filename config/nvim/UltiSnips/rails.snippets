@@ -1,9 +1,14 @@
+global !p
+from snippet_helpers import *
+import os
+endglobal
+
 snippet concern "ActiveSupport::Concern"
-module $1
+module asd
   extend ActiveSupport::Concern
 
   included do
-  $0
+    $0
   end
 end
 endsnippet

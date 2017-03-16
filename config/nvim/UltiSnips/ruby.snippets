@@ -5,9 +5,7 @@ endglobal
 
 snippet defi "Constructor"
 def initialize(${1:*args})
-`!p
-snip.rv = rb_assign_instance_var_list(t[1])
-`
+`!p rb_assign_instance_var_list(t[1], snip)`
 end
 endsnippet
 
@@ -46,7 +44,7 @@ end
 endsnippet
 
 snippet class "class definition" b
-class `!p snip.rv = rb_class_name(path)`$1
+class `!p snip.rv = rb_class_name(path)`
 	$0
 end
 endsnippet
@@ -58,7 +56,7 @@ end
 endsnippet
 
 snippet mod "module definition"
-module `!p snip.rv = rb_class_name(path)`$1
+module `!p snip.rv = rb_class_name(path)`
 	$2
 end
 endsnippet

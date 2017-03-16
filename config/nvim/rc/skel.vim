@@ -11,7 +11,9 @@ function s:try_insert(skel)
     silent! undo
   endif
 
+  " enter insert mode and advance cursor (equivalent to typing `a` instead of `i`)
   execute "startinsert"
+  call cursor( line('.'), col('.') + 1)
 
   return g:ulti_expand_res
 endfunction
