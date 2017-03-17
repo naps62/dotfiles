@@ -1,12 +1,35 @@
 #!/usr/bin/env ruby
 
-def setup(option)
-  `xrandr --output HDMI2 --mode 1920x1080i #{option} eDP1`
+CONFIG_FILE = "~/.config/naps62-screen-setup"
+
+FLAGS = {
+  clone: "--same-as",
+  left: "--left-of",
+  right: "--right-of"
+}
+
+def setup(id)
+  `echo #{id} > #{CONFIG_FILE}`
+  `xrandr --output HDMI2 --mode 1920x1080i #{FLAGS[id]} eDP1`
+end
+
+def toggle(id1, id2)
+  current = `cat #{CONFIG_FILE}`.strip
+  if current.empty?
+    current = :clone
+  end
+
+  if current.to_sym == id1.to_sym
+    setup(id2.to_sym)
+  else
+    setup(id1.to_sym)
+  end
 end
 
 case ARGV[0]
-when 'clone', 'mirror' then setup('--same-as')
-when 'left' then setup('--left-of')
-when 'right' then setup('--right-of')
+when 'clone' then setup(:clone)
+when 'left' then setup(:left)
+when 'right' then setup(:right)
+when 'toggle' then toggle(ARGV[1], ARGV[2])
 else puts "Invalid options #{ARGV}"
 end
