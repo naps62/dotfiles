@@ -1,0 +1,13 @@
+global !p
+from snippet_helpers import *
+endglobal
+
+snippet react "React component"
+import React from 'react';
+
+export default $1 extends React.Component {
+  render() {
+    return ${0:<div />};
+  }
+}
+endsnippet

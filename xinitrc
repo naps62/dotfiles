@@ -7,6 +7,8 @@ feh --bg-scale /home/naps62/.wallpaper.jpg
 # setxkbmap -option caps:none
 xmodmap ~/.Xmodmap
 
+xset r rate 150 20
+
 xrdb -merge ~/.Xresources
 
 # start session

@@ -54,15 +54,14 @@ Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
-Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'Slava/vim-spacebars',     { 'for': 'html' }
 Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
-Plug 'mxw/vim-jsx',             { 'for': 'javascript.jsx' }
 
 " HTML
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
 
 Plug 'elzr/vim-json',    { 'for': 'json' }
 Plug 'suan/vim-instant-markdown'
@@ -248,3 +247,13 @@ augroup load_us_ycm
   autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe', 'vim-test')
                       \| autocmd! load_us_ycm
 augroup END
+
+" vim-emmet
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
+" vim-jsx
+let g:jsx_ext_required = 0
