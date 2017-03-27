@@ -211,7 +211,6 @@ for_window [title="Add Torrents"] border normal
 exec i3-msg 'exec uxterm'
 exec i3-msg 'exec google-chrome-stable'
 exec i3-msg 'exec slack'
-exec i3-msg 'exec spotify'
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id /home/naps62/.bin/cerebro
