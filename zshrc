@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+~/.bin/ensure-xorg-is-running
+
 source ~/.config/zsh/rvm.zsh
 source ~/.nvm/nvm.sh
 source ~/.config/zsh/env.zsh

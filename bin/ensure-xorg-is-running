@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if [[ ! $(ps -e | grep Xorg) ]]; then
+  startx
+fi

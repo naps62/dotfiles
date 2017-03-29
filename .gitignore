@@ -17,6 +17,7 @@ config/*
 !config/zsh
 !config/yaourt
 !config/ripgrep
+!config/dunst
 config/nvim/.netrwhist
 
 xboomx/xboomx.db
