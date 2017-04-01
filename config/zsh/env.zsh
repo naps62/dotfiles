@@ -51,3 +51,4 @@ cdpath=($HOME/subvisual $HOME/consulting $HOME/downloads)
 export downloads=/home/naps62/downloads
 export THEME=dark
 export LIVE_CODING=0
+export TALK_TITLE="Mastering Your Tools"

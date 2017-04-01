@@ -28,6 +28,7 @@ vim/spell
 vim/plugged
 vim/undo
 bin/cerebro*
+bin/pgweb*
 
 nvim/.netrwhist
 

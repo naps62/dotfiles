@@ -33,11 +33,7 @@ path () {
   ((git rev-parse 2>/dev/null >/dev/null) && git_path) || not_git_path
 }
 
-if [ $LIVE_CODING == "0" ]; then
-  PROMPT=$'\n'
-  PROMPT=${PROMPT}'${blue}`path`'
-  PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'$'\n'
-  PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
-else
-  PROMPT='${blue}Mastering Your Tools'$'\n''${reset}\$${reset} '
-fi
+PROMPT=$'\n'
+PROMPT=${PROMPT}'${blue}`path`'
+PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'$'\n'
+PROMPT=${PROMPT}'${green}`prompt_char`${reset} '

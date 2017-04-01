@@ -1,0 +1,9 @@
+#!/bin/sh
+
+delete_older_than_a_week_at() {
+ find $1 -mtime +8 -exec rm -rf {} \;
+}
+
+delete_older_than_a_week_at ~/downloads/chrome
+delete_older_than_a_week_at ~/downloads/screenshots
+delete_older_than_a_week_at ~/downloads/firefox
