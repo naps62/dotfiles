@@ -1,5 +1,6 @@
 global !p
-from snippet_helpers import *
+from snippet_helpers_ruby import *
+
 import os
 endglobal
 
@@ -12,7 +13,7 @@ endsnippet
 snippet spec "spec file template"
 require "rails_helper"
 
-RSpec.describe ${1:`!p snip.rv = rb_class_name(path)`} do
+RSpec.describe ${1:`!p rb_class_name(path, snip)`} do
 	$0
 end
 endsnippet
@@ -44,19 +45,19 @@ end
 endsnippet
 
 snippet class "class definition" b
-class `!p snip.rv = rb_class_name(path)`
+class `!p rb_class_name(path, snip)`
 	$0
 end
 endsnippet
 
 snippet controller "Rails controller definition" b
-class `!p snip.rv = rb_class_name(path)` < ${1:::ApplicationController}
+class `!p rb_class_name(path, snip)` < ${1:::ApplicationController}
 	$0
 end
 endsnippet
 
 snippet mod "module definition"
-module `!p snip.rv = rb_class_name(path)`
+module `!p rb_class_name(path, snip)`
 	$2
 end
 endsnippet

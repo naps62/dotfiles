@@ -1,28 +1,28 @@
 global !p
-from snippet_helpers import *
+from snippet_helpers_scss import *
 import os
 endglobal
 
 snippet comp "SuitCSS Component"
-.`!p snip.rv = scss_component_name(path)` {
+.`!p scss_component_name(path, snip)` {
 	$0
 }
 endsnippet
 
 snippet child "SuitCSS Component Child"
-.`!p snip.rv = scss_component_name(path)`-$1 {
+.`!p scss_component_name(path, snip)`-$1 {
 	$0
 }
 endsnippet
 
 snippet mod "SuitCSS Modifier"
-.`!p snip.rv = scss_component_name(path)`.`!p snip.rv = scss_component_name(path)`--$1 {
+.`!p scss_component_name(path, snip)`.`!p scss_component_name(path, snip)`--$1 {
 	$0
 }
 endsnippet
 
 snippet state "SuitCSS State"
-.`!p snip.rv = scss_component_name(path)`.`!p snip.rv = scss_component_name(path)`.is-$1 {
+.`!p scss_component_name(path, snip)`.`!p scss_component_name(path, snip)`.is-$1 {
 	$0
 }
 endsnippet

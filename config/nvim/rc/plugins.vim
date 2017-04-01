@@ -23,6 +23,7 @@ Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'janko-m/vim-test'
+Plug 'kassio/neoterm'
 
 " Plug '~/projects/vim-cleanup'
 
@@ -116,7 +117,7 @@ let g:VtrPercentage = 30
 let g:VtrClearSequence = "q"
 
 " vim-test
-let test#strategy = "vtr"
+let test#strategy = "neoterm"
 
 map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>

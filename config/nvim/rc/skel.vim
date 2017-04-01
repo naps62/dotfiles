@@ -9,6 +9,7 @@ function s:try_insert(skel)
 
   if g:ulti_expand_res == 0
     silent! undo
+    return
   endif
 
   " enter insert mode and advance cursor (equivalent to typing `a` instead of `i`)
