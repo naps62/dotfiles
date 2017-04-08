@@ -9,6 +9,7 @@ autocmd User ProjectionistDetect
 \      'skeleton': 'controller'
 \    },
 \    'spec/*_spec.rb': {
+\      'alternate': 'app/{}.rb',
 \      'skeleton': 'spec'
 \    },
 \    'spec/integration/*_spec.rb': {

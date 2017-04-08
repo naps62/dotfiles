@@ -155,6 +155,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+bindsym $mod+0 exec /home/naps62/.bin/dual toggle left clone
+
 # printscreens (via scrot)
 bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
 

@@ -43,7 +43,7 @@ Plug 'amperser/proselint'
 Plug '~/.vim/plugged/custom'
 
 " Ruby
-Plug 'tpope/vim-rails',      { 'for': 'ruby' }
+" Plug 'tpope/vim-rails',      { 'for': 'ruby' }
 Plug 'tpope/vim-rake',       { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }

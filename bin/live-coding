@@ -16,7 +16,7 @@ echo "running screenkey overlay..."
 screenkey \
   -g $geometry \
   -p fixed \
-  --mods-only \
+  --persist \
   -t 1 \
   --font "Source Code Pro Bold" \
   --no-detach \

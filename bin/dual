@@ -10,7 +10,7 @@ FLAGS = {
 
 def setup(id)
   `echo #{id} > #{CONFIG_FILE}`
-  `xrandr --output HDMI2 --mode 1920x1080 #{FLAGS[id]} eDP1`
+  `xrandr --output HDMI2 --mode 1024x768 #{FLAGS[id]} eDP1`
 end
 
 def toggle(id1, id2)
