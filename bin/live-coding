@@ -7,16 +7,17 @@ resolution_height=$(echo $resolution | cut -d 'x' -f2)
 
 # overlay will have full width, 80px height
 width=$resolution_width
-height=80
+height=100
+margin_bottom=300
 
 # complete overlay geometry, pushing it to the bottom
-geometry=${resolution_width}x${height}+0+$(($resolution_height - $height))
+# geometry=${resolution_width}x${height}+0+$(($resolution_height - $height))
+geometry=$(($resolution_width / 2))x$(($height))+$(($resolution_width / 4))+$(($resolution_height - $margin_bottom))
 
 echo "running screenkey overlay..."
 screenkey \
   -g $geometry \
   -p fixed \
-  --persist \
   -t 1 \
   --font "Source Code Pro Bold" \
   --no-detach \

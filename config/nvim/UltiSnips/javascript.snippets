@@ -2,6 +2,12 @@ global !p
 from snippet_helpers_javascript import *
 endglobal
 
+snippet cons "Constructor"
+constructor(${1:*args})
+`!p js_assign_instance_var_list(t[1], snip)`
+end
+endsnippet
+
 snippet r "React component"
 import { React, PropTypes } from 'react';
 
