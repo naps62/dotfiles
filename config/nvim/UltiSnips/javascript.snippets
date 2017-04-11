@@ -2,10 +2,16 @@ global !p
 from snippet_helpers_javascript import *
 endglobal
 
+snippet class "Class"
+class ${1:`!p js_class_name(path, snip)`} {
+	$0
+}
+endsnippet
+
 snippet cons "Constructor"
-constructor(${1:*args})
+constructor(${1:*args}) {
 `!p js_assign_instance_var_list(t[1], snip)`
-end
+}
 endsnippet
 
 snippet r "React component"
@@ -30,7 +36,7 @@ snippet rs "React stateless component"
 import { React, PropTypes } from 'react';
 
 const ${1:`!p js_class_name(path, snip)`} = ${2:()} => (
-
+	${0:<div />}
 );
 
 $1.propTypes = {

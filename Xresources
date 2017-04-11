@@ -9,7 +9,8 @@ Xft.hintstyle:         hintnone
 ! UXTerm settings
 UXTerm*faceName:     Consolas
 XTerm*utf8:          2
-UXTerm*faceSize:     14
+UXTerm*faceSize:     24
+UXTerm*scaleHeight:  2
 UXTerm*utf8:         1
 UXTerm*boldMode:     false
 UXTerm*scrollBar:    false

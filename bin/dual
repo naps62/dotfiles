@@ -2,6 +2,8 @@
 
 CONFIG_FILE = "~/.config/naps62-screen-setup"
 
+RES = "1920x1080"
+
 FLAGS = {
   clone: "--same-as",
   left: "--left-of",
@@ -10,7 +12,12 @@ FLAGS = {
 
 def setup(id)
   `echo #{id} > #{CONFIG_FILE}`
-  `xrandr --output HDMI2 --mode 1024x768 #{FLAGS[id]} eDP1`
+  `xrandr --output HDMI2 --mode #{RES} #{FLAGS[id]} eDP1`
+end
+
+def disable
+  `rm #{CONFIG_FILE}`
+  `xrandr --output HDMI2 --off`
 end
 
 def toggle(id1, id2)
@@ -27,6 +34,7 @@ def toggle(id1, id2)
 end
 
 case ARGV[0]
+when 'off' then disable
 when 'clone' then setup(:clone)
 when 'left' then setup(:left)
 when 'right' then setup(:right)
