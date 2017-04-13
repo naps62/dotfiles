@@ -60,6 +60,12 @@ Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'Slava/vim-spacebars',     { 'for': 'html' }
 Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
 
+" Typescript
+Plug 'vim-syntastic/syntastic', { 'for': 'typescript' }
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+
 " HTML
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
@@ -180,8 +186,7 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
-
-autocmd FileType c nnoremap <buffer> <silent> <C-]> :YcmCompleter GoTo<cr>
+let g:ycm_filetype_blacklist = { 'typescript': 1 }
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<C-j>"
@@ -207,6 +212,7 @@ let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_elixir_enabled_makers = ['credo']
 let g:neomake_less_enabled_makers = []
+let g:neomake_typescript_enabled_makers = []
 let g:neomake_warning_sign = {'text': '→'}
 let g:neomake_error_sign = {'text': '→'}
 
@@ -214,20 +220,29 @@ let g:neomake_ruby_rubocop_maker = {
   \ 'args': ['-D']
   \ }
 
-autocmd! BufWritePost * Neomake
-map <Leader>y :Neomake!<CR>
+" syntastic (only used for typescript, otherwise neomake is used)
+let g:syntastic_mode_map = {
+\ "mode": "active",
+\ "active_filetypes": ["typescript"],
+\ "passive_filetypes": [],
+\ }
+
+let g:syntastic_error_symbol='→'
+let g:syntastic_style_error_symbol='→'
+let g:syntastic_warning_symbol='→'
+let g:syntastic_style_warning_symbol='→'
+
+" tsuquyomi
+" let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:tsuquyomi_completion_detail = 1
 
 " vim-projectionist
 map <leader>aa :A<CR>
 nmap <leader>av :AV<CR>
 map <leader>as :AS<CR>
 map <leader>at :AT<CR>
-
-" vim-rails
-map <leader>rr :R<CR>
-map <leader>rv :RV<CR>
-map <leader>rs :RS<CR>
-map <leader>rt :RT<CR>
 
 " easymotion
 " Move to character
@@ -258,3 +273,4 @@ let g:user_emmet_settings = {
 
 " vim-jsx
 let g:jsx_ext_required = 0
+

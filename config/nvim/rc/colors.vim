@@ -19,6 +19,7 @@ if $THEME == "dark"
   highlight LineNr ctermfg=darkgrey
   highlight Search ctermbg=blue ctermfg=black
   highlight MatchParen ctermbg=blue ctermfg=black
+  highlight SpellBad cterm=NONE
 
   function! TweakBase16()
     " Override the diff-mode highlights of base16.
