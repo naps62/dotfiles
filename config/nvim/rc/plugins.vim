@@ -116,6 +116,13 @@ let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 " neoterm
 let g:neoterm_position='vertical'
 let g:neoterm_size='60'
+let g:neoterm_autoscroll = 1
+let g:neoterm_repl_ruby = 'pry'
+let g:neoterm_keep_term_open = 1
+
+nnoremap <silent> <leader>th :call neoterm#close()<CR>
+nnoremap <silent> <leader>tl :call neoterm#clear()<CR>
+nnoremap <silent> <leader>tk :call neoterm#kill()<CR>
 
 " vim-tmux-runner
 let g:VtrOrientation = "h"
