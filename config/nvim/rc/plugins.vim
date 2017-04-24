@@ -48,6 +48,7 @@ Plug 'tpope/vim-rake',       { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
@@ -123,6 +124,8 @@ let g:neoterm_keep_term_open = 1
 nnoremap <silent> <leader>th :call neoterm#close()<CR>
 nnoremap <silent> <leader>tl :call neoterm#clear()<CR>
 nnoremap <silent> <leader>tk :call neoterm#kill()<CR>
+tmap <silent> <C-e> <C-\><C-n>
+" tmap <expr> <silent> <Esc> exists('b:neoterm_id') ? '<C-\><C-n>' : ''
 
 " vim-tmux-runner
 let g:VtrOrientation = "h"
