@@ -14,25 +14,24 @@ Plug 'jonathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
-Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer --all' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 
 " Editor features
+Plug 'chrisbra/NrrwRgn'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
-Plug 'eapache/auto-pairs'
+Plug 'SirVer/ultisnips'
+Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -41,15 +40,12 @@ Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
 Plug 'amperser/proselint'
-Plug '~/.vim/plugged/custom'
 
 " Ruby
-" Plug 'tpope/vim-rails',      { 'for': 'ruby' }
-Plug 'tpope/vim-rake',       { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
-Plug 'vim-ruby/vim-ruby'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
@@ -59,17 +55,15 @@ Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'Slava/vim-spacebars',     { 'for': 'html' }
-Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
 
 " Typescript
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' } " dependency of tsuquyomi
 
 " HTML
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript'] }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 Plug 'elzr/vim-json',    { 'for': 'json' }
 Plug 'suan/vim-instant-markdown'
@@ -78,9 +72,6 @@ Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-git'
 Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
-Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'tpope/vim-cucumber', { 'for': ['cucumber', 'feature'] }
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 
 call plug#end()
@@ -107,6 +98,16 @@ map <silent> <c-b> :Bookmark<CR>
 " TODO this is being overriden by status line
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
+" vim-emmet
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\  'typescript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 " neoterm
 let g:neoterm_position='vertical'
 let g:neoterm_size='60'
@@ -118,12 +119,6 @@ nnoremap <silent> <leader>th :call neoterm#close()<CR>
 nnoremap <silent> <leader>tl :call neoterm#clear()<CR>
 nnoremap <silent> <leader>tk :call neoterm#kill()<CR>
 tmap <silent> <C-e> <C-\><C-n>
-" tmap <expr> <silent> <Esc> exists('b:neoterm_id') ? '<C-\><C-n>' : ''
-
-" vim-tmux-runner
-let g:VtrOrientation = "h"
-let g:VtrPercentage = 30
-let g:VtrClearSequence = "q"
 
 " vim-test
 let test#strategy = "neoterm"
@@ -140,7 +135,6 @@ map <leader>gb :Gblame<CR>
 map <leader>gd :Gdiff<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gw :Gbrowse<CR>
-map <leader>gg :Git 
 
 " nrrwrgn
 let g:nrrw_rgn_wdth = 30
@@ -176,33 +170,30 @@ let g:airline_section_c = airline#section#create(['%f', ' ', 'readonly'])
 " z section - line:column
 let g:airline_section_z = airline#section#create(['%#__accent_bold#', '%l', ':', '%#__restore__#', '%v'])
 
-" The Silver Searcher
+" ripgrep
 if executable('rg')
   " use Ripgrep over Grep
   set grepprg="rg --color never --no-heading"
 endif
 
-" vim-autoclose
-let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']'}
+" auto-pairs
+let g:AutoPairsMultilineClose = 0
+let g:AutoPairsOnlyWhitespace = 1
 
 " YouCompleteMe
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
-let g:ycm_filetype_blacklist = { 'typescript': 1 }
+let g:ycm_key_detailed_diagnostics = ''
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-let g:ycm_key_detailed_diagnostics = ''
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
-
-" auto-pairs
-let g:AutoPairsMultilineClose = 0
 
 " fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
@@ -212,11 +203,12 @@ nmap <C-f> :Ag<CR>
 " neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
-" let g:neomake_typescript_enabled_makers = ['tslint']
-" let g:neomake_tsx_enabled_makers = ['tslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_elixir_enabled_makers = ['credo']
+let g:neomake_typescript_enabled_makers = ['tslint', 'tsuquyomi']
+let g:neomake_tsx_enabled_makers = ['tslint', 'tsuquyomi']
+
 let g:neomake_warning_sign = {'text': '→'}
 let g:neomake_error_sign = {'text': '→'}
 
@@ -232,6 +224,12 @@ let g:neomake_typescript_tslint_maker = {
 let g:neomake_tsx_tslint_maker = {
   \ 'args': ['%:p'],
   \ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
+  \ }
+
+let g:neomake_prose_maker = {
+  \ 'exe': 'proselint',
+  \ 'args': ['%:p'],
+  \ 'errorformat': '%f:%l:%c %m',
   \ }
 
 autocmd! BufWritePost * Neomake
@@ -252,9 +250,6 @@ endfunction
 let g:neomake_tsuquyomi_maker = {
   \ 'get_list_entries': function('Tsuquyomi_GetLocList')
   \ }
-
-let g:neomake_typescript_enabled_makers = ['tslint', 'tsuquyomi']
-let g:neomake_tsx_enabled_makers = ['tslint', 'tsuquyomi']
 
 " vim-projectionist
 map <leader>aa :A<CR>
@@ -304,22 +299,8 @@ endfunction
 
 map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
 
-" auto-pairs
-let g:AutoPairsOnlyWhitespace = 1
-
 augroup load_us_ycm
   autocmd!
   autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe', 'vim-test')
                       \| autocmd! load_us_ycm
 augroup END
-
-" vim-emmet
-let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\}
-
-" vim-jsx
-let g:jsx_ext_required = 0
-
