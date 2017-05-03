@@ -18,7 +18,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set noerrorbells
 set clipboard=unnamed " X11 clipboard integration
 let mapleader="\<Space>"
-let maplocalleader = "\<Space>"
+let maplocalleader = ","
 
 " open split panes to right and bottom, which feels more natural
 set splitbelow
@@ -44,7 +44,8 @@ setlocal foldlevel=20
 setlocal foldlevelstart=20
 autocmd Syntax ruby,slim :normal zR
 
-" absolute line numbering
+" relative line numbering
+set relativenumber
 set number
 
 " redraw
@@ -54,6 +55,7 @@ nnoremap <C-l> :redraw<cr>
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader>, :noh<cr>
+
 set incsearch     " incremental seach
 set hlsearch      " highligh search results
 set showmatch

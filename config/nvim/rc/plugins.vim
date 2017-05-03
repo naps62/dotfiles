@@ -21,11 +21,9 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
 Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer --all' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
-
-" Plug '~/projects/vim-cleanup'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -36,6 +34,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'eapache/auto-pairs'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
@@ -255,15 +256,46 @@ map <leader>as :AS<CR>
 map <leader>at :AT<CR>
 
 " easymotion
-" Move to character
-map <Leader>ff <Plug>(easymotion-bd-f)
-" " Move to line
-map <Leader>fl <Plug>(easymotion-bd-jk)
-" " Move to word
-map <Leader>fw <Plug>(easymotion-bd-w)
-" " Move up/down
-map <Leader>fj <Plug>(easymotion-j)
-map <Leader>fk <Plug>(easymotion-k)
+map <localleader>f <Plug>(easymotion-bd-f)
+map <localleader>F <Plug>(easymotion-overwin-f)
+" " " Move to line
+map <localleader>l <Plug>(easymotion-bd-jk)
+map <localleader>L <Plug>(easymotion-overwin-jk)
+" " " Move to word
+map <localleader>w <Plug>(easymotion-bd-w)
+map <localleader>W <Plug>(easymotion-overwin-w)
+
+" You can use other keymappings like <C-l> instead of <CR> if you want to
+" use these mappings as default search and somtimes want to move cursor with
+" EasyMotion.
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> /  incsearch#go(<SID>incsearch_config()) . '\v'
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'})) . '\v'
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1})) . '\v'
+
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#fuzzyword#converter(),
+  \     incsearch#config#fuzzyspell#converter()
+  \   ],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " auto-pairs
 let g:AutoPairsOnlyWhitespace = 1
