@@ -214,7 +214,7 @@ for_window [title="Add Torrents"] border normal
 exec i3-msg 'exec uxterm'
 exec i3-msg 'exec google-chrome-stable'
 
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id /home/naps62/.bin/cerebro
 
 # ability to toggle keyboard layout between US and PT
