@@ -63,14 +63,13 @@ Plug 'Slava/vim-spacebars',     { 'for': 'html' }
 Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
 
 " Typescript
-Plug 'vim-syntastic/syntastic', { 'for': 'typescript' }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 
 " HTML
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript'] }
 
 Plug 'elzr/vim-json',    { 'for': 'json' }
 Plug 'suan/vim-instant-markdown'
@@ -79,17 +78,10 @@ Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-git'
 Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
-Plug 'vim-less', { 'for': 'less' }
-Plug 'dag/vim2hs', { 'for': 'haskell' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
-Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'tpope/vim-cucumber', { 'for': ['cucumber', 'feature'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'freitass/todo.txt-vim', { 'for': 'todo' }
-Plug 'amadeus/vim-mjml', { 'for': 'mjml' }
 
 call plug#end()
 filetype plugin indent on
@@ -219,11 +211,12 @@ nmap <C-f> :Ag<CR>
 
 " neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
+" let g:neomake_typescript_enabled_makers = ['tslint']
+" let g:neomake_tsx_enabled_makers = ['tslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_elixir_enabled_makers = ['credo']
-let g:neomake_less_enabled_makers = []
-let g:neomake_typescript_enabled_makers = []
 let g:neomake_warning_sign = {'text': '→'}
 let g:neomake_error_sign = {'text': '→'}
 
@@ -231,23 +224,37 @@ let g:neomake_ruby_rubocop_maker = {
   \ 'args': ['-D']
   \ }
 
-" syntastic (only used for typescript, otherwise neomake is used)
-let g:syntastic_mode_map = {
-\ "mode": "active",
-\ "active_filetypes": ["typescript"],
-\ "passive_filetypes": [],
-\ }
+let g:neomake_typescript_tslint_maker = {
+  \ 'args': ['%:p'],
+  \ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
+  \ }
 
-let g:syntastic_error_symbol='→'
-let g:syntastic_style_error_symbol='→'
-let g:syntastic_warning_symbol='→'
-let g:syntastic_style_warning_symbol='→'
+let g:neomake_tsx_tslint_maker = {
+  \ 'args': ['%:p'],
+  \ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
+  \ }
+
+autocmd! BufWritePost * Neomake
 
 " tsuquyomi
-" let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+
+function! Tsuquyomi_GetLocList(jobinfo)
+  let quickfix_list = tsuquyomi#createFixlist()
+  for qf in quickfix_list
+    let qf.valid = 1
+    let qf.bufnr = bufnr('%')
+  endfor
+  return quickfix_list
+endfunction
+
+let g:neomake_tsuquyomi_maker = {
+  \ 'get_list_entries': function('Tsuquyomi_GetLocList')
+  \ }
+
+let g:neomake_typescript_enabled_makers = ['tslint', 'tsuquyomi']
+let g:neomake_tsx_enabled_makers = ['tslint', 'tsuquyomi']
 
 " vim-projectionist
 map <leader>aa :A<CR>
