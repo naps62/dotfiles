@@ -1,0 +1,17 @@
+global !p
+from snippet_helpers_javascript import *
+endglobal
+
+snippet r "React component"
+import * as React from 'react';
+
+interface ${1:`!p js_class_name(path, snip)`}Props {
+	$2
+}
+
+export default class $1 extends React.Component<$1Props, any> {
+	render() {
+		return ${0:<div />};
+	}
+}
+endsnippet
