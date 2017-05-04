@@ -238,6 +238,11 @@ autocmd! BufWritePost * Neomake
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
 
+" use globally installed tsserver, so that nvm/node can be lazy-loaded by zsh
+let g:tsuquyomi_use_dev_node_module = 2
+let g:tsuquyomi_node_path = '/usr/bin/node'
+let g:tsuquyomi_tsserver_path = '/usr/bin/tsserver'
+
 function! Tsuquyomi_GetLocList(jobinfo)
   let quickfix_list = tsuquyomi#createFixlist()
   for qf in quickfix_list
