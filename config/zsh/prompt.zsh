@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+# #!/usr/bin/env zsh
 
 setopt prompt_subst
 
@@ -32,6 +32,10 @@ not_git_path () {
 path () {
   ((git rev-parse 2>/dev/null >/dev/null) && git_path) || not_git_path
 }
+
+export GIT_RADAR_COLOR_BRANCH="%{%B$fg[yellow]%}"
+export GIT_RADAR_FORMAT=" \x01\033[1;30m\x02\x01\033[0m\x02%{remote: }%{branch}%{ :local}\x01\033[1;30m\x02\x01\033[0m\x02%{ :changes}"
+
 
 PROMPT=$'\n'
 PROMPT=${PROMPT}'${blue}`path`'
