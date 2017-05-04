@@ -27,6 +27,7 @@ export LANG=en_US.utf-8
 export LC_CTYPE=en_US.utf-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
+export BROWSER=/usr/bin/google-chrome
 export TERMINAL=uxterm
 export METRIC_FU_OUT=$HOME/data/metric_fu
 export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
