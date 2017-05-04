@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-_load_zshrc() {
+__load_zshrc() {
   ~/.bin/ensure-xorg-is-running
 
   source ~/.config/zsh/rvm.zsh
@@ -29,7 +29,7 @@ __current_milliseconds() {
 }
 
 start_time=$(__current_milliseconds)
-time _load_zshrc
+__load_zshrc
 end_time=$(__current_milliseconds)
 
 load_time=$(($end_time - $start_time))
