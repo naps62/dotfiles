@@ -9,16 +9,27 @@ if $THEME == "dark"
   let base16colorspace=256
   colorscheme base16-default-dark
 
-  " SignColumn
-  " same color as line column
-  " highlight clear SignColumn
-  " highlight clear LineNr
-  " highlight clear CursorLineNr
-  " highlight CursorLineNr ctermfg=darkgrey
-  " hi SignColumn guibg=darkgrey
-  highlight LineNr ctermfg=darkgrey
-  highlight Search ctermbg=blue ctermfg=black
-  highlight MatchParen ctermbg=blue ctermfg=black
+  " SignColumn with same color as line column
+  highlight clear SignColumn
+
+  " vim-gitgutter bg color
+  highlight SignColumn ctermbg=black
+  highlight GitGutterAdd ctermbg=black
+  highlight GitGutterChange ctermbg=black
+  highlight GitGutterDelete ctermbg=black
+  highlight GitGutterChangeDelete ctermbg=black
+
+  " YCM sign colors
+  highlight YcmErrorSign ctermfg=red ctermbg=black
+  highlight YcmWarningSign ctermfg=red ctermbg=black
+
+  " line number column to match text bg
+  highlight LineNr ctermfg=darkgrey ctermbg=black
+
+  " search highligh
+  highlight Search ctermbg=darkgrey ctermfg=black
+
+  " spellchecker
   highlight SpellBad cterm=NONE
 
   function! TweakBase16()

@@ -58,7 +58,7 @@ Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
-Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " dependency of tsuquyomi
 
 " HTML
@@ -206,11 +206,13 @@ let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_elixir_enabled_makers = ['credo']
-let g:neomake_typescript_enabled_makers = ['tslint', 'tsuquyomi']
-let g:neomake_tsx_enabled_makers = ['tslint', 'tsuquyomi']
+let g:neomake_typescript_enabled_makers = ['tslint']
+let g:neomake_tsx_enabled_makers = ['tslint']
 
 let g:neomake_warning_sign = {'text': '→'}
 let g:neomake_error_sign = {'text': '→'}
+let g:ycm_warning_symbol = '→'
+let g:ycm_error_symbol = '→'
 
 let g:neomake_ruby_rubocop_maker = {
   \ 'args': ['-D']
@@ -243,18 +245,18 @@ let g:tsuquyomi_use_dev_node_module = 2
 let g:tsuquyomi_node_path = '/usr/bin/node'
 let g:tsuquyomi_tsserver_path = '/usr/bin/tsserver'
 
-function! Tsuquyomi_GetLocList(jobinfo)
-  let quickfix_list = tsuquyomi#createFixlist()
-  for qf in quickfix_list
-    let qf.valid = 1
-    let qf.bufnr = bufnr('%')
-  endfor
-  return quickfix_list
-endfunction
+" function! Tsuquyomi_GetLocList(jobinfo)
+"   let quickfix_list = tsuquyomi#createFixlist()
+"   for qf in quickfix_list
+"     let qf.valid = 1
+"     let qf.bufnr = bufnr('%')
+"   endfor
+"   return quickfix_list
+" endfunction
 
-let g:neomake_tsuquyomi_maker = {
-  \ 'get_list_entries': function('Tsuquyomi_GetLocList')
-  \ }
+" let g:neomake_tsuquyomi_maker = {
+"   \ 'get_list_entries': function('Tsuquyomi_GetLocList')
+"   \ }
 
 " vim-projectionist
 map <leader>aa :A<CR>
