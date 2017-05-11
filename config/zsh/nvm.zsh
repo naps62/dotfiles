@@ -10,6 +10,4 @@ load_nvm () {
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 }
 
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
+export PATH=$HOME/.nvm/versions/node/v7.4.0/bin:$PATH

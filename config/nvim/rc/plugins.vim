@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer --all' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
+Plug 'kreskij/vim-reminder-tips'
 
 " Editor features
 Plug 'chrisbra/NrrwRgn'
