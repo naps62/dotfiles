@@ -1,13 +1,11 @@
 #!/bin/sh
 
-declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+DEFAULT_NODE_VERSION=7.4.0
+DEFAULT_NODE_PATH=$HOME/.nvm/versions/node/v${DEFAULT_NODE_VERSION}/bin
 
-NODE_GLOBALS+=("node")
-NODE_GLOBALS+=("nvm")
+export PATH=${DEFAULT_NODE_PATH}:${PATH}
 
 load_nvm () {
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 }
-
-export PATH=$HOME/.nvm/versions/node/v7.4.0/bin:$PATH

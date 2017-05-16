@@ -8,6 +8,7 @@ source ~/.config/zsh/rvm.zsh
 # export PATH=$HOME/.rbenv/bin:$PATH
 # eval "$(rbenv init -)"
 source ~/.config/zsh/nvm.zsh
+source ~/.config/zsh/env.sh
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/bindings.zsh
 source ~/.config/zsh/cmds.zsh

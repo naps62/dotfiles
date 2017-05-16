@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer --all' }
+Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 Plug 'kreskij/vim-reminder-tips'
@@ -306,6 +306,11 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
+
+" vim-jsx
+let g:jsx_ext_required = 0
+
+" lazy loading plugins
 
 augroup load_us_ycm
   autocmd!

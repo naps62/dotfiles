@@ -1,7 +1,7 @@
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-feh --bg-scale /home/naps62/.wallpaper.jpg
+feh --bg-scale /home/naps62/.wallpaper.png
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # # setxkbmap -option caps:none
