@@ -41,6 +41,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
 Plug 'amperser/proselint'
+Plug 'wikitopian/hardmode'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -309,6 +310,11 @@ map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " vim-jsx
 let g:jsx_ext_required = 0
+
+" hardmode
+if (strftime("%w") == 5) " fry-day is hard-day
+  autocmd VimEnter * call HardMode()
+endif
 
 " lazy loading plugins
 
