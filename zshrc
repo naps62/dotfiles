@@ -5,8 +5,6 @@ typeset -F SECONDS=0
 ~/.bin/ensure-xorg-is-running
 
 source ~/.config/zsh/rvm.zsh
-# export PATH=$HOME/.rbenv/bin:$PATH
-# eval "$(rbenv init -)"
 source ~/.config/zsh/nvm.zsh
 source ~/.config/zsh/env.sh
 source ~/.config/zsh/env.zsh
