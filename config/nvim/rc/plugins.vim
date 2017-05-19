@@ -313,7 +313,7 @@ let g:jsx_ext_required = 0
 
 " hardmode
 if (strftime("%w") == 5) " fry-day is hard-day
-  autocmd VimEnter * call HardMode()
+  autocmd BufEnter * call HardMode()
 endif
 
 " lazy loading plugins
