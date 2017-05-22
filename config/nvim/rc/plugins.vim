@@ -312,14 +312,15 @@ map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
 let g:jsx_ext_required = 0
 
 " hardtime
-if (strftime("%w") == 5) " fry-day is hard-day
-  let g:hardtime_default_on = 1
-endif
+let g:hardtime_default_on = 1
+
+" if (strftime("%w") == 5) " fry-day is hard-day
+" endif
 
 " lazy loading plugins
 
 augroup load_us_ycm
   autocmd!
   autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe', 'vim-test')
-                      \| autocmd! ybnq_hf_lpz
+                      \| autocmd! load_us_ycm
 augroup END
