@@ -47,6 +47,7 @@ autocmd Syntax ruby,slim :normal zR
 " relative line numbering
 set number
 set relativenumber
+autocmd BufEnter * set relativenumber
 
 " redraw
 nnoremap <C-l> :redraw<cr>

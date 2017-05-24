@@ -312,10 +312,11 @@ map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
 let g:jsx_ext_required = 0
 
 " hardtime
-let g:hardtime_default_on = 1
-
-" if (strftime("%w") == 5) " fry-day is hard-day
-" endif
+if (strftime("%w") == 5) " fry-day is hard-day
+  let g:hardtime_default_on = 1
+  let g:hardtime_timeout = 800
+  let g:hardtime_showmsg = 1
+endif
 
 " lazy loading plugins
 
