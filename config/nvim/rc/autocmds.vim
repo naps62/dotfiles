@@ -1,3 +1,4 @@
+" syntaxes
 au BufNewFile,BufRead *.slim   set filetype=slim
 au BufNewFile,BufRead *.coffee set filetype=coffee
 au BufNewFile,BufRead *.pp     set filetype=puppet
@@ -13,5 +14,17 @@ au BufNewFile,BufRead *.rs     set filetype=rust
 au BufNewFile,BufRead *.es6    set filetype=javascript
 au BufNewFile,BufRead *.less.partial set filetype=less
 au BufNewFile,BufRead xmobarrc set filetype=haskell
-
 au BufNewFile,BufRead *.jsx.erb set syntax=javascript.jsx
+
+" remove trailing whitespaces on save,
+" only for the given filetypes
+let g:remove_trailing_whitespaces_whitelist = [
+  \ "*.ex",
+  \ "*.exs",
+  \ "*.rb",
+  \ "*.js?",
+  \ "*.ts?",
+  \ ]
+execute "autocmd BufWritePre " .
+  \ join(g:remove_trailing_whitespaces_whitelist, ",") .
+  \ " call RemoveTrailingWhitespaces()"

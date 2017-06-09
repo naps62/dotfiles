@@ -1,6 +1,9 @@
 from snippet_helpers import *
 import re
 
+def ex_path_without_first_dir(path):
+    return re.sub(r"^([a-z-]+\/){1}", "", path)
+
 def ex_module_name(path, snip):
     if is_umbrella_app(path):
         ex_umbrella_module_name(path, snip)
@@ -8,9 +11,9 @@ def ex_module_name(path, snip):
         ex_regular_module_name(path, snip)
 
 def ex_regular_module_name(path, snip):
-    path = path_without_first_dir(path)
+    path = ex_path_without_first_dir(path)
     path = path_without_extension(path)
-    snip.rv = path_as_class_name(current_project_name() + "/" + path, separator=".")
+    snip.rv = path_as_class_name(path, separator=".")
 
 def ex_umbrella_module_name(path, snip):
     path = path_without_extension(path)

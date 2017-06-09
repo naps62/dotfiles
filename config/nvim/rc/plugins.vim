@@ -92,6 +92,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapOpenSplit="s"
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeShowLineNumbers = 1
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Bookmark shortcut
@@ -129,6 +130,22 @@ map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>
 map <leader>sf :TestFile<CR>
 map <leader>sl :TestLast<CR>
+
+" Ability to run elixir tests while on their alternate file
+let test#elixir#exunit#file_pattern = '\.ex'
+
+function! ElixirDocTestTransformation(cmd) abort
+  if a:cmd =~ "mix test" && a:cmd !~ "_test.exs"
+    let final_cmd = substitute(a:cmd, "lib\/", "test/", "")
+    let final_cmd = substitute(final_cmd, ".ex", "_test.exs", "")
+    return final_cmd
+  else
+    return a:cmd
+  end
+endfunction
+
+let g:test#custom_transformations = {'elixir_doctest': function('ElixirDocTestTransformation')}
+let g:test#transformation = 'elixir_doctest'
 
 " fugitive.vim (git wrapper)
 set diffopt+=vertical
@@ -314,6 +331,7 @@ let g:jsx_ext_required = 0
 " hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_timeout = 500
+let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
 " lazy loading plugins
 

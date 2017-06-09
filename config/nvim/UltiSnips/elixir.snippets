@@ -33,6 +33,15 @@ defmodule `!p ex_module_name(path, snip)` do
 end
 endsnippet
 
+snippet case "ExUnit.Case" do
+defmodule `!p ex_module_name(path, snip)`Test do
+	use ExUnit.Case
+	doctest `!p ex_module_name(path, snip)`
+
+	$0
+end
+endsnippet
+
 snippet modelcase "model test case"
 defmodule `!p ex_module_name(path, snip)`Test do
 	use `!p ex_project_name(snip)`.ModelCase
@@ -77,4 +86,35 @@ endsnippet
 
 snippet defi "inline method" do
 def $1($2), do: $0
+endsnippet
+
+snippet doc "method docs" do
+@doc ~S"""
+$0
+"""
+endsnippet
+
+snippet ex "examples" do
+## Examples
+
+    iex> $0
+endsnippet
+
+snippet doct "method docs with examples" do
+@doc ~S"""
+$1
+
+## Examples
+
+    iex> $2
+"""
+$0
+endsnippet
+
+snippet spec "method spec" do
+@spec $1 :: $2
+endsnippet
+
+snippet type "type spec" do
+@type $1 :: $2
 endsnippet

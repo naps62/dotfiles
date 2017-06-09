@@ -10,3 +10,7 @@ function! FoldToggle()
     execute "wincmd |"
   endif
 endfunction
+
+function! RemoveTrailingWhitespaces()
+  :%s/\s\+$//e
+endfunction
