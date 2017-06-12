@@ -199,6 +199,7 @@ assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
+assign [title="Todoist"] 4
 
 floating_maximum_size 1580 x 730
 for_window [class="^.*"] border pixel 0
@@ -213,6 +214,7 @@ for_window [title="Add Torrents"] border normal
 
 exec i3-msg 'exec uxterm'
 exec i3-msg 'exec google-chrome'
+exec i3-msg 'exec todoist'
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id /usr/bin/cerebro
