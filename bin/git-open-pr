@@ -12,4 +12,4 @@ github = Octokit::Client.new(access_token: token)
 organization_name = remote_name.split("/")[0]
 pull = github.pulls(remote_name, head: "#{organization_name}:#{branch}").first
 puts pull[:html_url]
-exec "google-chrome-stable #{pull[:html_url]}"
+exec "google-chrome #{pull[:html_url]}"
