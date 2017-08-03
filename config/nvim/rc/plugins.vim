@@ -68,7 +68,6 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'types
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 Plug 'elzr/vim-json',    { 'for': 'json' }
-Plug 'suan/vim-instant-markdown'
 
 " Other syntaxes
 Plug 'tpope/vim-git'
