@@ -44,3 +44,15 @@ Host pi
 Host old-drawstep
   Hostname drawstep.com
   User drawstep
+
+Host doctorlink
+  Hostname doctorlink.com
+  User root
+  IdentityFile ~/.ssh/id_rsa.subvisual
+  ForwardAgent yes
+
+Host doctorlink-stag
+  Hostname staging.doctorlink.com
+  User root
+  IdentityFile ~/.ssh/id_rsa.subvisual
+  ForwardAgent yes

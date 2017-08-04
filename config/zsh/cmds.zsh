@@ -96,3 +96,8 @@ custom-ls () {
     command ls ${=flags} $@
   fi
 }
+
+
+nuke () {
+   ps ax | ag $@ | ag -v ag | cut -d' ' -f 1 | xargs kill -9
+}

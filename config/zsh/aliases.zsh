@@ -20,20 +20,19 @@ alias g=hub
 alias h=heroku
 alias o=open
 alias r=rails
-# alias rk=rake
 alias v=nvim
 alias va=vagrant
 alias x=extract
 alias y=yaourt
 alias s=bin/server
 
+# thoughtbot/parity
 alias prod=production
 alias stag=staging
 alias dev=development
 
 function rk() { rake "$@" }
 function g() { git "$@" }
-
 function f () { "$@" | fzf }
 
 # alias t=todo.sh

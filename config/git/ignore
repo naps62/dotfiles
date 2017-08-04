@@ -100,3 +100,5 @@ Thumbs.db
 
 # cache files
 __pycache__
+
+dump.rdb
