@@ -39,7 +39,8 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'amperser/proselint'
 Plug 'takac/vim-hardtime'
 
@@ -223,7 +224,7 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
-let g:neomake_elixir_enabled_makers = ['credo']
+" let g:neomake_elixir_enabled_makers = ['credo']
 let g:neomake_typescript_enabled_makers = ['tslint']
 let g:neomake_tsx_enabled_makers = ['tslint']
 
@@ -253,6 +254,19 @@ let g:neomake_prose_maker = {
   \ }
 
 autocmd! BufWritePost * Neomake
+
+" ale
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_emit_conflict_warnings = 0
+
+let g:neomake_warning_sign = {'text': '→'}
+let g:neomake_error_sign = {'text': '→'}
+let g:ale_sign_error = '→'
+let g:ale_sign_warning = '→'
+" let g:ale_linters = {
+"       \ 'elixir': ['credo']
+"       \ }
 
 " tsuquyomi
 let g:tsuquyomi_completion_detail = 1
