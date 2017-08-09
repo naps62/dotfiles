@@ -7,7 +7,7 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 call plug#begin('~/.config/nvim/plugged')
 
 " UI Features
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'chriskempson/base16-vim'
 Plug 'jonathanfilip/vim-lucius'
@@ -39,7 +39,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
-" Plug 'neomake/neomake'
+Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'amperser/proselint'
 Plug 'takac/vim-hardtime'
@@ -61,8 +61,6 @@ Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
-" Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' } " dependency of tsuquyomi
 
 " HTML
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript'] }
@@ -204,6 +202,9 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_key_detailed_diagnostics = ''
+" syntax checking is done by other tools (neomake, ale, etc, so we don't want
+" them here)
+let g:ycm_show_diagnostics_ui = 0
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<C-j>"
@@ -220,32 +221,18 @@ nmap <C-p> :Files<CR>
 nmap <C-f> :Ag<CR>
 
 " neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_css_enabled_makers = ['scss_lint']
-let g:neomake_ruby_enabled_makers = ['rubocop']
+" let g:neomake_ruby_enabled_makers = ['rubocop']
 " let g:neomake_elixir_enabled_makers = ['credo']
-let g:neomake_typescript_enabled_makers = ['tslint']
-let g:neomake_tsx_enabled_makers = ['tslint']
+" let g:neomake_typescript_enabled_makers = ['tslint']
+" let g:neomake_tsx_enabled_makers = ['tslint']
 
 let g:neomake_warning_sign = {'text': '→'}
 let g:neomake_error_sign = {'text': '→'}
 let g:ycm_warning_symbol = '→'
 let g:ycm_error_symbol = '→'
-
-let g:neomake_ruby_rubocop_maker = {
-  \ 'args': ['-D']
-  \ }
-
-let g:neomake_typescript_tslint_maker = {
-  \ 'args': ['%:p'],
-  \ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
-  \ }
-
-let g:neomake_tsx_tslint_maker = {
-  \ 'args': ['%:p'],
-  \ 'errorformat': 'ERROR: %f[%l\, %c]: %m',
-  \ }
 
 let g:neomake_prose_maker = {
   \ 'exe': 'proselint',
@@ -253,42 +240,28 @@ let g:neomake_prose_maker = {
   \ 'errorformat': '%f:%l:%c %m',
   \ }
 
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 " ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_emit_conflict_warnings = 0
 
-let g:neomake_warning_sign = {'text': '→'}
-let g:neomake_error_sign = {'text': '→'}
 let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'
-" let g:ale_linters = {
-"       \ 'elixir': ['credo']
-"       \ }
+let g:ale_linters = {
+      \ 'ruby': ['rubocop'],
+      \ 'elixir': ['credo'],
+      \ 'javascript': [],
+      \ 'typescript': ['tslint', 'tsserver'],
+      \ }
 
-" tsuquyomi
-let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_disable_quickfix = 1
-
-" use globally installed tsserver, so that nvm/node can be lazy-loaded by zsh
-let g:tsuquyomi_use_dev_node_module = 2
-let g:tsuquyomi_node_path = '/usr/bin/node'
-let g:tsuquyomi_tsserver_path = '/usr/bin/tsserver'
-
-" function! Tsuquyomi_GetLocList(jobinfo)
-"   let quickfix_list = tsuquyomi#createFixlist()
-"   for qf in quickfix_list
-"     let qf.valid = 1
-"     let qf.bufnr = bufnr('%')
-"   endfor
-"   return quickfix_list
-" endfunction
-
-" let g:neomake_tsuquyomi_maker = {
-"   \ 'get_list_entries': function('Tsuquyomi_GetLocList')
-"   \ }
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ 'ruby': ['rubocop'],
+      \ 'javascript': [],
+      \ 'typescript': ['prettier']
+      \ }
 
 " vim-projectionist
 map <leader>aa :A<CR>

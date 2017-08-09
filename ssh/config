@@ -53,6 +53,6 @@ Host doctorlink
 
 Host doctorlink-stag
   Hostname staging.doctorlink.com
-  User root
+  User deploy
   IdentityFile ~/.ssh/id_rsa.subvisual
   ForwardAgent yes
