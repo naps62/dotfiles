@@ -1,13 +1,10 @@
 autocmd User ProjectionistDetect
 \ call projectionist#append(getcwd(),
 \ {
-\    'web/*.ex':  {
-\       'alternate': 'test/{}_test.exs'
-\    },
 \    'lib/*.ex':  {
 \       'alternate': 'test/{}_test.exs'
 \    },
-\    'web/models/*.ex':  {
+\    'lib/*.ex':  {
 \       'skeleton': 'ectomodel',
 \       'alternate': 'test/{}_test.exs'
 \    },
@@ -15,7 +12,4 @@ autocmd User ProjectionistDetect
 \      'alternate': 'lib/{}.ex',
 \      'skeleton': 'case'
 \     },
-\    'test/controllers/*_test.exs': {
-\       'skeleton': 'conncase'
-\     }
 \ })

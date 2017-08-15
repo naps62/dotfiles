@@ -1,1 +1,1 @@
-map <buffer> <leader>d orequire 'pry'; binding.pry<Esc>:w<CR>
+map <buffer> <leader>d obinding.pry_remote<Esc>:w<CR>

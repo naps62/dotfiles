@@ -42,7 +42,7 @@ Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'amperser/proselint'
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -246,6 +246,7 @@ let g:neomake_prose_maker = {
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_emit_conflict_warnings = 0
+let g:ale_ruby_rubocop_options = '--except Lint/Debugger'
 
 let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'

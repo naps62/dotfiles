@@ -1,0 +1,4 @@
+{
+  "test/test_snippet_helper.py::test_ex_umbrella_module_name": true,
+  "test/test_snippet_helpers_elixir.py::test_ex_umbrella_module_name": true
+}
