@@ -8,7 +8,6 @@ ControlPersist yes
 
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
-IdentityFile ~/.ssh/id_rsa.upcase
 
 #
 # Subvisual servers
@@ -41,9 +40,6 @@ Host pi
   Hostname naps62.ddns.net
   User pi
 
-Host old-drawstep
-  Hostname drawstep.com
-  User drawstep
 
 Host doctorlink
   Hostname doctorlink.com
@@ -56,3 +52,12 @@ Host doctorlink-stag
   User deploy
   IdentityFile ~/.ssh/id_rsa.subvisual
   ForwardAgent yes
+
+Host old-drawstep
+  Hostname drawstep.com
+  User drawstep
+
+Host drawstep
+  Hostname 207.154.211.111
+  User root
+  IdentityFile ~/.ssh/id_rsa
