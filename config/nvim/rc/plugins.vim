@@ -223,7 +223,7 @@ nmap <C-f> :Ag<CR>
 " neomake
 " let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_css_enabled_makers = ['scss_lint']
+let g:neomake_css_enabled_makers = ['']
 " let g:neomake_ruby_enabled_makers = ['rubocop']
 " let g:neomake_elixir_enabled_makers = ['credo']
 " let g:neomake_typescript_enabled_makers = ['tslint']
@@ -250,19 +250,38 @@ let g:ale_ruby_rubocop_options = '--except Lint/Debugger'
 
 let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'
+let g:ale_fix_on_save = 1
 let g:ale_linters = {
       \ 'ruby': ['rubocop'],
       \ 'elixir': ['credo'],
-      \ 'javascript': [],
       \ 'typescript': ['tslint', 'tsserver'],
+      \ 'javascript': [],
+      \ 'scss': [],
       \ }
 
-let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-      \ 'ruby': ['rubocop'],
+      \ 'ruby':  ['rubocop'],
+      \ 'typescript': ['tslint', 'tsserver', 'prettier'],
       \ 'javascript': [],
-      \ 'typescript': ['prettier']
       \ }
+
+function! AddLinterIfFileExists(lang, linter, file, lint, fix)
+  let l:current = g:ale_linters[a:lang]
+
+  if filereadable(a:file) && index(l:current, a:linter) == -1
+    if a:lint
+      let g:ale_linters[a:lang] = g:ale_linters.javascript + [a:linter]
+    endif
+    if a:fix
+      let g:ale_fixers[a:lang] = g:ale_linters.javascript + [a:linter]
+    end
+  endif
+endfunction
+
+call AddLinterIfFileExists('javascript', 'eslint', '.eslintrc.json', 1, 1)
+call AddLinterIfFileExists('javascript', 'standard', 'node_modules/.bin/standard', 1, 1)
+call AddLinterIfFileExists('scss', 'stylelint', '.stylelintrc', 1, 0)
+
 
 " vim-projectionist
 map <leader>aa :A<CR>

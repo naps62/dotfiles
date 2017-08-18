@@ -43,7 +43,7 @@ Host pi
 
 Host doctorlink
   Hostname doctorlink.com
-  User root
+  User deploy
   IdentityFile ~/.ssh/id_rsa.subvisual
   ForwardAgent yes
 
@@ -58,6 +58,7 @@ Host old-drawstep
   User drawstep
 
 Host drawstep
-  Hostname 207.154.211.111
+  Hostname 46.101.182.58
+  Port 22062
   User root
   IdentityFile ~/.ssh/id_rsa
