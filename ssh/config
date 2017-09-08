@@ -57,8 +57,14 @@ Host old-drawstep
   Hostname drawstep.com
   User drawstep
 
-Host drawstep
-  Hostname 46.101.182.58
+Host mtgsearch
+  Hostname mtgsear.ch
+  User deploy
   Port 22062
-  User root
+  IdentityFile ~/.ssh/id_rsa
+
+Host drawstep
+  Hostname new.drawstep.com
+  Port 22062
+  User deploy
   IdentityFile ~/.ssh/id_rsa
