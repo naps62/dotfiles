@@ -252,7 +252,7 @@ let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-      \ 'ruby': ['rubocop'],
+      \ 'ruby': [],
       \ 'elixir': ['credo'],
       \ 'typescript': ['tslint', 'tsserver'],
       \ 'javascript': [],
@@ -260,7 +260,7 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \ 'ruby':  ['rubocop'],
+      \ 'ruby':  [],
       \ 'typescript': ['tslint', 'tsserver', 'prettier'],
       \ 'javascript': [],
       \ }
@@ -281,6 +281,7 @@ endfunction
 call AddLinterIfFileExists('javascript', 'eslint', '.eslintrc.json', 1, 1)
 call AddLinterIfFileExists('javascript', 'standard', 'node_modules/.bin/standard', 1, 1)
 call AddLinterIfFileExists('scss', 'stylelint', '.stylelintrc', 1, 0)
+call AddLinterIfFileExists('ruby', 'rubocop', '.rubocop.yml', 1, 1)
 
 
 " vim-projectionist

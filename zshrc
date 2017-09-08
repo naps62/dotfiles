@@ -26,3 +26,5 @@ source ~/.config/zsh/antibody.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 echo "zsh loadded in ${SECONDS}s"
+eval "$(direnv hook zsh)"
+
