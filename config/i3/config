@@ -29,9 +29,8 @@ bindsym $mod+Return exec uxterm
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym Ctrl+space exec rofi -show run
-bindsym $mod+s exec rofi -show
-# bindsym $mod+d exec rofi -show run -font "Consolas-25"
+bindsym $mod+space exec rofi -show run
+bindsym $mod+d exec rofi -show
 
 # change focus
 bindsym $mod+h focus left
@@ -79,9 +78,6 @@ bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
