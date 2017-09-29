@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+i3-msg '[title="floating uxterm"] scratchpad show'
+i3-msg '[title="floating uxterm"] move position center'
+i3-msg '[title="floating uxterm"] focus'

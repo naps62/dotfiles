@@ -4,6 +4,10 @@ _not_inside_tmux() {
   [[ -z "$TMUX" ]]
 }
 
-if _not_inside_tmux; then
+_tmux_not_disabled() {
+  [[ -z "$NO_TMUX" ]]
+}
+
+if _not_inside_tmux && _tmux_not_disabled; then
   ~/.bin/tat
 fi

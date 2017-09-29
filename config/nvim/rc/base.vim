@@ -1,5 +1,8 @@
 " basics
-"
+
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+
 set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
 set ruler         " cursor position
@@ -47,7 +50,7 @@ autocmd Syntax ruby,slim :normal zR
 " relative line numbering
 set number
 set relativenumber
-autocmd BufEnter * set relativenumber
+" autocmd BufEnter * set relativenumber
 
 " redraw
 nnoremap <C-l> :redraw<cr>
