@@ -26,4 +26,5 @@ source ~/.config/zsh/antibody.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
+eval "$(rbenv init -)"
 echo "zsh loadded in ${SECONDS}s"

@@ -103,7 +103,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # toggle floating terminal
-bindsym $mod+Shift+\ exec ~/.bin/toggle-floating-term
+bindsym Ctrl+backslash exec ~/.bin/toggle-floating-term
 
 # toggle between clone and extend-left
 bindsym $mod+Shift+0 exec ~/.bin/dual toggle clone left
@@ -199,8 +199,8 @@ assign [title="Todoist"] 4
 floating_maximum_size 1580 x 730
 for_window [class="^.*"] border pixel 0
 for_window [class="feh"] floating enable
-for_window [title="floating uxterm"] floating enable
-for_window [title="floating uxterm"] border pixel 5
+for_window [title="floating term"] floating enable
+for_window [title="floating term"] border pixel 5
 # for_window [class="Cerebro"] floating enable
 # for_window [class="Cerebro"] border pixel
 for_window [class="feh"] border normal
@@ -208,10 +208,10 @@ for_window [class="feh"] border normal
 for_window [window_role="GtkFileChooserDialog"] border normal
 for_window [title="Add Torrents"] border normal
 
-
 exec i3-msg 'exec uxterm'
 exec i3-msg 'exec google-chrome'
 exec i3-msg 'exec todoist'
+exec i3-msg 'exec ~/.bin/floating-term'
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec --no-startup-id /usr/bin/cerebro

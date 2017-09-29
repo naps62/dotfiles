@@ -1,5 +1,23 @@
 #!/usr/bin/env zsh
 
-i3-msg '[title="floating uxterm"] scratchpad show'
-i3-msg '[title="floating uxterm"] move position center'
-i3-msg '[title="floating uxterm"] focus'
+float_term_name="floating term"
+
+_get_current_workspace() {
+  i3-msg -t get_workspaces \
+  | jq '.[] | select(.focused==true).name' \
+  | cut -d"\"" -f2
+}
+
+_floating_term_id() {
+  current_workspace=`_get_current_workspace`
+  xdotool search --desktop $((--current_workspace)) --name "$float_term_name"
+}
+
+if [ "`_floating_term_id`" -eq "" ]; then
+  echo "not here"
+  i3-msg "[title=\"$float_term_name\"] scratchpad show"
+  i3-msg "[title=\"$float_term_name\"] move position center"
+else
+  echo "in current workspace. moving away"
+  i3-msg "[title=\"$float_term_name\"] move scratchpad"
+fi
