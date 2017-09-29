@@ -4,7 +4,7 @@ typeset -F SECONDS=0
 
 ~/.bin/ensure-xorg-is-running
 
-source ~/.config/zsh/rvm.zsh
+# source ~/.config/zsh/rvm.zsh
 source ~/.config/zsh/nvm.zsh
 source ~/.config/zsh/env.sh
 source ~/.config/zsh/env.zsh
@@ -26,4 +26,4 @@ source ~/.config/zsh/antibody.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
-echo "zsh loadded in ${SECONDS}s"
+echo "zsh loaded in ${SECONDS}s"
