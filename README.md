@@ -1,4 +1,3 @@
 # My dotfiles
 
-These are simply my personal additions to [Group Buddies
-dotfiles](https://github.com/groupbuddies/dotfiles)
+These are my own dotfiles. Use them at your own risk

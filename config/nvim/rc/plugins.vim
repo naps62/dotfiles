@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-" Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 Plug 'kreskij/vim-reminder-tips'
@@ -61,6 +61,8 @@ Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
+Plug 'Shougo/vimproc.vim', { 'for': ['typescript'], 'do': 'make' }
+Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
 
 " HTML
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript'] }
@@ -74,8 +76,16 @@ Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 
+" Write mode
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'vim-scripts/VOoM'
+Plug 'beloglazov/vim-online-thesaurus'
+Plug 'rhysd/vim-grammarous'
+
 call plug#end()
 filetype plugin indent on
+
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -344,6 +354,6 @@ let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
 augroup load_us_ycm
   autocmd!
-  autocmd CursorHold,CursorHoldI * call plug#load('vim-test')
+  autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe', 'vim-test')
                       \| autocmd! load_us_ycm
 augroup END

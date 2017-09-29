@@ -43,4 +43,5 @@ else
   set background=light
   let base16colorspace=256
   colorscheme lucius
+  highlight Cursor ctermfg=white ctermbg=black
 endif
