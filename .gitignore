@@ -18,6 +18,7 @@ config/*
 !config/yaourt
 !config/ripgrep
 !config/dunst
+!config/Xresources
 config/nvim/.netrwhist
 
 xboomx/xboomx.db

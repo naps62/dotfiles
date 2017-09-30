@@ -19,6 +19,25 @@ set_from_resource $dark-grey  color18
 set_from_resource $light-grey color20
 set_from_resource $white      color21
 
+set_from_resource	$background	i3.background
+set_from_resource	$foreground	i3.foreground
+set_from_resource	$color0		i3.color0
+set_from_resource 	$color1 	i3.color1
+set_from_resource 	$color2 	i3.color2
+set_from_resource 	$color3 	i3.color3
+set_from_resource 	$color4 	i3.color4
+set_from_resource 	$color5 	i3.color5
+set_from_resource 	$color6		i3.color6
+set_from_resource	$color7		i3.color7
+set_from_resource	$color8		i3.color8
+set_from_resource	$color9		i3.color9
+set_from_resource	$color10	i3.color10
+set_from_resource	$color11	i3.color11
+set_from_resource	$color12	i3.color12
+set_from_resource	$color13	i3.color13
+set_from_resource	$color14	i3.color14
+set_from_resource	$color15	i3.color15
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -176,20 +195,22 @@ bar {
   }
 }
 
-gaps inner 10
-gaps outer -10
+gaps inner 8
+gaps outer -4
 smart_gaps on
-smart_borders no_gaps
+smart_borders on
 
-# class                 border     backgr.    text       indicator  child_border
-client.focused          $bg-active $bg-active $fg-active $fg-active $bg-active
-client.focused_inactive $bg        $bg        $fg       $bg         $bg
-client.unfocused        $bg        $bg        $fg       $bg         $bg
-client.urgent           $bg        $bg        $fg       $bg         $bg
-client.placeholder      $bg        $bg        $fg       $bg         $bg
+# Theme colors
+# class                 border  	backgr. 	text    	indic.  	child_border
+# My colors
+client.background	$background
 
-client.background       $bg
-exec --no-startup-ip nm-applet
+client.focused         	$foreground	$background	$foreground	$color7		$color7	
+client.unfocused       	$foreground	$background	$foreground	$background	$background
+client.focused_inactive	$foreground	$background	$foreground	$background	$background
+client.urgent		$foreground	$background	$foreground	$background	$background
+client.placeholder	$foreground	$background	$foreground	$background	$background
+hide_edge_borders none
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
@@ -198,7 +219,7 @@ assign [class="Spotify"] 4
 assign [title="Todoist"] 4
 
 floating_maximum_size 1580 x 730
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 for_window [class="feh"] floating enable
 for_window [title="floating_term"] floating enable
 for_window [title="floating_term"] border pixel 5
