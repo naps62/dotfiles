@@ -18,17 +18,20 @@ _current_workspace_floating_term_id() {
 }
 
 if [ "`_floating_term_id`" -eq "" ]; then
-  echo "not anywhere"
+  # floating term does not exist. starting one
 
   unset TMUX
   export NO_TMUX=1
   uxterm -T $float_term_name
   i3-msg "exec uxterm -T $float_term_name"
+
 elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then
-  echo "not here"
+  # floating term is not in the current workspace. moving it here
+
   i3-msg "[title=\"$float_term_name\"] scratchpad show"
   i3-msg "[title=\"$float_term_name\"] move position center"
 else
-  echo "in current workspace. moving away"
+  # floating term is in current workspace. hiding it
+
   i3-msg "[title=\"$float_term_name\"] move scratchpad"
 fi
