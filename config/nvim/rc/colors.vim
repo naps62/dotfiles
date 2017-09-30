@@ -7,7 +7,7 @@ endif
 if $THEME == "dark"
   set background=dark
   let base16colorspace=256
-  colorscheme base16-default-dark
+  colorscheme base16-eighties
 
   " SignColumn with same color as line column
   highlight clear SignColumn

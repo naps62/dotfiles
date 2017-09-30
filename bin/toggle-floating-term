@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-float_term_name="floating term"
+float_term_name="floating_term"
 
 _get_current_workspace() {
   i3-msg -t get_workspaces \
@@ -9,11 +9,22 @@ _get_current_workspace() {
 }
 
 _floating_term_id() {
+  xdotool search --name "$float_term_name"
+}
+
+_current_workspace_floating_term_id() {
   current_workspace=`_get_current_workspace`
   xdotool search --desktop $((--current_workspace)) --name "$float_term_name"
 }
 
 if [ "`_floating_term_id`" -eq "" ]; then
+  echo "not anywhere"
+
+  unset TMUX
+  export NO_TMUX=1
+  uxterm -T $float_term_name
+  i3-msg "exec uxterm -T $float_term_name"
+elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then
   echo "not here"
   i3-msg "[title=\"$float_term_name\"] scratchpad show"
   i3-msg "[title=\"$float_term_name\"] move position center"
