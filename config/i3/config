@@ -29,8 +29,7 @@ bindsym $mod+Return exec uxterm
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym Ctrl+space exec rofi -show run
-bindsym $mod+d exec rofi -show
+bindsym Ctrl+space exec "rofi -modi run,window -show run"
 
 # change focus
 bindsym $mod+h focus left
