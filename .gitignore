@@ -19,6 +19,7 @@ config/*
 !config/ripgrep
 !config/dunst
 !config/Xresources
+!config/polybar
 config/nvim/.netrwhist
 
 xboomx/xboomx.db

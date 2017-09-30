@@ -38,6 +38,13 @@ set_from_resource	$color13	i3.color13
 set_from_resource	$color14	i3.color14
 set_from_resource	$color15	i3.color15
 
+# Configure border style
+new_window pixel 1
+new_float pixel 1
+
+# Hide borders
+hide_edge_borders none
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -177,26 +184,26 @@ bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/downloads/screens
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  i3bar_command i3bar -t
-  height 40
-  status_command i3status
-  mode hide
-  separator_symbol "  "
-  font pango:Consolas 18
-  colors {
-    separator $dark-grey
-    background $dark-grey
-    statusline $light-grey
-    focused_workspace $black $black $white
-    # active_workspace #373b41 #373b41 #ffffff
-    inactive_workspace $dark-grey $dark-grey $light-grey
-    urgent_workspace $bright-red $bright-red $white
-  }
-}
+# bar {
+#   i3bar_command i3bar -t
+#   height 40
+#   status_command i3status
+#   mode hide
+#   separator_symbol "  "
+#   font pango:Consolas 18
+#   colors {
+#     separator $dark-grey
+#     background $dark-grey
+#     statusline $light-grey
+#     focused_workspace $black $black $white
+#     # active_workspace #373b41 #373b41 #ffffff
+#     inactive_workspace $dark-grey $dark-grey $light-grey
+#     urgent_workspace $bright-red $bright-red $white
+#   }
+# }
 
 gaps inner 8
-gaps outer -4
+gaps outer 8
 smart_gaps on
 smart_borders on
 
@@ -210,7 +217,6 @@ client.unfocused       	$foreground	$background	$foreground	$background	$backgro
 client.focused_inactive	$foreground	$background	$foreground	$background	$background
 client.urgent		$foreground	$background	$foreground	$background	$background
 client.placeholder	$foreground	$background	$foreground	$background	$background
-hide_edge_borders none
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
@@ -222,17 +228,17 @@ floating_maximum_size 1580 x 730
 for_window [class="^.*"] border pixel 1
 for_window [class="feh"] floating enable
 for_window [title="floating_term"] floating enable
-for_window [title="floating_term"] border pixel 5
 # for_window [class="Cerebro"] floating enable
-# for_window [class="Cerebro"] border pixel
 for_window [class="feh"] border normal
 for_window [class="feh"] border normal
 for_window [window_role="GtkFileChooserDialog"] border normal
 for_window [title="Add Torrents"] border normal
+for_window [class="polybar"] floating enable
 
 exec i3-msg 'exec uxterm'
 exec i3-msg 'exec google-chrome'
 exec i3-msg 'exec todoist'
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec --no-startup-id /usr/bin/cerebro
