@@ -23,6 +23,10 @@ if $THEME == "dark"
   highlight YcmErrorSign ctermfg=red ctermbg=black
   highlight YcmWarningSign ctermfg=red ctermbg=black
 
+  " Generic error colors
+  highlight Error ctermfg=red ctermbg=black
+  highlight Warning ctermfg=yellow ctermbg=black
+
   " line number column to match text bg
   highlight LineNr ctermfg=darkgrey ctermbg=black
 
