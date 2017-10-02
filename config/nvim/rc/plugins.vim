@@ -42,6 +42,7 @@ Plug 'wellle/targets.vim'
 Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'amperser/proselint'
+Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'takac/vim-hardtime'
 
 " Ruby
