@@ -208,15 +208,13 @@ smart_gaps on
 smart_borders on
 
 # Theme colors
-# class                 border  	backgr. 	text    	indic.  	child_border
-# My colors
-client.background	$background
-
-client.focused         	$foreground	$background	$foreground	$color7		$color7	
-client.unfocused       	$foreground	$background	$foreground	$background	$background
-client.focused_inactive	$foreground	$background	$foreground	$background	$background
-client.urgent		$foreground	$background	$foreground	$background	$background
-client.placeholder	$foreground	$background	$foreground	$background	$background
+client.background $background
+# class                 border      backgr.     text        indic.      child_border
+client.focused          $foreground $background $foreground $color7     $color7
+client.unfocused        $foreground $background $foreground $background $background
+client.focused_inactive $foreground $background $foreground $background $background
+client.urgent           $foreground $background $foreground $background $background
+client.placeholder      $foreground $background $foreground $background $background
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
