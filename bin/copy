@@ -1,0 +1,11 @@
+#!/bin/sh
+
+copy_cmd="xclip -selection clipboard"
+
+if which xclip &> /dev/null; then
+    if [ -f $@ ]; then
+        cat $@ | $copy_cmd
+    else
+        echo $@ | $copy_cmd
+    fi
+fi
