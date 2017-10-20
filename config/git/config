@@ -35,7 +35,7 @@
   rev = commit -m 'code review'
   la = !git config -l | grep alias | cut -c 7-
   pulls = browse -- pulls
-  review = browse -- 'pulls?q=is:pr is:open review:required -author:naps62'
+  rv = browse -- 'pulls?q=is:pr is:open -review:approved -author:naps62'
   issues = browse -- issues
   projects = browse -- projects
   proj = browse -- projects
