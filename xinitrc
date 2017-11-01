@@ -8,6 +8,7 @@ feh --bg-scale /home/naps62/.wallpaper.jpg
 xset r rate 150 20
 
 xrdb -merge ~/.Xresources
+xmodmap ~/.Xmodmap
 
 # start session
 DEFAULTSESSION=i3
