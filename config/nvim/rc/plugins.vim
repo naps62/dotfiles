@@ -76,6 +76,7 @@ Plug 'tpope/vim-git'
 Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
+Plug 'tomlion/vim-solidity'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
