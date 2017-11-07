@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 Plug 'kreskij/vim-reminder-tips'
@@ -53,7 +53,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim'
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
@@ -356,6 +356,6 @@ let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
 augroup load_us_ycm
   autocmd!
-  autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe', 'vim-test')
+  autocmd CursorHold,CursorHoldI * call plug#load('vim-test')
                       \| autocmd! load_us_ycm
 augroup END
