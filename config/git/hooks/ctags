@@ -2,8 +2,6 @@
 
 set -e
 
-echo "[HOOK: ctags at .git/tags]"
-
 PATH="/usr/local/bin:$PATH"
 trap "rm -f .git/tags.$$" EXIT
 ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql > /dev/null 2>&1

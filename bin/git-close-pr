@@ -3,24 +3,35 @@
 current=$(git branchname)
 destiny=${1:-master}
 
-echo "fetching"
-git fetch > /dev/null
+# 1. Check if CI is failing
+if [[ "$2" != "-f" ]]; then
+  ci_status=$(hub ci-status)
 
-echo "rebasing ${destiny}"
-git checkout $destiny > /dev/null
+  if [[ $ci_status != "success" ]]; then
+    echo CI is $ci_status for branch $current
+    exit 1
+  fi
+fi
+
+
+# 2. Update destiny
+git fetch -q
+git checkout $destiny -q
 # check if branch changed successfully (no staged changes or such things)
-[[ $? == 0 ]] || exit "failed to switch to $destiny"
-git rebase > /dev/null
+[[ $? == 0 ]] || (echo "failed to switch to $destiny" && exit 1)
 
-echo "rebasing ${current} with ${destiny}"
-git checkout $current > /dev/null
+# 3. Rebase PR branch
+git checkout $current -q
+git rebase $destiny -q
 (git pr-description $current | xclip -selection c || true) &
 git rebase -i $destiny
-git push -f > /dev/null
 
-echo "merging"
-git checkout $destiny > /dev/null
-git merge --ff-only $current > /dev/null
-git push > /dev/null
+# 4. merge
+git push -f -q
+git checkout $destiny -q
+git merge --ff-only $current -q
+git push
+
+# 5. remove branch
 [[ $(git diff $current..$destiny) == "" ]] && git nuke $current $destiny > /dev/null
 

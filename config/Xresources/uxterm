@@ -12,7 +12,7 @@ UXTerm*pastableTabs: true
 UXTerm*jumpScroll:   true
 UXTerm*selectToClipboard: true
 UXTerm*metaSendsEscape: true
-*VT100*translations: #override Shift <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY)
+*VT100*translations: #override Shift <Btn1Up>: exec-formatted("brave '%t'", PRIMARY)
 !
 ! fix backspace in vim
 *VT100.backarrowKey: false
