@@ -9,30 +9,86 @@
 # CI success
 # naps62 approved
 # fribmendes commented
+#
+# results are cached in .git/custom-info/branch_name.review_status
+# cache is automatically ignored if older than 5 minutes
 
 require "octokit"
 require "git"
+require "fileutils"
 require "pry"
 
 token = File.read(File.join(Dir.home, ".github_token"))
 
-git = Git.open(".")
+# find a git repo in the current directory
+# recursing up if not found
+def root_directory?(path)
+  File.directory?(path) &&
+    File.expand_path(path) == File.expand_path(File.join(path, ".."))
+end
 
+def find_git_root(path)
+  raise "Path does not exist" unless File.exists?(path)
+
+  if root_directory?(path)
+    return nil
+  elsif File.exists?(File.join(path, ".git"))
+    return File.expand_path(path)
+  else
+    return find_git_root(File.join(path, ".."))
+  end
+end
+
+root_path = find_git_root(".")
+
+# abort if we're not in a git repo
+exit unless root_path
+
+# find info on current git repo
+git = Git.open(root_path)
 origin = git.remote("origin").url
 current_branch = ARGV[0] || git.current_branch
 org_and_repo = git.remote("origin").url.split(":")[1].gsub(%r|.git$|, "")
 
+friendly_branch_name = current_branch.gsub("/", "_")
+
+# abort if the origin is not github
 exit unless origin =~ /github.com/
+
+# cache file for this branch's review
+cache_name = "#{friendly_branch_name}.review-status"
+FileUtils.mkdir_p File.join(root_path, ".git", "custom-info")
+cache_file = File.join(root_path, ".git", "custom-info", cache_name)
+current_time = Time.new.to_i
+
+# cache file is valid for 10 minutes
+cache_ttl = 60 * 5
+
+# if cache exists and is not expired, use cache and stop execution
+if File.exists?(cache_file) && current_time - File.mtime(cache_file).to_i < cache_ttl
+  puts File.read(cache_file)
+  exit 0
+end
+
+#
+# cache is not to be used, let's fetch stuff
+#
 
 # Silence warnings about using Preview features, such as the Reviews API
 ENV["OCTOKIT_SILENT"] = "1"
 github = Octokit::Client.new(access_token: token)
 
+# by default, we print nothing
+# even if a PR does not exist, we still want to cache this
+out = ""
+
+# fetch PR for current branch
 pull = github.pulls(org_and_repo, head: "#{org_and_repo}:#{current_branch}").first
 
+# this is only relevant if a PR exists
 if pull
   ci_status = `hub ci-status`.strip
-  out = ["CI #{ci_status}"]
+  lines = ["CI #{ci_status}"]
 
   reviews = github.pull_request_reviews(org_and_repo, pull.number)
 
@@ -41,9 +97,12 @@ if pull
   #
   # Reversing the list of reviews, and then filtering by uniqueness of username
   # works. This assumes that reviews arrive in order, of course
-  out << reviews.reverse.uniq { |r| r.user.login }.map do |review|
+  lines << reviews.reverse.uniq { |r| r.user.login }.map do |review|
     "#{review.user.login} #{review.state.downcase}"
   end
 
-  puts out.join("\n")
+  out = lines.join("\n")
 end
+
+puts out
+File.write(cache_file, out)

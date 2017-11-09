@@ -4,19 +4,18 @@ current=$(git branchname)
 destiny=${1:-master}
 
 # 1. Check if CI is failing
-if [[ "$2" != "-f" ]]; then
-  ci_status=$(hub ci-status)
+ci_status=$(hub ci-status)
 
-  if [[ $ci_status != "success" ]]; then
-    echo CI is $ci_status for branch $current
-    exit 1
-  fi
+if [[ $ci_status != "success" ]]; then
+  echo CI is $ci_status for branch $current
+  exit 1
 fi
 
 
 # 2. Update destiny
 git fetch -q
 git checkout $destiny -q
+git rebase $destiny -q
 # check if branch changed successfully (no staged changes or such things)
 [[ $? == 0 ]] || (echo "failed to switch to $destiny" && exit 1)
 

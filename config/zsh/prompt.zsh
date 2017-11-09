@@ -27,6 +27,23 @@ prompt_char () {
   echo '$'
 }
 
+git_review_status () {
+  return
+  # if we are in a git repo, prompt is ±
+  # command git rev-parse --git-dir >/dev/null 2>/dev/null return
+
+  # cache_file="$PWD/.git/review-status-cache"
+  # cache_age=`stat -L -f %Y $cache_file`
+
+  # echo -n " "
+
+  # if $(( (`date +%s` - $cache_age ) > (10*60) )); then
+  #   git review-status > $cache_file
+  # fi
+
+  # cat $PWD/.git/review-status-cache
+}
+
 git_path () {
   repo_path=$(git rev-parse --show-toplevel)
   repo_name=${repo_path##*/}
@@ -52,7 +69,8 @@ export GIT_RADAR_FORMAT=" \x01\033[1;30m\x02\x01\033[0m\x02%{remote: }%{branch}%
 
 PROMPT=$'\n'
 PROMPT=${PROMPT}'${red}`root_warning`${blue}`path`'
-PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'$'\n'
+PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'
+PROMPT=${PROMPT}'`git_review_status`'$'\n'
 PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
 
 # TODO time spent on last command
