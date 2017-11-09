@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+#
+# prints out the Review and CI status for the PR corresponding
+# to the current branch
+#
+# Example output:
+#
+# $ git review-status
+# CI success
+# naps62 approved
+# fribmendes commented
+
+require "octokit"
+require "git"
+require "pry"
+
+token = File.read(File.join(Dir.home, ".github_token"))
+
+git = Git.open(".")
+
+origin = git.remote("origin").url
+current_branch = ARGV[0] || git.current_branch
+org_and_repo = git.remote("origin").url.split(":")[1].gsub(%r|.git$|, "")
+
+exit unless origin =~ /github.com/
+
+# Silence warnings about using Preview features, such as the Reviews API
+ENV["OCTOKIT_SILENT"] = "1"
+github = Octokit::Client.new(access_token: token)
+
+pull = github.pulls(org_and_repo, head: "#{org_and_repo}:#{current_branch}").first
+
+if pull
+  ci_status = `hub ci-status`.strip
+  out = ["CI #{ci_status}"]
+
+  reviews = github.pull_request_reviews(org_and_repo, pull.number)
+
+  # if a user reviews the same PR twice, it will show up as multiple reviews
+  # I only want to consider the last review by each user
+  #
+  # Reversing the list of reviews, and then filtering by uniqueness of username
+  # works. This assumes that reviews arrive in order, of course
+  out << reviews.reverse.uniq { |r| r.user.login }.map do |review|
+    "#{review.user.login} #{review.state.downcase}"
+  end
+
+  puts out.join("\n")
+end
