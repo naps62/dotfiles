@@ -6,7 +6,7 @@ current=$(git branchname)
 destiny=${1:-master}
 
 # 1. Check if CI is failing
-ci_status="$(hub ci-status 2>&1)"
+ci_status="$(hub ci-status 2>&1; exit 0)"
 
 if [[ $ci_status != "success" ]]; then
   echo "CI is $ci_status for branch $current"
