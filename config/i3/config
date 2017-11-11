@@ -40,7 +40,7 @@ set_from_resource	$color15	i3.color15
 
 # Configure border style
 new_window pixel 1
-new_float pixel 1
+new_float pixel 0
 
 # Hide borders
 hide_edge_borders none
@@ -222,16 +222,21 @@ assign [class="Slack"] 3
 assign [class="Spotify"] 4
 assign [title="Todoist"] 4
 
-floating_maximum_size 1580 x 730
 for_window [class="^.*"] border pixel 1
-for_window [class="feh"] floating enable
 for_window [title="floating_term"] floating enable
 # for_window [class="Cerebro"] floating enable
 for_window [class="feh"] border normal
 for_window [class="feh"] border normal
 for_window [window_role="GtkFileChooserDialog"] border normal
 for_window [title="Add Torrents"] border normal
+
+# floating rules
+floating_maximum_size 1280 x 1024
+for_window [class="feh"] floating enable
 for_window [class="polybar"] floating enable
+for_window [instance="crx_.*"] floating enable
+for_window [class="Thunar"] floating enable, resize set 800 600, move position center
+for_window [class="Todoist"] floating disable
 
 exec i3-msg 'exec uxterm'
 exec i3-msg 'exec google-chrome'
@@ -239,7 +244,6 @@ exec i3-msg 'exec todoist'
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-# exec --no-startup-id /usr/bin/cerebro
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'

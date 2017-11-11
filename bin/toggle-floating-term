@@ -28,10 +28,10 @@ if [ "`_floating_term_id`" -eq "" ]; then
 elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then
   # floating term is not in the current workspace. moving it here
 
-  i3-msg "[title=\"$float_term_name\"] scratchpad show"
-  i3-msg "[title=\"$float_term_name\"] move position center"
+  i3-msg "[title=\"$float_term_name\"] scratchpad show" > /dev/null
+  i3-msg "[title=\"$float_term_name\"] move position center" > /dev/null
 else
   # floating term is in current workspace. hiding it
 
-  i3-msg "[title=\"$float_term_name\"] move scratchpad"
+  i3-msg "[title=\"$float_term_name\"] move scratchpad" > /dev/null
 fi
