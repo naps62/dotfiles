@@ -49,7 +49,7 @@ hide_edge_borders none
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec uxterm
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
