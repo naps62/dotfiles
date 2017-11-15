@@ -239,9 +239,11 @@ for_window [class="feh"] floating enable
 for_window [class="polybar"] floating enable
 for_window [instance="crx_.*"] floating enable
 for_window [class="Thunar"] floating enable, resize set 800 600, move position center
+for_window [class="Nautilus"] floating enable, resize set 800 600, move position center
 for_window [class="Todoist"] floating disable
 for_window [class="Mist"] floating enable
 for_window [title="Mist"] floating disable
+for_window [class="mpv"] floating enable, resize set 1280 768, move position center
 
 exec i3-msg 'exec gnome-terminal'
 exec i3-msg 'exec firefox-nightly'
