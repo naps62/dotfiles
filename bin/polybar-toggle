@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# check if xdo is installed
+xdo_path=$(which xdo)
+if [ $? -ne 0 ]; then
+  echo "Cannot  find \`xdo\` command." 1>&2
+  exit 1
+fi
+
+# obtain bar's window i
+id=$(xdo id -N "Polybar")
+
+# toggle bar visibility
+if xprop -id $id | grep -q "Normal"; then
+  xdo hide -N "Polybar"
+else
+  xdo show -N "Polybar"
+fi

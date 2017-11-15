@@ -1,0 +1,9 @@
+#!/bin/sh
+
+rm -rf $HOME/.ethereum/net62
+
+geth \
+  --datadir $HOME/.ethereum/net62 \
+  --networkid 62 \
+  init \
+  $HOME/.eth-bin/net62-genesis.json

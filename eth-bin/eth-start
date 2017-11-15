@@ -1,0 +1,13 @@
+#!/bin/sh
+
+nice -50 geth \
+  --datadir $HOME/.ethereum/net62 \
+  --nodiscover \
+  --networkid 62 \
+  --maxpeers 0 \
+  --rpc \
+  --rpcport 8545 \
+  --rpcaddr "0.0.0.0" \
+  --rpccorsdomain "*" \
+  --rpcapi "web3,personal,debug" \
+  console

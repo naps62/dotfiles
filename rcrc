@@ -1,3 +1,3 @@
 EXCLUDES="README.md LICENSE Brewfile private git_template/*"
-SYMLINK_DIRS="vim nvim config bin ssh xboomx xmonad git_template"
+SYMLINK_DIRS="vim nvim config bin ssh xboomx xmonad git_template eth-bin"
 DOTFILES_DIRS="$HOME/projects/dotfiles"

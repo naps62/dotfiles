@@ -49,13 +49,16 @@ hide_edge_borders none
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym Ctrl+space exec "rofi -modi run,window -show run"
+
+# toggle polybar
+bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"
 
 # change focus
 bindsym $mod+h focus left
@@ -202,8 +205,8 @@ bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/downloads/screens
 #   }
 # }
 
-gaps inner 8
-gaps outer 8
+# gaps inner 8
+# gaps outer 8
 smart_gaps on
 smart_borders on
 
@@ -240,8 +243,8 @@ for_window [class="Todoist"] floating disable
 for_window [class="Mist"] floating enable
 for_window [title="Mist"] floating disable
 
-exec i3-msg 'exec uxterm'
-exec i3-msg 'exec google-chrome'
+exec i3-msg 'exec gnome-terminal'
+exec i3-msg 'exec firefox-nightly'
 exec i3-msg 'exec todoist'
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
