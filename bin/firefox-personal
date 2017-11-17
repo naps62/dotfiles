@@ -1,0 +1,3 @@
+#!/bin/sh
+
+firefox -P naps62

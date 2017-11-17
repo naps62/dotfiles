@@ -221,6 +221,7 @@ client.placeholder      $foreground $background $foreground $background $backgro
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
+assign [class="Nightly"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
 assign [title="Todoist"] 4
