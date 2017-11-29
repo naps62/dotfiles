@@ -2,4 +2,14 @@
 
 chain=${1:-net62}
 
-geth attach ipc:$HOME/.ethereum/$chain/geth.ipc
+case $chain in
+  "ganache")
+    ipc="http://127.0.0.1:7545"
+    ;;
+
+  *)
+    ipc="ipc:$HOME/.ethereum/$chain/geth.ipc"
+    ;;
+esac
+
+geth attach $ipc

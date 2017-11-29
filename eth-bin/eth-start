@@ -9,5 +9,5 @@ nice -50 geth \
   --rpcport 8545 \
   --rpcaddr "0.0.0.0" \
   --rpccorsdomain "*" \
-  --rpcapi "web3,personal,debug" \
+  --rpcapi "eth,personal,web3,debug" \
   console
