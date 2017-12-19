@@ -10,4 +10,5 @@ nice -50 geth \
   --rpcaddr "0.0.0.0" \
   --rpccorsdomain "*" \
   --rpcapi "eth,personal,web3,debug" \
+  --cache=2048 \
   console
