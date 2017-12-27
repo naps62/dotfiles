@@ -56,7 +56,6 @@ Host doctorlink-stag
 Host old-drawstep
   Hostname drawstep.com
   User drawstep
-  IdentityFile ~/.ssh/id_rsa
 
 Host mtgsearch
   Hostname mtgsear.ch
