@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-typeset -F SECONDS=0
-
 ~/.bin/ensure-xorg-is-running
 
 # source ~/.config/zsh/rvm.zsh
@@ -27,4 +25,3 @@ source ~/.config/zsh/antibody.zsh
 
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
-echo "zsh loaded in ${SECONDS}s"
