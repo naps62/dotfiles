@@ -8,10 +8,15 @@ ZSH_THEME_GIT_PROMPT_NOCACHE=1
 blue="%{%B%F{blue}%}"
 green="%{%B%F{green}%}"
 red="%{%B%F{red}%}"
+yellow="%{%B%F{yellow}%}"
 reset="%{$reset_color%}"
 
 root_warning () {
-  [[ "$USERNAME" ==  "root" ]] && echo "[root] "
+  [[ "$USERNAME" ==  "root" ]] && echo "${red}[root] "
+}
+
+remote_warning () {
+  [[ -z "$SSH_CLIENT" ]] || echo "${yellow}[remote:`hostname`] "
 }
 
 prompt_char () {
@@ -68,7 +73,7 @@ export GIT_RADAR_COLOR_BRANCH="%{%B$fg[yellow]%}"
 export GIT_RADAR_FORMAT=" \x01\033[1;30m\x02\x01\033[0m\x02%{remote: }%{branch}%{ :local}\x01\033[1;30m\x02\x01\033[0m\x02%{ :changes}"
 
 PROMPT=$'\n'
-PROMPT=${PROMPT}'${red}`root_warning`${blue}`path`'
+PROMPT=${PROMPT}'`root_warning``remote_warning`${blue}`path`'
 PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'
 PROMPT=${PROMPT}'`git_review_status`'$'\n'
 PROMPT=${PROMPT}'${green}`prompt_char`${reset} '

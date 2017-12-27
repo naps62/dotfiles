@@ -10,6 +10,8 @@ xset r rate 150 20
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
 
+pactl load-module module-bluetooth-discover
+
 # start session
 DEFAULTSESSION=i3
 case "$1" in

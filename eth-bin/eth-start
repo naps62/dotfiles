@@ -6,9 +6,9 @@ nice -50 geth \
   --networkid 62 \
   --maxpeers 0 \
   --rpc \
-  --rpcport 8545 \
+  --rpcport 9545 \
   --rpcaddr "0.0.0.0" \
   --rpccorsdomain "*" \
-  --rpcapi "eth,personal,web3,debug" \
-  --cache=2048 \
+  --port "35555" \
+  --rpcapi "eth,net,personal,web3,debug" \
   console

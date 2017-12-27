@@ -4,10 +4,14 @@ _not_inside_tmux() {
   [[ -z "$TMUX" ]]
 }
 
+_not_inside_ssh() {
+  [[ -z "$SSH_CLIENT" ]]
+}
+
 _tmux_not_disabled() {
   [[ -z "$NO_TMUX" ]]
 }
 
-if _not_inside_tmux && _tmux_not_disabled; then
+if _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
   ~/.bin/tat
 fi

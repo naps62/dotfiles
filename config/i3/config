@@ -184,6 +184,7 @@ bindsym $mod+0 exec /home/naps62/.bin/dual toggle left clone
 
 # printscreens (via scrot)
 bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
+bindsym --release $mod+Delete exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

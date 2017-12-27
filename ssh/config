@@ -69,3 +69,8 @@ Host drawstep
   Port 22062
   User deploy
   IdentityFile ~/.ssh/id_rsa
+
+Host utrust-vpn
+  Hostname 165.227.154.8
+  User root
+  IdentityFile ~/.ssh/id_rsa.subvisual
