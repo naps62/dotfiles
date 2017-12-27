@@ -12,11 +12,11 @@ yellow="%{%B%F{yellow}%}"
 reset="%{$reset_color%}"
 
 root_warning () {
-  [[ "$USERNAME" ==  "root" ]] && echo "${red}[root] "
+  [[ "$USERNAME" ==  "root" ]] && echo "${red}☢  "
 }
 
 remote_warning () {
-  [[ -z "$SSH_CLIENT" ]] || echo "${yellow}[remote:`hostname`] "
+  [[ -z "$SSH_CLIENT" ]] || echo "${yellow}SSH:`hostname` "
 }
 
 prompt_char () {
