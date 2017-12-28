@@ -5,26 +5,38 @@ set $mod Mod4
 font pango:Consolas 14
 
 # Set colors from Xresources
-set_from_resource $fg color0
-set_from_resource $bg color18
-set_from_resource $text color20
-set_from_resource $border color8
-#
-# Theme colors
-client.background $bg
-# class                 border  backgr.   text     indic.   child_border
-client.background       $bg
-client.focused          $fg     $fg       $text    $bg      $border
-client.unfocused        $bg     $bg       $text    $bg      $bg
-client.focused_inactive $bg     $bg       $text    $bg      $bg
-client.urgent           $bg     $bg       $text    $bg      $bg
-client.placeholder      $bg     $bg       $text    $bg      $bg
+set_from_resource $fg         color20
+set_from_resource $fg-active  color21
+set_from_resource $bg         color0
+set_from_resource $bg-active  color18
 
- # Set inner/outer gaps
-gaps inner 8
-gaps outer 8
-smart_gaps on
-smart_borders on
+set_from_resource $red        color1
+set_from_resource $bright-red color9
+set_from_resource $green      color2
+set_from_resource $blue       color4
+set_from_resource $black      color0
+set_from_resource $dark-grey  color18
+set_from_resource $light-grey color20
+set_from_resource $white      color21
+
+set_from_resource	$background	i3.background
+set_from_resource	$foreground	i3.foreground
+set_from_resource	$color0		i3.color0
+set_from_resource 	$color1 	i3.color1
+set_from_resource 	$color2 	i3.color2
+set_from_resource 	$color3 	i3.color3
+set_from_resource 	$color4 	i3.color4
+set_from_resource 	$color5 	i3.color5
+set_from_resource 	$color6		i3.color6
+set_from_resource	$color7		i3.color7
+set_from_resource	$color8		i3.color8
+set_from_resource	$color9		i3.color9
+set_from_resource	$color10	i3.color10
+set_from_resource	$color11	i3.color11
+set_from_resource	$color12	i3.color12
+set_from_resource	$color13	i3.color13
+set_from_resource	$color14	i3.color14
+set_from_resource	$color15	i3.color15
 
 # Configure border style
 new_window pixel 1
@@ -173,6 +185,40 @@ bindsym $mod+0 exec /home/naps62/.bin/dual toggle left clone
 # printscreens (via scrot)
 bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
 bindsym --release $mod+Delete exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#   i3bar_command i3bar -t
+#   height 40
+#   status_command i3status
+#   mode hide
+#   separator_symbol "  "
+#   font pango:Consolas 18
+#   colors {
+#     separator $dark-grey
+#     background $dark-grey
+#     statusline $light-grey
+#     focused_workspace $black $black $white
+#     # active_workspace #373b41 #373b41 #ffffff
+#     inactive_workspace $dark-grey $dark-grey $light-grey
+#     urgent_workspace $bright-red $bright-red $white
+#   }
+# }
+
+# gaps inner 8
+# gaps outer 8
+smart_gaps on
+smart_borders on
+
+# Theme colors
+client.background $background
+# class                 border      backgr.     text        indic.      child_border
+client.focused          $foreground $background $foreground $color7     $color7
+client.unfocused        $foreground $background $foreground $background $background
+client.focused_inactive $foreground $background $foreground $background $background
+client.urgent           $foreground $background $foreground $background $background
+client.placeholder      $foreground $background $foreground $background $background
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
