@@ -89,4 +89,4 @@ precmd() {
 RPROMPT=""
 RPROMPT=${RPROMPT}'%{%B$fg[grey]%}`printf %.2g $((${_elapsed[-1]}))`s'
 RPROMPT=${RPROMPT}' | '
-RPROMPT=${RPROMPT}'%T'
+RPROMPT=${RPROMPT}'%T${reset}'
