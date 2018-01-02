@@ -203,7 +203,6 @@ for_window [class="mpv"] floating enable, resize set 1280 768, move position cen
 
 exec i3-msg 'exec gnome-terminal'
 exec i3-msg 'exec firefox-nightly'
-exec i3-msg 'exec todoist'
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings

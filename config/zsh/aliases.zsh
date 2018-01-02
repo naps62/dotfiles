@@ -75,3 +75,4 @@ alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
 alias vim=nvim
 
 alias mypass="PASSWORD_STORE_DIR=~/.personal-password-store pass"
+alias utrustpass="PASSWORD_STORE_DIR=~/.utrust-password-store pass"
