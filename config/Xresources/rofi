@@ -3,12 +3,12 @@
 ! Copyright: 2017 leofa
 ! ------------------------------------------------------------------------------
 ! "Color scheme for normal row" Set from: File
-/* rofi.color-normal:                   #0383c4, #c4cbd4, argb:96404552, #4084d6, #f9f9f9 */
-/* ! "Color scheme for urgent row" Set from: File */
-/* rofi.color-urgent:                   #02d303, #cc6666, argb:e52d303b, #a54242, #f9f9f9 */
-/* ! "Color scheme for active row" Set from: File */
-/* rofi.color-active:                   #02d303, #b5bd68, argb:e42d303b, #8c9440, #f9f9f9 */
-/* ! "Color scheme window" Set from: File */
-/* rofi.color-window:                   #f22d303b, #7c8389, #1d1f21 */
-/* ! "Separator style (none, dash, solid)" Set from: XResources */
-/* rofi.separator-style:                solid */
+rofi.color-normal:                   #0383c4, #c4cbd4, argb:96404552, #4084d6, #f9f9f9
+! "Color scheme for urgent row" Set from: File
+rofi.color-urgent:                   #02d303, #cc6666, argb:e52d303b, #a54242, #f9f9f9
+! "Color scheme for active row" Set from: File
+rofi.color-active:                   #02d303, #b5bd68, argb:e42d303b, #8c9440, #f9f9f9
+! "Color scheme window" Set from: File
+rofi.color-window:                   #f22d303b, #7c8389, #1d1f21
+! "Separator style (none, dash, solid)" Set from: XResources
+rofi.separator-style:                solid
