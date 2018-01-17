@@ -23,5 +23,8 @@ source ~/.config/zsh/antibody.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
+[ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
+
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
