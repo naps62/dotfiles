@@ -265,7 +265,7 @@ let g:ale_sign_warning = '→'
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
       \ 'ruby': [],
-      \ 'elixir': ['credo'],
+      \ 'elixir': [],
       \ 'typescript': ['tslint', 'tsserver'],
       \ 'javascript': [],
       \ 'scss': [],
@@ -294,6 +294,7 @@ call AddLinterIfFileExists('javascript', 'eslint', '.eslintrc.json', 1, 1)
 call AddLinterIfFileExists('javascript', 'standard', 'node_modules/.bin/standard', 1, 1)
 call AddLinterIfFileExists('scss', 'stylelint', '.stylelintrc', 1, 0)
 call AddLinterIfFileExists('ruby', 'rubocop', '.rubocop.yml', 1, 1)
+call AddLinterIfFileExists('elixir', 'credo', 'config/.credo.exs', 1, 0)
 
 
 " vim-projectionist

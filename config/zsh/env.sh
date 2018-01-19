@@ -12,10 +12,10 @@ env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.appimages
 env_dir PATH $HOME/.cabal/bin
 env_dir PATH $HOME/.local/bin
-env_dir PATH $HOME/.xmonad/bin
-env_dir PATH $HOME/.linuxbrew/bin
-env_dir PATH $HOME/.rbenv/bin
-env_dir PATH $HOME/.rbenv/plugins/ruby-build/bin
+# env_dir PATH $HOME/.xmonad/bin
+# env_dir PATH $HOME/.linuxbrew/bin
+# env_dir PATH $HOME/.rbenv/bin
+# env_dir PATH $HOME/.rbenv/plugins/ruby-build/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin

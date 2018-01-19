@@ -3,7 +3,7 @@
 ~/.bin/ensure-xorg-is-running
 
 # source ~/.config/zsh/rvm.zsh
-source ~/.config/zsh/nvm.zsh
+# source ~/.config/zsh/nvm.zsh
 source ~/.config/zsh/env.sh
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/bindings.zsh
@@ -27,4 +27,4 @@ source ~/.config/zsh/antibody.zsh
 [ -f ~/.asdf/completions/asdf.bash ] && source ~/.asdf/completions/asdf.bash
 
 eval "$(direnv hook zsh)"
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"

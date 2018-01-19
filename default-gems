@@ -1,0 +1,4 @@
+bundler
+pry
+pry-remote
+gem-ctags
