@@ -275,6 +275,7 @@ let g:ale_fixers = {
       \ 'ruby':  [],
       \ 'typescript': ['tslint', 'tsserver', 'prettier'],
       \ 'javascript': [],
+      \ 'elixir': ['mix_format'],
       \ }
 
 function! AddLinterIfFileExists(lang, linter, file, lint, fix)

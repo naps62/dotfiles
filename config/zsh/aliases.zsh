@@ -29,6 +29,7 @@ alias s=bin/server
 # thoughtbot/parity
 alias prod=production
 alias stag=staging
+alias sand=sandbox
 alias dev=development
 
 function rk() { rake "$@" }

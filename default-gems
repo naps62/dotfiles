@@ -2,3 +2,5 @@ bundler
 pry
 pry-remote
 gem-ctags
+octokit
+git
