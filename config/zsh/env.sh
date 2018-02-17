@@ -17,6 +17,7 @@ env_dir PATH $HOME/.local/bin
 # env_dir PATH $HOME/.rbenv/bin
 # env_dir PATH $HOME/.rbenv/plugins/ruby-build/bin
 env_dir PATH $HOME/.cargo/bin
+env_dir PATH $HOME/.asdf/installs/nodejs/8.2.0/.npm/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin

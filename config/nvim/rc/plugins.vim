@@ -269,6 +269,7 @@ let g:ale_linters = {
       \ 'typescript': ['tslint', 'tsserver'],
       \ 'javascript': [],
       \ 'scss': [],
+      \ 'solidity': ['solium'],
       \ }
 
 let g:ale_fixers = {
@@ -276,6 +277,7 @@ let g:ale_fixers = {
       \ 'typescript': ['tslint', 'tsserver', 'prettier'],
       \ 'javascript': [],
       \ 'elixir': ['mix_format'],
+      \ 'solidity': [],
       \ }
 
 function! AddLinterIfFileExists(lang, linter, file, lint, fix)
@@ -293,6 +295,7 @@ endfunction
 
 call AddLinterIfFileExists('javascript', 'eslint', '.eslintrc.json', 1, 1)
 call AddLinterIfFileExists('javascript', 'standard', 'node_modules/.bin/standard', 1, 1)
+call AddLinterIfFileExists('javascript', 'prettier', 'node_modules/.bin/prettier', 1, 1)
 call AddLinterIfFileExists('scss', 'stylelint', '.stylelintrc', 1, 0)
 call AddLinterIfFileExists('ruby', 'rubocop', '.rubocop.yml', 1, 1)
 call AddLinterIfFileExists('elixir', 'credo', 'config/.credo.exs', 1, 0)
