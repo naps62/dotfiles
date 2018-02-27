@@ -48,3 +48,14 @@ function! ScssRuleOrderingScore(line)
   let l:result = system(l:cmd) + 0
   return l:result
 endfunction
+
+" Rename the current file
+function! Rename()
+  let current = expand('%')
+  let new_file = input('New name: ', current)
+  if new_file != current && new_file != ''
+    exec ':saveas ' . new_file
+    exec ':silent !rm ' . current
+    redraw!
+  endif
+endfunction

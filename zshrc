@@ -19,6 +19,8 @@ source ~/.config/zsh/history.zsh
 source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/antibody.zsh
 
+source ~/.config/erlang/erl.init
+
 [ -f ~/.secrets.zsh ] && source ~/.secrets.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -26,3 +26,6 @@ nnoremap <leader>z :call FoldToggle()<CR>
 
 " still able to save after forgetting to sudo
 cmap w!! w !sudo tee % > /dev/null
+
+" Rename the current file
+map <Leader>r :call Rename()<CR>
