@@ -1,17 +1,18 @@
 #!/bin/sh
 
+CACHE_FILE=/tmp/naps62.polybar-state
+
 # check if xdo is installed
 if [ $? -ne 0 ]; then
   echo "Cannot  find \`xdo\` command." 1>&2
   exit 1
 fi
 
-# obtain bar's window i
-id=$(xdo id -N "Polybar")
-
 # toggle bar visibility
-if xdo id $id | grep -q "Normal"; then
+if [[ $(cat $CACHE_FILE) == "visible" ]]; then
+  echo "hidden" > $CACHE_FILE
   xdo hide -N "Polybar"
 else
+  echo "visible" > $CACHE_FILE
   xdo show -N "Polybar"
 fi
