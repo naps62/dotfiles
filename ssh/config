@@ -54,7 +54,7 @@ Host doctorlink-stag
   ForwardAgent yes
 
 Host old-drawstep
-  Hostname drawstep.com
+  Hostname old.drawstep.com
   User drawstep
 
 Host mtgsearch

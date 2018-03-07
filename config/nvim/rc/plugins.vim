@@ -53,7 +53,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-Plug 'slashmili/alchemist.vim'
+" Plug 'slashmili/alchemist.vim'
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
