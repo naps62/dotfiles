@@ -8,7 +8,6 @@ Xft.hintstyle: hintnone
 Xft.lcdfilter: lcddefault
 
 #include "/home/naps62/.config/Xresources/uxterm"
-#include "/home/naps62/.config/Xresources/rofi"
 #include "/home/naps62/.config/Xresources/base16"
 
 alsamixer*scrollBar:   false

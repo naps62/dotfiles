@@ -2,14 +2,11 @@
 
 autoload -U colors && colors
 
-if [[ $THEME == "dark" ]]; then
-  BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
-else
-  BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-light.sh"
-fi
+#
+# base16 shell base configuration
+#
+BASE16_SHELL=$HOME/.config/base16-shell/
+BASE16_SHELL_HOOKS=$HOME/.config/base16-hooks
 
-if [[ -s $BASE16_SHELL ]]; then
-  source $BASE16_SHELL
-else
-  echo ".config/base16-shell theme not found"
-fi
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+

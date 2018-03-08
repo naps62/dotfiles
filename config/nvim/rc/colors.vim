@@ -3,11 +3,14 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 " " color scheme
 if $THEME == "dark"
   set background=dark
-  let base16colorspace=256
-  colorscheme base16-eighties
 
   " SignColumn with same color as line column
   highlight clear SignColumn
