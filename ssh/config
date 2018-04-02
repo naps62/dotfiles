@@ -8,6 +8,7 @@ ControlPersist yes
 
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
+IdentityFile ~/.ssh/id_rsa.utrust
 
 #
 # Subvisual servers
@@ -73,3 +74,8 @@ Host utrust-vpn
   Hostname 165.227.154.8
   User root
   IdentityFile ~/.ssh/id_rsa.subvisual
+
+Host utrust-geth-private
+  Hostname 167.99.250.162
+  User naps62
+  IdentityFile ~/.ssh/id_rsa.utrust

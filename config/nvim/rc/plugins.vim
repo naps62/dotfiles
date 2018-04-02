@@ -122,8 +122,8 @@ let g:user_emmet_settings = {
 \}
 
 " neoterm
-let g:neoterm_position='vertical'
 let g:neoterm_size='60'
+let g:neoterm_default_mod = 'vertical'
 let g:neoterm_autoscroll = 1
 let g:neoterm_repl_ruby = 'pry'
 let g:neoterm_keep_term_open = 1
@@ -279,6 +279,19 @@ let g:ale_fixers = {
       \ 'elixir': ['mix_format'],
       \ 'solidity': [],
       \ }
+
+function! LoadNearestMixFormatter()
+  let l:formatters = []
+  let l:directory = fnameescape(expand("%:p:h"))
+
+  let l:git_root = system("git rev-parse --show-toplevel")[:-2]
+
+  let l:fmt = findfile(".formatter.exs", l:git_root)
+
+  let g:ale_elixir_mix_format_options = "--dot-formatter " . l:fmt
+endfunction
+
+call LoadNearestMixFormatter()
 
 function! AddLinterIfFileExists(lang, linter, file, lint, fix)
   let l:current = g:ale_linters[a:lang]
