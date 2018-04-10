@@ -1,4 +1,4 @@
-# #!/usr/bin/env zsh
+#!/usr/bin/env zsh
 
 setopt prompt_subst
 
@@ -74,7 +74,7 @@ export GIT_RADAR_FORMAT=" \x01\033[1;30m\x02\x01\033[0m\x02%{remote: }%{branch}%
 
 PROMPT=$'\n'
 PROMPT=${PROMPT}'`root_warning``remote_warning`${blue}`path`'
-PROMPT=${PROMPT}'$(~/.config/git-radar/git-radar --zsh --fetch)'
+PROMPT=${PROMPT}'$(git-radar --zsh --fetch)'
 PROMPT=${PROMPT}'`git_review_status`'$'\n'
 PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
 
