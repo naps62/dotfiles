@@ -1,7 +1,3 @@
-# set the cursor
-xsetroot -cursor_name left_ptr
-
-feh --bg-scale /home/naps62/.wallpaper.jpg
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # # setxkbmap -option caps:none
@@ -20,4 +16,3 @@ case "$1" in
   i3) xmodmap ~/.Xmodmap && exec i3;;
   *) xmodmap ~/.Xmodmap && exec $DEFAULTSESSION ;;
 esac
-

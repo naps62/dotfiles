@@ -207,5 +207,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
+# set wallpaper
+exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
+
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'
