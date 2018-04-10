@@ -21,6 +21,7 @@ config/*
 !config/Xresources
 !config/polybar
 !config/alacritty
+!config/fontconfig
 config/nvim/.netrwhist
 
 xboomx/xboomx.db
