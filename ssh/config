@@ -70,6 +70,12 @@ Host drawstep
   User deploy
   IdentityFile ~/.ssh/id_rsa
 
+Host mtgsear.ch
+  Hostname 167.99.130.56
+  Port 22062
+  User deploy
+  IdentityFile ~/.ssh/id_rsa
+
 Host utrust-vpn
   Hostname 165.227.154.8
   User root
