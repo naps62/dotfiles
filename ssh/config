@@ -79,3 +79,4 @@ Host utrust-geth-private
   Hostname 167.99.250.162
   User naps62
   IdentityFile ~/.ssh/id_rsa.utrust
+  LocalForward 8545 localhost:8545
