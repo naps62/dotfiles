@@ -30,3 +30,4 @@ source ~/.config/erlang/erl.init
 
 eval "$(direnv hook zsh)"
 # eval "$(rbenv init -)"
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors
