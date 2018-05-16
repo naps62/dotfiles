@@ -77,16 +77,3 @@ PROMPT=${PROMPT}'`root_warning``remote_warning`${blue}`path`'
 PROMPT=${PROMPT}'$(git-radar --zsh --fetch)'
 PROMPT=${PROMPT}'`git_review_status`'$'\n'
 PROMPT=${PROMPT}'${green}`prompt_char`${reset} '
-
-# TODO time spent on last command
-preexec() {
-  typeset -ig _start=SECONDS
-}
-
-precmd() {
-  set -A _elapsed $(( SECONDS-_start ))
-}
-RPROMPT=""
-RPROMPT=${RPROMPT}'%{%B$fg[grey]%}`printf %.2g $((${_elapsed[-1]}))`s'
-RPROMPT=${RPROMPT}' | '
-RPROMPT=${RPROMPT}'%T${reset}'

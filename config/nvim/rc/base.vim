@@ -19,7 +19,7 @@ set lazyredraw
 set laststatus=2
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set noerrorbells
-set clipboard=unnamed " X11 clipboard integration
+set clipboard=unnamedplus " X11 clipboard integration
 let mapleader="\<Space>"
 let maplocalleader = ","
 

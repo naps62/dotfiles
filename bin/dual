@@ -2,7 +2,6 @@
 
 CONFIG_FILE = "~/.config/naps62-screen-setup"
 
-# RES = "1920x1080"
 RES = "1920x1080"
 
 FLAGS = {
