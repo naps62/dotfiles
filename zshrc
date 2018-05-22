@@ -16,3 +16,5 @@ source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/antibody.zsh
 source ~/.config/zsh/vendor.zsh
 [ -f ~/.fzf.colors ] && source ~/.fzf.colors
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
