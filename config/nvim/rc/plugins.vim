@@ -44,6 +44,7 @@ Plug 'w0rp/ale'
 Plug 'amperser/proselint'
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'takac/vim-hardtime'
+Plug 'embear/vim-localvimrc'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -53,7 +54,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-" Plug 'slashmili/alchemist.vim'
+Plug 'slashmili/alchemist.vim'
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
@@ -77,6 +78,7 @@ Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'tomlion/vim-solidity'
+Plug 'hashivim/vim-terraform'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
@@ -369,6 +371,9 @@ let g:jsx_ext_required = 0
 let g:hardtime_default_on = 1
 let g:hardtime_timeout = 500
 let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
+
+" vimlocal
+let g:localvimrc_ask = 0
 
 " lazy loading plugins
 

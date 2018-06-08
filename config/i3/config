@@ -202,8 +202,6 @@ for_window [title="Mist"] floating disable
 for_window [class="mpv"] floating enable, resize set 1280 768, move position center
 for_window [class="Nm-connection-editor"] floating enable, resize set 800 600, move position center
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec firefox-nightly'
 

@@ -91,3 +91,18 @@ Host desktop
   Hostname 192.168.255.14
   User naps62
   IdentityFile ~/.ssh/id_rsa
+  LocalForward 8181 localhost:8181
+
+Host vpn.utrust.com
+  User root
+  IdentityFile ~/.ssh/id_rsa.utrust
+
+Host utrust-btc-main
+  Hostname 167.99.195.111
+  User root
+  IdentityFile ~/.ssh/id_rsa.subvisual
+
+Host utrust-btc-test
+  Hostname 206.189.23.120
+  User root
+  IdentityFile ~/.ssh/id_rsa.subvisual
