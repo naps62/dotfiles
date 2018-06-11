@@ -6,7 +6,7 @@ alias halt='sudo poweroff'
 alias apt='sudo aptitude'
 alias open='xdg-open'
 
-eval "$(hub alias -s)"
+# eval "$(hub alias -s)"
 
 # one-char aliases
 alias a=ag
