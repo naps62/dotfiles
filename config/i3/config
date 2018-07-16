@@ -209,5 +209,8 @@ exec i3-msg 'exec firefox-nightly'
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
 
+# polybar
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'

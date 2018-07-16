@@ -79,6 +79,7 @@ Plug 'vim-scripts/SyntaxRange'
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'tomlion/vim-solidity'
 Plug 'hashivim/vim-terraform'
+Plug 'cespare/vim-toml'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
