@@ -29,3 +29,4 @@ cmap w!! w !sudo tee % > /dev/null
 
 " Rename the current file
 map <Leader>r :call Rename()<CR>
+

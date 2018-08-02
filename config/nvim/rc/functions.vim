@@ -59,3 +59,8 @@ function! Rename()
     redraw!
   endif
 endfunction
+
+" Return the highlight group being used under the cursor
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction

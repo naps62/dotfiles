@@ -18,6 +18,7 @@ env_dir PATH $HOME/.local/bin
 # env_dir PATH $HOME/.rbenv/plugins/ruby-build/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH $HOME/.asdf/installs/nodejs/8.2.0/.npm/bin
+env_dir PATH $HOME/.go/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
@@ -25,6 +26,7 @@ env_dir PATH $HOME/projects/dotfiles/eth-bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
+export GOPATH=$HOME/.go
 export XDG_CONFIG_HOME=$HOME/.config
 export LANG=en_US.utf-8
 export LC_CTYPE=en_US.utf-8

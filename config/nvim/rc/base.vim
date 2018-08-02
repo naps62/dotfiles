@@ -94,9 +94,6 @@ autocmd filetype html,xml set listchars-=tab:>. " ... except for some file types
 
 set re=1
 
-" spell check and dictionary
-set spell
-
 " when editing a file, always jump to the last known cursor position
 " don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim)
