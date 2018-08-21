@@ -12,12 +12,12 @@ FLAGS = {
 
 def setup(id)
   `echo #{id} > #{CONFIG_FILE}`
-  `xrandr --output HDMI2 --mode #{RES} #{FLAGS[id]} eDP1`
+  `xrandr --output HDMI-2 --mode #{RES} #{FLAGS[id]} eDP-1`
 end
 
 def disable
   `rm #{CONFIG_FILE}`
-  `xrandr --output HDMI2 --off`
+  `xrandr --output HDMI-2 --off`
 end
 
 def toggle(id1, id2)

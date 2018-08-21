@@ -203,7 +203,10 @@ for_window [class="mpv"] floating enable, resize set 1280 768, move position cen
 for_window [class="Nm-connection-editor"] floating enable, resize set 800 600, move position center
 
 exec i3-msg 'exec alacritty'
-exec i3-msg 'exec firefox-nightly'
+exec i3-msg 'exec google-chrome-unstable'
+
+# start polybar
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg

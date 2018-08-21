@@ -70,6 +70,12 @@ Host drawstep
   User deploy
   IdentityFile ~/.ssh/id_rsa
 
+Host drawstep2
+  Hostname ssl.drawstep.com
+  Port 22062
+  User deploy
+  IdentityFile ~/.ssh/id_rsa
+
 Host mtgsear.ch
   Hostname 167.99.130.56
   Port 22062
@@ -106,3 +112,13 @@ Host utrust-btc-test
   Hostname 206.189.23.120
   User root
   IdentityFile ~/.ssh/id_rsa.subvisual
+
+Host desktop
+  User naps62
+  Hostname 192.168.255.14
+  IdentityFile ~/.ssh/id_rsa.subvisual
+
+Host utrust-joan
+  Hostname 178.62.253.114
+  User root
+  IdentityFile ~/.ssh/id_rsa.utrust
