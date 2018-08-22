@@ -102,3 +102,5 @@ Thumbs.db
 __pycache__
 
 dump.rdb
+
+.lvimrc

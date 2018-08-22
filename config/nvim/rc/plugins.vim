@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 Plug 'kreskij/vim-reminder-tips'
@@ -125,7 +125,7 @@ let g:user_emmet_settings = {
 \}
 
 " neoterm
-let g:neoterm_size='60'
+let g:neoterm_size='70'
 let g:neoterm_default_mod = 'vertical'
 let g:neoterm_autoscroll = 1
 let g:neoterm_repl_ruby = 'pry'
@@ -144,21 +144,6 @@ map <leader>ss :TestNearest<CR>
 map <leader>sf :TestFile<CR>
 map <leader>sl :TestLast<CR>
 
-" Ability to run elixir tests while on their alternate file
-let test#elixir#exunit#file_pattern = '\.ex'
-
-function! ElixirDocTestTransformation(cmd) abort
-  if a:cmd =~ "mix test" && a:cmd !~ "_test.exs"
-    let final_cmd = substitute(a:cmd, "lib\/", "test/", "")
-    let final_cmd = substitute(final_cmd, ".ex", "_test.exs", "")
-    return final_cmd
-  else
-    return a:cmd
-  end
-endfunction
-
-let g:test#custom_transformations = {'elixir_doctest': function('ElixirDocTestTransformation')}
-let g:test#transformation = 'elixir_doctest'
 
 " fugitive.vim (git wrapper)
 set diffopt+=vertical
@@ -375,6 +360,8 @@ let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
 " vimlocal
 let g:localvimrc_ask = 0
+let g:localvimrc_sandbox = 1
+let g:localvimrc_whitelist='/home/naps62/utrust/platform/.lvimrc'
 
 " lazy loading plugins
 
