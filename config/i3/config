@@ -205,9 +205,6 @@ for_window [class="Nm-connection-editor"] floating enable, resize set 800 600, m
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec google-chrome-unstable'
 
-# start polybar
-exec --no-startup-id $HOME/.config/polybar/launch.sh
-
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
