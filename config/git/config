@@ -41,6 +41,8 @@
   proj = browse -- projects
   web = browse
   update = !git fetch && git rebase
+  home = rev-parse --show-toplevel
+  mine = !git branch -a --color | grep mp/
 [core]
   editor = nvim
   pager = diff-so-fancy | less --tabs=4 -RFX

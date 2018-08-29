@@ -13,22 +13,38 @@ autocmd User ProjectionistDetect
 
 let g:naps62_elixir_test_env_file = ""
 
-function! ElixirCustomTestRunner(cmd) abort
-  let env_file = g:naps62_elixir_test_env_file
-  if filereadable("../../" . env_file)
-    let env_file = "../../" . env_file
-  end
+function! ElixirMixTestTransform(cmd) abort
+  if match(a:cmd, "apps/") != -1
+    let pattern = 'mix test apps/\([^/]*/\)\(.*\)'
+    let matches = matchlist(a:cmd, pattern)
 
-  if a:cmd =~ "mix test"
-    let final_cmd = substitute(a:cmd, "mix test", "source " . env_file ."; mix test", "")
-    return final_cmd
+    return 'cd apps/'.matches[1].' && mix test '.matches[2].'; cd -'
   else
     return a:cmd
   end
 endfunction
 
-" Ability to run elixir tests while on their alternate file
-let test#elixir#exunit#file_pattern = '\.ex'
+let s:git_home = substitute(system("git home"), '\n\+$', '', '')
+let s:git_prefix = substitute(system("git rev-parse --show-prefix"), '\n\+$', '', '')
+
+function! ElixirCustomTestRunner(cmd) abort
+  let l:env_file = s:git_prefix . g:naps62_elixir_test_env_file
+
+  let l:test_runner = "mix test"
+  if g:naps62_elixir_test_runner != ""
+    let l:test_runner = g:naps62_elixir_test_runner
+  endif
+
+  let pattern = 'mix test \?\(.*\)$'
+  let matches = matchlist(a:cmd, pattern)
+
+  let path = ""
+  if get(l:matches, 1, "") != ""
+    let path = s:git_prefix . l:matches[1]
+  endif
+
+  return "cd " . s:git_home . " && " . l:test_runner . " " . l:path
+endfunction
 
 let g:test#custom_transformations = {
   \ 'elixir': function('ElixirCustomTestRunner')
