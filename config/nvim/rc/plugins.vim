@@ -45,6 +45,7 @@ Plug 'amperser/proselint'
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'takac/vim-hardtime'
 Plug 'embear/vim-localvimrc'
+Plug 'brooth/far.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -253,6 +254,7 @@ let g:ale_sign_warning = '→'
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
       \ 'ruby': [],
+      \ 'python': [],
       \ 'elixir': [],
       \ 'typescript': ['tslint', 'tsserver'],
       \ 'javascript': [],
@@ -362,6 +364,9 @@ let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist='/home/naps62/utrust/platform/.lvimrc'
+
+" far.vim
+" let g:far#source = 'rg'
 
 " lazy loading plugins
 
