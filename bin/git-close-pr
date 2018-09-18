@@ -2,8 +2,7 @@
 
 set -e
 
-current=$(git branchname)
-destiny=${1:-master}
+destiny=$(git default-branch)
 
 # 1. Check if CI is failing
 ci_status="$(hub ci-status 2>&1; exit 0)"
