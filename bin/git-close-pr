@@ -2,6 +2,7 @@
 
 set -e
 
+current=$(git branchname)
 destiny=$(git default-branch)
 
 # 1. Check if CI is failing
