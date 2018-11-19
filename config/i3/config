@@ -211,7 +211,7 @@ exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
 
 # polybar
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always i3-msg 'exec $HOME/.config/polybar/launch.sh'
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'
