@@ -1,6 +1,7 @@
 #!/bin/sh
 
 branch=$1
-destiny=${2:-master}
+destiny=$(git default-branch)
+
 git checkout $destiny
 git push origin :$branch > /dev/null & git branch -D $branch

@@ -2,13 +2,18 @@
 
 set -e
 
+force=false
+if [[ "$@" = *"-f"* ]]; then
+  force=true
+fi
+
 current=$(git branchname)
 destiny=$(git default-branch)
 
 # 1. Check if CI is failing
 ci_status="$(hub ci-status 2>&1; exit 0)"
 
-if [[ $ci_status != "success" && $ci_status != "no status" ]]; then
+if [[ ! $force && $ci_status != "success" && $ci_status != "no status" ]]; then
   echo "CI is $ci_status for branch $current"
   exit 1
 fi
