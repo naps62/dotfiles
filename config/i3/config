@@ -171,8 +171,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+0 exec /home/naps62/.bin/dual toggle left clone
 
 # printscreens (via scrot)
-bindsym --release $mod+Insert exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
-bindsym --release $mod+Delete exec scrot -q 100 -s -e 'mv $f ~/downloads/screenshots/'
+bindsym --release $mod+Insert exec ~/.bin/screenshot --select
+
+bindsym --release $mod+Delete exec ~/.bin/screenshot --focused
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2

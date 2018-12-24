@@ -3,6 +3,8 @@
 CONFIG_FILE = "~/.config/naps62-screen-setup"
 
 RES = `xrandr | grep HDMI-2 -A 1 | tail -n 1 | awk '{ print $1 }'`.strip
+
+RES="1680x1050"
 FOURK = false #(RES == "3840x2160")
 
 FLAGS = {
