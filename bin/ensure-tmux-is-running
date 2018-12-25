@@ -12,6 +12,10 @@ _tmux_not_disabled() {
   [[ -z "$NO_TMUX" ]]
 }
 
+_not_in_floating_term() {
+  [[ -z "$FLOATING_TERM" ]]
+}
+
 if _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
   ~/.bin/tat
 fi

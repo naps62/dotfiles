@@ -22,8 +22,8 @@ if [ "`_floating_term_id`" -eq "" ]; then
 
   unset TMUX
   export NO_TMUX=1
-  termite -t $float_term_name
-  i3-msg "exec termite -t $float_term_name"
+  alacritty --title $float_term_name
+  # i3-msg "exec termite -t $float_term_name"
 
 elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then
   # floating term is not in the current workspace. moving it here
