@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#
+# Setup rcup
+#
+ln -s $PWD/rcrc $HOME/.rcrc
+
+rcup
+
+#
+# Setup crontab
+#
+sudo ln -s $HOME/.config/crontab/$USER /var/spool/cron/$USER
+
+#
+# Setup wallpaper rotator
+#
+(cd vendor/Daily-Reddit-Wallpaper; sudo pip install -r requirements)
+

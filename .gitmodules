@@ -10,3 +10,6 @@
 [submodule "config/git-radar"]
 	path = config/git-radar
 	url = https://github.com/michaeldfallen/git-radar
+[submodule "vendor/Daily-Reddit-Wallpaper"]
+	path = vendor/Daily-Reddit-Wallpaper
+	url = https://github.com/ssimunic/Daily-Reddit-Wallpaper

@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+
 source ~/.config/zsh/env.sh
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/bindings.zsh

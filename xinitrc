@@ -1,4 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[[ -f ~/.fehbg ]] && ./.fehbg
 
 # # setxkbmap -option caps:none
 xset r rate 150 20
