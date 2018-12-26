@@ -1,9 +1,15 @@
 #!/bin/sh
 
 #
+# Setup repository
+#
+git submodule init
+git submodule update
+
+#
 # Setup rcup
 #
-ln -s $PWD/rcrc $HOME/.rcrc
+ln -sf $PWD/rcrc $HOME/.rcrc
 
 rcup
 
@@ -15,5 +21,5 @@ sudo cp setup.d/files/cron.naps62 /var/spool/cron/naps62
 #
 # Setup wallpaper rotator
 #
-(cd vendor/Daily-Reddit-Wallpaper; sudo pip install -r requirements)
+(cd vendor/Daily-Reddit-Wallpaper; pip install --user --requirement requirements.txt)
 

@@ -29,7 +29,6 @@ color15	= ${xrdb:color15}
 
 [bar/bottom]
 bottom = true
-monitor = eDP-1
 width = 100%
 height = 40
 

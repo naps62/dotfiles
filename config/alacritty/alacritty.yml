@@ -74,7 +74,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 8.0
+  size: 12.0
 
 # Should display the render timer
 render_timer: false
