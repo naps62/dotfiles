@@ -21,8 +21,8 @@ client.urgent           $bg     $bg       $text    $bg      $bg
 client.placeholder      $bg     $bg       $text    $bg      $bg
 
  # Set inner/outer gaps
-gaps inner 8
-gaps outer 8
+gaps inner 10
+gaps outer 0
 smart_gaps on
 smart_borders on
 
@@ -179,7 +179,6 @@ focus_follows_mouse yes
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
-assign [class="Nightly"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
 assign [title="Todoist"] 4

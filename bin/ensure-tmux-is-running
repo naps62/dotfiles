@@ -12,10 +12,12 @@ _tmux_not_disabled() {
   [[ -z "$NO_TMUX" ]]
 }
 
-_not_in_floating_term() {
-  [[ -z "$FLOATING_TERM" ]]
+_in_floating_term() {
+  [[ -v FLOATING_TMUX_SESSION ]]
 }
 
-if _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
+if _in_floating_term; then
+  tmux attach-session -t $FLOATING_TMUX_SESSION || tmux new -s $FLOATING_TMUX_SESSION
+elif _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
   ~/.bin/tat
 fi
