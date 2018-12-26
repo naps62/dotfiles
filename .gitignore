@@ -22,7 +22,9 @@ config/*
 !config/polybar
 !config/alacritty
 !config/fontconfig
+!config/crontab
 config/nvim/.netrwhist
+config/dunst/dunstrc.bac
 
 xboomx/xboomx.db
 
