@@ -10,7 +10,7 @@ rcup
 #
 # Setup crontab
 #
-sudo ln -s $HOME/.config/crontab/$USER /var/spool/cron/$USER
+sudo cp setup.d/files/cron.naps62 /var/spool/cron/naps62
 
 #
 # Setup wallpaper rotator

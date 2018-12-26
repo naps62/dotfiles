@@ -1,0 +1,3 @@
+* */4 * * * /home/naps62/.bin/rotate-wallpaper
+* * * * * /home/naps62/.bin/rotate-wallpaper
+@reboot /home/naps62/.bin/rotate-wallpaper
