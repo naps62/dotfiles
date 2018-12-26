@@ -175,6 +175,8 @@ bindsym --release $mod+Insert exec ~/.bin/screenshot --select
 
 bindsym --release $mod+Delete exec ~/.bin/screenshot --focused
 
+focus_follows_mouse yes
+
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
 assign [class="Nightly"] 2
@@ -203,6 +205,8 @@ for_window [title="Mist"] floating disable
 for_window [class="mpv"] floating enable, resize set 1280 768, move position center
 for_window [class="Nm-connection-editor"] floating enable, resize set 800 600, move position center
 for_window [title="Floating Chrome"] floating enable, resize set 800 600, move position center, border pixel 0
+for_window [title="Floating Chrome"] floating enable, resize set 800 600, move position center, border pixel 0
+for_window [class="Keybase"] floating enable, move position mouse
 
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec google-chrome-unstable'
