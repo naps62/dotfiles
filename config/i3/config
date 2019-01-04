@@ -179,6 +179,8 @@ bindsym --release $mod+Insert exec ~/.bin/screenshot --select
 
 bindsym --release $mod+Delete exec ~/.bin/screenshot --focused
 
+bindsym $mod+shift+p exec emoji-keyboard -s
+
 focus_follows_mouse yes
 
 assign [class="UXTerm"] 1

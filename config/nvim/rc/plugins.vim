@@ -18,7 +18,7 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 Plug 'kreskij/vim-reminder-tips'
@@ -81,6 +81,7 @@ Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'tomlion/vim-solidity'
 Plug 'hashivim/vim-terraform'
 Plug 'cespare/vim-toml'
+Plug 'OmniSharp/omnisharp-vim'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
@@ -96,7 +97,7 @@ filetype plugin indent on
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :NERDTreeFind<CR>
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeKeepTreeInNewTab=1
@@ -105,7 +106,7 @@ let g:NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapOpenSplit="s"
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowLineNumbers = 1
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -260,6 +261,7 @@ let g:ale_linters = {
       \ 'javascript': [],
       \ 'scss': [],
       \ 'solidity': ['solium'],
+      \ 'cs': ['OmniSharp']
       \ }
 
 let g:ale_fixers = {
@@ -267,7 +269,7 @@ let g:ale_fixers = {
       \ 'typescript': ['tslint', 'tsserver', 'prettier'],
       \ 'javascript': [],
       \ 'elixir': ['mix_format'],
-      \ 'solidity': [],
+      \ 'solidity': []
       \ }
 
 function! LoadNearestMixFormatter()
@@ -367,6 +369,10 @@ let g:localvimrc_whitelist='/home/naps62/utrust/platform/.lvimrc'
 
 " far.vim
 " let g:far#source = 'rg'
+
+" OmniSharp-vim
+let g:OmniSharp_server_use_mono = 1
+let g:OmniSharp_highligh_types = 1
 
 " lazy loading plugins
 
