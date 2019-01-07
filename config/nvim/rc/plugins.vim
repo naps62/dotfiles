@@ -93,7 +93,6 @@ Plug 'rhysd/vim-grammarous'
 call plug#end()
 filetype plugin indent on
 
-
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :NERDTreeFind<CR>
@@ -370,9 +369,13 @@ let g:localvimrc_whitelist='/home/naps62/utrust/platform/.lvimrc'
 " far.vim
 " let g:far#source = 'rg'
 
-" OmniSharp-vim
+" omnisharp-vim
 let g:OmniSharp_server_use_mono = 1
-let g:OmniSharp_highligh_types = 1
+let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_highlight_types = 1
+" this only works while I just have a single C# project.
+" Removing this option bumps into this issue: https://github.com/OmniSharp/omnisharp-vim/issues/398
+let g:OmniSharp_port = 2000
 
 " lazy loading plugins
 
