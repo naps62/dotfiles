@@ -39,7 +39,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 Plug 'amperser/proselint'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -251,6 +251,7 @@ let g:ale_ruby_rubocop_options = '--except Lint/Debugger'
 
 let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'
+" let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
       \ 'ruby': [],
@@ -265,7 +266,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
       \ 'ruby':  [],
-      \ 'typescript': ['tslint', 'tsserver', 'prettier'],
+      \ 'typescript': ['tslint', 'prettier'],
       \ 'javascript': [],
       \ 'elixir': ['mix_format'],
       \ 'solidity': []

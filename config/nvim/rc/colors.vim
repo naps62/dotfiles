@@ -8,8 +8,14 @@ let base16colorspace=256
 " " color scheme
 set background=dark
 
+colorscheme base16-eighties
+
 " SignColumn with same color as line column
 highlight clear SignColumn
+
+" current line
+set cursorline
+set cursorcolumn
 
 " vim-gitgutter bg color
 highlight SignColumn ctermbg=black
@@ -18,13 +24,17 @@ highlight GitGutterChange ctermbg=black
 highlight GitGutterDelete ctermbg=black
 highlight GitGutterChangeDelete ctermbg=black
 
+" highlight clear ALEError
+highlight ALEError ctermfg=01 ctermbg=18
+highlight ALEErrorSign ctermfg=red ctermbg=black
+
 " YCM sign colors
 highlight YcmErrorSign ctermfg=red ctermbg=black
-highlight YcmWarningSign ctermfg=red ctermbg=black
+highlight YcmWarningSign ctermfg=yellow ctermbg=black
 
 " Generic error colors
-highlight Error ctermfg=red ctermbg=black
-highlight Warning ctermfg=yellow ctermbg=black
+" highlight Error ctermfg=red ctermbg=black
+" highlight Warning ctermfg=yellow ctermbg=black
 
 " line number column to match text bg
 highlight LineNr ctermfg=darkgrey ctermbg=black
@@ -44,4 +54,3 @@ function! TweakBase16()
   highlight DiffText   term=reverse cterm=bold ctermfg=0 ctermbg=4 gui=bold guifg=#2b2b2b guibg=#6d9cbe
 endfunction
 
-colorscheme base16-eighties
