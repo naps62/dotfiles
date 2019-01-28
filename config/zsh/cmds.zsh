@@ -89,7 +89,11 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 custom-ls () {
-  flags="--color --group-directories-first"
+  if [[ $IS_MAC_OS == 1 ]]; then
+    flags="-G"
+  else
+    flags="--color --group-directories-first"
+  fi
   if [[ "$@" =~ "-l" ]]; then
     ls ${=flags} $@ | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %o ",k);print}'
   else

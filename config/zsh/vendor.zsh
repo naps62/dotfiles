@@ -3,7 +3,7 @@
 #
 # erlang
 #
-source ~/.config/erlang/erl.init
+[ -f ~/.config/erlang/erl.init ] && source ~/.config/erlang/erl.init
 
 #
 # fzf

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-fzf=/home/naps62/.fzf/bin/fzf
+fzf=$(which fzf)
 
 tmux list-sessions \
   | sed -E 's/:.*$//' \

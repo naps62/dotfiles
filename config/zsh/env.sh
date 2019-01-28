@@ -7,6 +7,7 @@ env_dir() {
   export $var=$val:$old
 }
 
+
 # path
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.appimages
@@ -27,6 +28,7 @@ env_dir PATH $HOME/.fide-online-arena
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
+[[ `uname -s` == "Darwin" ]] && export IS_MAC_OS=1
 export GOPATH=$HOME/.go
 export XDG_CONFIG_HOME=$HOME/.config
 export LANG=en_US.utf-8
