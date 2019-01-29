@@ -215,6 +215,7 @@ for_window [class="Keybase"] floating enable, move position mouse
 
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec google-chrome-unstable'
+exec i3-msg 'exec dunst'
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg

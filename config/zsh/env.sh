@@ -9,7 +9,6 @@ env_dir() {
 
 
 # path
-env_dir PATH /snap
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.appimages
 env_dir PATH $HOME/.cabal/bin
