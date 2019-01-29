@@ -9,6 +9,7 @@ env_dir() {
 
 
 # path
+env_dir PATH /snap
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.appimages
 env_dir PATH $HOME/.cabal/bin
@@ -24,7 +25,6 @@ env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
 env_dir PATH $HOME/projects/dotfiles/eth-bin
-env_dir PATH $HOME/.fide-online-arena
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 

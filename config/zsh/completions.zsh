@@ -14,7 +14,4 @@ else
   compinit
 fi
 
-# zstyle ':completion:*' menu select=2
-# zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}
-
 . $HOME/.asdf/completions/asdf.bash
