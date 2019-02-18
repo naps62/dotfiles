@@ -22,6 +22,7 @@ config/*
 !config/polybar
 !config/alacritty
 !config/fontconfig
+!config/compton
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 

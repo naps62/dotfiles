@@ -2,7 +2,7 @@
 [[ -f ~/.fehbg ]] && ./.fehbg
 
 # # setxkbmap -option caps:none
-xset r rate 150 20
+xset r rate 120 40
 
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
