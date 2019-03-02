@@ -1,5 +1,0 @@
-#!/bin/sh
-
-if [ -f Gemfile ]; then
-  git diff --exit-code --cached -- Gemfile Gemfile.lock > /dev/null || bundle check
-fi
