@@ -18,7 +18,8 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 
@@ -54,7 +55,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-Plug 'slashmili/alchemist.vim'
+" Plug 'slashmili/alchemist.vim'
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
@@ -252,10 +253,13 @@ let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'
 " let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
+
+let g:ale_elixir_elixir_ls_release = $HOME . './elixir_ls'
+
 let g:ale_linters = {
       \ 'ruby': [],
       \ 'python': [],
-      \ 'elixir': [],
+      \ 'elixir': ['elixir-ls'],
       \ 'typescript': ['tslint', 'tsserver'],
       \ 'javascript': [],
       \ 'scss': [],
@@ -289,10 +293,10 @@ function! AddLinterIfFileExists(lang, linter, file, lint, fix)
 
   if filereadable(a:file) && index(l:current, a:linter) == -1
     if a:lint
-      let g:ale_linters[a:lang] = g:ale_linters.javascript + [a:linter]
+      let g:ale_linters[a:lang] = g:ale_linters[a:lang] + [a:linter]
     endif
     if a:fix
-      let g:ale_fixers[a:lang] = g:ale_linters.javascript + [a:linter]
+      let g:ale_fixers[a:lang] = g:ale_linters[a:lang] + [a:linter]
     end
   endif
 endfunction
@@ -364,7 +368,7 @@ let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 " vimlocal
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
-let g:localvimrc_whitelist='/home/naps62/utrust/platform/.lvimrc'
+let g:localvimrc_whitelist=$HOME . '/utrust/platform/.lvimrc'
 
 " far.vim
 " let g:far#source = 'rg'

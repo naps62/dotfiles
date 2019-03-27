@@ -1,0 +1,9 @@
+{
+  "diagnostic.virtualText": true,
+  "languageserver": {
+    "elixirLS": {
+      "command": "elixir_ls",
+      "filetypes": ["elixir", "eelixir"]
+    }
+  }
+}
