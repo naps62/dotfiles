@@ -261,7 +261,7 @@ let g:ale_linters = {
       \ 'python': [],
       \ 'elixir': ['elixir-ls'],
       \ 'typescript': ['tslint', 'tsserver'],
-      \ 'javascript': [],
+      \ 'javascript': ['prettier'],
       \ 'scss': [],
       \ 'solidity': ['solium'],
       \ 'cs': ['OmniSharp']
@@ -270,7 +270,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'ruby':  [],
       \ 'typescript': ['tslint', 'prettier'],
-      \ 'javascript': [],
+      \ 'javascript': ['prettier'],
       \ 'elixir': ['mix_format'],
       \ 'solidity': []
       \ }

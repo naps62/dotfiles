@@ -62,25 +62,31 @@ Host mtgsearch
   Hostname mtgsear.ch
   User deploy
   Port 22062
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_rsa.old
+
+Host new.mtgsearch
+  Hostname new.mtgsear.ch
+  User deploy
+  Port 22062
+  IdentityFile ~/.ssh/id_rsa.old
 
 Host drawstep
   Hostname new.drawstep.com
   Port 22062
   User deploy
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_rsa.old
 
 Host drawstep2
   Hostname ssl.drawstep.com
   Port 22062
   User deploy
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_rsa.old
 
 Host mtgsear.ch
   Hostname 167.99.130.56
   Port 22062
   User deploy
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_rsa.old
 
 Host utrust-vpn
   Hostname 165.227.154.8

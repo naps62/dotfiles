@@ -9,10 +9,12 @@ env_dir() {
 
 
 # path
+env_dir PATH /usr/local/opt/
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.appimages
 env_dir PATH $HOME/.cabal/bin
 env_dir PATH $HOME/.local/bin
+env_dir PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 # env_dir PATH $HOME/.xmonad/bin
 # env_dir PATH $HOME/.linuxbrew/bin
 # env_dir PATH $HOME/.rbenv/bin
