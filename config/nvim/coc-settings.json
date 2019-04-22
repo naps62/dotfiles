@@ -1,5 +1,6 @@
 {
   "diagnostic.virtualText": true,
+  "suggest.triggerAfterInsertEnter": true,
   "languageserver": {
     "elixirLS": {
       "command": "elixir_ls",

@@ -264,7 +264,8 @@ let g:ale_linters = {
       \ 'javascript': ['prettier'],
       \ 'scss': [],
       \ 'solidity': ['solium'],
-      \ 'cs': ['OmniSharp']
+      \ 'cs': ['OmniSharp'],
+      \ 'rust': []
       \ }
 
 let g:ale_fixers = {
@@ -272,7 +273,8 @@ let g:ale_fixers = {
       \ 'typescript': ['tslint', 'prettier'],
       \ 'javascript': ['prettier'],
       \ 'elixir': ['mix_format'],
-      \ 'solidity': []
+      \ 'solidity': [],
+      \ 'rust': ['rustfmt']
       \ }
 
 function! LoadNearestMixFormatter()
@@ -380,6 +382,10 @@ let g:OmniSharp_highlight_types = 1
 " this only works while I just have a single C# project.
 " Removing this option bumps into this issue: https://github.com/OmniSharp/omnisharp-vim/issues/398
 let g:OmniSharp_port = 2000
+
+" coc.vim
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " lazy loading plugins
 
