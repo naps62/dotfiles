@@ -4,7 +4,7 @@ CONFIG_FILE = "~/.config/naps62-screen-setup"
 
 RES = `xrandr | grep HDMI-2 -A 1 | tail -n 1 | awk '{ print $1 }'`.strip
 
-RES="1680x1050"
+RES="2560x1440"
 FOURK = false #(RES == "3840x2160")
 
 FLAGS = {
@@ -16,12 +16,12 @@ FLAGS = {
 
 def setup(id)
   `echo #{id} > #{CONFIG_FILE}`
-  `xrandr --output HDMI-2 --panning #{RES} --mode #{RES} #{FLAGS[id]} eDP-1`
+`xrandr --output DP-2 --panning #{RES} --mode #{RES} #{FLAGS[id]} eDP-1`
 end
 
 def disable
   `rm #{CONFIG_FILE}`
-  `xrandr --output HDMI-2 --off`
+  `xrandr --output DP-2 --off`
 end
 
 def toggle(id1, id2)

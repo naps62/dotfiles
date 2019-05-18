@@ -74,7 +74,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 12.0
+  size: 8.0
 
 # Should display the render timer
 render_timer: false
@@ -354,3 +354,11 @@ colors:
     magenta: '0xcc99cc'
     cyan:    '0x66cccc'
     white:   '0xf2f0ec'
+
+  indexed_colors:
+    - { index: 16, color: '0xf99157' }
+    - { index: 17, color: '0xd27b53' }
+    - { index: 18, color: '0x393939' }
+    - { index: 19, color: '0x515151' }
+    - { index: 20, color: '0xa09f93' }
+    - { index: 21, color: '0xe8e6df' }
