@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function notify {
+  dunstify -r 626262 "Brightness" `light`
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --up)
+      light -A 10
+      notify
+      shift
+      shift
+      ;;
+
+    --down)
+      light -U 10
+      notify
+      shift
+      shift
+      ;;
+  esac
+done

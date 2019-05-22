@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function notify {
+  volume=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')
+  dunstify -r 626262 "Volume" $volume
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --up)
+      amixer -q set Master 5%+ unmute
+      notify
+      shift
+      shift
+      ;;
+
+    --down)
+      amixer -q set Master 5%- unmute
+      notify
+      shift
+      shift
+      ;;
+
+    --mute)
+      amixer -q set Master toggle
+      notify
+      shift
+      shift
+  esac
+done

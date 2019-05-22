@@ -128,6 +128,8 @@ bindsym Ctrl+backslash exec ~/.bin/toggle-floating-term
 # toggle between clone and extend-left
 bindsym $mod+Shift+0 exec ~/.bin/dual toggle clone left
 
+focus_follows_mouse yes
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -155,16 +157,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute #increase sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle # mute sound
+bindsym XF86AudioRaiseVolume exec ~/.bin/volume --up
+bindsym XF86AudioLowerVolume exec ~/.bin/volume --down
+bindsym XF86AudioMute exec ~/.bin/volume --mute
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+bindsym XF86MonBrightnessUp exec ~/.bin/brightness --up
+bindsym XF86MonBrightnessDown exec ~/.bin/brightness --down
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -172,16 +171,10 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+0 exec /home/naps62/.bin/dual toggle left clone
-
-# printscreens (via scrot)
+# printscreens
 bindsym --release $mod+Insert exec ~/.bin/screenshot --select
-
 bindsym --release $mod+Delete exec ~/.bin/screenshot --focused
 
-bindsym $mod+shift+p exec emoji-keyboard -s
-
-focus_follows_mouse yes
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2

@@ -23,6 +23,7 @@ config/*
 !config/alacritty
 !config/fontconfig
 !config/compton
+!config/feh
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 
