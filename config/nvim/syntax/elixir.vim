@@ -11,6 +11,7 @@ autocmd User ProjectionistDetect
 \     },
 \ })
 
+let g:naps62_elixir_test_runner = ""
 let g:naps62_elixir_test_env_file = ""
 
 function! ElixirMixTestTransform(cmd) abort

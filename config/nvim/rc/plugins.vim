@@ -265,7 +265,8 @@ let g:ale_linters = {
       \ 'scss': [],
       \ 'solidity': ['solium'],
       \ 'cs': ['OmniSharp'],
-      \ 'rust': []
+      \ 'rust': [],
+      \ 'terraform': ['tflint']
       \ }
 
 let g:ale_fixers = {
@@ -274,7 +275,8 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'elixir': ['mix_format'],
       \ 'solidity': [],
-      \ 'rust': ['rustfmt']
+      \ 'rust': ['rustfmt'],
+      \ 'terraform': ['terraform']
       \ }
 
 function! LoadNearestMixFormatter()

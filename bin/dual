@@ -2,11 +2,6 @@
 
 CONFIG_FILE = "~/.config/naps62-screen-setup"
 
-RES = `xrandr | grep DP-1 -A 1 | tail -n 1 | awk '{ print $1 }'`.strip
-
-RES="2560x1440"
-FOURK = false #(RES == "3840x2160")
-
 FLAGS = {
   clone: "--same-as",
   left: "--left-of",
@@ -14,9 +9,13 @@ FLAGS = {
   top: "--above"
 }
 
+def max_res(out)
+  `xrandr | grep #{out} -A 1 | tail -n 1 | awk '{ print $1 }'`.strip
+end
+
 def setup(id)
   `echo #{id} > #{CONFIG_FILE}`
-`xrandr --output DP-1 --panning #{RES} --mode #{RES} #{FLAGS[id]} eDP-1`
+  `xrandr --output #{$out1} --mode #{max_res($out1)} #{FLAGS[id]} #{$out2} --mode #{max_res($out2)}`
 end
 
 def disable
@@ -36,6 +35,20 @@ def toggle(id1, id2)
     setup(id1.to_sym)
   end
 end
+
+$out1 = nil
+$out2 = nil
+
+case `hostname`.strip
+when "naps62subvisual" then
+  $out1 = "HDMI-0"
+  $out2 = "DVI-D-0"
+else
+  $out1 = "HDMI-2"
+  $out2 = "eDP-1"
+end
+
+$res = "1920x1080"
 
 case ARGV[0]
 when 'off' then disable

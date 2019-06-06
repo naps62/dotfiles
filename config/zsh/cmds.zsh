@@ -101,6 +101,13 @@ custom-ls () {
   fi
 }
 
+# fd - cd to selected directory
+fd () {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
 
 nuke () {
    ps ax | ag $@ | ag -v ag | cut -d' ' -f 1 | xargs kill -9
