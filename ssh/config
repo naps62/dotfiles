@@ -8,6 +8,7 @@ ControlPersist yes
 
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
+IdentityFile ~/.ssh/id_rsa.desktop
 IdentityFile ~/.ssh/id_rsa.utrust
 
 #
@@ -25,11 +26,6 @@ Host batman
   Hostname batman.servers.subvisual.co
   User deploy
 
-Host easy.money
-  Hostname 54.86.169.237
-  User groupbuddies
-  IdentityFile ~/.ssh/easy-money
-
 #
 # Subvisual apps
 #
@@ -37,23 +33,9 @@ Host zee
   Hostname 37.139.7.70
   User deploy
 
-Host pi
-  Hostname naps62.ddns.net
-  User pi
-
-
-Host doctorlink
-  Hostname doctorlink.com
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.subvisual
-  ForwardAgent yes
-
-Host doctorlink-stag
-  Hostname staging.doctorlink.com
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.subvisual
-  ForwardAgent yes
-
+#
+# Drawstep apps
+#
 Host old-drawstep
   Hostname old.drawstep.com
   User drawstep
@@ -93,36 +75,9 @@ Host utrust-vpn
   User root
   IdentityFile ~/.ssh/id_rsa.subvisual
 
-Host utrust-geth-private
-  Hostname 167.99.250.162
-  User naps62
-  IdentityFile ~/.ssh/id_rsa.utrust
-  LocalForward 8545 localhost:8545
-
-Host desktop
-  Hostname 192.168.255.14
-  User naps62
-  IdentityFile ~/.ssh/id_rsa
-  LocalForward 8181 localhost:8181
-
 Host vpn.utrust.com
   User root
   IdentityFile ~/.ssh/id_rsa.utrust
-
-Host utrust-btc-main
-  Hostname 167.99.195.111
-  User root
-  IdentityFile ~/.ssh/id_rsa.subvisual
-
-Host utrust-btc-test
-  Hostname 206.189.23.120
-  User root
-  IdentityFile ~/.ssh/id_rsa.subvisual
-
-Host desktop
-  User naps62
-  Hostname 192.168.255.14
-  IdentityFile ~/.ssh/id_rsa.subvisual
 
 Host utrust-joan
   Hostname 178.62.253.114
