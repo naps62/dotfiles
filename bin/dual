@@ -2,60 +2,28 @@
 
 CONFIG_FILE = "~/.config/naps62-screen-setup"
 
-FLAGS = {
-  clone: "--same-as",
-  left: "--left-of",
-  right: "--right-of",
-  top: "--above"
-}
-
-def max_res(out)
-  `xrandr | grep #{out} -A 1 | tail -n 1 | awk '{ print $1 }'`.strip
-end
-
-def setup(id)
-  `echo #{id} > #{CONFIG_FILE}`
-  `xrandr --output #{$out1} --mode #{max_res($out1)} #{FLAGS[id]} #{$out2} --mode #{max_res($out2)}`
-end
-
-def disable
-  `rm #{CONFIG_FILE}`
-  `xrandr --output DP-1 --off`
-end
-
-def toggle(id1, id2)
-  current = `cat #{CONFIG_FILE}`.strip
-  if current.empty?
-    current = :clone
-  end
-
-  if current.to_sym == id1.to_sym
-    setup(id2.to_sym)
+def dual_subvisual(arg)
+  puts "x#{arg}"
+  case arg
+  when "vert", "vertical" then
+    "xrandr --output DVI-D-0 --mode 1920x1080 --rotate right --right-of HDMI-0 --mode 1920x1080"
   else
-    setup(id1.to_sym)
+    "xrandr --output DVI-D-0 --mode 1920x1080 --rotate normal --right-of HDMI-0 --mode 1920x1080"
   end
 end
 
-$out1 = nil
-$out2 = nil
-
-case `hostname`.strip
-when "naps62subvisual" then
-  $out1 = "HDMI-0"
-  $out2 = "DVI-D-0"
-else
-  $out1 = "HDMI-2"
-  $out2 = "eDP-1"
+def dual_giskard(arg)
+  case arg
+  when "left" then
+    "xrandr --output HDMI-2 --mode 1920x1080 --left-of eDP-1 --mode 1920x1080"
+  else
+    "echo `not implemented yet`"
+  end
 end
 
-$res = "1920x1080"
-
-case ARGV[0]
-when 'off' then disable
-when 'clone' then setup(:clone)
-when 'left' then setup(:left)
-when 'right' then setup(:right)
-when 'top' then setup(:top)
-when 'toggle' then toggle(ARGV[1], ARGV[2])
-else puts "Invalid options #{ARGV}"
+cmd = case `hostname`.strip
+when "giskard" then dual_giskard(ARGV[0])
+when "naps62subvisual" then dual_subvisual(ARGV[0])
 end
+
+`#{cmd}`
