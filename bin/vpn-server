@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-export OWVPN_DATA="ovpn-data"
-
-docker run --name $OVPN_DATA -v /etc/openvpn busybox
-
-docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_genconfig -u udp://93.108.247.63:1194
-docker run --volumes-from $OVPN_DATA --rm -it kylemanna/openvpn ovpn_initpki
