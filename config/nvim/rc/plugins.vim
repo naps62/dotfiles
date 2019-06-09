@@ -46,6 +46,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'takac/vim-hardtime'
 Plug 'embear/vim-localvimrc'
 Plug 'brooth/far.vim'
+Plug 'lambdalisue/lista.nvim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -107,6 +108,8 @@ let g:NERDTreeMapOpenVSplit="v"
 let g:NERDTreeMapOpenSplit="s"
 let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeMinimalUI = 1
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Bookmark shortcut
@@ -218,6 +221,11 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+autocmd! FileType fzf
+autocmd  FileType fzf set nonu nornu
+
 nmap <C-p> :Files<CR>
 nmap <C-f> :Ag<CR>
 
@@ -388,6 +396,10 @@ let g:OmniSharp_port = 2000
 " coc.vim
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Lista
+nnoremap # :<C-u>Lista<CR>
+nnoremap g# :<C-u>ListaCursorWord<CR>
 
 " lazy loading plugins
 
