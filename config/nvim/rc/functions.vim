@@ -72,7 +72,7 @@ function! FloatingFZF()
 
   let width = float2nr(&columns - (&columns * 2 / 10))
   let height = 30
-  let y = float2nr(&lines / 2) - float2nr(height / 2)
+  let y = &lines - height - 3
   let x = float2nr((&columns - width) / 2)
 
   let opts = {
