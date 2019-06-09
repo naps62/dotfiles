@@ -7,6 +7,25 @@ git submodule init
 git submodule update
 
 #
+# Setup yaourt
+#
+sudo pacman -S --needed base-devel git wget yajl
+git clone https://aur.archlinux.org/package-query.git /tmp
+(cd /tmp/package-query && makepkg -si)
+git clone https://aur.archlinux.org/yaourt.git /tmp
+(cd /tmp/yaourt && makepkg -si)
+
+#
+# Install packages from official arch repos
+#
+sudo pacman -S --needed $(< ./setup.d/pkglist)
+
+#
+# Install packages from AUR
+#
+yaourt -S --needed $(< ./setup.d/pkglist.aur)
+
+#
 # Setup rcup
 #
 ln -sf $PWD/rcrc $HOME/.rcrc
@@ -23,3 +42,8 @@ sudo cp setup.d/files/cron.naps62 /var/spool/cron/naps62
 #
 (cd vendor/Daily-Reddit-Wallpaper; pip install --user --requirement requirements.txt)
 
+#
+# Setup gllock
+#
+(cd vendor/gllock && sudo make clean install)
+ln -s $PWD/gllock/shaders $HOME/.gllock
