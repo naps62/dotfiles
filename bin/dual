@@ -14,8 +14,8 @@ end
 
 def dual_giskard(arg)
   case arg
-  when "top" then
-    "echo `not implemented yet`"
+  when "4k"
+    "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 960x2160 --output DP-1 --mode 3840x2160 --pos 0x0"
   else
     "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --output DP-1 --mode 2560x1440 --pos 0x0"
   end
