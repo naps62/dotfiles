@@ -14,10 +14,10 @@ end
 
 def dual_giskard(arg)
   case arg
-  when "left" then
-    "xrandr --output HDMI-2 --mode 1920x1080 --left-of eDP-1 --mode 1920x1080"
-  else
+  when "top" then
     "echo `not implemented yet`"
+  else
+    "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 960x2160 --output DP-1 --mode 3840x2160 --pos 0x0"
   end
 end
 
