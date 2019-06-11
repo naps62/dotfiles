@@ -2,7 +2,7 @@
 
 function notify {
   volume=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')
-  dunstify -r 626262 "Volume" $volume
+  dunstify --replace=626262 --timeout=3000 "Volume" $volume
 }
 
 while [[ $# -gt 0 ]]; do

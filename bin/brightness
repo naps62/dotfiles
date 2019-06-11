@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function notify {
-  dunstify -r 626262 "Brightness" `light`
+  dunstify --replace=626263 --timeout=3000 "Brightness" `light`
 }
 
 while [[ $# -gt 0 ]]; do
