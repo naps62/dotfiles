@@ -14,6 +14,8 @@ end
 
 def dual_giskard(arg)
   case arg
+  when "off"
+    "xrandr --output DP-1 --off"
   when "4k"
     "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 960x2160 --output DP-1 --mode 3840x2160 --pos 0x0"
   when "4k-only"
