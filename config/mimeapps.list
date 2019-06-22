@@ -1,10 +1,10 @@
 [Added Associations]
 image/png=brave-bin.desktop;feh.desktop;
 video/x-matroska=mpv.desktop;
+
 [Default Applications]
 text/html=brave-bin.desktop;
 x-scheme-handler/about=brave-bin.desktop;
 x-scheme-handler/http=brave-bin.desktop;
 x-scheme-handler/https=brave-bin.desktop;
 x-scheme-handler/unknown=brave-bin.desktop;
-

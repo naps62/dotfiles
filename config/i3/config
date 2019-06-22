@@ -205,6 +205,7 @@ for_window [class="Nm-connection-editor"] floating enable, resize set 800 600, m
 for_window [title="Floating Chrome"] floating enable, resize set 800 600, move position center, border pixel 0
 for_window [title="Floating Chrome"] floating enable, resize set 800 600, move position center, border pixel 0
 for_window [class="Keybase"] floating enable, move position mouse
+for_window [title="RGBA"] floating enable, move position mouse
 
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec google-chrome-unstable'
