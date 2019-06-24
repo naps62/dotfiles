@@ -7,7 +7,6 @@ env_dir() {
   export $var=$val:$old
 }
 
-
 # path
 env_dir PATH /usr/local/opt/
 env_dir PATH $HOME/.bin
@@ -15,12 +14,7 @@ env_dir PATH $HOME/.appimages
 env_dir PATH $HOME/.cabal/bin
 env_dir PATH $HOME/.local/bin
 env_dir PATH /Applications/Postgres.app/Contents/Versions/latest/bin
-# env_dir PATH $HOME/.xmonad/bin
-# env_dir PATH $HOME/.linuxbrew/bin
-# env_dir PATH $HOME/.rbenv/bin
-# env_dir PATH $HOME/.rbenv/plugins/ruby-build/bin
 env_dir PATH $HOME/.cargo/bin
-env_dir PATH $HOME/.asdf/installs/nodejs/8.2.0/.npm/bin
 env_dir PATH $HOME/.go/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin

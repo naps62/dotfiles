@@ -1,6 +1,7 @@
 [Added Associations]
 image/png=brave-bin.desktop;feh.desktop;
 video/x-matroska=mpv.desktop;
+video/mp4=mpv.desktop;
 
 [Default Applications]
 text/html=brave-bin.desktop;
