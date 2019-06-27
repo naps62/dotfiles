@@ -24,6 +24,7 @@ config/*
 !config/fontconfig
 !config/compton
 !config/feh
+!config/mpv
 !config/mimeapps.list
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
