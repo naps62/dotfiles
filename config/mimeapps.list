@@ -1,11 +1,23 @@
 [Added Associations]
-image/png=brave-bin.desktop;feh.desktop;
+image/png=brave-bin.desktop;feh.desktop
+image/jpeg=feh.desktop;eog.desktop;gimp.desktop;
+image/svg+xml=eog.desktop;
+video/mp4=mpv.desktop;
+application/x-mobipocket-ebook=calibre-gui.desktop;
 video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
+video/x-ms-wmv=mpv.desktop;
+video/x-flv=mpv.desktop;
 
 [Default Applications]
-text/html=brave-bin.desktop;
-x-scheme-handler/about=brave-bin.desktop;
-x-scheme-handler/http=brave-bin.desktop;
-x-scheme-handler/https=brave-bin.desktop;
-x-scheme-handler/unknown=brave-bin.desktop;
+image/png=userapp-feh-BVYBTY.desktop
+application/pdf=brave.desktop
+application/json=nvr-usercreated-1.desktop;
+application/x-ruby=home-usercreated-1.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+text/html=brave.desktop
+x-scheme-handler/http=brave.desktop
+x-scheme-handler/https=brave.desktop
+x-scheme-handler/about=brave.desktop
+x-scheme-handler/unknown=brave.desktop
+x-scheme-handler/webcal=brave-beta.desktop
