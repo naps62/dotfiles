@@ -91,6 +91,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
+# I don't really use this ATM
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
@@ -200,7 +201,7 @@ for_window [class="Nautilus"] floating enable, resize set 800 600, move position
 for_window [class="Todoist"] floating disable
 for_window [class="Mist"] floating enable
 for_window [title="Mist"] floating disable
-for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating enable, sticky toggle
 for_window [class="Nm-connection-editor"] floating enable, resize set 800 600, move position center
 for_window [title="Floating Chrome"] floating enable, resize set 800 600, move position center, border pixel 0
 for_window [title="Floating Chrome"] floating enable, resize set 800 600, move position center, border pixel 0
