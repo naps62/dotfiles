@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require "octokit"
+require "git"
+
+token = File.read(File.join(Dir.home, ".github_token"))
+github = Octokit::Client.new(access_token: token)
+
+git = Git.open(".")
+
+remote_name = git.remote("origin").url.split(":")[1].split(".git")[0]
+organization_name = remote_name.split("/")[0]
+branch = git.current_branch
+
+pull = github.pulls(remote_name, head: "#{organization_name}:#{branch}").first
+
+users = ARGV.reduce [] do |accum, arg|
+  case arg
+  when "irish" then accum.push "pfac", "gabrielpoca", "justmendes"
+  else accum.push arg
+  end
+end
+
+github.add_assignees(remote_name, pull.number, users)
