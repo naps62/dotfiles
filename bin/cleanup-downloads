@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find /home/naps62/downloads -mtime +2 -type f -delete

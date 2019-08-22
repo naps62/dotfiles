@@ -98,7 +98,7 @@ filetype plugin indent on
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :NERDTreeFind<CR>
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeKeepTreeInNewTab=1
