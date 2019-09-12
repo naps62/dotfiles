@@ -25,6 +25,7 @@ alias va=vagrant
 alias x=extract
 alias y=yaourt
 alias s=bin/server
+alias u=utrust
 
 # thoughtbot/parity
 alias prod=production
