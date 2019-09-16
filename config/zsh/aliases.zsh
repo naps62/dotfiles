@@ -26,6 +26,7 @@ alias x=extract
 alias y=yaourt
 alias s=bin/server
 alias u=utrust
+alias l=leetcode-cli
 
 # thoughtbot/parity
 alias prod=production
