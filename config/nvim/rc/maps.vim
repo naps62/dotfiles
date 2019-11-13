@@ -29,3 +29,7 @@ cmap w!! w !sudo tee % > /dev/null
 
 " Rename the current file
 map <Leader>r :call Rename()<CR>
+
+" Move to beginning/end of line in insert mode
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$

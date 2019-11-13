@@ -32,7 +32,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'SirVer/ultisnips'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
+
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -199,8 +200,8 @@ if executable('rg')
 endif
 
 " auto-pairs
-let g:AutoPairsMultilineClose = 0
-let g:AutoPairsOnlyWhitespace = 1
+" let g:AutoPairsMultilineClose = 0
+" let g:AutoPairsOnlyWhitespace = 1
 
 " YouCompleteMe
 let g:ycm_seed_identifiers_with_syntax = 1
