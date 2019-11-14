@@ -50,7 +50,6 @@ Host new.mtgsearch
   Hostname new.mtgsear.ch
   User deploy
   Port 22062
-  IdentityFile ~/.ssh/id_rsa.old
 
 Host drawstep
   Hostname new.drawstep.com
