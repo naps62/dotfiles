@@ -16,9 +16,9 @@ pull = github.pulls(remote_name, head: "#{organization_name}:#{branch}").first
 
 users = ARGV.reduce [] do |accum, arg|
   case arg
-  when "irish" then accum.push "gabrielpoca", "hgg"
+when "irish" then accum.push "hgg", "gabrielpoca"
   else accum.push arg
   end
 end
 
-github.add_assignees(remote_name, pull.number, users)
+github.request_pull_request_review(remote_name, pull.number, users)
