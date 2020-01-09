@@ -69,11 +69,6 @@ Host mtgsear.ch
   User deploy
   IdentityFile ~/.ssh/id_rsa.old
 
-Host utrust-vpn
-  Hostname 165.227.154.8
-  User root
-  IdentityFile ~/.ssh/id_rsa.subvisual
-
 Host vpn.utrust.com
   User root
   IdentityFile ~/.ssh/id_rsa.utrust
@@ -82,3 +77,6 @@ Host utrust-joan
   Hostname 178.62.253.114
   User root
   IdentityFile ~/.ssh/id_rsa.utrust
+
+Host gitlab.com
+  IdentityFile ~/.ssh/id_rsa.quais
