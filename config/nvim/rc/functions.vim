@@ -86,3 +86,46 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
+function! FloatingDefX()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let width = 40
+  let height = &lines - 10
+  let y = 5
+  let x = float2nr(&columns - width - 5)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': y,
+        \ 'col': x,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+  let session_file = getcwd() . "/nvim.defx"
+  echomsg session_file
+  :Defx -session-file=session_file
+endfunction
+
+function! FloatingNERDTree()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let width = 40
+  let height = &lines - 10
+  let y = 5
+  let x = float2nr(&columns - width - 5)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': y,
+        \ 'col': x,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+  :edit .
+endfunction

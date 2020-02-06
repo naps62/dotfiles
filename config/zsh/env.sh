@@ -9,6 +9,7 @@ env_dir() {
 
 # path
 env_dir PATH /usr/local/opt/
+env_dir PATH /opt/cuda/bin/
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.appimages
 env_dir PATH $HOME/.cabal/bin

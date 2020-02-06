@@ -8,7 +8,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " UI Features
 " Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'preservim/nerdtree'
 Plug 'chriskempson/base16-vim'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
@@ -32,6 +32,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
@@ -83,6 +84,7 @@ Plug 'tomlion/vim-solidity'
 Plug 'hashivim/vim-terraform'
 Plug 'cespare/vim-toml'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'kchmck/vim-coffee-script'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
@@ -95,12 +97,15 @@ call plug#end()
 filetype plugin indent on
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :call FloatingNERDTree()<CR>
 map <C-m> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeKeepTreeInNewTab=1
+function! s:NERDTreeCustomOpen()
+  echomsg 'asd'
+endfunction
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_gui_startup=0
@@ -214,6 +219,7 @@ let g:ycm_show_diagnostics_ui = 0
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsEdit="vertical"
 
 " vim-gitgutter
 set signcolumn=yes

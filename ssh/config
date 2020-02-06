@@ -6,6 +6,7 @@ ControlMaster auto
 ControlPath /tmp/%r@%h:%p
 ControlPersist yes
 
+IdentityFile ~/.ssh/id_rsa.quais
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
 IdentityFile ~/.ssh/id_rsa.desktop
