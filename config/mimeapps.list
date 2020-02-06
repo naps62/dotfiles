@@ -1,5 +1,5 @@
 [Added Associations]
-image/png=brave-bin.desktop;feh.desktop
+image/png=brave-browser.desktop;gimp.desktop;brave-bin.desktop;feh.desktop;
 image/jpeg=feh.desktop;eog.desktop;gimp.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
@@ -8,11 +8,11 @@ video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
 video/x-ms-wmv=mpv.desktop;
 video/x-flv=mpv.desktop;
-application/pdf=google-chrome-beta.desktop;google-chrome.desktop;brave-bin.desktop;
+application/pdf=brave.desktop;brave-browser.desktop;
 
 [Default Applications]
-image/png=userapp-feh-BVYBTY.desktop
-application/pdf=brave.desktop
+image/png=feh.desktop
+application/pdf=brave-browser.desktop
 application/json=nvr-usercreated-1.desktop;
 application/x-ruby=home-usercreated-1.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
@@ -21,6 +21,6 @@ x-scheme-handler/http=brave.desktop
 x-scheme-handler/https=brave.desktop
 x-scheme-handler/about=brave.desktop
 x-scheme-handler/unknown=brave.desktop
-x-scheme-handler/webcal=brave.desktop
+x-scheme-handler/webcal=brave-browser.desktop
 text/html=brave-bin.desktop;
 x-scheme-handler/web+cardano=brave-browser.desktop

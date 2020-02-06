@@ -24,6 +24,8 @@ def dual_giskard(arg)
     "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 300x1440 --output DP-1 --mode 2560x1440 --pos 0x0"
   when "clone"
     "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --output DP-1 --mode 1920x1080 --pos 0x0"
+  when "lambo"
+    "xrandr --output eDP-1 --primary --mode 1920x1080 --output DP-1 --mode 1920x1080 --above eDP-1"
   else
     # "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --output DP-1 --mode 1920x1080 --pos 0x0"
     "xrandr --output eDP-1 --primary --mode 1920x1080 --right-of DP-1 --output DP-1 --mode 1920x1080 --pos 0x0"
