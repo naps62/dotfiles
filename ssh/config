@@ -11,6 +11,7 @@ IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
 IdentityFile ~/.ssh/id_rsa.desktop
 IdentityFile ~/.ssh/id_rsa.utrust
+IdentityFile ~/.ssh/id_rsa.giskard
 IdentityFile ~/.ssh/id_rsa.quais
 
 #
