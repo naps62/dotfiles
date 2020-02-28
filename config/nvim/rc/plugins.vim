@@ -97,7 +97,8 @@ call plug#end()
 filetype plugin indent on
 
 " NERDTree
-map <C-n> :call FloatingNERDTree()<CR>
+" map <C-n> :call FloatingNERDTree()<CR>
+map <C-n> :NERDTree<CR>
 map <C-m> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
 let NERDTreeQuitOnOpen=1

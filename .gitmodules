@@ -13,6 +13,9 @@
 [submodule "vendor/Daily-Reddit-Wallpaper"]
 	path = vendor/Daily-Reddit-Wallpaper
 	url = https://github.com/naps62/Daily-Reddit-Wallpaper
-[submodule "vendor/gllock"]
-	path = vendor/gllock
-	url = git://github.com/kuravih/gllock.git
+[submodule "i3lock-fancy"]
+	path = vendor/i3lock-fancy
+	url = git://github.com/meskarune/i3lock-fancy.git
+[submodule "vendor/i3lock-fancy"]
+	path = vendor/i3lock-fancy
+	url = git://github.com/meskarune/i3lock-fancy.git

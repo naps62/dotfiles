@@ -1,6 +1,6 @@
 [Added Associations]
-image/png=brave-browser.desktop;gimp.desktop;brave-bin.desktop;feh.desktop;
-image/jpeg=feh.desktop;eog.desktop;gimp.desktop;
+image/png=gimp.desktop;brave-browser.desktop;brave-bin.desktop;feh.desktop;
+image/jpeg=brave-browser.desktop;feh.desktop;eog.desktop;gimp.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
 application/x-mobipocket-ebook=calibre-gui.desktop;
