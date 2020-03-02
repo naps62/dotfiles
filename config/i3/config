@@ -210,18 +210,17 @@ for_window [title="RGBA"] floating enable, move position mouse
 for_window [class="Brave-browser" window_role="pop-up"] floating enable
 
 exec i3-msg 'exec alacritty'
-exec i3-msg 'exec google-chrome-unstable'
 exec i3-msg 'exec dunst'
 
 # set wallpaper
-exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
+# exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
 
 # polybar
 exec_always i3-msg 'exec $HOME/.config/polybar/launch.sh'
 
 # compton
-exec_always i3-msg 'compton --config $HOME/.config/compton/compton.conf'
+# exec_always i3-msg 'compton --config $HOME/.config/compton/compton.conf'
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'
