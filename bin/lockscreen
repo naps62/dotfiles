@@ -1,0 +1,7 @@
+#!/bin/bash
+
+case "$HOSTNAME" in
+  *)
+    i3lock-fancy -p
+    ;;
+esac
