@@ -1,7 +1,11 @@
 #!/bin/bash
 
-case "$HOSTNAME" in
-  *)
+case `hostname` in
+  naps62subvisual )
+    i3lock-fancy-dualmonitor -p
+    ;;
+
+  * )
     i3lock-fancy -p
     ;;
 esac
