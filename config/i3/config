@@ -176,6 +176,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym --release $mod+Insert exec ~/.bin/screenshot --select
 bindsym --release $mod+Prior exec ~/.bin/screenshot --focused
 
+# lockscreen
+bindsym $mod+Delete exec ~/.bin/lockscreen --now
+
 
 # lockscreen
 bindsym $mod+Delete exec ~/.bin/lockscreen
@@ -227,6 +230,8 @@ exec_always i3-msg 'exec $HOME/.config/polybar/launch.sh'
 
 # compton
 exec i3-msg 'exec compton --config $HOME/.config/compton/compton.conf'
+
+# lockscreen
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'
