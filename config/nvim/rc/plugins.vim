@@ -48,6 +48,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'brooth/far.vim'
 Plug 'lambdalisue/lista.nvim'
 Plug 'wakatime/vim-wakatime'
+Plug 'pechorin/any-jump.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'

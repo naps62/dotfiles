@@ -195,7 +195,7 @@ for_window [window_role="GtkFileChooserDialog"] border normal
 for_window [title="Add Torrents"] border normal
 
 # floating rules
-floating_maximum_size 1280 x 1024
+# floating_maximum_size 1280 x 1024
 for_window [class="feh"] floating enable
 for_window [class="polybar"] floating enable
 for_window [instance="crx_.*"] floating enable
@@ -211,6 +211,8 @@ for_window [title="Floating Chrome"] floating enable, resize set 800 600, move p
 for_window [class="Keybase"] floating enable, move position mouse
 for_window [title="RGBA"] floating enable, move position mouse
 for_window [class="Brave-browser" window_role="pop-up"] floating enable
+for_window [class="zoom" title="Settings"] floating enable
+for_window [class="zoom" title="Zoom Group Chat"] floating enable
 
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec dunst'
