@@ -1,9 +1,8 @@
 #/bin/sh
 
 args=$@
-echo $args
 
-timestamp=`date '+%Y-%m-%d_%H-%M-%S'`
+timestamp=`date '+%m-%d_%H-%M-%S'`
 window_name=`xdotool getwindowfocus getwindowname`
 
-scrot --quality 100 $args --exec "mv \$f ~/downloads/screenshots/${timestamp}_${window_name}.png"
+scrot --quality 100 $args ~/downloads/screenshots/%m-%d-%T-${window_name}.png
