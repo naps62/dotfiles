@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-find /home/naps62/downloads -mtime +2 -type f -delete
+dir=/home/naps62/downloads
+exclude="-path deluge/"
+
+find_downloads="find $dir -not ( -path /home/naps62/downloads/deluge -prune )"
+
+$find_downloads -mtime +2 -type f | xargs rm
+$find_downloads -type d -empty

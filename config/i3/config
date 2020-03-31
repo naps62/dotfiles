@@ -213,6 +213,7 @@ for_window [title="RGBA"] floating enable, move position mouse
 for_window [class="Brave-browser" window_role="pop-up"] floating enable
 for_window [class="zoom" title="Settings"] floating enable
 for_window [class="zoom" title="Zoom Group Chat"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec dunst'

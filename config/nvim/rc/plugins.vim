@@ -41,7 +41,7 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 Plug 'andymass/vim-matchup'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'amperser/proselint'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'embear/vim-localvimrc'
@@ -86,6 +86,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'cespare/vim-toml'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'jxnblk/vim-mdx-js'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
@@ -282,7 +284,8 @@ let g:ale_linters = {
       \ 'solidity': ['solium'],
       \ 'cs': ['OmniSharp'],
       \ 'rust': [],
-      \ 'terraform': ['tflint']
+      \ 'terraform': ['tflint'],
+      \ 'css': ['prettier']
       \ }
 
 let g:ale_fixers = {
@@ -292,7 +295,8 @@ let g:ale_fixers = {
       \ 'elixir': ['mix_format'],
       \ 'solidity': [],
       \ 'rust': ['rustfmt'],
-      \ 'terraform': ['terraform']
+      \ 'terraform': ['terraform'],
+      \ 'css': ['prettier']
       \ }
 
 function! LoadNearestMixFormatter()
