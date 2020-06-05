@@ -21,6 +21,8 @@ env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
 env_dir PATH $HOME/utrust/cli/bin
+env_dir PATH $HOME/coverflex/cli/bin
+env_dir PATH $HOME/projects/git-jira
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
@@ -37,6 +39,11 @@ export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;34:dsc=0:other=1;35"
 export NVM_DIR=/home/naps62/.nvm
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export ANDROID_SKD=/home/naps62/.config/Android/Sdk
+export ANDROID_HOME=/home/naps62/.config/Android/Sdk
+export ANDROID_SDK_ROOT=/home/naps62/.config/Android/Sdk
+export JAVA_HOME=/usr/lib/jvm/default
+export TESSDATA_PREFIX=/usr/share/tessdata
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file $HOME/.config/ripgrep/ignore"
 

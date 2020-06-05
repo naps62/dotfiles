@@ -29,9 +29,6 @@ window:
     x: 0
     y: 0
 
-# Display tabs using this many cells (changes require restart)
-tabspaces: 2
-
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
@@ -103,7 +100,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+background_opacity: 2.0
 
 # Mouse bindings
 #

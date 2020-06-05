@@ -49,6 +49,7 @@ Plug 'brooth/far.vim'
 Plug 'lambdalisue/lista.nvim'
 Plug 'wakatime/vim-wakatime'
 Plug 'pechorin/any-jump.vim'
+Plug 'racer-rust/vim-racer'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -88,6 +89,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jxnblk/vim-mdx-js'
+Plug 'gleam-lang/gleam.vim'
 
 " Write mode
 Plug 'junegunn/goyo.vim'
@@ -412,6 +414,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Lista
 nnoremap # :<C-u>Lista<CR>
 nnoremap g# :<C-u>ListaCursorWord<CR>
+
+" vim-racer
+let g:racer_experimental_completer = 1
+
+let g:racer_insert_paren = 1
 
 " lazy loading plugins
 

@@ -33,3 +33,13 @@ map <Leader>r :call Rename()<CR>
 " Move to beginning/end of line in insert mode
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
+
+" vim-racer
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+augroup END

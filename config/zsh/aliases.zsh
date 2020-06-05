@@ -26,6 +26,7 @@ alias x=extract
 alias y=yaourt
 alias s=bin/server
 alias u=utrust
+alias c=coverflex
 alias l=leetcode
 
 # thoughtbot/parity
@@ -37,11 +38,6 @@ alias dev=development
 function rk() { rake "$@" }
 function g() { git "$@" }
 function f () { "$@" | fzf }
-
-# alias t=todo.sh
-
-alias c=clear
-alias cg=cargo
 
 alias tn='tmux new -s'
 alias ta='tmux attach -t'

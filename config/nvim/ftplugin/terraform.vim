@@ -11,8 +11,8 @@ function! TerraformCmd(filename, cmd)
 endfunction
 
 nmap <silent> <leader>i :call TerraformCmd(@%, "init")<CR>
-nmap <silent> <leader>p :call TerraformCmd(@%, "plan -parallelism=30")<CR>
-nmap <silent> <leader>a :call TerraformCmd(@%, "apply -parallelism=30")<CR>
+nmap <silent> <leader>p :call TerraformCmd(@%, "plan")<CR>
+nmap <silent> <leader>a :call TerraformCmd(@%, "apply")<CR>
 nmap <silent> <leader>o :call TerraformCmd(@%, "output")<CR>
 nmap <silent> <leader>r :call TerraformCmd(@%, "refresh")<CR>
 nmap <silent> <leader>d :call TerraformCmd(@%, "destroy")<CR>
