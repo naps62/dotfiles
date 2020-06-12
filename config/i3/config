@@ -182,9 +182,9 @@ exec xautolock -time 15 -locker '~/.bin/lockscreen' &
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2
+assign [class="Brave-browser"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
-assign [title="Todoist"] 4
 
 for_window [class="^.*"] border pixel 1
 for_window [title="floating_term"] floating enable
