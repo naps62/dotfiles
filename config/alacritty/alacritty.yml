@@ -319,7 +319,7 @@ key_bindings:
 colors:
   # Default colors
   primary:
-    background: '0x2d2d2d'
+    background: '0x282828'
     foreground: '0xd3d0c8'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
