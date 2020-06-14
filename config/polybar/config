@@ -50,9 +50,9 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Consolas:fontformat=truetype:size=14;1
-font-1 = Consolas:fontformat=truetype:size=14;1
-font-2 = FontAwesome:fontformat=truetype:size=14;1
+font-0 = Noto Sans:fontformat=truetype:size=16;1
+font-1 = Noto Sans:fontformat=truetype:size=16;1
+font-2 = FontAwesome:fontformat=truetype:size=16;1
 
 modules-left = i3
 modules-center = xwindow
@@ -72,7 +72,7 @@ wm-restack = i3
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:50:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard

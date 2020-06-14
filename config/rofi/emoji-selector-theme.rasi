@@ -1,0 +1,104 @@
+/* vim:ft=css */
+
+
+* {
+    background:                  #282828dd;
+
+    selected-normal-foreground:  rgba ( 0, 96, 160, 100 % );
+    foreground:                  #C6C1A3;
+    normal-foreground:           @foreground;
+    alternate-normal-background: rgba ( 0, 0, 0, 0 % );
+    red:                         rgba ( 220, 50, 47, 100 % );
+    selected-urgent-foreground:  rgba ( 0, 96, 160, 100 % );
+    blue:                        rgba ( 38, 139, 210, 100 % );
+    urgent-foreground:           rgba ( 255, 160, 160, 100 % );
+    alternate-urgent-background: rgba ( 0, 0, 0, 0 % );
+    active-foreground:           rgba ( 160, 255, 160, 100 % );
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    selected-active-foreground:  rgba ( 0, 96, 160, 100 % );
+    alternate-active-background: rgba ( 0, 0, 0, 0 % );
+    bordercolor:                 rgba ( 0, 176, 239, 100 % );
+    normal-background:           rgba ( 0, 0, 0, 0 % );
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    selected-normal-background:  rgba ( 0, 176, 239, 100 % );
+    spacing:                     2;
+    separatorcolor:              rgba ( 0, 176, 239, 100 % );
+    urgent-background:           rgba ( 0, 0, 0, 0 % );
+    selected-urgent-background:  rgba ( 255, 160, 160, 100 % );
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            rgba ( 0, 0, 0, 0 % );
+    alternate-active-foreground: @active-foreground;
+    active-background:           rgba ( 0, 0, 0, 0 % );
+    selected-active-background:  rgba ( 160, 255, 160, 100 % );
+    highlight:     underline bold #ffffff;
+}
+
+#window {
+    font: "Fira Code 20";
+    fullscreen: true;
+    padding:          350  550 100 550;
+    background-color: @background;
+}
+
+#message {
+    padding:      1px;
+    enabled: false;
+}
+
+#textbox {
+    text-color: @foreground;
+}
+
+#listview {
+    fixed-height: 0;
+    spacing:      2px ;
+    scrollbar:    true;
+    padding:      2px 0px 0px ;
+}
+
+#element {
+    border:  0;
+    padding: 40px ;
+}
+
+#element.selected.normal {
+        border:        0px 0px 1px 0px solid;
+}
+
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+}
+
+#inputbar {
+    spacing:    0;
+    padding:    0 100 30 100 ;
+}
+
+#case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+#entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+#prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}

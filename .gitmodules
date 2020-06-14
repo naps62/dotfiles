@@ -7,9 +7,6 @@
 [submodule "config/base16-shell"]
 	path = config/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
-[submodule "config/git-radar"]
-	path = config/git-radar
-	url = https://github.com/michaeldfallen/git-radar
 [submodule "vendor/Daily-Reddit-Wallpaper"]
 	path = vendor/Daily-Reddit-Wallpaper
 	url = https://github.com/naps62/Daily-Reddit-Wallpaper
@@ -19,3 +16,6 @@
 [submodule "vendor/i3lock-fancy"]
 	path = vendor/i3lock-fancy
 	url = git://github.com/meskarune/i3lock-fancy.git
+[submodule "vendor/tmux-themepack"]
+	path = vendor/tmux-themepack
+	url = https://github.com/jimeh/tmux-themepack

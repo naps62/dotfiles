@@ -1,6 +1,6 @@
 [Added Associations]
-image/png=brave-browser.desktop;gimp.desktop;brave-bin.desktop;feh.desktop;
-image/jpeg=feh.desktop;brave-browser.desktop;eog.desktop;gimp.desktop;
+image/png=firefox.desktop;gimp.desktop;firefox-bin.desktop;feh.desktop;
+image/jpeg=feh.desktop;firefox.desktop;eog.desktop;gimp.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
 application/x-mobipocket-ebook=calibre-gui.desktop;
@@ -8,20 +8,20 @@ video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
 video/x-ms-wmv=mpv.desktop;
 video/x-flv=mpv.desktop;
-application/pdf=brave.desktop;brave-browser.desktop;
+application/pdf=zathura.desktop;
 
 [Default Applications]
 image/png=feh.desktop
-application/pdf=brave-browser.desktop
+application/pdf=zathura.desktop;
 application/json=nvr-usercreated-1.desktop;
 application/x-ruby=home-usercreated-1.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
-text/html=brave.desktop
-x-scheme-handler/http=brave.desktop
-x-scheme-handler/https=brave.desktop
-x-scheme-handler/about=brave.desktop
-x-scheme-handler/unknown=brave.desktop
-x-scheme-handler/webcal=brave-browser.desktop
-text/html=brave-bin.desktop;
-x-scheme-handler/web+cardano=brave-browser.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/webcal=firefox.desktop
+text/html=firefox-bin.desktop;
+x-scheme-handler/web+cardano=firefox.desktop
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop

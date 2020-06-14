@@ -2,7 +2,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Consolas 14
+font pango:Noto Sans 18
 
 # Set colors from Xresources
 set_from_resource $fg color0
@@ -43,7 +43,8 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym Ctrl+space exec "rofi -modi run,window -show run"
+bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons"
+bindsym $mod+space exec "$HOME/.bin/rofi-emoji"
 
 # toggle polybar
 bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"

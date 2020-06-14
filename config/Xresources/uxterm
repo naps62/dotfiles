@@ -1,6 +1,6 @@
-UXTerm*faceName:     Consolas
+UXTerm*faceName:     Fira Code
 XTerm*utf8:          2
-UXTerm*faceSize:     14
+UXTerm*faceSize:     12
 *scaleHeight:  1
 UXTerm*utf8:         1
 UXTerm*boldMode:     false
