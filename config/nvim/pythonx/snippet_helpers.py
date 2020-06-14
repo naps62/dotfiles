@@ -14,7 +14,7 @@ def path_without_first_dir(path):
 def path_first_dir(path):
     return re.sub(r"\/.*$", "", path)
 
-def path_as_class_name(path, separator = "::", blacklist = [], prefix = None):
+def path_as_class_name(path, separator = "::", blacklist = [], prefix = None, suffix = None):
     path = path_without_extension(path)
     path = re.sub(r"^_", "", path)
     parts = path.split("/")

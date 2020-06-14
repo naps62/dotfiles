@@ -8,7 +8,11 @@ def ex_module_name(path, snip):
     separator = "."
     blacklist = ["apps", "lib", "test", "models", "controllers", "services"]
     prefix = path_as_class_name(current_project_name())
-    snip.rv = path_as_class_name(path, separator, blacklist, prefix)
+    snip.rv = path_as_class_name(path, separator, blacklist)
+
+def ex_module_test_subject(path, snip):
+    ex_module_name(path, snip)
+    snip.rv = snip.rv.replace('Test', '')
 
 def ex_project_name(snip):
     snip.rv = path_as_class_name(current_project_name())

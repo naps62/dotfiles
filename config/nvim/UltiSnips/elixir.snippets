@@ -34,16 +34,17 @@ end
 endsnippet
 
 snippet case "ExUnit.Case" do
-defmodule `!p ex_module_name(path, snip)`Test do
+defmodule `!p ex_module_name(path, snip)` do
 	use ExUnit.Case
-	doctest `!p ex_module_name(path, snip)`
+
+	alias `!p ex_module_test_subject(path, snip)`
 
 	$0
 end
 endsnippet
 
 snippet datacase "data test case"
-defmodule `!p ex_module_name(path, snip)`Test do
+defmodule `!p ex_module_name(path, snip)` do
 	use `!p ex_project_name(snip)`.DataCase
 
 	alias `!p ex_module_name(path, snip)`
@@ -55,7 +56,7 @@ end
 endsnippet
 
 snippet conncase "conn test case"
-defmodule `!p ex_module_name(path, snip)`Test do
+defmodule `!p ex_module_name(path, snip)` do
 	use `!p ex_project_name(snip)`.Web.ConnCase
 
 	alias `!p ex_module_name(path, snip)`
