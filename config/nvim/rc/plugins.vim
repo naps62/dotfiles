@@ -50,6 +50,7 @@ Plug 'lambdalisue/lista.nvim'
 Plug 'wakatime/vim-wakatime'
 Plug 'pechorin/any-jump.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'stefandtw/quickfix-reflector.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -179,8 +180,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#windowswap#enabled = 0
 
-let g:airline_left_sep=''
-let g:airline_right_sep=''
 let g:airline_detect_spell = 0
 let g:airline_detect_iminsert = 0
 let g:airline_mode_map = {
@@ -202,7 +201,7 @@ let g:airline_section_c = airline#section#create(['%f', ' ', 'readonly'])
 " z section - line:column
 let g:airline_section_z = airline#section#create(['%#__accent_bold#', '%l', ':', '%#__restore__#', '%v'])
 
-" ripgrep
+" " ripgrep
 if executable('rg')
   " use Ripgrep over Grep
   set grepprg="rg --color never --no-heading"
@@ -234,12 +233,12 @@ let g:gitgutter_override_sign_column_highlight = 0
 " fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 let $FZF_DEFAULT_OPTS='--layout=reverse'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 autocmd! FileType fzf
 autocmd  FileType fzf set nonu nornu
 
 nmap <C-p> :Files<CR>
-nmap <C-f> :Ag<CR>
+nmap <C-f> :Rg<CR>
 
 " neomake
 " let g:neomake_javascript_enabled_makers = ['eslint']

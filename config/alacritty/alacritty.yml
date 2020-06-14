@@ -324,12 +324,12 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x2d2d2d'
-    cursor: '0xd3d0c8'
+    text: '0x282828'
+    cursor: '0xb8b8b8'
 
   # Normal colors
   normal:
-    black:   '0x2d2d2d'
+    black:   '0x282828'
     red:     '0xf2777a'
     green:   '0x99cc99'
     yellow:  '0xffcc66'

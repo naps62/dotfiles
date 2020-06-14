@@ -7,13 +7,10 @@ git submodule init
 git submodule update
 
 #
-# Setup yaourt
+# Setup yay
 #
-sudo pacman -S --needed base-devel git wget yajl
-git clone https://aur.archlinux.org/package-query.git /tmp
-(cd /tmp/package-query && makepkg -si)
-git clone https://aur.archlinux.org/yaourt.git /tmp
-(cd /tmp/yaourt && makepkg -si)
+git clone https://aur.archlinux.org/yay.git
+(cd yay && makepkg -si)
 
 #
 # Install packages from official arch repos
@@ -23,7 +20,7 @@ sudo pacman -S --needed $(< ./setup.d/pkglist)
 #
 # Install packages from AUR
 #
-yaourt -S --needed $(< ./setup.d/pkglist.aur)
+yay -S --needed $(< ./setup.d/pkglist.aur)
 
 #
 # Setup rcup
