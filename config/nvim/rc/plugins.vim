@@ -7,7 +7,7 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 call plug#begin('~/.config/nvim/plugged')
 
 " UI Features
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'preservim/nerdtree'
 Plug 'chriskempson/base16-vim'
 Plug 'jonathanfilip/vim-lucius'
@@ -15,16 +15,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
-" Plug 'unblevable/quick-scope'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim', { 'ref': 'c65e2ead639d2d72577d8726ba14526fc2824ba3' }
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'unblevable/quick-scope'
+Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+" Unit testing
 Plug 'janko-m/vim-test'
 Plug 'kassio/neoterm'
 
 " Editor features
-Plug 'chrisbra/NrrwRgn'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
@@ -32,7 +33,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
@@ -45,22 +45,19 @@ Plug 'dense-analysis/ale'
 Plug 'amperser/proselint'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'embear/vim-localvimrc'
-Plug 'brooth/far.vim'
-Plug 'lambdalisue/lista.nvim'
-Plug 'wakatime/vim-wakatime'
 Plug 'pechorin/any-jump.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'stefandtw/quickfix-reflector.vim'
 
 " Ruby
-Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby',    { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
+" Rust
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
-" Plug 'slashmili/alchemist.vim'
 
 " JS
 Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
@@ -74,29 +71,24 @@ Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
 
 " HTML
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript'] }
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
+" JSON
 Plug 'elzr/vim-json',    { 'for': 'json' }
 
 " Other syntaxes
 Plug 'tpope/vim-git'
-Plug 'nicholaides/words-to-avoid.vim'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
-Plug 'tomlion/vim-solidity'
-Plug 'hashivim/vim-terraform'
-Plug 'cespare/vim-toml'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'jxnblk/vim-mdx-js'
-Plug 'gleam-lang/gleam.vim'
+Plug 'hashivim/vim-terraform', { 'for': 'ts' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+Plug 'peitalin/vim-jsx-typescript', { 'for': 'tsx' }
+Plug 'jxnblk/vim-mdx-js', { 'for': 'mdx' }
 
 " Write mode
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'vim-scripts/VOoM'
-Plug 'beloglazov/vim-online-thesaurus'
+Plug 'vim-voom/VOoM'
 Plug 'rhysd/vim-grammarous'
 
 call plug#end()
@@ -152,6 +144,9 @@ nnoremap <silent> <leader>tl :call neoterm#clear()<CR>
 nnoremap <silent> <leader>tk :call neoterm#kill()<CR>
 tmap <silent> <C-e> <C-\><C-n>
 
+" quick-scope
+let g:qs_max_chars=80
+
 " vim-test
 let test#strategy = "neoterm"
 
@@ -169,12 +164,8 @@ map <leader>gd :Gdiff<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gw :Gbrowse<CR>
 
-" nrrwrgn
-let g:nrrw_rgn_wdth = 30
-let g:nrrw_topbot_leftright = 'botright'
-
 " statusline
-let g:airline_extensions = ['tabline', 'quickfix', 'nrrwrgn']
+let g:airline_extensions = ['tabline', 'quickfix']
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -232,13 +223,26 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
-let $FZF_DEFAULT_OPTS='--layout=reverse'
+let $FZF_DEFAULT_OPTS='--layout=reverse --bind ctrl-a:select-all'
 " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 autocmd! FileType fzf
 autocmd  FileType fzf set nonu nornu
 
 nmap <C-p> :Files<CR>
 nmap <C-f> :Rg<CR>
+
+" CTRL-A CTRL-Q to select all and build quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " neomake
 " let g:neomake_javascript_enabled_makers = ['eslint']
