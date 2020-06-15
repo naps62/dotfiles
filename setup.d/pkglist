@@ -45,7 +45,6 @@ bluez
 bluez-libs
 bluez-utils
 boost-libs
-brave-bin
 bridge-utils
 brotli
 btrfs-progs
