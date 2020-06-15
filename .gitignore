@@ -27,6 +27,7 @@ config/*
 !config/mpv
 !config/rofi
 !config/mimeapps.list
+!config/tmux
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 

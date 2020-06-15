@@ -96,8 +96,21 @@ function! FloatingNERDTree()
   :edit .
 endfunction
 
+let g:naps62_focused = 0
 function! Focus()
-  :Limelight!!
-  :Goyo 120
-  :VoomToggle markdown
+  if g:naps62_focused == 0
+    :Goyo 120
+    :Limelight
+    :Voom markdown
+    :silent !xdotool key --repeat 10 Ctrl+apostrophe
+
+    let g:naps62_focused = 1
+  else
+    :Goyo!
+    :Limelight!
+    :Voomquit
+    :silent !xdotool key Ctrl+0
+
+    let g:naps62_focused = 0
+  endif
 endfunction
