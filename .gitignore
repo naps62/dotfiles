@@ -28,6 +28,7 @@ config/*
 !config/rofi
 !config/mimeapps.list
 !config/tmux
+!config/proselint
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 

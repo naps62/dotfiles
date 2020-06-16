@@ -6,24 +6,28 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 " vundle
 call plug#begin('~/.config/nvim/plugged')
 
-" UI Features
+" Theme
 Plug 'altercation/vim-colors-solarized'
-Plug 'preservim/nerdtree'
 Plug 'chriskempson/base16-vim'
+
+" UI Features
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jonathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
-Plug 'stefandtw/quickfix-reflector.vim'
+
+" Find & Replace
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'junegunn/fzf.vim', { 'on': ['Rg', 'Files'] }
+Plug 'stefandtw/quickfix-reflector.vim', { 'on': ['Rg'] }
+
 
 " Unit testing
-Plug 'janko-m/vim-test'
-Plug 'kassio/neoterm'
+Plug 'janko-m/vim-test', { 'on': ['TestFile', 'TestLast', 'TestNearest', 'TestSuite', 'TestVisit'] }
+Plug 'kassio/neoterm', { 'on': ['TestFile', 'TestLast', 'TestNearest', 'TestSuite', 'TestVisit'] }
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -35,17 +39,21 @@ Plug 'tpope/vim-projectionist'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
+Plug 'kana/vim-textobj-user'
+Plug 'andymass/vim-matchup'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'embear/vim-localvimrc'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+" Navigation
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
-Plug 'andymass/vim-matchup'
-Plug 'dense-analysis/ale'
-Plug 'amperser/proselint'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'embear/vim-localvimrc'
 Plug 'pechorin/any-jump.vim'
+
+" Linters
+Plug 'dense-analysis/ale'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby',    { 'for': 'ruby' }
@@ -70,7 +78,7 @@ Plug 'Shougo/vimproc.vim', { 'for': ['typescript'], 'do': 'make' }
 Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
 
 " HTML
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript', 'javascript.tsx'] }
 
 " JSON
 Plug 'elzr/vim-json',    { 'for': 'json' }
@@ -78,24 +86,26 @@ Plug 'elzr/vim-json',    { 'for': 'json' }
 " Other syntaxes
 Plug 'tpope/vim-git'
 Plug 'vim-scripts/SyntaxRange'
-Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'markdown.mdx'] }
 Plug 'hashivim/vim-terraform', { 'for': 'ts' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'tsx' }
-Plug 'jxnblk/vim-mdx-js', { 'for': 'mdx' }
+Plug 'jxnblk/vim-mdx-js', { 'for': 'markdown.mdx' }
 
 " Write mode
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'vim-voom/VOoM'
-Plug 'rhysd/vim-grammarous'
+Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'markdown.mdx'] }
+Plug 'junegunn/limelight.vim', { 'for': ['markdown', 'markdown.mdx'] }
+Plug 'vim-voom/VOoM', { 'for': ['markdown', 'markdown.mdx'] }
+Plug 'rhysd/vim-grammarous', { 'for': ['markdown', 'markdown.mdx'] }
+Plug 'amperser/proselint', { 'for': ['markdown', 'markdown.mdx']}
 
 call plug#end()
 filetype plugin indent on
 
+"
 " NERDTree
-" map <C-n> :call FloatingNERDTree()<CR>
+"
 map <C-n> :NERDTree<CR>
 map <C-m> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
@@ -114,25 +124,23 @@ let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
+
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " Bookmark shortcut
 map <silent> <c-b> :Bookmark<CR>
 
 " TODO this is being overriden by status line
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 
+"
 " vim-emmet
-let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\  'typescript' : {
-\      'extends' : 'jsx',
-\  },
-\}
+"
 
+"
 " neoterm
+"
 let g:neoterm_size='70'
 let g:neoterm_default_mod = 'vertical'
 let g:neoterm_autoscroll = 1
@@ -144,10 +152,14 @@ nnoremap <silent> <leader>tl :call neoterm#clear()<CR>
 nnoremap <silent> <leader>tk :call neoterm#kill()<CR>
 tmap <silent> <C-e> <C-\><C-n>
 
+"
 " quick-scope
+"
 let g:qs_max_chars=80
 
+"
 " vim-test
+"
 let test#strategy = "neoterm"
 
 map <leader>sr :TestSuite<CR>
@@ -155,8 +167,9 @@ map <leader>ss :TestNearest<CR>
 map <leader>sf :TestFile<CR>
 map <leader>sl :TestLast<CR>
 
-
+"
 " fugitive.vim (git wrapper)
+"
 set diffopt+=vertical
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
@@ -164,12 +177,15 @@ map <leader>gd :Gdiff<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gw :Gbrowse<CR>
 
-" statusline
+"
+" airline
+"
 let g:airline_extensions = ['tabline', 'quickfix']
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#windowswap#enabled = 0
+let g:airline#extensions#ale#enabled = 1
 
 let g:airline_detect_spell = 0
 let g:airline_detect_iminsert = 0
@@ -192,36 +208,37 @@ let g:airline_section_c = airline#section#create(['%f', ' ', 'readonly'])
 " z section - line:column
 let g:airline_section_z = airline#section#create(['%#__accent_bold#', '%l', ':', '%#__restore__#', '%v'])
 
-" " ripgrep
+"
+" ripgrep
+"
 if executable('rg')
   " use Ripgrep over Grep
   set grepprg="rg --color never --no-heading"
 endif
 
+"
 " auto-pairs
+"
 " let g:AutoPairsMultilineClose = 0
 " let g:AutoPairsOnlyWhitespace = 1
 
-" YouCompleteMe
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_use_ultisnips_completer = 1
-let g:ycm_key_detailed_diagnostics = ''
-" syntax checking is done by other tools (neomake, ale, etc, so we don't want
-" them here)
-let g:ycm_show_diagnostics_ui = 0
-
+"
 " UltiSnips
+"
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 let g:UltiSnipsEdit="vertical"
 
+"
 " vim-gitgutter
+"
 set signcolumn=yes
 let g:gitgutter_override_sign_column_highlight = 0
 
+"
 " fzf
+"
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 let $FZF_DEFAULT_OPTS='--layout=reverse --bind ctrl-a:select-all'
 " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -244,39 +261,14 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" neomake
-" let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_css_enabled_makers = ['']
-" let g:neomake_ruby_enabled_makers = ['rubocop']
-" let g:neomake_elixir_enabled_makers = ['credo']
-" let g:neomake_typescript_enabled_makers = ['tslint']
-" let g:neomake_tsx_enabled_makers = ['tslint']
-
-let g:neomake_warning_sign = {'text': '→'}
-let g:neomake_error_sign = {'text': '→'}
-let g:ycm_warning_symbol = '→'
-let g:ycm_error_symbol = '→'
-
-let g:neomake_prose_maker = {
-  \ 'exe': 'proselint',
-  \ 'args': ['%:p'],
-  \ 'errorformat': '%f:%l:%c %m',
-  \ }
-
-" autocmd! BufWritePost * Neomake
-
+"
 " ale
-let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_emit_conflict_warnings = 0
 let g:ale_ruby_rubocop_options = '--except Lint/Debugger'
-
 let g:ale_sign_error = '→'
 let g:ale_sign_warning = '→'
-" let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-
 let g:ale_elixir_elixir_ls_release = $HOME . './elixir_ls'
 
 let g:ale_linters = {
@@ -290,7 +282,8 @@ let g:ale_linters = {
       \ 'cs': ['OmniSharp'],
       \ 'rust': [],
       \ 'terraform': ['tflint'],
-      \ 'css': ['prettier']
+      \ 'css': ['prettier'],
+      \ 'md': ['proselint', 'languagetool']
       \ }
 
 let g:ale_fixers = {
@@ -337,19 +330,24 @@ call AddLinterIfFileExists('scss', 'stylelint', '.stylelintrc', 1, 0)
 call AddLinterIfFileExists('ruby', 'rubocop', '.rubocop.yml', 1, 1)
 call AddLinterIfFileExists('elixir', 'credo', 'config/.credo.exs', 1, 0)
 
-
+"
 " vim-projectionist
+"
 map <leader>aa :A<CR>
 nmap <leader>av :AV<CR>
 map <leader>as :AS<CR>
 map <leader>at :AT<CR>
 
+"
 " easymotion
+"
 map <localleader>f <Plug>(easymotion-bd-f)
 map <localleader>F <Plug>(easymotion-overwin-f)
+
 " " " Move to line
 map <localleader>l <Plug>(easymotion-bd-jk)
 map <localleader>L <Plug>(easymotion-overwin-jk)
+
 " " " Move to word
 map <localleader>w <Plug>(easymotion-bd-w)
 map <localleader>W <Plug>(easymotion-overwin-w)
@@ -386,23 +384,21 @@ endfunction
 
 map <silent><expr> z/ incsearch#go(<SID>config_easyfuzzymotion())
 
+"
 " vim-jsx
+"
 let g:jsx_ext_required = 0
 
-" hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_timeout = 500
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
-
+"
 " vimlocal
+"
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=$HOME . '/utrust/platform/.lvimrc'
 
-" far.vim
-" let g:far#source = 'rg'
-
+"
 " omnisharp-vim
+"
 let g:OmniSharp_server_use_mono = 1
 let g:OmniSharp_selector_ui = 'fzf'
 let g:OmniSharp_highlight_types = 1
@@ -410,21 +406,20 @@ let g:OmniSharp_highlight_types = 1
 " Removing this option bumps into this issue: https://github.com/OmniSharp/omnisharp-vim/issues/398
 let g:OmniSharp_port = 2000
 
+"
 " coc.vim
+"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Lista
-nnoremap # :<C-u>Lista<CR>
-nnoremap g# :<C-u>ListaCursorWord<CR>
-
+"
 " vim-racer
+"
 let g:racer_experimental_completer = 1
-
 let g:racer_insert_paren = 1
 
+"
 " lazy loading plugins
-
 augroup load_us_ycm
   autocmd!
   autocmd CursorHold,CursorHoldI * call plug#load('vim-test')

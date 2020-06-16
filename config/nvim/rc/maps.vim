@@ -21,7 +21,6 @@ noremap  <C-s>      :update<CR>
 inoremap <C-s> <C-o>:update<CR><Esc>
 
 " zoom / unzoom a vim pane
-nnoremap zz :call FoldToggle()<CR>
 nnoremap <leader>z :call FoldToggle()<CR>
 
 " still able to save after forgetting to sudo

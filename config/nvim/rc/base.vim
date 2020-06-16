@@ -3,7 +3,7 @@
 set encoding=utf-8
 set nocompatible  " disable Vi compatibility mode
 set ruler         " cursor position
-set scrolloff=3   " scroll offset
+set scrolloff=5   " scroll offset
 set autowrite     " automatically :write before running commands
 set cursorline    " highlight current line
 set showmode

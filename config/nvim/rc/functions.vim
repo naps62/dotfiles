@@ -1,16 +1,3 @@
-let g:foldtoggle=0
-
-function! FoldToggle()
-  if g:foldtoggle
-    let g:foldtoggle = 0
-    execute "wincmd ="
-  else
-    let g:foldtoggle = 1
-    execute "wincmd _"
-    execute "wincmd |"
-  endif
-endfunction
-
 function! RemoveTrailingWhitespaces()
   :%s/\s\+$//e
 endfunction
@@ -98,19 +85,40 @@ endfunction
 
 let g:naps62_focused = 0
 function! Focus()
-  if g:naps62_focused == 0
+  let g:naps62_focused = 1 - g:naps62_focused
+
+  if g:naps62_focused == 1
+    let b:coc_suggest_disable = 1
     :Goyo 120
     :Limelight
     :Voom markdown
-    :silent !xdotool key --repeat 10 Ctrl+apostrophe
+    :exe "normal \<C-w>\<C-w>"
 
-    let g:naps62_focused = 1
+    set nocursorline
+    set nocursorcolumn
+    set noshowmode
+
+    :nmap j jzz
+    :nmap k kzz
+    :nmap G Gzz
+
+    :silent !xdotool key --repeat 10 Ctrl+apostrophe
+    :silent !tmux set status off
   else
+    let b:coc_suggest_disable = 0
     :Goyo!
     :Limelight!
     :Voomquit
-    :silent !xdotool key Ctrl+0
 
-    let g:naps62_focused = 0
+    set cursorline
+    set cursorcolumn
+    set showmode
+
+    :unmap j
+    :unmap k
+    :unmap G
+
+    :silent !xdotool key Ctrl+0
+    :silent !tmux set status on
   endif
 endfunction

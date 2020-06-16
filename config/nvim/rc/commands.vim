@@ -1,1 +1,1 @@
-command Focus call Focus()
+command! Focus call Focus()
