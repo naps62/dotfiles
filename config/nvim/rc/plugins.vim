@@ -17,6 +17,7 @@ Plug 'jonathanfilip/vim-lucius'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-vinegar'
 
 " Find & Replace
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -51,12 +52,16 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'wellle/targets.vim'
 Plug 'pechorin/any-jump.vim'
 
+" Write mode
+Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'markdown.mdx'] }
+Plug 'junegunn/limelight.vim', { 'for': ['markdown', 'markdown.mdx'] }
+Plug 'vim-voom/VOoM', { 'for': ['markdown', 'markdown.mdx'] }
+
 " Linters
 Plug 'dense-analysis/ale'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby',    { 'for': 'ruby' }
-Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
@@ -65,15 +70,14 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
+Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 
 " JS
-Plug 'marijnh/tern_for_vim',    { 'for': 'javascript', 'on': 'TernDef' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 
 " Typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
-Plug 'Shougo/vimproc.vim', { 'for': ['typescript'], 'do': 'make' }
 Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
 
 " HTML
@@ -91,13 +95,6 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'tsx' }
 Plug 'jxnblk/vim-mdx-js', { 'for': 'markdown.mdx' }
-
-" Write mode
-Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'markdown.mdx'] }
-Plug 'junegunn/limelight.vim', { 'for': ['markdown', 'markdown.mdx'] }
-Plug 'vim-voom/VOoM', { 'for': ['markdown', 'markdown.mdx'] }
-Plug 'rhysd/vim-grammarous', { 'for': ['markdown', 'markdown.mdx'] }
-Plug 'amperser/proselint', { 'for': ['markdown', 'markdown.mdx']}
 
 call plug#end()
 filetype plugin indent on
