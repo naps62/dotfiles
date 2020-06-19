@@ -122,3 +122,9 @@ function! Focus()
     :silent !tmux set status on
   endif
 endfunction
+
+function! FindDoc()
+  let word = substitute(expand("<cword>"), 'aws_', '', '')
+  let url = "https://www.terraform.io/docs/providers/aws/r/".word.".html"
+  silent exec "!open ".url
+endfunction

@@ -22,3 +22,4 @@ if [[ -z $VIM ]]; then
   [ -f ~/.fzf.colors ] && source ~/.fzf.colors
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors

@@ -1,0 +1,59 @@
+/* vim:ft=css */
+
+* {
+  color-bg: #282828;
+  color-fg: #d3d0c8;
+
+  background-color: @color-bg;
+  text-color: @color-fg;
+  spacing: 0;
+  font: "Fira Code 22";
+}
+
+window {
+  width: 30%;
+}
+
+inputbar {
+  children: [entry];
+}
+
+prompt {
+  enabled: false;
+}
+
+entry {
+  padding: 20px 50px;
+  font: "Fira Code 40";
+}
+
+element {
+  padding: 16px 50px;
+}
+
+element selected {
+  background-color: @color-fg;
+  text-color: @color-bg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: ":";
+  padding: 16px 0;
+}
+
+listview {
+  cycle: false;
+  scrollbar: true;
+}
+
+scrollbar {
+  width: 4px;
+  border: 0;
+  handle-width: 8px;
+  padding: 0;
+}

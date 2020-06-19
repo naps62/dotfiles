@@ -12,7 +12,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 
 " UI Features
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
@@ -27,7 +27,7 @@ Plug 'stefandtw/quickfix-reflector.vim', { 'on': ['Rg'] }
 
 " Unit testing
 Plug 'janko-m/vim-test', { 'on': ['TestFile', 'TestLast', 'TestNearest', 'TestSuite', 'TestVisit'] }
-Plug 'kassio/neoterm', { 'on': ['TestFile', 'TestLast', 'TestNearest', 'TestSuite', 'TestVisit'] }
+Plug 'kassio/neoterm'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -90,7 +90,7 @@ Plug 'elzr/vim-json',    { 'for': 'json' }
 Plug 'tpope/vim-git'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'markdown.mdx'] }
-Plug 'hashivim/vim-terraform', { 'for': 'ts' }
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'tsx' }
@@ -392,6 +392,7 @@ let g:racer_insert_paren = 1
 
 "
 " lazy loading plugins
+"
 augroup load_us_ycm
   autocmd!
   autocmd CursorHold,CursorHoldI * call plug#load('vim-test')

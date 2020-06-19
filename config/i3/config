@@ -43,8 +43,8 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons"
-bindsym $mod+space exec "$HOME/.bin/rofi-emoji"
+bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons -theme ~/.config/rofi/themes/launcher"
+bindsym $mod+space exec "rofimoji --rofi-args '-theme ~/.config/rofi/themes/emoji'"
 
 # toggle polybar
 bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"
@@ -212,12 +212,14 @@ for_window [title="Floating Chrome"] floating enable, resize set 800 600, move p
 for_window [class="Keybase"] floating enable, move position mouse
 for_window [title="RGBA"] floating enable, move position mouse
 for_window [class="Brave-browser" window_role="pop-up"] floating enable
+for_window [class="zoom"] border pixel 0
 for_window [class="zoom" title="Settings"] floating enable
 for_window [class="zoom" title="Zoom Group Chat"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="ffplay"] floating enable
+# for_window [class="firefox" window_role="WebRTCGlobalIndicator"] move position top right
 
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec dunst'

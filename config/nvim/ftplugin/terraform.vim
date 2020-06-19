@@ -15,4 +15,4 @@ nmap <silent> <leader>p :call TerraformCmd(@%, "plan")<CR>
 nmap <silent> <leader>a :call TerraformCmd(@%, "apply")<CR>
 nmap <silent> <leader>o :call TerraformCmd(@%, "output")<CR>
 nmap <silent> <leader>r :call TerraformCmd(@%, "refresh")<CR>
-nmap <silent> <leader>d :call TerraformCmd(@%, "destroy")<CR>
+nmap <silent> <leader>x :call TerraformCmd(@%, "destroy")<CR>
