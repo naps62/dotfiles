@@ -24,6 +24,10 @@ let maplocalleader = ","
 set splitbelow
 set splitright
 
+" layout
+set signcolumn=yes
+set cmdheight=1
+
 " indentation without hard tabs
 set expandtab
 set tabstop=2

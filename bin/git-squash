@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+branch=$(git branchname)
+base="${1:-master}"
+shift
+
+git reset $(git merge-base $base $branch)
+git add -A
+git commit $@

@@ -42,9 +42,16 @@ bindsym $mod+Return exec gnome-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+#
 # start rofi (a program launcher)
+#
+# program launcher
 bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons -theme ~/.config/rofi/themes/launcher"
+# emoji
 bindsym $mod+space exec "rofimoji --rofi-args '-theme ~/.config/rofi/themes/emoji'"
+# screenshot/record
+bindsym $mod+Insert exec ~/.bin/rofi-screenshot
+bindsym $mod+Prior exec ~/.bin/rofi-screenshot --stop
 
 # toggle polybar
 bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"
@@ -172,10 +179,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-
-# printscreens
-bindsym --release $mod+Insert exec ~/.bin/screenshot --select
-bindsym --release $mod+Prior exec ~/.bin/screenshot --focused
 
 # lockscreen
 bindsym $mod+Delete exec ~/.bin/lockscreen

@@ -19,3 +19,6 @@
 [submodule "vendor/tmux-themepack"]
 	path = vendor/tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack
+[submodule "vendor/rofi-screenshot"]
+	path = vendor/rofi-screenshot
+	url = https://github.com/ceuk/rofi-screenshot

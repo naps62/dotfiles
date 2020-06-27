@@ -21,8 +21,8 @@ Plug 'tpope/vim-vinegar'
 
 " Find & Replace
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim', { 'on': ['Rg', 'Files'] }
-Plug 'stefandtw/quickfix-reflector.vim', { 'on': ['Rg'] }
+Plug 'junegunn/fzf.vim'
+Plug 'stefandtw/quickfix-reflector.vim'
 
 
 " Unit testing
@@ -44,6 +44,7 @@ Plug 'andymass/vim-matchup'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'antoinemadec/coc-fzf'
 
 " Navigation
 Plug 'haya14busa/incsearch.vim'
@@ -176,8 +177,20 @@ map <leader>gw :Gbrowse<CR>
 "
 " lightline
 "
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 let g:lightline = {
   \ 'separator': { 'left': '', 'right': '' },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'cocstatus': 'coc#status',
+  \   'currentfunction': 'CocCurrentFunction'
+  \ },
   \ }
 
 "
@@ -205,15 +218,14 @@ let g:UltiSnipsEdit="vertical"
 "
 " vim-gitgutter
 "
-set signcolumn=yes
 let g:gitgutter_override_sign_column_highlight = 0
 
 "
 " fzf
 "
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 let $FZF_DEFAULT_OPTS='--layout=reverse --bind ctrl-a:select-all'
-" let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 autocmd! FileType fzf
 autocmd  FileType fzf set nonu nornu
 
@@ -379,10 +391,57 @@ let g:OmniSharp_highlight_types = 1
 let g:OmniSharp_port = 2000
 
 "
-" coc.vim
+" coc.nvim
 "
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+"
+" coc-fzf
+"
+nnoremap <silent> <leader>ca  :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <leader>cb  :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <leader>cc  :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <leader>ce  :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <leader>cl  :<C-u>CocFzfList location<CR>
+nnoremap <silent> <leader>co  :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <leader>cs  :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <leader>cS  :<C-u>CocFzfList services<CR>
+nnoremap <silent> <leader>cp  :<C-u>CocFzfListResume<CR>
 
 "
 " vim-racer

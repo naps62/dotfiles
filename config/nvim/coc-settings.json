@@ -1,4 +1,6 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.colorSupport": true,
   "diagnostic.virtualText": true,
   "suggest.triggerAfterInsertEnter": true,
   "languageserver": {

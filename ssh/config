@@ -85,3 +85,7 @@ Host gitlab.com
 
 Host gostable.gitlab.com
   IdentityFile ~/.ssh/id_rsa.quais
+
+Host aur.archlinux.org
+  IdentityFile ~/.ssh/aur
+  User aur
