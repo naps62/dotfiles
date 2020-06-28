@@ -2,8 +2,9 @@
 
 # add custom completion path
 fpath=(~/.config/zsh/completions.d $fpath)
+fpath=(${ASDF_DIR}/completions $fpath)
 
-autoload -U compinit
+autoload -Uz compinit
 
 if [ $UID ]; then
   # We are root (probably in sudo mode?), do not check for insecure directories
@@ -13,8 +14,6 @@ if [ $UID ]; then
 else
   compinit
 fi
-
-. $HOME/.asdf/completions/asdf.bash
 
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/}
