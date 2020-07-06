@@ -20,6 +20,10 @@ video_to_gif() {
     ffmpeg -i "$1" -i - -filter_complex paletteuse "$2"
 }
 
+slop_geometry() {
+  slop --nodecorations --format='-g %g ' --color=0.5,0.5,0.5,0.1 --highlight --noopengl
+}
+
 countdown() {
   notify-send "Screenshot" "Recording in 3 seconds" -t 1000
   sleep 1
@@ -31,7 +35,7 @@ countdown() {
 
 crtc() {
   notify-send "Screenshot" "Select a region to capture"
-  ffcast -q $(slop -n -f '-g %g ') png /tmp/screenshot_clip.png
+  ffcast -q $(slop_geometry) png /tmp/screenshot_clip.png
   xclip -selection clipboard -t image/png /tmp/screenshot_clip.png
   rm /tmp/screenshot_clip.png
   notify-send "Screenshot" "Region copied to Clipboard"
@@ -40,7 +44,7 @@ crtc() {
 crtf() {
   notify-send "Screenshot" "Select a region to capture"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
-  ffcast -q $(slop -n -f '-g %g ') png "$screenshot_directory/$dt.png"
+  ffcast -q $(slop_geometry) png "$screenshot_directory/$dt.png"
   notify-send "Screenshot" "Region saved to $screenshot_directory"
 }
 
@@ -60,7 +64,7 @@ cstf() {
 rgrtf() {
   notify-send "Screenshot" "Select a region to record"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
-  ffcast -q $(slop -n -f '-g %g ' && countdown) rec /tmp/screenshot_gif.mp4
+  ffcast -q $(slop_geometry && countdown) rec /tmp/screenshot_gif.mp4
   notify-send "Screenshot" "Converting to gif... (this can take a while)"
   video_to_gif /tmp/screenshot_gif.mp4 "$screenshot_directory/$dt.gif"
   rm /tmp/screenshot_gif.mp4
@@ -80,7 +84,7 @@ rgstf() {
 rvrtf() {
   notify-send "Screenshot" "Select a region to record"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
-  ffcast -q $(slop -n -f '-g %g ' && countdown) rec "$screenshot_directory/$dt.mp4"
+  ffcast -q $(slop_geometry && countdown) rec "$screenshot_directory/$dt.mp4"
   notify-send "Screenshot" "Recording saved to $screenshot_directory"
 }
 

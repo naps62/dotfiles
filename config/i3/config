@@ -50,8 +50,8 @@ bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons -theme ~/
 # emoji
 bindsym $mod+space exec "rofimoji --rofi-args '-theme ~/.config/rofi/themes/emoji'"
 # screenshot/record
-bindsym $mod+Insert exec ~/.bin/rofi-screenshot
-bindsym $mod+Prior exec ~/.bin/rofi-screenshot --stop
+bindsym $mod+Insert exec "~/.bin/rofi-screenshot"
+bindsym $mod+Prior exec "~/.bin/rofi-screenshot --stop"
 
 # toggle polybar
 bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"
@@ -222,6 +222,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [title="Welcome to Android Studio"] floating enable
 for_window [class="ffplay"] floating enable
+for_window [class="notedown"] floating enable
 # for_window [class="firefox" window_role="WebRTCGlobalIndicator"] move position top right
 
 exec i3-msg 'exec alacritty'

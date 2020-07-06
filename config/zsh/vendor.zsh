@@ -14,7 +14,7 @@
 #
 # asdf
 #
-[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
+[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
 
 #
 # direnv

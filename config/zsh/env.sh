@@ -22,7 +22,6 @@ env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
 env_dir PATH $HOME/utrust/cli/bin
 env_dir PATH $HOME/coverflex/cli/bin
-env_dir PATH $HOME/contrib/leetcode-cli/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 

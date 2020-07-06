@@ -1,7 +1,7 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 branch=$(git branchname)
-base="${1:-master}"
+base="$1"
 shift
 
 git reset $(git merge-base $base $branch)

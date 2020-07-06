@@ -158,3 +158,4 @@ Assets/StreamingAssets/crashlytics-build.properties
 .elixir_ls
 
 .envrc
+*.part

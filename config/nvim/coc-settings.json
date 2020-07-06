@@ -7,6 +7,11 @@
     "elixirLS": {
       "command": "elixir_ls",
       "filetypes": ["elixir", "eelixir"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     }
   }
 }
