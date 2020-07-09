@@ -17,6 +17,7 @@ env_dir PATH $HOME/.local/bin
 env_dir PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH $HOME/.go/bin
+env_dir PATH $HOME/projects/dotfiles/vendor/zk/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
@@ -43,8 +44,8 @@ export ANDROID_HOME=/home/naps62/.config/Android/Sdk
 export ANDROID_SDK_ROOT=/home/naps62/.config/Android/Sdk
 export JAVA_HOME=/usr/lib/jvm/default
 export TESSDATA_PREFIX=/usr/share/tessdata
+export ZK_PATH=$HOME/projects/zk
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file $HOME/.config/ripgrep/ignore"
 
 if [ -z "$TMUX" ]; then
   export TERM=xterm-256color

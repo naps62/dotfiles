@@ -22,3 +22,6 @@
 [submodule "vendor/rofi-screenshot"]
 	path = vendor/rofi-screenshot
 	url = https://github.com/ceuk/rofi-screenshot
+[submodule "vendor/zk"]
+	path = vendor/zk
+	url = https://github.com/sirupsen/zk

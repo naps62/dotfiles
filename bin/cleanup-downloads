@@ -5,5 +5,5 @@ exclude="-path deluge/"
 
 find_downloads="find $dir -not ( -path /home/naps62/downloads/deluge -prune )"
 
-$find_downloads -mtime +2 -type f | xargs rm
+$find_downloads -mtime +2 -type f | xargs -I rm "{}"
 $find_downloads -type d -empty

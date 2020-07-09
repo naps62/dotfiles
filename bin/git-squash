@@ -6,4 +6,4 @@ shift
 
 git reset $(git merge-base $base $branch)
 git add -A
-git commit $@
+git commit "$@"
