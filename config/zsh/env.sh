@@ -17,12 +17,12 @@ env_dir PATH $HOME/.local/bin
 env_dir PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH $HOME/.go/bin
-env_dir PATH $HOME/projects/dotfiles/vendor/zk/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
 env_dir PATH $HOME/utrust/cli/bin
 env_dir PATH $HOME/coverflex/cli/bin
+env_dir PATH $HOME/projects/zk/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
@@ -44,7 +44,7 @@ export ANDROID_HOME=/home/naps62/.config/Android/Sdk
 export ANDROID_SDK_ROOT=/home/naps62/.config/Android/Sdk
 export JAVA_HOME=/usr/lib/jvm/default
 export TESSDATA_PREFIX=/usr/share/tessdata
-export ZK_PATH=$HOME/projects/zk
+export ZK_PATH=$HOME/projects/zettelkasten
 
 
 if [ -z "$TMUX" ]; then

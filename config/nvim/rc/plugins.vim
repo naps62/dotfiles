@@ -449,7 +449,7 @@ nnoremap <silent> <leader>cp  :<C-u>CocFzfListResume<CR>
 "
 " vim-racer
 "
-let g:racer_experimental_completer  1
+let g:racer_experimental_completer =1
 let g:racer_insert_paren = 1
 
 "
