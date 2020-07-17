@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+out="$1"
+
+shift
+
+tmp_name="/tmp/$(date +%s)"
+
+asciinema rec $tmp_name
+asciicast2gif $tmp_name $out

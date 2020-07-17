@@ -22,6 +22,7 @@ Plug 'tpope/vim-vinegar'
 " Find & Replace
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'stefandtw/quickfix-reflector.vim'
 
 
@@ -72,6 +73,7 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 " JS
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
@@ -223,14 +225,15 @@ let g:gitgutter_override_sign_column_highlight = 0
 "
 " fzf
 "
+let g:fzf_command_prefix = 'Fzf'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
 let $FZF_DEFAULT_OPTS='--layout=reverse --bind ctrl-a:select-all'
 autocmd! FileType fzf
 autocmd  FileType fzf set nonu nornu
 
-nmap <C-p> :Files<CR>
-nmap <C-f> :Rg<CR>
+nmap <C-p> :FzfFiles<CR>
+nmap <C-f> :FzfRg<CR>
 
 " CTRL-A CTRL-Q to select all and build quickfix list
 function! s:build_quickfix_list(lines)
@@ -258,7 +261,7 @@ let g:ale_elixir_elixir_ls_release = $HOME . './elixir_ls'
 let g:ale_linters = {
       \ 'ruby': [],
       \ 'python': [],
-      \ 'elixir': ['elixir-ls'],
+      \ 'elixir': [],
       \ 'typescript': ['tslint', 'tsserver'],
       \ 'javascript': ['prettier'],
       \ 'scss': [],
@@ -446,7 +449,7 @@ nnoremap <silent> <leader>cp  :<C-u>CocFzfListResume<CR>
 "
 " vim-racer
 "
-let g:racer_experimental_completer = 1
+let g:racer_experimental_completer  1
 let g:racer_insert_paren = 1
 
 "

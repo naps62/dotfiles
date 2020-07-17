@@ -3,11 +3,9 @@
   "coc.preferences.colorSupport": true,
   "diagnostic.virtualText": true,
   "suggest.triggerAfterInsertEnter": true,
+  "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
+
   "languageserver": {
-    "elixirLS": {
-      "command": "elixir_ls",
-      "filetypes": ["elixir", "eelixir"]
-    },
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
