@@ -9,6 +9,7 @@ video/mp4=mpv.desktop;
 video/x-ms-wmv=mpv.desktop;
 video/x-flv=mpv.desktop;
 application/pdf=zathura.desktop;
+image/gif=google-chrome.desktop;
 
 [Default Applications]
 image/png=feh.desktop
@@ -25,3 +26,4 @@ x-scheme-handler/webcal=firefox.desktop
 text/html=firefox-bin.desktop;
 x-scheme-handler/web+cardano=firefox.desktop
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
+x-scheme-handler/notedown=notedown.desktop

@@ -92,7 +92,6 @@ Plug 'elzr/vim-json',    { 'for': 'json' }
 " Other syntaxes
 Plug 'tpope/vim-git'
 Plug 'vim-scripts/SyntaxRange'
-Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'markdown.mdx'] }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
@@ -123,6 +122,9 @@ let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
+
+" markdown
+let g:markdown_fenced_languages = ['elixir', 'sh', 'rust']
 
 " close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

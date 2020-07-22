@@ -1,4 +1,4 @@
-set textwidth=120
-set colorcolumn=120
+set textwidth=80
+set colorcolumn=80
 
-au BufRead,BufNewFile *.md setlocal textwidth=120
+au BufRead,BufNewFile *.md setlocal textwidth=80
