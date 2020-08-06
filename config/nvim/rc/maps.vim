@@ -33,16 +33,6 @@ map <Leader>r :call Rename()<CR>
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
 
-" vim-racer
-augroup Racer
-    autocmd!
-    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
-    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
-    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
-    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
-augroup END
-
 nmap <leader>d :call FindDoc()<CR>
 
 " Use K to show documentation in preview window.

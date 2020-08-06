@@ -8,6 +8,7 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --numstat
   t = !tig "$@"
   conf = diff --name-only --diff-filter=U
+  br   = branch
   ba   = branch -a
   br   = checkout -b
   pb   = publish

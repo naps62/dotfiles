@@ -67,9 +67,6 @@ Plug 'vim-ruby/vim-ruby',    { 'for': 'ruby' }
 Plug 'tpope/vim-bundler',    { 'for': 'ruby' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
-" Rust
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': ['elixir', 'eelixir'] }
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
@@ -80,11 +77,10 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx',             { 'for': ['javascript', 'javascript.jsx'] }
 
 " Typescript
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
-Plug 'Quramy/tsuquyomi', { 'for': ['typescript'] }
+Plug 'leafgarland/typescript-vim'
 
 " HTML
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript', 'javascript.tsx'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript', 'javascript.tsx', 'typescript.tsx'] }
 
 " JSON
 Plug 'elzr/vim-json',    { 'for': 'json' }
@@ -283,7 +279,10 @@ let g:ale_fixers = {
       \ 'solidity': [],
       \ 'rust': ['rustfmt'],
       \ 'terraform': ['terraform'],
-      \ 'css': ['prettier']
+      \ 'css': ['prettier'],
+      \ 'html': ['html-beautify'],
+      \ 'htmldjango': ['html-beautify'],
+      \ 'eelixir': ['html-beautify']
       \ }
 
 function! LoadNearestMixFormatter()
@@ -447,12 +446,6 @@ nnoremap <silent> <leader>co  :<C-u>CocFzfList outline<CR>
 nnoremap <silent> <leader>cs  :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <leader>cS  :<C-u>CocFzfList services<CR>
 nnoremap <silent> <leader>cp  :<C-u>CocFzfListResume<CR>
-
-"
-" vim-racer
-"
-let g:racer_experimental_completer =1
-let g:racer_insert_paren = 1
 
 "
 " lazy loading plugins

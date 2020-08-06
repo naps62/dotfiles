@@ -27,3 +27,4 @@ text/html=firefox-bin.desktop;
 x-scheme-handler/web+cardano=firefox.desktop
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
 x-scheme-handler/notedown=notedown.desktop
+x-scheme-handler/postman=Postman.desktop

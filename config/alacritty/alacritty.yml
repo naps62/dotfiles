@@ -10,6 +10,8 @@ window:
     x: 0
     y: 0
 
+  dynamic_title: true
+
 draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
@@ -75,7 +77,7 @@ font:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -122,8 +124,6 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-dynamic_title: true
 
 cursor:
   # Style of the cursor
