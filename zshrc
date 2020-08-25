@@ -16,8 +16,9 @@ source ~/.config/zsh/aliases.zsh
 if [[ -z $VIM ]]; then
   source ~/.config/zsh/completions.zsh
   source ~/.config/zsh/history.zsh
-  source ~/.config/zsh/prompt.zsh
   source ~/.config/zsh/antibody.zsh
   source ~/.config/zsh/vendor.zsh
+
+  eval "$(starship init zsh)"
 fi
 [ -f ~/.fzf.colors ] && source ~/.fzf.colors

@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'
 
 " UI Features
 Plug 'preservim/nerdtree'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'jonathanfilip/vim-lucius'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
@@ -100,7 +101,7 @@ filetype plugin indent on
 "
 " NERDTree
 "
-map <C-n> :NERDTree<CR>
+" map <C-n> :NERDTree<CR>
 map <C-m> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
 let NERDTreeQuitOnOpen=1
@@ -118,6 +119,11 @@ let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
+
+"
+" chadtree
+"
+nnoremap <C-n> <cmd>CHADopen<cr>
 
 " markdown
 let g:markdown_fenced_languages = ['elixir', 'sh', 'rust']
@@ -282,7 +288,7 @@ let g:ale_fixers = {
       \ 'css': ['prettier'],
       \ 'html': ['html-beautify'],
       \ 'htmldjango': ['html-beautify'],
-      \ 'eelixir': ['html-beautify']
+      \ 'eelixir': []
       \ }
 
 function! LoadNearestMixFormatter()
