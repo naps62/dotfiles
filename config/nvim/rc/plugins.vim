@@ -12,7 +12,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 
 " UI Features
-Plug 'preservim/nerdtree'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'jonathanfilip/vim-lucius'
 Plug 'christoomey/vim-tmux-navigator'
@@ -99,26 +99,21 @@ call plug#end()
 filetype plugin indent on
 
 "
-" NERDTree
+" treesitter
 "
-" map <C-n> :NERDTree<CR>
-map <C-m> :NERDTreeFind<CR>
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr', '\.meta', '\.asmdef']
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeKeepTreeInNewTab=1
-function! s:NERDTreeCustomOpen()
-  echomsg 'asd'
-endfunction
-let g:NERDTreeShowBookmarks=1
-let g:NERDTreeShowHidden=1
-let g:nerdtree_tabs_open_on_gui_startup=0
-let g:NERDTreeMapOpenVSplit="v"
-let g:NERDTreeMapOpenSplit="s"
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeMinimalUI = 1
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",     -- one of "all", "language", or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+  },
+  refactor = {
+    highlight_definitions = { enable = true },
+    highlight_current_scope = { enable = true },
+  },
+}
+EOF
 
 "
 " chadtree
