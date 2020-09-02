@@ -1,0 +1,1 @@
+autocmd! BufLeave <buffer> quit

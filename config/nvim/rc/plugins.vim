@@ -12,8 +12,10 @@ Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 
 " UI Features
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'kristijanhusak/defx-icons'
+Plug 'kristijanhusak/defx-git'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
@@ -101,40 +103,22 @@ filetype plugin indent on
 "
 " treesitter
 "
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",     -- one of "all", "language", or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
-  },
-  refactor = {
-    highlight_definitions = { enable = true },
-    highlight_current_scope = { enable = true },
-  },
-}
-EOF
-
-"
-" chadtree
-"
-nnoremap <C-n> <cmd>CHADopen<cr>
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "all",     -- one of "all", "language", or a list of languages
+"   highlight = {
+"     enable = true,              -- false will disable the whole extension
+"     disable = { "typescript", "javascript" },  -- list of language that will be disabled
+"   },
+"   refactor = {
+"     highlight_definitions = { enable = true },
+"     highlight_current_scope = { enable = true },
+"   },
+" }
+" EOF
 
 " markdown
 let g:markdown_fenced_languages = ['elixir', 'sh', 'rust']
-
-" close vim if NERDTree is the only window left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Bookmark shortcut
-map <silent> <c-b> :Bookmark<CR>
-
-" TODO this is being overriden by status line
-let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
-
-"
-" vim-emmet
-"
 
 "
 " neoterm
