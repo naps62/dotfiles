@@ -5,7 +5,7 @@ augroup UltiSnips_custom
 augroup END
 
 function s:try_insert(skel)
-  execute "normal! i" . a:skel . "\<C-r>=UltiSnips#ExpandSnippet()\<CR>"
+  execute 'normal! i' . a:skel . '\<C-r>=UltiSnips#ExpandSnippet()\<CR>'
 
   if g:ulti_expand_res == 0
     silent! undo
@@ -13,7 +13,7 @@ function s:try_insert(skel)
   endif
 
   " enter insert mode and advance cursor (equivalent to typing `a` instead of `i`)
-  execute "startinsert"
+  execute 'startinsert'
   call cursor( line('.'), col('.') + 1)
 
   return g:ulti_expand_res
@@ -23,7 +23,7 @@ function! skel#InsertSkeleton() abort
   let filename = expand('%')
 
   " abort on non-empty buffer or exitant file
-  if !(line('$') == 1 && getline('$') == '') || filereadable(filename)
+  if !(line('$') == 1 && getline('$') ==# '') || filereadable(filename)
     return
   endif
 

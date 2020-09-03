@@ -1,7 +1,6 @@
-augroup vimrc_defx
+augroup vimrc_plugin_defx
   autocmd!
   autocmd VimEnter * call s:setup()
-
   autocmd FileType defx call s:defx_mappings()
   autocmd BufLeave,BufWinLeave defx call defx#call_action('add_session')
 augroup END

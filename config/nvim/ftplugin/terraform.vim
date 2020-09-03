@@ -4,10 +4,10 @@ function! TerraformCmd(filename, cmd)
   else
     let dir = a:filename
   endif
-  let last_slash = strridx(dir, "/")
+  let last_slash = strridx(dir, '/')
   let dir = strpart(dir, 0, last_slash)
 
-  execute ":T (cd " . l:dir . " && direnv exec . terraform " . a:cmd . ")"
+  execute ':T (cd ' . l:dir . ' && direnv exec . terraform ' . a:cmd . ')'
 endfunction
 
 nmap <silent> <leader>i :call TerraformCmd(@%, "init")<CR>

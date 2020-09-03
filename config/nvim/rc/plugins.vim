@@ -1,4 +1,3 @@
-set nocompatible
 filetype off
 
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
@@ -142,7 +141,7 @@ let g:qs_max_chars=80
 "
 " vim-test
 "
-let test#strategy = "neoterm"
+let test#strategy = 'neoterm'
 
 map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>
@@ -195,41 +194,15 @@ endif
 "
 " UltiSnips
 "
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-let g:UltiSnipsEdit="vertical"
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsJumpForwardTrigger='<C-j>'
+let g:UltiSnipsJumpBackwardTrigger='<C-k>'
+let g:UltiSnipsEdit='vertical'
 
 "
 " vim-gitgutter
 "
 let g:gitgutter_override_sign_column_highlight = 0
-
-"
-" fzf
-"
-let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(blue)%C(bold)%cr%C(white)"'
-let $FZF_DEFAULT_OPTS='--layout=reverse --bind ctrl-a:select-all'
-autocmd! FileType fzf
-autocmd  FileType fzf set nonu nornu
-
-nmap <C-p> :FzfFiles<CR>
-nmap <C-f> :FzfRg<CR>
-
-" CTRL-A CTRL-Q to select all and build quickfix list
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
 
 "
 " ale
@@ -253,7 +226,8 @@ let g:ale_linters = {
       \ 'rust': [],
       \ 'terraform': ['tflint'],
       \ 'css': ['prettier'],
-      \ 'md': ['proselint', 'languagetool']
+      \ 'md': ['proselint', 'languagetool'],
+      \ 'vim': ['vint']
       \ }
 
 let g:ale_fixers = {
@@ -272,13 +246,13 @@ let g:ale_fixers = {
 
 function! LoadNearestMixFormatter()
   let l:formatters = []
-  let l:directory = fnameescape(expand("%:p:h"))
+  let l:directory = fnameescape(expand('%:p:h'))
 
-  let l:git_root = system("git rev-parse --show-toplevel")[:-2]
+  let l:git_root = system('git rev-parse --show-toplevel')[:-2]
 
-  let l:fmt = findfile(".formatter.exs", l:git_root)
+  let l:fmt = findfile('.formatter.exs', l:git_root)
 
-  let g:ale_elixir_mix_format_options = "--dot-formatter " . l:fmt
+  let g:ale_elixir_mix_format_options = '--dot-formatter ' . l:fmt
 endfunction
 
 call LoadNearestMixFormatter()
@@ -379,58 +353,6 @@ let g:OmniSharp_highlight_types = 1
 " Removing this option bumps into this issue: https://github.com/OmniSharp/omnisharp-vim/issues/398
 let g:OmniSharp_port = 2000
 
-"
-" coc.nvim
-"
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-"
-" coc-fzf
-"
-nnoremap <silent> <leader>ca  :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <leader>cb  :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <leader>cc  :<C-u>CocFzfList commands<CR>
-nnoremap <silent> <leader>ce  :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <leader>cl  :<C-u>CocFzfList location<CR>
-nnoremap <silent> <leader>co  :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <leader>cs  :<C-u>CocFzfList symbols<CR>
-nnoremap <silent> <leader>cS  :<C-u>CocFzfList services<CR>
-nnoremap <silent> <leader>cp  :<C-u>CocFzfListResume<CR>
 
 "
 " lazy loading plugins

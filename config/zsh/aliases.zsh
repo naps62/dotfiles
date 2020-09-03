@@ -32,7 +32,7 @@ alias l=leetcode
 # rust replacements
 # https://zaiste.net/posts/shell-commands-rust
 alias ls=exa
-alias bat=cat
+alias cat=bat
 alias ps=procs
 
 # thoughtbot/parity

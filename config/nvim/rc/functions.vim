@@ -6,7 +6,7 @@ endfunction
 function! Rename()
   let current = expand('%')
   let new_file = input('New name: ', current)
-  if new_file != current && new_file != ''
+  if new_file !=# current && new_file !=# ''
     exec ':saveas ' . new_file
     exec ':silent !rm ' . current
     redraw!
@@ -15,7 +15,7 @@ endfunction
 
 " Return the highlight group being used under the cursor
 function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
+  return synIDattr(synID(line('.'),col('.'),1),'name')
 endfunction
 
 " run FZF in a floating window
@@ -102,7 +102,7 @@ function! Focus()
 endfunction
 
 function! FindDoc()
-  let word = substitute(expand("<cword>"), 'aws_', '', '')
-  let url = "https://www.terraform.io/docs/providers/aws/r/".word.".html"
-  silent exec "!open ".url
+  let word = substitute(expand('<cword>'), 'aws_', '', '')
+  let url = 'https://www.terraform.io/docs/providers/aws/r/'.word.'.html'
+  silent exec '!open '.url
 endfunction

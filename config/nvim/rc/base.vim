@@ -1,7 +1,6 @@
 " basics
 
 set encoding=utf-8
-set nocompatible  " disable Vi compatibility mode
 set ruler         " cursor position
 set scrolloff=5   " scroll offset
 set autowrite     " automatically :write before running commands
@@ -17,8 +16,8 @@ set laststatus=2
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set noerrorbells
 set clipboard=unnamedplus " X11 clipboard integration
-let mapleader="\<Space>"
-let maplocalleader = ","
+let mapleader='\<Space>'
+let maplocalleader = ','
 
 " open split panes to right and bottom, which feels more natural
 set splitbelow
@@ -46,7 +45,6 @@ set linebreak
 set foldmethod=indent
 setlocal foldlevel=20
 setlocal foldlevelstart=20
-autocmd Syntax ruby,slim :normal zR
 
 " relative line numbering
 set number
@@ -91,21 +89,24 @@ set listchars+=tab:>\
 set listchars+=trail:•
 set listchars+=extends:#
 set listchars+=nbsp:•
-autocmd filetype html,xml set listchars-=tab:>. " ... except for some file types
 
 set re=1
 
 " when editing a file, always jump to the last known cursor position
 " don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim)
-autocmd BufReadPost *
-  \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g `\"" |
-  \ endif
+augroup vim_rc_autojump
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g `\"" |
+    \ endif
+augroup END
 
 set ttimeoutlen=50
 
 set updatetime=2000
 
 " automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+augroup vim_rc_rebalance_size
+  autocmd VimResized * :wincmd =
+augroup END
