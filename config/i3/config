@@ -231,7 +231,7 @@ exec i3-msg 'exec $BROWSER'
 exec i3-msg 'exec spotify'
 
 # set wallpaper
-# exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
+exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
 
 # polybar

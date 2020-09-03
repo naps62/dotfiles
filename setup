@@ -35,11 +35,6 @@ rcup
 sudo cp setup.d/files/cron.naps62 /var/spool/cron/naps62
 
 #
-# Setup wallpaper rotator
-#
-(cd vendor/Daily-Reddit-Wallpaper; pip install --user --requirement requirements.txt)
-
-#
 # Setup gllock
 #
 (cd vendor/gllock && sudo make clean install)
