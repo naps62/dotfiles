@@ -96,6 +96,7 @@ Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'tsx' }
 Plug 'jxnblk/vim-mdx-js', { 'for': 'markdown.mdx' }
 Plug 'tomlion/vim-solidity'
+Plug 'tomlion/vim-solidity'
 
 call plug#end()
 filetype plugin indent on

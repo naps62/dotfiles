@@ -16,6 +16,14 @@ export default class $1 extends React.Component<$1Props, any> {
 }
 endsnippet
 
+snippet mocha "Mocha TS file"
+import { expect } from 'chai';
+
+describe('$1', async () => {
+	$2
+});
+endsnippet
+
 snippet desc "Jasmine describe()"
 describe('$1', () => {
 	$2
@@ -24,6 +32,13 @@ endsnippet
 
 snippet it "Jasmine it()"
 it('$1', async () => {
+	$2
+});
+endsnippet
+
+snippet test "Jest test()"
+
+test('$1', async () => {
 	$2
 });
 endsnippet

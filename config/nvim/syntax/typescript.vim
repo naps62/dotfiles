@@ -1,13 +1,11 @@
-augroup vimrc_syntax_typescript
-  autocmd User ProjectionistDetect
-  \ call projectionist#append(getcwd(),
-  \ {
-  \    '*.ts': {
-  \      'alternate': '{}.spec.ts'
-  \    },
-  \    '*.spec.ts': {
-  \      'alternate': '{}.ts',
-  \      'skeleton': 'spec'
-  \    },
-  \ })
-augroup END
+autocmd User ProjectionistDetect
+\ call projectionist#append(getcwd(),
+\ {
+\    'src/*.ts': {
+\      'alternate': 'test/{}.test.ts'
+\    },
+\    'test/*.test.ts': {
+\      'alternate': 'src/{}.ts',
+\      'skeleton': 'mocha'
+\    },
+\ })

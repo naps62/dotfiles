@@ -10,6 +10,7 @@ video/x-ms-wmv=mpv.desktop;
 video/x-flv=mpv.desktop;
 application/pdf=zathura.desktop;
 image/gif=google-chrome.desktop;
+text/html=firefox.desktop;
 
 [Default Applications]
 image/png=feh.desktop

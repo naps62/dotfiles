@@ -49,6 +49,7 @@ crtf() {
 }
 
 cstc() {
+  sleep 1
   ffcast -q png /tmp/screenshot_clip.png
   xclip -selection clipboard -t image/png /tmp/screenshot_clip.png
   rm /tmp/screenshot_clip.png
@@ -56,6 +57,7 @@ cstc() {
 }
 
 cstf() {
+  sleep 1
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q png "$screenshot_directory/$dt.png"
   notify-send "Screenshot" "Screenshot saved to $screenshot_directory"
