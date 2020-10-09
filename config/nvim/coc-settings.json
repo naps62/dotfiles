@@ -1,9 +1,13 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.colorSupport": true,
-  "diagnostic.virtualText": true,
   "suggest.triggerAfterInsertEnter": true,
   "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
+
+  "diagnostic.errorSign": "💩",
+  "diagnostic.hintSign": "→",
+  "diagnostic.infoSign": "→",
+  "diagnostic.warningSign": "→",
 
   "languageserver": {
     "terraform": {
@@ -17,5 +21,12 @@
       "filetypes": ["sh", "bash"],
       "ignoredRootPaths": ["~"]
     }
-  }
+  },
+
+  "coc.preferences.rootPatterns": [".git", "package.json"],
+
+   "eslint.enable": true,
+   "eslint.run": "onSave",
+   "eslint.options": { "cache": true },
+   "eslint.autoFixOnSave": true
 }

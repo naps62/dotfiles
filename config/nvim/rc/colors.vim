@@ -32,6 +32,9 @@ highlight ALEErrorSign ctermfg=red ctermbg=black
 highlight YcmErrorSign ctermfg=red ctermbg=black
 highlight YcmWarningSign ctermfg=yellow ctermbg=black
 
+" coc.nvim colors
+highlight CocErrorHighlight ctermfg=01 ctermbg=18
+
 " Generic error colors
 " highlight Error ctermfg=red ctermbg=black
 " highlight Warning ctermfg=yellow ctermbg=black

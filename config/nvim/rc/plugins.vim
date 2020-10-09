@@ -95,6 +95,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'tsx' }
 Plug 'jxnblk/vim-mdx-js', { 'for': 'markdown.mdx' }
+Plug 'tomlion/vim-solidity'
 
 call plug#end()
 filetype plugin indent on
@@ -218,8 +219,8 @@ let g:ale_linters = {
       \ 'ruby': [],
       \ 'python': [],
       \ 'elixir': [],
-      \ 'typescript': ['tslint', 'tsserver'],
-      \ 'javascript': ['prettier'],
+      \ 'typescript': [],
+      \ 'javascript': [],
       \ 'scss': [],
       \ 'solidity': ['solium'],
       \ 'cs': ['OmniSharp'],
@@ -232,8 +233,8 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
       \ 'ruby':  [],
-      \ 'typescript': ['tslint', 'prettier'],
-      \ 'javascript': ['prettier'],
+      \ 'typescript': [],
+      \ 'javascript': [],
       \ 'elixir': ['mix_format'],
       \ 'solidity': [],
       \ 'rust': ['rustfmt'],
@@ -265,14 +266,15 @@ function! AddLinterIfFileExists(lang, linter, file, lint, fix)
       let g:ale_linters[a:lang] = g:ale_linters[a:lang] + [a:linter]
     endif
     if a:fix
-      let g:ale_fixers[a:lang] = g:ale_linters[a:lang] + [a:linter]
+      let g:ale_fixers[a:lang] = g:ale_fixers[a:lang] + [a:linter]
     end
   endif
 endfunction
 
-call AddLinterIfFileExists('javascript', 'eslint', '.eslintrc.json', 1, 1)
-call AddLinterIfFileExists('javascript', 'standard', 'node_modules/.bin/standard', 1, 1)
-call AddLinterIfFileExists('javascript', 'prettier', 'node_modules/.bin/prettier', 1, 1)
+" call AddLinterIfFileExists('javascript', 'eslint', 'node_modules/.bin/eslint', 1, 1)
+" call AddLinterIfFileExists('typescript', 'eslint', 'node_modules/.bin/eslint', 1, 1)
+" call AddLinterIfFileExists('javascript', 'prettier', 'node_modules/.bin/prettier', 1, 1)
+" call AddLinterIfFileExists('typescript', 'prettier', 'node_modules/.bin/prettier', 1, 1)
 call AddLinterIfFileExists('scss', 'stylelint', '.stylelintrc', 1, 0)
 call AddLinterIfFileExists('ruby', 'rubocop', '.rubocop.yml', 1, 1)
 call AddLinterIfFileExists('elixir', 'credo', 'config/.credo.exs', 1, 0)
