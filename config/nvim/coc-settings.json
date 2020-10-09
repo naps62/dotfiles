@@ -1,8 +1,10 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.colorSupport": true,
+  "coc.preferences.rootPatterns": [".git", "package.json"],
+
   "suggest.triggerAfterInsertEnter": true,
-  "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
+
 
   "diagnostic.errorSign": "💩",
   "diagnostic.hintSign": "→",
@@ -23,7 +25,7 @@
     }
   },
 
-  "coc.preferences.rootPatterns": [".git", "package.json"],
+  "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
 
    "eslint.enable": true,
    "eslint.run": "onSave",

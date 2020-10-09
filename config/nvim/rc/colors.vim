@@ -28,12 +28,14 @@ highlight GitGutterChangeDelete ctermbg=black
 highlight ALEError ctermfg=01 ctermbg=18
 highlight ALEErrorSign ctermfg=red ctermbg=black
 
-" YCM sign colors
-highlight YcmErrorSign ctermfg=red ctermbg=black
-highlight YcmWarningSign ctermfg=yellow ctermbg=black
-
 " coc.nvim colors
-highlight CocErrorHighlight ctermfg=01 ctermbg=18
+highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
+highlight CocErrorFloat ctermfg=grey ctermbg=black
+
+" example of customizing floating windows
+" hi Pmenu ctermfg=yellow ctermbg=black
+" hi Pmenu ctermfg=yellow ctermbg=235 gui=underline guifg=#bcbcbc guibg=#262626
+" hi PmenuSel ctermfg=yellow ctermbg=131 gui=underline guifg=#bcbcbc guibg=#af5f5f
 
 " Generic error colors
 " highlight Error ctermfg=red ctermbg=black
