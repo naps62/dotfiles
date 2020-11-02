@@ -16,7 +16,7 @@ set laststatus=2
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set noerrorbells
 set clipboard=unnamedplus " X11 clipboard integration
-let mapleader='\<Space>'
+map <Space> <leader>
 let maplocalleader = ','
 
 " open split panes to right and bottom, which feels more natural
