@@ -30,7 +30,7 @@ highlight ALEErrorSign ctermfg=red ctermbg=black
 
 " coc.nvim colors
 highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
-highlight CocErrorFloat ctermfg=grey ctermbg=black
+highlight CocErrorFloat ctermfg=grey ctermbg=18
 
 " example of customizing floating windows
 " hi Pmenu ctermfg=yellow ctermbg=black

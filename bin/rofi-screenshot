@@ -25,30 +25,36 @@ slop_geometry() {
 }
 
 countdown() {
-  notify-send "Screenshot" "Recording in 3 seconds" -t 1000
-  sleep 1
-  notify-send "Screenshot" "Recording in 2 seconds" -t 1000
-  sleep 1
-  notify-send "Screenshot" "Recording in 1 seconds" -t 1000
-  sleep 1
+  counter=$1
+
+  if [[ "$counter" -gt "0" ]]; then
+    notify-send "Screenshot" "Shooting in $counter seconds" -t 1000
+    sleep 1
+    countdown $(($counter - 1))
+  fi
 }
 
-crtc() {
+print_region_clip() {
+  delay=$1
+
   notify-send "Screenshot" "Select a region to capture"
-  ffcast -q $(slop_geometry) png /tmp/screenshot_clip.png
+  ffcast -q $(slop_geometry && countdown $delay) png /tmp/screenshot_clip.png
   xclip -selection clipboard -t image/png /tmp/screenshot_clip.png
   rm /tmp/screenshot_clip.png
   notify-send "Screenshot" "Region copied to Clipboard"
 }
 
-crtf() {
+print_region_file() {
+  delay=$1
+
+  countdown $delay
   notify-send "Screenshot" "Select a region to capture"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
-  ffcast -q $(slop_geometry) png "$screenshot_directory/$dt.png"
+  ffcast -q $(slop_geometry && countdown $delay) png "$screenshot_directory/$dt.png"
   notify-send "Screenshot" "Region saved to $screenshot_directory"
 }
 
-cstc() {
+print_screen_chip() {
   sleep 1
   ffcast -q png /tmp/screenshot_clip.png
   xclip -selection clipboard -t image/png /tmp/screenshot_clip.png
@@ -56,14 +62,14 @@ cstc() {
   notify-send "Screenshot" "Screenshot copied to Clipboard"
 }
 
-cstf() {
+print_region_file() {
   sleep 1
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q png "$screenshot_directory/$dt.png"
   notify-send "Screenshot" "Screenshot saved to $screenshot_directory"
 }
 
-rgrtf() {
+record_region_file_gif() {
   notify-send "Screenshot" "Select a region to record"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q $(slop_geometry && countdown) rec /tmp/screenshot_gif.mp4
@@ -73,7 +79,7 @@ rgrtf() {
   notify-send "Screenshot" "Recording saved to $screenshot_directory"
 }
 
-rgstf() {
+record_screen_file_gif() {
   countdown
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q rec /tmp/screenshot_gif.mp4
@@ -83,14 +89,14 @@ rgstf() {
   notify-send "Screenshot" "Recording saved to $screenshot_directory"
 }
 
-rvrtf() {
+record_region_file_mp4() {
   notify-send "Screenshot" "Select a region to record"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q $(slop_geometry && countdown) rec "$screenshot_directory/$dt.mp4"
   notify-send "Screenshot" "Recording saved to $screenshot_directory"
 }
 
-rvstf() {
+record_screen_file_mp4() {
   countdown
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q rec "$screenshot_directory/$dt.mp4"
@@ -100,8 +106,12 @@ rvstf() {
 get_options() {
   echo "  Capture Region  Clip"
   echo "  Capture Region  File"
+  echo "  Capture Region w/ Delay  Clip"
+  echo "  Capture Region w/ Delay  File"
   echo "  Capture Screen  Clip"
   echo "  Capture Screen  File"
+  echo "  Capture Screen w/ Delay  Clip"
+  echo "  Capture Screen w/ Delay  File"
   echo "  Record Region  File (GIF)"
   echo "  Record Screen  File (GIF)"
   echo "  Record Region  File (MP4)"
@@ -153,28 +163,34 @@ main() {
   # run the selected command
   case $choice in
     '  Capture Region  Clip')
-      crtc
+      print_region_clip 0
       ;;
     '  Capture Region  File')
-      crtf
+      print_region_file 0
+      ;;
+    '  Capture Region w/ Delay  Clip')
+      print_region_clip 3
+      ;;
+    '  Capture Region w/ Delay  File')
+      print_region_file 3
       ;;
     '  Capture Screen  Clip')
-      cstc
+      print_screen_chip
       ;;
     '  Capture Screen  File')
-      cstf
+      print_region_file
       ;;
     '  Record Region  File (GIF)')
-      rgrtf
+      record_region_file_gif
       ;;
     '  Record Screen  File (GIF)')
-      rgstf
+      record_screen_file_gif
       ;;
     '  Record Region  File (MP4)')
-      rvrtf
+      record_region_file_mp4
       ;;
     '  Record Screen  File (MP4)')
-      rvstf
+      record_screen_file_mp4
       ;;
   esac
 

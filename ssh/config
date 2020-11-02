@@ -11,22 +11,6 @@ IdentityFile ~/.ssh/id_rsa.subvisual
 IdentityFile ~/.ssh/id_rsa.desktop
 IdentityFile ~/.ssh/id_rsa.utrust
 IdentityFile ~/.ssh/id_rsa.giskard
-IdentityFile ~/.ssh/id_rsa.quais
-
-#
-# Subvisual servers
-#
-Host obi-wan
-  Hostname obi-wan.servers.groupbuddies.com
-  User deploy
-
-Host death-star
-  Hostname death-star.servers.groupbuddies.com
-  User deploy
-
-Host batman
-  Hostname batman.servers.subvisual.co
-  User deploy
 
 #
 # Subvisual apps
@@ -35,60 +19,6 @@ Host zee
   Hostname 37.139.7.70
   User deploy
 
-#
-# Drawstep apps
-#
-Host old-drawstep
-  Hostname old.drawstep.com
-  User drawstep
-
-Host mtgsearch
-  Hostname mtgsear.ch
-  User deploy
-  Port 22062
-  IdentityFile ~/.ssh/id_rsa.old
-
-Host new.mtgsearch
-  Hostname new.mtgsear.ch
-  User deploy
-  Port 22062
-
-Host drawstep
-  Hostname new.drawstep.com
-  Port 22062
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.old
-
-Host drawstep2
-  Hostname ssl.drawstep.com
-  Port 22062
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.old
-
-Host mtgsear.ch
-  Hostname 167.99.130.56
-  Port 22062
-  User deploy
-  IdentityFile ~/.ssh/id_rsa.old
-
-Host vpn.utrust.com
-  User root
-  IdentityFile ~/.ssh/id_rsa.utrust
-
-Host utrust-joan
-  Hostname 178.62.253.114
-  User root
-  IdentityFile ~/.ssh/id_rsa.utrust
-
-Host gitlab.com
-  IdentityFile ~/.ssh/id_rsa.quais
-
-Host gostable.gitlab.com
-  IdentityFile ~/.ssh/id_rsa.quais
-
 Host aur.archlinux.org
   IdentityFile ~/.ssh/aur
   User aur
-
-Host gostable.gitlab.com
-  IdentityFile ~/.ssh/id_rsa.quais

@@ -4,12 +4,14 @@
   "coc.preferences.rootPatterns": [".git", "package.json"],
 
   "suggest.triggerAfterInsertEnter": true,
-
+  "suggest.autoTrigger":"trigger",
 
   "diagnostic.errorSign": "💩",
   "diagnostic.hintSign": "→",
   "diagnostic.infoSign": "→",
   "diagnostic.warningSign": "→",
+  "diagnostic.highlightOffset": 5,
+  "diagnostic.format": "%message",
 
   "languageserver": {
     "terraform": {
@@ -27,8 +29,12 @@
 
   "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
 
-   "eslint.enable": true,
-   "eslint.run": "onSave",
-   "eslint.options": { "cache": true },
-   "eslint.autoFixOnSave": true
+  "eslint.enable": true,
+  "eslint.run": "onSave",
+  "eslint.options": { "cache": true },
+  "eslint.autoFixOnSave": true,
+
+  "coc.preferences.formatOnSaveFiletypes": ["typescript"],
+
+  "rust.clippy_preference": "on"
 }
