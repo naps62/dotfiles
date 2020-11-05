@@ -36,5 +36,10 @@
 
   "coc.preferences.formatOnSaveFiletypes": ["typescript"],
 
-  "rust.clippy_preference": "on"
+  "rust.clippy_preference": "on",
+
+  "solargraph.hover": true,
+  "solargraph.diagnostics":true,
+  "solargraph.formatting":true,
+  "solargraph.autoformat":true
 }
