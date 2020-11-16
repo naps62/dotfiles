@@ -50,7 +50,9 @@ print_region_file() {
   countdown $delay
   notify-send "Screenshot" "Select a region to capture"
   dt=$(date '+%d-%m-%Y %H:%M:%S')
+  echo "print"
   ffcast -q $(slop_geometry && countdown $delay) png "$screenshot_directory/$dt.png"
+  echo "print"
   notify-send "Screenshot" "Region saved to $screenshot_directory"
 }
 
@@ -62,7 +64,7 @@ print_screen_chip() {
   notify-send "Screenshot" "Screenshot copied to Clipboard"
 }
 
-print_region_file() {
+print_screen_file() {
   sleep 1
   dt=$(date '+%d-%m-%Y %H:%M:%S')
   ffcast -q png "$screenshot_directory/$dt.png"
@@ -178,7 +180,7 @@ main() {
       print_screen_chip
       ;;
     '  Capture Screen  File')
-      print_region_file
+      print_screen_file
       ;;
     '  Record Region  File (GIF)')
       record_region_file_gif

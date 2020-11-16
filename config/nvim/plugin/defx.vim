@@ -24,37 +24,39 @@ nnoremap <silent><C-m> :call DefxFind()<CR>
 " defx buffer mappings
 "
 function! s:defx_mappings() abort
+  imap <silent><buffer> j <Esc>j
+  imap <silent><buffer> k <Esc>k
   " quitting
- nnoremap <silent><buffer><expr> q defx#do_action('quit')
- nnoremap <silent><buffer> <C-n> :quit<CR>
- nnoremap <silent><buffer> <C-m> :quit<CR>
- nnoremap <silent><buffer> <Esc> :quit<CR>
+  nnoremap <silent><buffer><expr> q defx#do_action('quit')
+  nnoremap <silent><buffer> <C-n> :quit<CR>
+  nnoremap <silent><buffer> <C-m> :quit<CR>
+  nnoremap <silent><buffer> <Esc> :quit<CR>
 
- " opening files / directories
- nnoremap <silent><buffer> <CR> :call Defx_open()<CR>
- nnoremap <silent><buffer> e :call Defx_do_and_quit('drop', [])<CR>
- nnoremap <silent><buffer><expr> h defx#do_action('cd', ['..'])
+  " opening files / directories
+  nnoremap <silent><buffer> <CR> :call Defx_open()<CR>
+  nnoremap <silent><buffer> e :call Defx_do_and_quit('drop', [])<CR>
+  nnoremap <silent><buffer><expr> h defx#do_action('cd', ['..'])
 
- " opening in splits
- nnoremap <silent><buffer> v :call Defx_do_and_quit('drop', 'vsplit')<CR>
- nnoremap <silent><buffer> s :call Defx_do_and_quit('drop', 'split')<CR>
+  " opening in splits
+  nnoremap <silent><buffer> v :call Defx_do_and_quit('drop', 'vsplit')<CR>
+  nnoremap <silent><buffer> s :call Defx_do_and_quit('drop', 'split')<CR>
 
- " file operations
- nnoremap <silent><buffer><expr> c defx#do_action('copy')
- nnoremap <silent><buffer><expr> m defx#do_action('move')
- nnoremap <silent><buffer><expr> p defx#do_action('paste')
- nnoremap <silent><buffer><expr> r defx#do_action('rename')
- nnoremap <silent><buffer><expr> d defx#do_action('remove')
- nnoremap <silent><buffer><expr> n defx#do_action('new_file')
- nnoremap <silent><buffer><expr> N defx#do_action('new_directory')
+  " file operations
+  nnoremap <silent><buffer><expr> c defx#do_action('copy')
+  nnoremap <silent><buffer><expr> m defx#do_action('move')
+  nnoremap <silent><buffer><expr> p defx#do_action('paste')
+  nnoremap <silent><buffer><expr> r defx#do_action('rename')
+  nnoremap <silent><buffer><expr> d defx#do_action('remove')
+  nnoremap <silent><buffer><expr> n defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> N defx#do_action('new_directory')
 
- nnoremap <silent><buffer><expr> P defx#do_action('preview')
+  nnoremap <silent><buffer><expr> P defx#do_action('preview')
 
- nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
 
- " wrap-around navigation
- nnoremap <silent><buffer><expr> j line('.') == line('$') ? 'gg' : 'j'
- nnoremap <silent><buffer><expr> k line('.') == 1 ? 'G' : 'k'
+  " wrap-around navigation
+  nnoremap <silent><buffer><expr> j line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k line('.') == 1 ? 'G' : 'k'
 endfunction
 
 "

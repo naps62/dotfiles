@@ -26,7 +26,7 @@ alias x=extract
 alias y=yay
 alias s=bin/server
 alias u=utrust
-alias c=coverflex
+alias c=bin/console
 alias l=leetcode
 
 # rust replacements

@@ -24,9 +24,13 @@ highlight GitGutterChange ctermbg=black
 highlight GitGutterDelete ctermbg=black
 highlight GitGutterChangeDelete ctermbg=black
 
-" highlight clear ALEError
+" highlight ale
 highlight ALEError ctermfg=01 ctermbg=18
+highlight AleWarning ctermfg=blue ctermbg=black
+highlight ALEStyleWarningSign ctermfg=yellow ctermbg=black
+highlight ALEWarningSign ctermfg=yellow ctermbg=black
 highlight ALEErrorSign ctermfg=red ctermbg=black
+highlight ALEStyleErrorSign ctermfg=red ctermbg=black
 
 " coc.nvim colors
 highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
@@ -58,4 +62,16 @@ function! TweakBase16()
   highlight DiffChange term=bold ctermfg=0 ctermbg=4 guifg=#2b2b2b guibg=#6d9cbe
   highlight DiffText   term=reverse cterm=bold ctermfg=0 ctermbg=4 gui=bold guifg=#2b2b2b guibg=#6d9cbe
 endfunction
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+function! SynGroup()                                                            
+    let l:s = synID(line('.'), col('.'), 1)                                       
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
 
