@@ -26,6 +26,10 @@ nnoremap <silent><C-m> :call DefxFind()<CR>
 function! s:defx_mappings() abort
   imap <silent><buffer> j <Esc>j
   imap <silent><buffer> k <Esc>k
+  imap <silent><buffer> n <Esc>n
+  imap <silent><buffer> d <Esc>d
+  imap <silent><buffer> r <Esc>r
+
   " quitting
   nnoremap <silent><buffer><expr> q defx#do_action('quit')
   nnoremap <silent><buffer> <C-n> :quit<CR>
@@ -49,8 +53,6 @@ function! s:defx_mappings() abort
   nnoremap <silent><buffer><expr> d defx#do_action('remove')
   nnoremap <silent><buffer><expr> n defx#do_action('new_file')
   nnoremap <silent><buffer><expr> N defx#do_action('new_directory')
-
-  nnoremap <silent><buffer><expr> P defx#do_action('preview')
 
   nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
 

@@ -91,7 +91,6 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'types
 Plug 'vim-scripts/SyntaxRange'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'sheerun/vim-polyglot'
-Plug 'chiel92/vim-autoformat'
 
 call plug#end()
 filetype plugin indent on

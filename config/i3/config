@@ -233,6 +233,7 @@ exec i3-msg 'exec spotify'
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift-gtk
 
 # polybar
 exec_always i3-msg 'exec $HOME/.config/polybar/launch.sh'
