@@ -112,3 +112,9 @@ fd () {
 nuke () {
    ps ax | ag $@ | ag -v ag | cut -d' ' -f 1 | xargs kill -9
 }
+
+latest-screenshot () {
+name=$(ls ~/downloads/screenshots --time ctime | tail -n 1)
+
+  echo -n $HOME/downloads/screenshots/$name
+}

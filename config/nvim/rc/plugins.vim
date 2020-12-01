@@ -8,14 +8,17 @@ call plug#begin('~/.config/nvim/plugged')
 let g:coc_global_extensions = [
   \ 'coc-elixir',
   \ 'coc-json',
-  \ 'coc-rls',
+  \ 'coc-rust-analyzer',
   \ 'coc-sh',
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-solargraph',
   \ 'coc-stylelintplus',
+  \ 'coc-snippets'
   \ ]
+
+let g:polyglot_disabled = ['typescript']
 
 " Theme
 Plug 'altercation/vim-colors-solarized'
@@ -51,7 +54,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
-Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-textobj-user'
@@ -180,20 +182,6 @@ if executable('rg')
   " use Ripgrep over Grep
   set grepprg="rg --color never --no-heading"
 endif
-
-"
-" auto-pairs
-"
-" let g:AutoPairsMultilineClose = 0
-" let g:AutoPairsOnlyWhitespace = 1
-
-"
-" UltiSnips
-"
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsJumpForwardTrigger='<C-j>'
-let g:UltiSnipsJumpBackwardTrigger='<C-k>'
-let g:UltiSnipsEdit='vertical'
 
 "
 " vim-gitgutter

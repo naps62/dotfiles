@@ -49,7 +49,7 @@ print_region_file() {
 
   countdown $delay
   notify-send "Screenshot" "Select a region to capture"
-  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  dt=$(date '+%d-%m-%Y_%H:%M:%S')
   echo "print"
   ffcast -q $(slop_geometry && countdown $delay) png "$screenshot_directory/$dt.png"
   echo "print"
@@ -66,14 +66,14 @@ print_screen_chip() {
 
 print_screen_file() {
   sleep 1
-  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  dt=$(date '+%d-%m-%Y_%H:%M:%S')
   ffcast -q png "$screenshot_directory/$dt.png"
   notify-send "Screenshot" "Screenshot saved to $screenshot_directory"
 }
 
 record_region_file_gif() {
   notify-send "Screenshot" "Select a region to record"
-  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  dt=$(date '+%d-%m-%Y_%H:%M:%S')
   ffcast -q $(slop_geometry && countdown) rec /tmp/screenshot_gif.mp4
   notify-send "Screenshot" "Converting to gif... (this can take a while)"
   video_to_gif /tmp/screenshot_gif.mp4 "$screenshot_directory/$dt.gif"
@@ -83,7 +83,7 @@ record_region_file_gif() {
 
 record_screen_file_gif() {
   countdown
-  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  dt=$(date '+%d-%m-%Y_%H:%M:%S')
   ffcast -q rec /tmp/screenshot_gif.mp4
   notify-send "Screenshot" "Converting to gif... (this can take a while)"
   video_to_gif /tmp/screenshot_gif.mp4 "$screenshot_directory/$dt.gif"
@@ -93,14 +93,14 @@ record_screen_file_gif() {
 
 record_region_file_mp4() {
   notify-send "Screenshot" "Select a region to record"
-  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  dt=$(date '+%d-%m-%Y_%H:%M:%S')
   ffcast -q $(slop_geometry && countdown) rec "$screenshot_directory/$dt.mp4"
   notify-send "Screenshot" "Recording saved to $screenshot_directory"
 }
 
 record_screen_file_mp4() {
   countdown
-  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  dt=$(date '+%d-%m-%Y_%H:%M:%S')
   ffcast -q rec "$screenshot_directory/$dt.mp4"
   notify-send "Screenshot" "Recording saved to $screenshot_directory"
 }

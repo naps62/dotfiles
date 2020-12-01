@@ -90,7 +90,7 @@ set listchars+=trail:•
 set listchars+=extends:#
 set listchars+=nbsp:•
 
-set re=1
+set re=0
 
 " when editing a file, always jump to the last known cursor position
 " don't do it for commit messages, when the position is invalid, or when
