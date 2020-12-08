@@ -28,7 +28,7 @@ let g:ale_fixers = {
       \ 'javascript': [],
       \ 'elixir': ['mix_format'],
       \ 'solidity': [],
-      \ 'rust': ['rustfmt'],
+      \ 'rust': [],
       \ 'terraform': ['terraform'],
       \ 'css': ['prettier'],
       \ 'html': ['html-beautify'],

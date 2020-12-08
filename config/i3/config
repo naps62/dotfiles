@@ -228,7 +228,6 @@ for_window [class="notedown"] floating enable
 exec i3-msg 'exec alacritty'
 exec i3-msg 'exec dunst'
 exec i3-msg 'exec $BROWSER'
-exec i3-msg 'exec spotify'
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg

@@ -2,9 +2,10 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.colorSupport": true,
   "coc.preferences.rootPatterns": [".git", "package.json"],
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "ruby"],
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "ruby", "rust"],
 
-  "suggest.triggerAfterInsertEnter": true,
+  "suggest.autoTrigger":"trigger",
+  "suggest.triggerAfterInsertEnter": false,
 
   "diagnostic.errorSign": "💩",
   "diagnostic.hintSign": "→",
@@ -33,8 +34,6 @@
   "eslint.run": "onSave",
   "eslint.options": { "cache": true },
   "eslint.autoFixOnSave": true,
-
-  "rust.clippy_preference": "on",
 
   "solargraph.hover": true,
   "solargraph.diagnostics": true,

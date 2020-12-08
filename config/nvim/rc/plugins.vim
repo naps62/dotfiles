@@ -118,6 +118,11 @@ filetype plugin indent on
 let g:markdown_fenced_languages = ['elixir', 'sh', 'rust']
 
 "
+" delimitMate
+"
+let g:delimitMate_expand_cr = 2
+
+"
 " neoterm
 "
 let g:neoterm_size='70'

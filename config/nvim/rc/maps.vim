@@ -13,8 +13,8 @@ nmap <silent> <leader>q :q<CR>
 map <Tab> :b#<CR>
 
 " tab navigation
-" nnoremap <C-u> :tabprevious<CR>
-" nnoremap <C-i> :tabnext<CR>
+nnoremap <C-u> :tabprevious<CR>
+nnoremap <C-i> :tabnext<CR>
 
 " Ctrl-S save
 noremap  <C-s>      :update<CR>

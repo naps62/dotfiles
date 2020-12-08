@@ -36,6 +36,9 @@ highlight ALEStyleErrorSign ctermfg=red ctermbg=black
 highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
 highlight CocErrorFloat ctermfg=grey ctermbg=18
 
+" coc-rust-analyzer
+highlight CocRustChainingHint ctermfg=grey
+
 " example of customizing floating windows
 " hi Pmenu ctermfg=yellow ctermbg=black
 " hi Pmenu ctermfg=yellow ctermbg=235 gui=underline guifg=#bcbcbc guibg=#262626
