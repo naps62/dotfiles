@@ -15,8 +15,10 @@ def path_first_dir(path):
     return re.sub(r"\/.*$", "", path)
 
 def path_as_class_name(path, separator = "::", blacklist = [], prefix = None, suffix = None):
+    cwd = os.getcwd()
+    path = path.replace(cwd, '')
     path = path_without_extension(path)
-    path = re.sub(r"^_", "", path)
+    path = re.sub(r"^[/_]+", '', path)
     parts = path.split("/")
     uniq_parts = []
     if prefix:
