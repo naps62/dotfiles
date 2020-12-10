@@ -1,7 +1,7 @@
 augroup UltiSnips_custom
   autocmd!
   " autocmd User ProjectionistActivate silent! call skel#InsertSkeleton()
-  autocmd BufNewFile * silent! call skel#InsertSkeleton()
+  " autocmd BufNewFile * silent! call skel#InsertSkeleton()
 augroup END
 
 function s:try_insert(skel)
