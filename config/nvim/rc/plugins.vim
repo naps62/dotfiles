@@ -34,6 +34,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-vinegar'
+Plug 'wakatime/vim-wakatime'
 
 " Find & Replace
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

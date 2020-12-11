@@ -50,6 +50,24 @@
     foreground = "#9D5945"
     timeout = 0
 
+frame_color = "#d3d0c8"
+separator_color = "#d3d0c8"
+
+frame_color = "#d3d0c8"
+separator_color = "#d3d0c8"
+
+frame_color = "#d3d0c8"
+separator_color = "#d3d0c8"
+
+frame_color = "#d3d0c8"
+separator_color = "#d3d0c8"
+
+frame_color = "#d3d0c8"
+separator_color = "#d3d0c8"
+
+frame_color = "#d3d0c8"
+separator_color = "#d3d0c8"
+
 [base16_low]
     msg_urgency = low
     background = "#393939"
@@ -64,6 +82,3 @@
     msg_urgency = critical
     background = "#f2777a"
     foreground = "#e8e6df"
-
-frame_color = "#d3d0c8"
-separator_color = "#d3d0c8"
