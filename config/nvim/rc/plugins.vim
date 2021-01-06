@@ -62,6 +62,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf'
+Plug 'gabrielpoca/replacer.nvim'
 
 " Navigation
 Plug 'haya14busa/incsearch.vim'
@@ -258,6 +259,11 @@ let g:jsx_ext_required = 0
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=$HOME . '/utrust/platform/.lvimrc'
+
+"
+" vim-replacer
+"
+nmap <leader>h :lua require("replacer").run()<cr>
 
 "
 " lazy loading plugins

@@ -182,7 +182,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # lockscreen
 bindsym $mod+Delete exec ~/.bin/lockscreen
-exec xautolock -time 15 -locker '~/.bin/lockscreen' &
+# exec xautolock -time 15 -locker '~/.bin/lockscreen' &
 
 assign [class="UXTerm"] 1
 assign [class="Google-chrome"] 2

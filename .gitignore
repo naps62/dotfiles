@@ -29,9 +29,7 @@ config/*
 !config/mimeapps.list
 !config/tmux
 !config/proselint
-!config/spicetify/config.ini
-!config/spicetify/Extensions
-!config/spicetify/Themes/Midnight-Light
+!config/spicetify
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 

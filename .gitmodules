@@ -19,3 +19,6 @@
 [submodule "vendor/rofi-screenshot"]
 	path = vendor/rofi-screenshot
 	url = https://github.com/ceuk/rofi-screenshot
+[submodule "config/spicetify/Themes"]
+	path = config/spicetify/Themes
+	url = git://github.com/morpheusthewhite/spicetify-themes.git

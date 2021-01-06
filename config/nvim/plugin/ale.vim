@@ -23,7 +23,7 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \ 'ruby':  ['standardrb'],
+      \ 'ruby':  ['rubocop', 'standardrb'],
       \ 'typescript': [],
       \ 'javascript': [],
       \ 'elixir': ['mix_format'],

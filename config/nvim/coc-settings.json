@@ -38,7 +38,7 @@
   "solargraph.hover": true,
   "solargraph.diagnostics": true,
   "solargraph.formatting": false,
-  "solargraph.useBundler": true,
+  "solargraph.useBundler": false,
 
   "stylelintplus.enable": true,
   "stylelintplus.validateOnSave": true,
