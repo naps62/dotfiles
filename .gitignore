@@ -32,6 +32,8 @@ config/*
 !config/spicetify
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
+config/spicetify/Backup
+config/spicetify/Extracted
 
 xboomx/xboomx.db
 
