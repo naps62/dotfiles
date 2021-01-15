@@ -8,7 +8,7 @@
 ;=====================================================
 
 [colors]
-background 	= ${xrdb:color18}
+background 	= ${xrdb:color0}
 foreground 	= ${xrdb:color20}
 color0	= ${xrdb:color0}
 color1	= ${xrdb:color1}
