@@ -14,7 +14,7 @@ map <Tab> :b#<CR>
 
 " tab navigation
 nnoremap <C-y> :tabprevious<CR>
-nnoremap <C-u> :tabnext<CR>
+" nnoremap <C-u> :tabnext<CR>
 
 " Ctrl-S save
 noremap  <C-s>      :update<CR>

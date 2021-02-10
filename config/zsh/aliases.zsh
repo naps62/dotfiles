@@ -18,6 +18,7 @@ alias dc='docker-compose'
 alias d=docker
 alias g=hub
 alias h=heroku
+alias k=kubectl
 alias o=open
 alias r=rails
 alias v=nvim

@@ -196,7 +196,7 @@ bindsym $mod+Delete exec ~/.bin/lockscreen
 # exec xautolock -time 15 -locker '~/.bin/lockscreen' &
 
 assign [class="UXTerm"] 1
-assign [class="Google-chrome"] 2
+# assign [class="Google-chrome"] 2
 assign [class="Brave-browser"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
@@ -211,9 +211,11 @@ for_window [title="Add Torrents"] border normal
 
 # floating rules
 # floating_maximum_size 1280 x 1024
+for_window [title="pear"] floating enable, resize set 800 600
 for_window [class="feh"] floating enable
 for_window [class="polybar"] floating enable
 for_window [instance="crx_.*"] floating enable
+for_window [instance="pritunl"] floating enable
 for_window [class="Thunar"] floating enable, resize set 800 600, move position center
 for_window [class="Nautilus"] floating enable, resize set 800 600, move position center
 for_window [class="Todoist"] floating disable
@@ -243,7 +245,7 @@ exec i3-msg 'exec $BROWSER'
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk -l 41.5518:-8.4229
 
 # polybar
 exec_always i3-msg 'exec $HOME/.config/polybar/launch.sh'

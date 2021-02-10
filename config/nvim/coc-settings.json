@@ -2,7 +2,7 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.colorSupport": true,
   "coc.preferences.rootPatterns": [".git", "package.json"],
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "ruby", "rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "ruby", "rust", "json"],
 
   "suggest.autoTrigger":"trigger",
   "suggest.triggerAfterInsertEnter": false,
@@ -30,13 +30,12 @@
 
   "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
 
-  "eslint.enable": true,
   "eslint.run": "onSave",
   "eslint.options": { "cache": true },
   "eslint.autoFixOnSave": true,
 
   "solargraph.hover": true,
-  "solargraph.diagnostics": true,
+  /* "solargraph.diagnostics": true, */
   "solargraph.formatting": false,
   "solargraph.useBundler": false,
 

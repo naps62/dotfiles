@@ -4,7 +4,7 @@ float_term_name="_floating_term"
 
 _get_current_workspace() {
   i3-msg -t get_workspaces \
-  | jq '.[] | select(.focused==true).name' \
+  | jq '.[] | select(.focused==true).num' \
   | cut -d"\"" -f2
 }
 
@@ -18,19 +18,26 @@ _current_workspace_floating_term_id() {
 }
 
 if [ "`_floating_term_id`" -eq "" ]; then
+  echo "starting"
   # floating term does not exist. starting one
 
   unset TMUX
   export FLOATING_TMUX_SESSION=$float_term_name
   args="-c \"sleep 2; tmux attach-session -t $float_term_name || tmux new-session $float_term_name\""
-  alacritty --title $float_term_name --dimensions 120 30
+  alacritty --title $float_term_name --option window.dimensions.columns=120 --option window.dimensions.lines=30
 
-elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then
-  # floating term is not in the current workspace. moving it here
+# elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then
+#   # floating term is not in the current workspace. moving it here
+#   echo "moving"
+#   echo $float_term_name
+#   echo workspace: `_get_current_workspace`
+#   echo term_id: `_current_workspace_floating_term_id`
 
-  i3-msg "[title=\"$float_term_name\"] scratchpad show" > /dev/null
-  i3-msg "[title=\"$float_term_name\"] move position center" > /dev/null
+#   i3-msg "[title=\"$float_term_name\"] move scratchpad" > /dev/null
+#   i3-msg "[title=\"$float_term_name\"] scratchpad show" > /dev/null
+#   i3-msg "[title=\"$float_term_name\"] move position center" > /dev/null
 else
+  echo "hiding"
   # floating term is in current workspace. hiding it
 
   i3-msg "[title=\"$float_term_name\"] move scratchpad" > /dev/null

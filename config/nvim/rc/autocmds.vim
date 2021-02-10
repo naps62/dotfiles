@@ -16,6 +16,7 @@ augroup vim_rc_autocmds
   au BufNewFile,BufRead xmobarrc set filetype=haskell
   au BufNewFile,BufRead *.json.tpl set syntax=json
   au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+  au BufNewFile,BufRead *.asvc set filetype=json
 augroup END
 
 " remove trailing whitespaces on save,
