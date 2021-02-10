@@ -8,8 +8,8 @@
 #
 # fzf
 #
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.fzf.colors ] && source ~/.fzf.colors
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file $HOME/.config/ripgrep/ignore"
 
 #

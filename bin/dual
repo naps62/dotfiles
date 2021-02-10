@@ -37,13 +37,13 @@ end
 def dual_solaria(arg)
   case arg
   when "right-only"
-    "xrandr --output DisplayPort-0 --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0"
+    "xrandr --output DisplayPort-0 --off --output HDMI-A-0 --primary --mode 1920x1080 --scale 1.5x1.5 --pos 0x0"
   else
-    "xrandr --output HDMI-A-0 --mode 1920x1080 --right-of DisplayPort-0 --output DisplayPort-0 --mode 3840x2160 --pos 0x0"
+    "xrandr --output HDMI-A-0 --mode 1920x1080 --scale 1.5x1.5 --right-of DisplayPort-0 --output DisplayPort-0 --mode 3840x2160 --pos 0x0"
   end
 end
 
-cmd = case `hostname`.strip
+cmd = case `cat /etc/hostname`.strip
       when "giskard" then dual_giskard(ARGV[0])
       when "naps62subvisual" then dual_subvisual(ARGV[0])
       when "solaria" then dual_solaria(ARGV[0])
