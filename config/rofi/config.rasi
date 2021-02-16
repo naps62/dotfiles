@@ -1,0 +1,7 @@
+configuration {
+	separator-style: "solid";
+	color-normal: "#393939, #d3d0c8, #393939, #393939, #f2f0ec";
+	color-urgent: "#393939, #f2777a, #393939, #393939, #f2777a";
+	color-active: "#393939, #6699cc, #393939, #393939, #6699cc";
+	color-window: "#393939, #393939, #2d2d2d";
+}

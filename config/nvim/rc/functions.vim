@@ -106,3 +106,4 @@ function! FindDoc()
   let url = 'https://www.terraform.io/docs/providers/aws/r/'.word.'.html'
   silent exec '!open '.url
 endfunction
+

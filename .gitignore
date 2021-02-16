@@ -22,7 +22,7 @@ config/*
 !config/polybar
 !config/alacritty
 !config/fontconfig
-!config/compton
+!config/picom
 !config/feh
 !config/mpv
 !config/rofi

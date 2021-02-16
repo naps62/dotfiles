@@ -251,7 +251,7 @@ exec --no-startup-id redshift-gtk -l 41.5518:-8.4229
 exec_always i3-msg 'exec $HOME/.config/polybar/launch.sh'
 
 # compton
-exec i3-msg 'exec compton --config $HOME/.config/compton/compton.conf'
+exec i3-msg 'exec picom --config $HOME/.config/picom/picom.conf'
 
 # ability to toggle keyboard layout between US and PT
 exec --no-startup-id setxkbmap us,pt -option 'grp:alt_shift_toggle'

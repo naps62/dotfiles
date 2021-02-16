@@ -145,7 +145,17 @@ let g:qs_max_chars=80
 "
 " vim-test
 "
+function! DockerComposeTransform(cmd) abort
+  if !exists("g:docker_compose_service")
+    echo 'The ' . g:docker_compose_service . ' variable must be set to run this command.'
+    return
+  endif
+
+  return 'docker-compose exec ' . g:docker_compose_service . ' ' . a:cmd
+endfunction
+
 let test#strategy = 'neoterm'
+let g:test#custom_transformations = {'docker-compose': function('DockerComposeTransform')}
 
 map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>
@@ -258,7 +268,11 @@ let g:jsx_ext_required = 0
 "
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
-let g:localvimrc_whitelist=$HOME . '/utrust/platform/.lvimrc'
+let g:localvimrc_whitelist=[
+      \ $HOME . '/utrust/platform/.lvimrc',
+      \ $HOME . '/qonto/apps/qonto-api/.lvimrc'
+      \ ]
+
 
 "
 " vim-replacer

@@ -11,6 +11,7 @@ video/x-flv=mpv.desktop;
 application/pdf=zathura.desktop;
 image/gif=google-chrome.desktop;
 text/html=firefox.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop;
 
 [Default Applications]
 image/png=feh.desktop
@@ -31,3 +32,4 @@ x-scheme-handler/notedown=notedown.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/figma=figma-linux.desktop
 x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop

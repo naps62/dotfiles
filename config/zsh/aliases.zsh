@@ -14,7 +14,7 @@ alias b=bundle
 alias m=mix
 alias be='bundle exec'
 alias bc='bundle console'
-alias dc='docker-compose'
+alias c=docker-compose
 alias d=docker
 alias g=hub
 alias h=heroku
@@ -27,7 +27,6 @@ alias x=extract
 alias y=yay
 alias s=bin/server
 alias u=utrust
-alias c=bin/console
 alias l=leetcode
 
 # rust replacements

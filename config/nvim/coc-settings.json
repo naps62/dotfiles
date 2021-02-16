@@ -2,7 +2,7 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.colorSupport": true,
   "coc.preferences.rootPatterns": [".git", "package.json"],
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "ruby", "rust", "json"],
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "rust", "json"],
 
   "suggest.autoTrigger":"trigger",
   "suggest.triggerAfterInsertEnter": false,
