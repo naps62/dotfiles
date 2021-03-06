@@ -145,17 +145,7 @@ let g:qs_max_chars=80
 "
 " vim-test
 "
-function! DockerComposeTransform(cmd) abort
-  if !exists("g:docker_compose_service")
-    echo 'The ' . g:docker_compose_service . ' variable must be set to run this command.'
-    return
-  endif
-
-  return 'docker-compose exec ' . g:docker_compose_service . ' ' . a:cmd
-endfunction
-
 let test#strategy = 'neoterm'
-let g:test#custom_transformations = {'docker-compose': function('DockerComposeTransform')}
 
 map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>

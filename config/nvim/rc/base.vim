@@ -16,6 +16,9 @@ set laststatus=2
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set noerrorbells
 set clipboard=unnamedplus " X11 clipboard integration
+
+set shell=/bin/zsh
+
 map <Space> <leader>
 let maplocalleader = ','
 

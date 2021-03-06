@@ -74,3 +74,8 @@ if [ ! -f /tmp/xmodmap-ran ]; then
 	xmodmap ~/.Xmodmap
   touch /tmp/xmodmap-ran
 fi
+
+# if [[ -z $VIM ]] && [[ -z $VIMRUNTIME ]]; then
+#   export NAPS62_INSIDE_VIM=1
+# else
+

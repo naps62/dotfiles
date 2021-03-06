@@ -4,6 +4,7 @@ if (&t_Co > 2 || has('gui_running')) && !exists('syntax_on')
 endif
 
 let base16colorspace=256
+set t_Co=256
 
 " " color scheme
 set background=dark
@@ -24,13 +25,17 @@ highlight GitGutterChange ctermbg=black
 highlight GitGutterDelete ctermbg=black
 highlight GitGutterChangeDelete ctermbg=black
 
-" highlight ale
-highlight ALEError ctermfg=01 ctermbg=18
-highlight AleWarning ctermfg=blue ctermbg=black
-highlight ALEStyleWarningSign ctermfg=yellow ctermbg=black
-highlight ALEWarningSign ctermfg=yellow ctermbg=black
-highlight ALEErrorSign ctermfg=red ctermbg=black
-highlight ALEStyleErrorSign ctermfg=red ctermbg=black
+" highlights
+highlight Error ctermfg=yellow ctermbg=black
+highlight Todo ctermfg=red ctermbg=black
+highlight SpellCap ctermbg=black
+
+" ale (code)
+" highlight ALEError ctermfg=01 ctermbg=18
+highlight SpellBad ctermfg=1 ctermbg=237
+
+" highlight ALEError ctermfg=red ctermbg=black
+" highlight ALEStyleErrorSign ctermfg=red ctermbg=black
 
 " coc.nvim colors
 highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
