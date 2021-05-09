@@ -1,6 +1,6 @@
 [Added Associations]
-image/jpeg=feh.desktop;firefox.desktop;eog.desktop;gimp.desktop;
-image/png=gimp.desktop;firefox.desktop;firefox-bin.desktop;feh.desktop;
+image/jpeg=firefox.desktop;feh.desktop;eog.desktop;gimp.desktop;
+image/png=firefox.desktop;gimp.desktop;firefox-bin.desktop;feh.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
 application/x-mobipocket-ebook=calibre-gui.desktop;
@@ -33,3 +33,4 @@ x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/figma=figma-linux.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop

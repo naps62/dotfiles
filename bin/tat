@@ -15,8 +15,10 @@ not_in_tmux() {
 if not_in_tmux; then
   tmux new-session -As "$session_name"
 else
+  echo "here2"
   if ! session_exists; then
     (TMUX='' tmux new-session -Ad -s "$session_name")
   fi
+  echo "here3"
   tmux switch-client -t "$session_name"
 fi

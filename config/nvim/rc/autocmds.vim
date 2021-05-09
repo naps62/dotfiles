@@ -17,6 +17,7 @@ augroup vim_rc_autocmds
   au BufNewFile,BufRead *.json.tpl set syntax=json
   au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
   au BufNewFile,BufRead *.asvc set filetype=json
+  au BufNewFile,BufRead *.slimleex set filetype=slim
 augroup END
 
 " remove trailing whitespaces on save,

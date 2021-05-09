@@ -18,6 +18,7 @@ env_dir PATH $HOME/.local/bin
 env_dir PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH $HOME/.go/bin
+env_dir PATH ../.git/safe/../../node_modules/.bin # for yarn workspaces
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin

@@ -75,3 +75,4 @@ alias vim=nvim
 
 alias mypass="PASSWORD_STORE_DIR=~/.password-store-personal pass"
 alias utrustpass="PASSWORD_STORE_DIR=~/.password-store-utrust pass"
+alias htop="htop -u $USER"

@@ -11,6 +11,7 @@ augroup END
 function! s:setup() abort
   silent! call defx#custom#option('_', {
         \ 'columns': 'git:indent:icons:filename:type',
+        \ 'ignored_files': 'none'
         \ })
 endfunction
 

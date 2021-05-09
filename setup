@@ -32,7 +32,7 @@ rcup
 ##
 ## Setup crontab
 ##
-#sudo cp setup.d/files/cron.naps62 /var/spool/cron/naps62
+sudo cp setup.d/files/cron.naps62 /var/spool/cron/naps62
 
 ##
 ## Setup gllock

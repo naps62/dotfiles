@@ -15,10 +15,11 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-solargraph',
   \ 'coc-stylelintplus',
-  \ 'coc-snippets'
+  \ 'coc-snippets',
+  \ 'coc-jedi'
   \ ]
 
-let g:polyglot_disabled = ['typescript']
+" let g:polyglot_disabled = ['typescript']
 
 " Theme
 Plug 'altercation/vim-colors-solarized'
@@ -260,7 +261,8 @@ let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
       \ $HOME . '/utrust/platform/.lvimrc',
-      \ $HOME . '/qonto/apps/qonto-api/.lvimrc'
+      \ $HOME . '/qonto/apps/qonto-api/.lvimrc',
+      \ $HOME . '/subvisual/fractal/contracts/.lvimrc'
       \ ]
 
 

@@ -26,7 +26,7 @@ highlight GitGutterDelete ctermbg=black
 highlight GitGutterChangeDelete ctermbg=black
 
 " highlights
-highlight Error ctermfg=yellow ctermbg=black
+highlight Error ctermfg=red ctermbg=black
 highlight Todo ctermfg=red ctermbg=black
 highlight SpellCap ctermbg=black
 

@@ -2,7 +2,7 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.colorSupport": true,
   "coc.preferences.rootPatterns": [".git", "package.json"],
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "rust", "json"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "rust", "json"],
 
   "suggest.autoTrigger":"trigger",
   "suggest.triggerAfterInsertEnter": false,
@@ -28,7 +28,8 @@
     }
   },
 
-  "elixir.pathToElixirLS":"~/.elixir_ls/release/language_server.sh",
+
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
 
   "eslint.run": "onSave",
   "eslint.options": { "cache": true },
@@ -46,6 +47,6 @@
   "rust-analyzer.diagnostics.disabled": [
     "macro-error"
   ],
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-  "rust-analyzer.procMacro.enable": true
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.updates.channel": "nightly"
 }
