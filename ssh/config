@@ -8,7 +8,6 @@ ControlPersist yes
 
 IdentityFile ~/.ssh/id_rsa
 IdentityFile ~/.ssh/id_rsa.subvisual
-IdentityFile ~/.ssh/id_rsa.desktop
 IdentityFile ~/.ssh/id_rsa.utrust
 IdentityFile ~/.ssh/id_rsa.giskard
 
@@ -22,3 +21,9 @@ Host zee
 Host aur.archlinux.org
   IdentityFile ~/.ssh/aur
   User aur
+
+Host pi
+  IdentityFile ~/.ssh/id_rsa
+  User pi
+  Hostname 192.168.1.100
+  Port 22062

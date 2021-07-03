@@ -19,7 +19,7 @@ let g:coc_global_extensions = [
   \ 'coc-jedi'
   \ ]
 
-" let g:polyglot_disabled = ['typescript']
+let g:polyglot_disabled = ['solidity']
 
 " Theme
 Plug 'altercation/vim-colors-solarized'
@@ -87,6 +87,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 " Elixir
 Plug 'tpope/vim-endwise',    { 'for': ['ruby', 'elixir'] }
 Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'elixir-editors/vim-elixir'
 
 " HTML
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript', 'javascript.tsx', 'typescript.tsx'] }
@@ -94,6 +95,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'types
 " Other syntaxes
 Plug 'vim-scripts/SyntaxRange'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'tomlion/vim-solidity'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -262,6 +264,8 @@ let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
       \ $HOME . '/utrust/platform/.lvimrc',
       \ $HOME . '/qonto/apps/qonto-api/.lvimrc',
+      \ $HOME . '/qonto/apps/qonto-biller/.lvimrc',
+      \ $HOME . '/qonto/apps/qonto-pdf/.lvimrc',
       \ $HOME . '/subvisual/fractal/contracts/.lvimrc'
       \ ]
 

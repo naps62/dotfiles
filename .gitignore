@@ -30,6 +30,7 @@ config/*
 !config/tmux
 !config/proselint
 !config/spicetify
+!config/systemd/user/noisetorch.service
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 config/spicetify/Backup
