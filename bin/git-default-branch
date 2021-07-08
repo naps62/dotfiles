@@ -1,11 +1,3 @@
 #!/bin/bash -e
 
-root=$(git rev-parse --show-toplevel)
-
-repo_file=$root/.git/default_branch
-
-if [[ -f "$repo_file" ]]; then
-  cat $repo_file
-else
-  echo master
-fi
+git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'

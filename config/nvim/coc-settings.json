@@ -48,5 +48,10 @@
     "macro-error"
   ],
   "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.updates.channel": "nightly"
+  "rust-analyzer.updates.channel": "nightly",
+
+  "snippets.extends": {
+    "typescriptreact": ["typescript", "javascript"]
+  },
+  "snippets.userSnippetsDirectory":"~/.config/nvim/snippets"
 }
