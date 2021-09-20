@@ -26,7 +26,7 @@ let g:ale_fixers = {
       \ 'typescript': [],
       \ 'javascript': [],
       \ 'elixir': ['mix_format'],
-      \ 'solidity': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'solidity': ['remove_trailing_lines', 'trim_whitespace', 'prettier'],
       \ 'rust': [],
       \ 'terraform': ['terraform'],
       \ 'css': ['prettier'],

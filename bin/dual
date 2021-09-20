@@ -5,7 +5,7 @@ CONFIG_FILE = "~/.config/naps62-screen-setup".freeze
 def dual_subvisual(arg)
   puts "x#{arg}"
   case arg
-  when "vert", "vertical" then
+  when "vert", "vertical"
     "xrandr --output DVI-D-0 --mode 1920x1080 --rotate right --right-of HDMI-0 --mode 1920x1080"
   else
     "xrandr --output DVI-D-0 --mode 1920x1080 --rotate normal --right-of HDMI-0 --mode 1920x1080"
@@ -38,10 +38,10 @@ end
 
 def dual_solaria(arg)
   case arg
-  when "right-only"
-    "xrandr --output DisplayPort-0 --off --output HDMI-A-0 --primary --mode 1920x1080 --scale 1.5x1.5 --pos 0x0"
+  when "off"
+    "xrandr --output DisplayPort-0 --mode 3840x2160 --primary --pos 0x0 --output HDMI-A-0 --off"
   else
-    "xrandr --output HDMI-A-0 --mode 1920x1080 --scale 1.5x1.5 --right-of DisplayPort-0 --output DisplayPort-0 --mode 3840x2160 --pos 0x0"
+    "xrandr --output HDMI-A-0 --mode 1920x1080 --scale 1.4x1.4 --right-of DisplayPort-0 --output DisplayPort-0 --mode 3840x2160 --pos 0x0 --scale 0.9999x0.99999"
   end
 end
 
@@ -51,4 +51,5 @@ cmd = case `cat /etc/hostname`.strip
       when "solaria" then dual_solaria(ARGV[0])
 end
 
+puts cmd
 `#{cmd}`

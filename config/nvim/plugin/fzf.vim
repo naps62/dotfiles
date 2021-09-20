@@ -36,3 +36,12 @@ nnoremap <silent> <leader>co  :<C-u>CocFzfList outline<CR>
 nnoremap <silent> <leader>cs  :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <leader>cS  :<C-u>CocFzfList services<CR>
 nnoremap <silent> <leader>cp  :<C-u>CocFzfListResume<CR>
+
+"
+" easy-align
+"
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

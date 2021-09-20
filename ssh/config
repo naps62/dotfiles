@@ -24,6 +24,5 @@ Host aur.archlinux.org
 
 Host pi
   IdentityFile ~/.ssh/id_rsa
-  User pi
-  Hostname 192.168.1.100
-  Port 22062
+  User naps62
+  Hostname 192.168.31.100

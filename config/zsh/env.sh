@@ -25,6 +25,7 @@ env_dir PATH ./.git/safe/../../assets/node_modules/.bin
 env_dir PATH $HOME/utrust/cli/bin
 env_dir PATH $HOME/coverflex/cli/bin
 env_dir PATH $HOME/projects/zk/bin
+env_dir PATH $HOME/.local/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 

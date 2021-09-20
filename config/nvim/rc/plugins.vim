@@ -19,7 +19,7 @@ let g:coc_global_extensions = [
   \ 'coc-jedi'
   \ ]
 
-let g:polyglot_disabled = ['solidity']
+" let g:polyglot_disabled = ['solidity']
 
 " Theme
 Plug 'altercation/vim-colors-solarized'
@@ -64,6 +64,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf'
 Plug 'gabrielpoca/replacer.nvim'
+Plug 'junegunn/vim-easy-align'
 
 " Navigation
 Plug 'haya14busa/incsearch.vim'
@@ -95,7 +96,6 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'types
 " Other syntaxes
 Plug 'vim-scripts/SyntaxRange'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'tomlion/vim-solidity'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -159,8 +159,8 @@ map <leader>sl :TestLast<CR>
 " fugitive.vim (git wrapper)
 "
 set diffopt+=vertical
-map <leader>gs :Gstatus<CR>
-map <leader>gb :Gblame<CR>
+map <leader>gs :Git<CR>
+map <leader>gb :Git blame<CR>
 map <leader>gd :Gdiff<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gw :Gbrowse<CR>
