@@ -22,7 +22,6 @@ let g:coc_global_extensions = [
 " let g:polyglot_disabled = ['solidity']
 
 " Theme
-Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
 
@@ -97,6 +96,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'types
 Plug 'vim-scripts/SyntaxRange'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'sheerun/vim-polyglot'
+Plug 'TovarishFin/vim-solidity'
 
 call plug#end()
 filetype plugin indent on

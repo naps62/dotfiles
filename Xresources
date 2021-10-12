@@ -1,10 +1,6 @@
 Xcursor*theme:         Vanilla-DMZ-AA
 
-#ifdef SRVR_solaria
-  #define DPI 140
-#else
-  #define DPI 96
-#endif
+#define DPI 96
 
 Xft.dpi:       DPI
 Xft.antialias: 1

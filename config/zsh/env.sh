@@ -27,6 +27,9 @@ env_dir PATH $HOME/coverflex/cli/bin
 env_dir PATH $HOME/projects/zk/bin
 env_dir PATH $HOME/.local/bin
 
+# env_dir LUA_PATH /usr/local/share/lua/5.3
+export LUA_PATH="/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;/usr/local/lib/lua/5.3/?;;"
+
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
 [[ `uname -s` == "Darwin" ]] && export IS_MAC_OS=1

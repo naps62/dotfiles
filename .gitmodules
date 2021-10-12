@@ -22,3 +22,6 @@
 [submodule "config/spicetify/Themes"]
 	path = config/spicetify/Themes
 	url = git://github.com/morpheusthewhite/spicetify-themes.git
+[submodule "vendor/rofi-chrome"]
+	path = vendor/rofi-chrome
+	url = https://github.com/tcode2k16/rofi-chrome.git

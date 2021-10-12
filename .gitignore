@@ -31,6 +31,8 @@ config/*
 !config/proselint
 !config/spicetify
 !config/systemd/user/noisetorch.service
+!config/leftwm
+config/leftwm/themes/current
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac
 config/spicetify/Backup

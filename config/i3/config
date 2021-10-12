@@ -32,8 +32,8 @@ client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
  # Set inner/outer gaps
-gaps inner 10
-gaps outer 2
+gaps inner 2
+gaps outer 1
 smart_gaps on
 smart_borders on
 
@@ -57,15 +57,22 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 #
 # program launcher
-bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons -theme ~/.config/rofi/themes/launcher"
+# bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons -theme ~/.config/rofi/themes/launcher"
+bindsym Ctrl+space exec "~/.config/rofi/bin/apps.sh"
 # emoji
-bindsym $mod+space exec "rofimoji --rofi-args '-theme ~/.config/rofi/themes/emoji'"
+bindsym $mod+space exec "~/.config/rofi/bin/emojis.sh"
+
+bindsym $mod+p exec "~/.config/rofi/bin/windows.sh"
+bindsym $mod+t exec "~/.config/rofi/bin/browser-tabs.sh"
+
 # screenshot/record
-bindsym $mod+Insert exec "~/.bin/rofi-screenshot"
-bindsym $mod+Prior exec "~/.bin/rofi-screenshot --stop"
+bindsym $mod+Insert exec "~/.config/rofi/bin/screenshots.sh"
+bindsym $mod+Prior exec "~/.config/rofi/bin/screenshots.sh --stop"
 
 # toggle polybar
 bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"
+
+# window travel
 
 # change focus
 bindsym $mod+h focus left
@@ -177,19 +184,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec ~/.bin/volume --up
-bindsym XF86AudioLowerVolume exec ~/.bin/volume --down
-bindsym XF86AudioMute exec ~/.bin/volume --mute
+# bindsym XF86AudioRaiseVolume exec ~/.bin/volume --up
+# bindsym XF86AudioLowerVolume exec ~/.bin/volume --down
+# bindsym XF86AudioMute exec ~/.bin/volume --mute
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec ~/.bin/brightness --up
-bindsym XF86MonBrightnessDown exec ~/.bin/brightness --down
+# bindsym XF86MonBrightnessUp exec ~/.bin/brightness --up
+# bindsym XF86MonBrightnessDown exec ~/.bin/brightness --down
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # lockscreen
 bindsym $mod+Delete exec ~/.bin/lockscreen
