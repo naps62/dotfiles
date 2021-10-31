@@ -1,4 +1,4 @@
-imap <C-j> <Plug>(coc-snippets-expand)
+" imap <C-j> <Plug>(coc-snippets-expand)
 
 " " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)

@@ -1,0 +1,15 @@
+global !p
+from snippet_helpers_javascript import *
+endglobal
+
+snippet desc "Jasmine describe()"
+describe('$1', () => {
+	$2
+});
+endsnippet
+
+snippet it "Jasmine it()"
+it('$1', async () => {
+	$2
+});
+endsnippet
