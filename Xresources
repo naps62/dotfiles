@@ -10,6 +10,6 @@ Xft.hintstyle: hintnone
 Xft.lcdfilter: lcddefault
 
 #include "/home/naps62/.config/Xresources/uxterm"
-#include "/home/naps62/.config/Xresources/base16"
+#include "/home/naps62/.config/Xresources/base16/current"
 
 alsamixer*scrollBar:   false

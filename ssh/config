@@ -6,10 +6,7 @@ ControlMaster auto
 ControlPath /tmp/%r@%h:%p
 ControlPersist yes
 
-IdentityFile ~/.ssh/id_rsa
-IdentityFile ~/.ssh/id_rsa.subvisual
-IdentityFile ~/.ssh/id_rsa.utrust
-IdentityFile ~/.ssh/id_rsa.giskard
+IdentityFile ~/.ssh/id_ed25519
 
 #
 # Subvisual apps

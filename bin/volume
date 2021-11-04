@@ -1,28 +1,37 @@
 #!/bin/bash
 
+sink=$(pactl get-default-sink)
+
 function notify {
-  volume=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')
-  dunstify --replace=626262 --timeout=3000 "Volume" $volume
+  volume=$(pactl get-sink-volume $sink | awk '{ print $5 }')
+  muted=$(pactl get-sink-mute $sink | awk '{ print $2 }')
+
+  if [[ $muted == "yes" ]]; then
+    msg="$volume (muted)"
+  else
+    msg="$volume"
+  fi
+  dunstify --replace=626262 --timeout=3000 "Volume" -h int:value:$volume
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --up)
-      amixer -q set Master 5%+ unmute
+      pactl set-sink-volume $sink +5%
       notify
       shift
       shift
       ;;
 
     --down)
-      amixer -q set Master 5%- unmute
+      pactl set-sink-volume $sink -5%
       notify
       shift
       shift
       ;;
 
     --mute)
-      amixer -q set Master toggle
+      pactl set-sink-mute $sink toggle
       notify
       shift
       shift

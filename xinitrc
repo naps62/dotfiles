@@ -7,7 +7,7 @@
 # xmodmap $HOME/.Xmodmap
 
 # start session
-#DEFAULTSESSION=i3
+DEFAULTSESSION=leftwm
 #case "$1" in
 #  awesome) exec awesome ;;
 #  gnome-session)  exec gnome-session ;;

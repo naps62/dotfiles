@@ -32,6 +32,9 @@ config/*
 !config/spicetify
 !config/systemd/user/noisetorch.service
 !config/leftwm
+!config/starship
+!config/dark-mode.d/
+!config/light-mode.d/
 config/leftwm/themes/current
 config/nvim/.netrwhist
 config/dunst/dunstrc.bac

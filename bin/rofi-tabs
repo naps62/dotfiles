@@ -1,7 +1,0 @@
-#!/bin/sh
-
-rofi \
-  -theme ~/.config/rofi/themes/tabs \
-  -i -fuzzy -p "Windows" \
-  -modi brotab:~/.config/rofi/brotab_modi.lua \
-  -show brotab

@@ -11,7 +11,7 @@ video/x-flv=mpv.desktop;
 application/pdf=firefox.desktop;zathura.desktop;
 image/gif=google-chrome.desktop;
 text/html=firefox.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop;userapp-Telegram Desktop-Z84S30.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop;userapp-Telegram Desktop-Z84S30.desktop;userapp-Telegram Desktop-YYR6B1.desktop;
 
 [Default Applications]
 image/png=feh.desktop
@@ -32,5 +32,5 @@ x-scheme-handler/notedown=notedown.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/figma=figma-linux.desktop
 x-scheme-handler/msteams=teams.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-Z84S30.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-YYR6B1.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop

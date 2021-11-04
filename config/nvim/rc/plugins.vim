@@ -24,6 +24,7 @@ let g:coc_global_extensions = [
 " Theme
 Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " UI Features
 " Plug 'nvim-treesitter/nvim-treesitter'
@@ -173,6 +174,7 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
+  \ 'colorscheme': 'PaperColor',
   \ 'separator': { 'left': '', 'right': '' },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],

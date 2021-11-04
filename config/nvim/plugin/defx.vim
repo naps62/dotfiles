@@ -70,7 +70,7 @@ function! DefxOpen()
 endfunction
 
 function! DefxFind()
-  call s:floating_defx('-search=' . expand('%:p'))
+  call s:floating_defx('-search-recursive=' . expand('%:p'))
 endfunction
 
 function s:floating_defx(args)

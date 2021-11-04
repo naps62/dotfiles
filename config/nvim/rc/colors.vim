@@ -3,13 +3,11 @@ if (&t_Co > 2 || has('gui_running')) && !exists('syntax_on')
   syntax on
 endif
 
-let base16colorspace=256
 set t_Co=256
 
 " " color scheme
-set background=dark
-
-colorscheme base16-eighties
+set background=light
+colorscheme PaperColor
 
 " SignColumn with same color as line column
 highlight clear SignColumn
@@ -19,30 +17,26 @@ set cursorline
 set cursorcolumn
 
 " vim-gitgutter bg color
-highlight SignColumn ctermbg=black
-highlight GitGutterAdd ctermbg=black
-highlight GitGutterChange ctermbg=black
-highlight GitGutterDelete ctermbg=black
-highlight GitGutterChangeDelete ctermbg=black
+" highlight SignColumn ctermbg=black
+" highlight GitGutterAdd ctermbg=black
+" highlight GitGutterChange ctermbg=black
+" highlight GitGutterDelete ctermbg=black
+" highlight GitGutterChangeDelete ctermbg=black
 
 " highlights
-highlight Error ctermfg=red ctermbg=black
-highlight Todo ctermfg=red ctermbg=black
-highlight SpellCap ctermbg=black
+" highlight Error ctermfg=red ctermbg=black
+" highlight Todo ctermfg=red ctermbg=black
+" highlight SpellCap ctermbg=black
 
 " ale (code)
-" highlight ALEError ctermfg=01 ctermbg=18
-highlight SpellBad ctermfg=1 ctermbg=237
-
-" highlight ALEError ctermfg=red ctermbg=black
-" highlight ALEStyleErrorSign ctermfg=red ctermbg=black
+" highlight SpellBad ctermfg=1 ctermbg=237
 
 " coc.nvim colors
-highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
-highlight CocErrorFloat ctermfg=grey ctermbg=18
+" highlight CocErrorHighlight cterm=underline ctermfg=01 ctermbg=18
+" highlight CocErrorFloat ctermfg=grey ctermbg=18
 
 " coc-rust-analyzer
-highlight CocRustChainingHint ctermfg=grey
+" highlight CocRustChainingHint ctermfg=grey
 
 " example of customizing floating windows
 " hi Pmenu ctermfg=yellow ctermbg=black
@@ -54,22 +48,13 @@ highlight CocRustChainingHint ctermfg=grey
 " highlight Warning ctermfg=yellow ctermbg=black
 
 " line number column to match text bg
-highlight LineNr ctermfg=darkgrey ctermbg=black
+" highlight LineNr ctermfg=darkgrey ctermbg=black
 
 " search highligh
-highlight Search ctermbg=darkgrey ctermfg=black
+" highlight Search ctermbg=darkgrey ctermfg=black
 
 " spellchecker
 highlight SpellBad cterm=NONE
-
-
-function! TweakBase16()
-  " Override the diff-mode highlights of base16.
-  highlight DiffAdd    term=bold ctermfg=0 ctermbg=2 guifg=#2b2b2b guibg=#a5c261
-  highlight DiffDelete term=bold ctermfg=0 ctermbg=1 gui=bold guifg=#2b2b2b guibg=#da4939
-  highlight DiffChange term=bold ctermfg=0 ctermbg=4 guifg=#2b2b2b guibg=#6d9cbe
-  highlight DiffText   term=reverse cterm=bold ctermfg=0 ctermbg=4 gui=bold guifg=#2b2b2b guibg=#6d9cbe
-endfunction
 
 function! SynStack()
   if !exists("*synstack")
