@@ -6,7 +6,7 @@ endif
 set t_Co=256
 
 " " color scheme
-set background=light
+set background=dark
 colorscheme PaperColor
 
 " SignColumn with same color as line column

@@ -348,4 +348,4 @@ themes:
       cyan: "#66cccc"
       white: "#f2f0ec"
 
-colors: *theme_light
+colors: *theme_dark

@@ -109,7 +109,4 @@ set ttimeoutlen=50
 
 set updatetime=2000
 
-" automatically rebalance windows on vim resize
-augroup vim_rc_rebalance_size
-  autocmd VimResized * :wincmd =
-augroup END
+set noequalalways

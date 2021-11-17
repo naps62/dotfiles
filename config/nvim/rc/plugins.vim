@@ -19,7 +19,7 @@ let g:coc_global_extensions = [
   \ 'coc-jedi'
   \ ]
 
-" let g:polyglot_disabled = ['solidity']
+let g:polyglot_disabled = ['solidity']
 
 " Theme
 Plug 'chriskempson/base16-vim'
@@ -45,8 +45,9 @@ Plug 'stefandtw/quickfix-reflector.vim'
 
 
 " Unit testing
-Plug 'janko-m/vim-test', { 'on': ['TestFile', 'TestLast', 'TestNearest', 'TestSuite', 'TestVisit'] }
+Plug 'vim-test/vim-test'
 Plug 'kassio/neoterm'
+Plug 'skywind3000/asyncrun.vim'
 
 " Editor features
 Plug 'tpope/vim-surround'
@@ -107,10 +108,10 @@ filetype plugin indent on
 "
 " lua <<EOF
 " require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "all",     -- one of "all", "language", or a list of languages
+" ensure_installed = {"javascript"},     -- one of "all", "language", or a list of languages
 "   highlight = {
 "     enable = true,              -- false will disable the whole extension
-"     disable = { "typescript", "javascript" },  -- list of language that will be disabled
+"     disable = {},  -- list of language that will be disabled
 "   },
 "   refactor = {
 "     highlight_definitions = { enable = true },
@@ -149,12 +150,16 @@ let g:qs_max_chars=80
 "
 " vim-test
 "
-let test#strategy = 'neoterm'
+let test#strategy = 'shtuff'
+let g:shtuff_receiver = 'scratchpad'
+
+let test#custom_runners = {'typescript': ['hardhat']}
 
 map <leader>sr :TestSuite<CR>
 map <leader>ss :TestNearest<CR>
 map <leader>sf :TestFile<CR>
 map <leader>sl :TestLast<CR>
+map <leader>sv :TestVisit<CR>
 
 "
 " fugitive.vim (git wrapper)
@@ -265,12 +270,9 @@ let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
       \ $HOME . '/utrust/platform/.lvimrc',
-      \ $HOME . '/qonto/apps/qonto-api/.lvimrc',
-      \ $HOME . '/qonto/apps/qonto-biller/.lvimrc',
-      \ $HOME . '/qonto/apps/qonto-pdf/.lvimrc',
-      \ $HOME . '/subvisual/fractal/contracts/.lvimrc'
+      \ $HOME . '/subvisual/fractal/contracts/.lvimrc',
+      \ $HOME . '/sandclock/ethereum-vaults/.lvimrc'
       \ ]
-
 
 "
 " vim-replacer

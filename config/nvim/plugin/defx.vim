@@ -18,8 +18,8 @@ endfunction
 "
 " global mappings
 "
-nnoremap <silent><C-n> :call DefxOpen()<CR>
-nnoremap <silent><C-m> :call DefxFind()<CR>
+nnoremap <silent> <C-n> :call DefxOpen()<CR>
+nnoremap <silent> <C-N> :call DefxFind()<CR>
 
 "
 " defx buffer mappings

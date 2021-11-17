@@ -15,6 +15,7 @@ augroup vim_rc_autocmds
   au BufNewFile,BufRead *.less.partial set filetype=less
   au BufNewFile,BufRead xmobarrc set filetype=haskell
   au BufNewFile,BufRead *.json.tpl set syntax=json
+  au BufNewFile,BufRead *.ts set filetype=typescript
   au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
   au BufNewFile,BufRead *.asvc set filetype=json
   au BufNewFile,BufRead *.slimleex set filetype=slim

@@ -2,6 +2,34 @@ global !p
 from snippet_helpers_javascript import *
 endglobal
 
+snippet solspec "Solidity spec file"
+import { ethers } from "hardhat"
+import { expect } from "chai";
+
+import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
+import type { $1 } from "@root/typechain";
+
+const { parseUnits } = ethers.utils;
+
+describe("$1", () => {
+  let owner: SignerWithAddress;
+  let alice: SignerWithAddress;
+  let bob: SignerWithAddress;
+
+  let $2: $1;
+
+  beforeEach(async () => {
+    [owner, alice, bob] = await ethers.getSigners();
+
+    let $1 = await ethers.getContractFactory("$1");
+
+    $2 = await $1.deploy($3);
+  });
+
+  $4
+});
+endsnippet
+
 snippet desc "Jasmine describe()"
 describe('$1', () => {
 	$2

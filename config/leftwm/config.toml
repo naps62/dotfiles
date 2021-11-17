@@ -1,12 +1,12 @@
 modkey = "Mod4"
 mousekey = "Mod4"
 # workspaces = []
-tags = ["web", "term", "web2", "chat1", "chat2", "chat3"]
+tags = ["web", "term", "info", "chat1", "chat2", "spotify"]
 # tags = ["1", "2", "3", "4", "work", "chat"]
 layouts = ["CenterMainBalanced", "EvenVertical"]
 # layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"]
 scratchpad = []
-disable_current_tag_swap = true
+disable_current_tag_swap = false
 focus_behaviour = "Sloppy"
 focus_new_windows = true
 max_window_width = 3072
