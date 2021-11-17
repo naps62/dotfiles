@@ -1,5 +1,5 @@
 if !exists('g:test#typescript#hardhat#file_pattern')
-  let g:test#typescript#hardhat#file_pattern = '\v\.test\.ts$'
+  let g:test#typescript#hardhat#file_pattern = '\v\.ts$'
 endif
 
 " Returns true if the given file belongs to your test runner
