@@ -1,6 +1,5 @@
 #!/bin/sh -ue
 
-
 mode=$1
 
 state=$(leftwm-state --quit)
@@ -13,8 +12,6 @@ dir=$HOME/.config/leftwm/state
 sum=$(($w0 + $w1 + $w2))
 
 echo -e "$w0\n$w1\n$w2" > $dir/current.state
-echo -e "$w0\n$w1\n$w2"
-
 
 if [[ ! -f $dir/work.state ]]; then
   echo -e "0\n1\n2" > $dir/work.state
@@ -41,5 +38,16 @@ case $mode in
   chat)
     apply_state "$dir/chat.state"
     ln -sf $dir/chat.state $dir/current.state
+    ;;
+  swap)
+    if readlink "$dir/current.state" | grep "work.state" > /dev/null; then
+      # got to chat
+      apply_state "$dir/chat.state"
+      ln -sf $dir/chat.state $dir/current.state
+    else
+      # got to work
+      apply_state "$dir/work.state"
+      ln -sf $dir/work.state $dir/current.state
+    fi
     ;;
 esac

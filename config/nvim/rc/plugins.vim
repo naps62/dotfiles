@@ -272,6 +272,7 @@ let g:localvimrc_whitelist=[
       \ $HOME . '/utrust/platform/.lvimrc',
       \ $HOME . '/subvisual/fractal/contracts/.lvimrc',
       \ $HOME . '/sandclock/ethereum-vaults/.lvimrc'
+      \ $HOME . '/subvisual/nft/.lvimrc'
       \ ]
 
 "

@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+tmux attach-session -t scratchpad || tmux new -s scratchpad
