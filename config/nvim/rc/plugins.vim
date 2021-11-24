@@ -19,7 +19,7 @@ let g:coc_global_extensions = [
   \ 'coc-jedi'
   \ ]
 
-let g:polyglot_disabled = ['solidity']
+let g:polyglot_disabled = ['solidity', 'markdown']
 
 " Theme
 Plug 'chriskempson/base16-vim'
@@ -271,7 +271,7 @@ let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
       \ $HOME . '/utrust/platform/.lvimrc',
       \ $HOME . '/subvisual/fractal/contracts/.lvimrc',
-      \ $HOME . '/sandclock/ethereum-vaults/.lvimrc'
+      \ $HOME . '/sandclock/ethereum-vaults/.lvimrc',
       \ $HOME . '/subvisual/nft/.lvimrc'
       \ ]
 

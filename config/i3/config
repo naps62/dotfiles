@@ -184,9 +184,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec ~/.bin/volume --up
-# bindsym XF86AudioLowerVolume exec ~/.bin/volume --down
-# bindsym XF86AudioMute exec ~/.bin/volume --mute
+bindsym XF86AudioRaiseVolume exec ~/.bin/volume --up
+bindsym XF86AudioLowerVolume exec ~/.bin/volume --down
+bindsym XF86AudioMute exec ~/.bin/volume --mute
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec ~/.bin/brightness --up
