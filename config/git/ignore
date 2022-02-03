@@ -104,6 +104,7 @@ __pycache__
 dump.rdb
 
 .lvimrc
+.vim
 
 *.ignore
 

@@ -1,6 +1,5 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.colorSupport": true,
   "coc.preferences.rootPatterns": [".git", "package.json"],
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "rust", "json"],
 
@@ -33,12 +32,8 @@
 
   "eslint.run": "onSave",
   "eslint.options": { "cache": true },
-  "eslint.autoFixOnSave": true,
-
-  "solargraph.hover": true,
-  /* "solargraph.diagnostics": true, */
-  "solargraph.formatting": false,
-  "solargraph.useBundler": false,
+  "eslint.autoFixOnSave": false,
+  "eslint.probe": ["solidity"],
 
   "stylelintplus.enable": true,
   "stylelintplus.validateOnSave": true,

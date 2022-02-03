@@ -13,7 +13,7 @@ endfunction
 
 " Returns test runner's arguments which will run the current file and/or line
 function! test#typescript#hardhat#build_position(type, position) abort
-  let default = ['--require', 'ts-node/register', '--require', 'hardhat/register']
+  let default = []
   if a:type ==# 'nearest'
     let name = s:nearest_test(a:position)
     if !empty(name)
@@ -47,11 +47,7 @@ endfunction
 
 " Returns the executable of your test runner
 function! test#typescript#hardhat#executable()
-  if filereadable('node_modules/.bin/hardhat')
-    return 'node_modules/.bin/mocha'
-  else
-    return 'mocha'
-  endif
+  return 'npm run compile && npx mocha --require ts-node/register --require hardhat/register --timeout 10000'
 endfunction
 
 function! s:nearest_test(position) abort

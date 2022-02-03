@@ -22,8 +22,8 @@ env_dir PATH ../.git/safe/../../node_modules/.bin # for yarn workspaces
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH ./.git/safe/../../assets/node_modules/.bin
-env_dir PATH $HOME/utrust/cli/bin
-env_dir PATH $HOME/coverflex/cli/bin
+env_dir PATH "../.git/safe/../../*/node_modules/.bin"
+env_dir PATH "../../.git/safe/../../packages/contracts/node_modules/.bin"
 env_dir PATH $HOME/projects/zk/bin
 env_dir PATH $HOME/.local/bin
 
@@ -40,7 +40,7 @@ export LC_CTYPE=en_US.utf-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 export BROWSER=/usr/bin/firefox
-export TERMINAL=uxterm
+export TERMINAL=/usr/bin/alacritty
 export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;34:dsc=0:other=1;35"
 export NVM_DIR=/home/naps62/.nvm

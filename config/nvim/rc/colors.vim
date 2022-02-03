@@ -5,9 +5,11 @@ endif
 
 set t_Co=256
 
+
 " " color scheme
 set background=dark
-colorscheme PaperColor
+let base16colorspace=256
+colorscheme base16-eighties
 
 " SignColumn with same color as line column
 highlight clear SignColumn

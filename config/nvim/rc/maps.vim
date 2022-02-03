@@ -35,6 +35,9 @@ inoremap <C-e> <C-o>$
 
 nmap <leader>d :call FindDoc()<CR>
 
+nmap <leader>f :copen<CR>
+nnoremap <silent> <leader>f :call ToggleQuickFix()<cr>
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 

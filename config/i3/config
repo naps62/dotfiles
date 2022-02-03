@@ -32,8 +32,8 @@ client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
  # Set inner/outer gaps
-gaps inner 2
-gaps outer 1
+gaps inner 0
+gaps outer 0
 smart_gaps on
 smart_borders on
 
@@ -58,9 +58,9 @@ bindsym $mod+Shift+q kill
 #
 # program launcher
 # bindsym Ctrl+space exec "rofi -modi drun,window -show drun -show-icons -theme ~/.config/rofi/themes/launcher"
-bindsym Ctrl+space exec "~/.config/rofi/bin/apps.sh"
+bindsym $mod+space exec "~/.config/rofi/bin/apps.sh"
 # emoji
-bindsym $mod+space exec "~/.config/rofi/bin/emojis.sh"
+# bindsym $modexec "~/.config/rofi/bin/emojis.sh"
 
 bindsym $mod+p exec "~/.config/rofi/bin/windows.sh"
 bindsym $mod+t exec "~/.config/rofi/bin/browser-tabs.sh"
@@ -70,7 +70,7 @@ bindsym $mod+Insert exec "~/.config/rofi/bin/screenshots.sh"
 bindsym $mod+Prior exec "~/.config/rofi/bin/screenshots.sh --stop"
 
 # toggle polybar
-bindsym $mod+b exec "/home/naps62/.bin/polybar-toggle"
+bindsym $mod+b exec "polybar-msg cmd toggle"
 
 # window travel
 
@@ -193,17 +193,17 @@ bindsym XF86AudioMute exec ~/.bin/volume --mute
 # bindsym XF86MonBrightnessDown exec ~/.bin/brightness --down
 
 # Media player controls
-# bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioPause exec playerctl pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # lockscreen
 bindsym $mod+Delete exec ~/.bin/lockscreen
 # exec xautolock -time 15 -locker '~/.bin/lockscreen' &
 
 assign [class="UXTerm"] 1
-# assign [class="Google-chrome"] 2
+assign [class="Google-chrome"] 2
 assign [class="Brave-browser"] 2
 assign [class="Slack"] 3
 assign [class="Spotify"] 4
@@ -245,9 +245,9 @@ for_window [class="ffplay"] floating enable
 for_window [class="notedown"] floating enable
 # for_window [class="firefox" window_role="WebRTCGlobalIndicator"] move position top right
 
-exec i3-msg 'exec alacritty'
+# exec i3-msg 'exec alacritty'
+# exec i3-msg 'exec $BROWSER'
 exec i3-msg 'exec dunst'
-exec i3-msg 'exec $BROWSER'
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale $HOME/.wallpaper.jpg

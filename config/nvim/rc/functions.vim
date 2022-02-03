@@ -107,3 +107,11 @@ function! FindDoc()
   silent exec '!open '.url
 endfunction
 
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+

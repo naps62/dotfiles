@@ -10,6 +10,7 @@ let $FZF_DEFAULT_OPTS='--layout=reverse --bind ctrl-a:select-all'
 
 nmap <C-p> :FzfFiles<CR>
 nmap <C-f> :FzfRg<CR>
+nmap <C-g> :FzfBuffers<CR>
 
 " CTRL-A CTRL-Q to select all and build quickfix list
 function! s:build_quickfix_list(lines)

@@ -69,6 +69,7 @@ tray-background = ${colors.background}
 
 ; override-redirect = true
 wm-restack = i3
+enable-ipc = true
 
 [module/xwindow]
 type = internal/xwindow

@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 
-# _not_inside_tmux() {
-#   [[ -z "$TMUX" ]]
-# }
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
 
-# _not_inside_ssh() {
-#   [[ -z "$SSH_CLIENT" ]]
-# }
+_not_inside_ssh() {
+  [[ -z "$SSH_CLIENT" ]]
+}
 
-# _tmux_not_disabled() {
-#   [[ -z "$NO_TMUX" ]]
-# }
+_tmux_not_disabled() {
+  [[ -z "$NO_TMUX" ]]
+}
 
 # _in_floating_term() {
 #   [[ ! -z "$FLOATING_TMUX_SESSION" ]]
 # }
 
-# _in_scratchpad() {
-#   [[ ! -z "$SCRATCHPAD" ]]
-# }
+_in_scratchpad() {
+  [[ ! -z "$SCRATCHPAD" ]]
+}
 
 # if _in_scratchpad; then
 #   tmux attach-session -t scratchpad || tmux new -s scratchpad
 # if _in_floating_term; then
 #   tmux attach-session -t $FLOATING_TMUX_SESSION || tmux new -s $FLOATING_TMUX_SESSION
-# elif _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
-#   ~/.bin/tat
-# fi
+if _not_inside_tmux && _not_inside_ssh && _tmux_not_disabled; then
+  ~/.bin/tat
+fi

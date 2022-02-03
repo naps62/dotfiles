@@ -24,7 +24,7 @@ let g:polyglot_disabled = ['solidity', 'markdown']
 " Theme
 Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 
 " UI Features
 " Plug 'nvim-treesitter/nvim-treesitter'
@@ -99,6 +99,8 @@ Plug 'vim-scripts/SyntaxRange'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'sheerun/vim-polyglot'
 Plug 'TovarishFin/vim-solidity'
+" Plug 'miguelmota/cairo.vim'
+Plug 'starkware-libs/cairo-lang', { 'rtp': 'src/starkware/cairo/lang/ide/vim' }
 
 call plug#end()
 filetype plugin indent on
@@ -150,8 +152,7 @@ let g:qs_max_chars=80
 "
 " vim-test
 "
-let test#strategy = 'shtuff'
-let g:shtuff_receiver = 'scratchpad'
+let test#strategy = 'neoterm'
 
 let test#custom_runners = {'typescript': ['hardhat']}
 
@@ -160,6 +161,15 @@ map <leader>ss :TestNearest<CR>
 map <leader>sf :TestFile<CR>
 map <leader>sl :TestLast<CR>
 map <leader>sv :TestVisit<CR>
+
+"
+" asyncrunc
+"
+let g:asyncrun_open = 8
+
+" augroup vimrc
+"     autocmd QuickFixCmdPost * botright copen 8
+" augroup END
 
 "
 " fugitive.vim (git wrapper)
@@ -269,16 +279,20 @@ let g:jsx_ext_required = 0
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
-      \ $HOME . '/utrust/platform/.lvimrc',
-      \ $HOME . '/subvisual/fractal/contracts/.lvimrc',
-      \ $HOME . '/sandclock/ethereum-vaults/.lvimrc',
       \ $HOME . '/subvisual/nft/.lvimrc'
+      \ $HOME . '/sandclock/solidity-contracts/.lvimrc',
+      \ $HOME . '/lightshift/ichi/ichi-oneToken/.lvimrc',
       \ ]
 
 "
 " vim-replacer
 "
 nmap <leader>h :lua require("replacer").run()<cr>
+
+"
+" cairo.vim
+"
+let g:cairo_linter_autosave = 1
 
 "
 " lazy loading plugins
