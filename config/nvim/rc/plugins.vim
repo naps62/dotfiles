@@ -281,7 +281,7 @@ let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
       \ $HOME . '/subvisual/nft/.lvimrc'
       \ $HOME . '/sandclock/solidity-contracts/.lvimrc',
-      \ $HOME . '/lightshift/ichi/ichi-oneToken/.lvimrc',
+      \ $HOME . '/lightshift/ichi/ichi-oneToken/.lvimrc'
       \ ]
 
 "
