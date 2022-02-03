@@ -279,7 +279,7 @@ let g:jsx_ext_required = 0
 let g:localvimrc_ask = 0
 let g:localvimrc_sandbox = 1
 let g:localvimrc_whitelist=[
-      \ $HOME . '/subvisual/nft/.lvimrc'
+      \ $HOME . '/subvisual/nft/.lvimrc',
       \ $HOME . '/sandclock/solidity-contracts/.lvimrc',
       \ $HOME . '/lightshift/ichi/ichi-oneToken/.lvimrc'
       \ ]
