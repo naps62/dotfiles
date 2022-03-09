@@ -15,7 +15,7 @@ end
 def dual_giskard(arg)
   case arg
   when "off"
-    "xrandr --output DP1 --off"
+    "xrandr --output DP1 --off --output DP2 --off"
   when "1080"
     "xrandr --output eDP1 --primary --mode 1920x1080 --right-of DP1 --output DP1 --mode 1920x1080 --pos 0x0"
   when "4k"
@@ -33,10 +33,10 @@ def dual_giskard(arg)
   when "lambo"
     "xrandr --output eDP1 --primary --mode 1920x1080 --output DP1 --mode 1920x1080 --above eDP1"
   when "eth"
-    # "xrandr --output eDP1 --primary --mode 1920x1080 --pos 320x1440 --output DP1 --mode 1920x1080 --pos 0x0"
     "xrandr --output eDP1 --primary --mode 1920x1080 --right-of DP1 --output DP1 --mode 1344x768 --pos 0x0"
+  when "dp2"
+    "xrandr --output eDP1 --primary --mode 1920x1080 --below DP2 --output DP2 --mode 1920x1080 --pos 0x0"
   else
-    # "xrandr --output eDP1 --primary --mode 1920x1080 --pos 320x1440 --output DP1 --mode 1920x1080 --pos 0x0"
     "xrandr --output eDP1 --primary --mode 1920x1080 --right-of DP1 --output DP1 --mode 1920x1080 --pos 0x0"
   end
 end

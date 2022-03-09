@@ -99,13 +99,9 @@ Plug 'vim-scripts/SyntaxRange'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'sheerun/vim-polyglot'
 Plug 'TovarishFin/vim-solidity'
-<<<<<<< Updated upstream
 " Plug 'miguelmota/cairo.vim'
 Plug 'starkware-libs/cairo-lang', { 'rtp': 'src/starkware/cairo/lang/ide/vim' }
-||||||| constructed merge base
-=======
 Plug 'starkware-libs/cairo-lang', { 'rtp': 'src/starkware/cairo/lang/ide/vim' }
->>>>>>> Stashed changes
 
 call plug#end()
 filetype plugin indent on
