@@ -5,3 +5,4 @@ augroup markdown
   autocmd! BufRead,BufNewFile *.md setlocal textwidth=80
 augroup END
 
+vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>

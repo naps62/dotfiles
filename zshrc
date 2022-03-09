@@ -22,3 +22,6 @@ if [[ -z $VIM ]]; then
   eval "$(starship init zsh)"
 fi
 [ -f ~/.fzf.colors ] && source ~/.fzf.colors
+
+if [ -e /home/naps62/.nix-profile/etc/profile.d/nix.sh ]; then . /home/naps62/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+

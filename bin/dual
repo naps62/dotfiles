@@ -43,10 +43,10 @@ end
 
 def dual_solaria(arg)
   case arg
-  when "off"
-    "xrandr --output DisplayPort-0 --mode 3840x2160 --primary --pos 0x0 --output HDMI-A-0 --off"
+  when "cast"
+    "xrandr --output DisplayPort-0 --mode 1920x1200 --primary --pos 0x0"
   else
-    "xrandr --output HDMI-A-0 --mode 1920x1080 --scale 1.4x1.4 --right-of DisplayPort-0 --output DisplayPort-0 --mode 3840x2160 --pos 0x0 --scale 0.9999x0.99999"
+    "xrandr --output DisplayPort-0 --mode 5120x1440 --primary --pos 0x0"
   end
 end
 

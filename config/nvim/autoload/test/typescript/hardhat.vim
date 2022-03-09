@@ -47,7 +47,7 @@ endfunction
 
 " Returns the executable of your test runner
 function! test#typescript#hardhat#executable()
-  return 'npm run compile && npx mocha --require ts-node/register --require hardhat/register --timeout 10000'
+  return 'npm run compile && npx mocha --require ts-node/register --require hardhat/register --timeout 100000'
 endfunction
 
 function! s:nearest_test(position) abort
