@@ -47,8 +47,7 @@
   mine = !git branch -a --color | grep mp[/-]
 [core]
   editor = nvim
-  pager = diff-so-fancy | less --tabs=4 -RFX
-  # hooksPath = /home/naps62/.config/git/hooks/
+  pager = delta
 [color]
   ui = true
 [push]
@@ -57,12 +56,14 @@
   browser = google-chrome
 [interactive]
   singlekey = true
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
 [commit]
   template = ~/.config/git/commit-message
 [diff]
-  tool = vimdiff
+  colorMoved = default
 [merge]
-  tool = vimdiff
   conflictstyle = diff3
 [mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c "$wincmd w" -c "wincmd J"

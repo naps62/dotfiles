@@ -23,7 +23,6 @@ if [ "`_floating_term_id`" -eq "" ]; then
 
   unset TMUX
   export FLOATING_TMUX_SESSION=$float_term_name
-  args="-c \"sleep 2; tmux attach-session -t $float_term_name || tmux new-session $float_term_name\""
   alacritty --title $float_term_name --option window.dimensions.columns=120 --option window.dimensions.lines=30
 
 # elif [ "`_current_workspace_floating_term_id`" -eq "" ]; then

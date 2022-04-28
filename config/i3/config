@@ -150,7 +150,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # toggle floating terminal
-bindsym Ctrl+backslash exec ~/.bin/toggle-floating-term
+# bindsym Ctrl+backslash exec ~/.bin/toggle-floating-term
 
 # toggle between clone and extend-left
 bindsym $mod+Shift+0 exec ~/.bin/dual toggle clone left
@@ -239,7 +239,7 @@ for_window [class="ffplay"] floating enable
 for_window [class="notedown"] floating enable
 # for_window [class="firefox" window_role="WebRTCGlobalIndicator"] move position top right
 
-# exec i3-msg 'exec alacritty'
+exec i3-msg 'exec alacritty'
 # exec i3-msg 'exec $BROWSER'
 exec i3-msg 'exec dunst'
 
