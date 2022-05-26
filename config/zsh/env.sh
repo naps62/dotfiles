@@ -54,6 +54,7 @@ export JAVA_HOME=/usr/lib/jvm/default
 export TESSDATA_PREFIX=/usr/share/tessdata
 export ZK_PATH=$HOME/projects/zettelkasten
 export FrameworkPathOverride=/usr/lib/mono/4.7.1-api
+export ASDF_DATA_DIR="$HOME/.asdf"
 
 
 if [ -z "$TMUX" ]; then
