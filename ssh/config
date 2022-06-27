@@ -24,3 +24,14 @@ Host pi
   IdentityFile ~/.ssh/id_rsa
   User naps62
   Hostname 192.168.31.100
+
+Host midgard
+  Hostname midgard.subvisual.com
+  User naps62
+  IdentityFile ~/.ssh/id_ed25519
+
+Host lambert
+#  Hostname 89.58.44.154
+ Hostname lambert.naps62.com
+  User naps62
+  IdentityFile ~/.ssh/id_ed25519

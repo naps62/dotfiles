@@ -160,3 +160,4 @@ Assets/StreamingAssets/crashlytics-build.properties
 
 .envrc
 *.part
+notes.priv.md

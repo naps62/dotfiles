@@ -1,5 +1,5 @@
 [Added Associations]
-image/jpeg=firefox.desktop;feh.desktop;eog.desktop;gimp.desktop;
+image/jpeg=feh.desktop;firefox.desktop;eog.desktop;gimp.desktop;
 image/png=gimp.desktop;firefox.desktop;firefox-bin.desktop;feh.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
@@ -39,3 +39,4 @@ x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-ITASF1.desktop
 message/rfc822=userapp-Thunderbird-ITASF1.desktop
 x-scheme-handler/mid=userapp-Thunderbird-ITASF1.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
