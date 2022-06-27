@@ -26,4 +26,10 @@ fi
 if [ -e /home/naps62/.nix-profile/etc/profile.d/nix.sh ]; then . /home/naps62/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 
-export PATH="$HOME/.poetry/bin:$PATH"
+#export PATH="$HOME/.poetry/bin:$PATH"
+
+# quickfix https://github.com/asdf-vm/asdf/issues/1178
+#path=(
+#  $HOME/.asdf/shims
+#  $path
+#)

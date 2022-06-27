@@ -28,6 +28,7 @@ alias y=yay
 alias s=bin/server
 alias u=utrust
 alias l=leetcode
+alias j=just
 
 # rust replacements
 # https://zaiste.net/posts/shell-commands-rust
