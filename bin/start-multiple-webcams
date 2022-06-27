@@ -1,9 +1,0 @@
-#!/bin/sh
-
-sudo modprobe v4l2loopback devices=2 card_label="Zoom/Meet webcam","OBS 1st screen"
-
-ffmpeg \
-  -f video4linux2 \
-  -i /dev/video0 \
-  -codec copy -f v4l2 /dev/video3 \
-  -codec copy -f v4l2 /dev/video4

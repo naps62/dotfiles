@@ -1,9 +1,0 @@
-#!/bin/zsh
-
-export DISPLAY=:0
-export DESKTOP_SESSION=i3
-
-subreddits=(wallpapers)
-index=$(( $RANDOM % ${#subreddits[@]} + 1))
-
-python /home/naps62/projects/dotfiles/vendor/Daily-Reddit-Wallpaper/change_wallpaper_reddit.py --time hour --subreddit $subreddits[$index]

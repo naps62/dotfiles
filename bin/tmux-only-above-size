@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-size=$1; shift
-current_size=$(tmux list-windows -t "$window" -F "#{window_width}" | head -1)
-read input
-
-if test $current_size -ge $size; then
-  echo $input
-fi
