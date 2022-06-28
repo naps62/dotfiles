@@ -45,10 +45,6 @@ set smartindent " auto add 1 indentation level in some cases
 set wrap
 set linebreak
 
-set foldmethod=indent
-setlocal foldlevel=20
-setlocal foldlevelstart=20
-
 " relative line numbering
 set number
 set relativenumber
@@ -68,10 +64,6 @@ set showmatch
 set ignorecase    " case insensitive search
 set smartcase     " case sensitive search if at least one uppercase is used
 set gdefault      " use /g (replace all on line instead of first) by default
-
-" text wrap
-set formatoptions=qrn1
-set colorcolumn=80
 
 " undo buffer
 set history=50          " remember more commands and search history
@@ -104,9 +96,3 @@ augroup vim_rc_autojump
     \   exe "normal g `\"" |
     \ endif
 augroup END
-
-set ttimeoutlen=50
-
-set updatetime=2000
-
-set noequalalways

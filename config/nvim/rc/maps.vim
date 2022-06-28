@@ -14,20 +14,13 @@ map <Tab> :b#<CR>
 
 " tab navigation
 nnoremap <C-y> :tabprevious<CR>
-" nnoremap <C-u> :tabnext<CR>
 
 " Ctrl-S save
 noremap  <C-s>      :update<CR>
 inoremap <C-s> <C-o>:update<CR><Esc>
 
-" zoom / unzoom a vim pane
-nnoremap <leader>z :call FoldToggle()<CR>
-
 " still able to save after forgetting to sudo
 cmap w!! w !sudo tee % > /dev/null
-
-" Rename the current file
-map <Leader>r :call Rename()<CR>
 
 " Move to beginning/end of line in insert mode
 inoremap <C-a> <C-o>0
@@ -36,21 +29,3 @@ inoremap <C-e> <C-o>$
 nmap <leader>d :call FindDoc()<CR>
 
 nmap <leader>f :copen<CR>
-nnoremap <silent> <leader>f :call ToggleQuickFix()<cr>
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-"
-" easy-align
-"
-"" Align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
