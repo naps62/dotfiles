@@ -9,8 +9,6 @@ if [[ -z $VIM ]]; then
   source ~/.config/zsh/theme.zsh
 fi
 
-~/.bin/ensure-tmux-is-running
-
 source ~/.config/zsh/aliases.zsh
 
 if [[ -z $VIM ]]; then

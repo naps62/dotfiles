@@ -17,6 +17,8 @@ set $theme /usr/share/sway/themes/matcha-green
 
 include $theme/definitions
 
+set $rofi_theme ""
+
 # global variables
 
 include /etc/sway/definitions
