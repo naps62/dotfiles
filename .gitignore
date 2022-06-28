@@ -27,6 +27,7 @@ config/*
 !config/proselint
 !config/starship
 config/nvim/.netrwhist
+config/zsh/.zcompdump
 
 vim/spell
 vim/plugged
