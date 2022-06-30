@@ -35,3 +35,4 @@ vim/undo
 bin/cerebro*
 bin/pgweb*
 bin/*.AppImage
+cache

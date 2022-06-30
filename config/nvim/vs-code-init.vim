@@ -4,3 +4,5 @@ endif
 
 so ~/.config/nvim/rc/unix.vim
 so ~/.config/nvim/rc/base.vim
+
+imap jj <Esc>
