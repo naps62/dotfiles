@@ -7,7 +7,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 " UI Features
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'preservim/nerdtree'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'preservim/nerdtree'
 
 " Find & Replace
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -15,7 +18,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 
 " UI
-Plug 'NLKNguyen/papercolor-theme'
 
 " Editor features
 Plug 'tpope/vim-surround'

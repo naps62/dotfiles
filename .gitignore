@@ -26,6 +26,7 @@ config/*
 !config/tmux
 !config/proselint
 !config/starship
+!config/lolcate
 config/nvim/.netrwhist
 config/zsh/.zcompdump
 
