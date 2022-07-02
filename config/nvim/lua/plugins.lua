@@ -42,6 +42,8 @@ return require('packer').startup(function(use)
   -- editing support
   use 'windwp/nvim-autopairs'
   use 'ms-jpq/coq_nvim'
+  use 'ms-jpq/coq.artifacts'
+  use 'sbdchd/neoformat'
 
   -- LSP
   use 'williamboman/nvim-lsp-installer'

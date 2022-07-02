@@ -3,7 +3,7 @@ vim.opt.autowrite = true
 vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
--- TODO vim.opt.clipboard = ???
+vim.opt.clipboard = "unnamedplus"
 
 -- layout
 vim.opt.splitbelow = true
