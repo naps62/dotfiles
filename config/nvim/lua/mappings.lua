@@ -40,7 +40,7 @@ nmap("<C-n>", ":NvimTreeToggle<cr>")
 -- fuzzy finder
 nmap("<C-p>", "<cmd>Telescope find_files<cr>")
 nmap("<C-f>", "<cmd>Telescope grep_string<cr>")
-nmap("<C-.>", "<cmd>Telescope repo cached_list<cr>")
+nmap("<C-.>", "<cmd>Telescope repo list<cr>")
 
 -- hop.nvim
 nmap("ff", "<cmd>HopChar1<cr>")

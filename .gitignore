@@ -11,14 +11,11 @@ config/*
 !config/git
 !config/i3
 !config/i3status
-!config/base16-shell
 !config/zsh
 !config/ripgrep
 !config/Xresources
 !config/polybar
 !config/alacritty
-!config/fontconfig
-!config/picom
 !config/feh
 !config/mpv
 !config/rofi
@@ -26,7 +23,6 @@ config/*
 !config/tmux
 !config/proselint
 !config/starship
-!config/lolcate
 config/nvim/.netrwhist
 config/zsh/.zcompdump
 
