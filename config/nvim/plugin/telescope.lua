@@ -1,14 +1,3 @@
-require("telescope").setup {
-  extensions = {
-    repo = {
-      list = {
-        shorten_path = true,
-        file_ignore_patterns = {
-          "/%.",
-          "/lib/"
-        }
-      },
-    }
-  }
-}
-require("telescope").load_extension("repo")
+require('project_nvim').setup()
+require("telescope").setup()
+require("telescope").load_extension("projects")

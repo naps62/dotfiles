@@ -1,5 +1,4 @@
 vim.cmd [[
-  syntax enable
   colorscheme tokyonight
 ]]
 

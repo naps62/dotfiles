@@ -12,6 +12,10 @@ function imap(shortcut, command)
   map("i", shortcut, command)
 end
 
+function vmap(shortcut, command)
+  map("v", shortcut, command)
+end
+
 -- remove search highlight
 nmap("<leader>,", ":noh<cr>")
 
@@ -40,7 +44,15 @@ nmap("<C-n>", ":NvimTreeToggle<cr>")
 -- fuzzy finder
 nmap("<C-p>", "<cmd>Telescope find_files<cr>")
 nmap("<C-f>", "<cmd>Telescope grep_string<cr>")
-nmap("<C-.>", "<cmd>Telescope repo list<cr>")
+nmap("<C-.>", "<cmd>Telescope projects<cr>")
+
+-- spectre (find/replace)
+nmap("<leader>S", "<cmd>lua require('spectre').open()<cr>")
+-- search current word
+nmap("<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>")
+vmap("<leader>s", "<esc>:lua require('spectre').open_visual()<cr>")
+-- search in current file
+nmap("<leader>sf", "viw:lua require('spectre').open_file_search()<cr>")
 
 -- hop.nvim
 nmap("ff", "<cmd>HopChar1<cr>")

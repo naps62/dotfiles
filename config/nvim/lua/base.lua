@@ -5,7 +5,6 @@ vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 -- TODO vim.opt.clipboard = ???
 
-
 -- layout
 vim.opt.splitbelow = true
 vim.opt.splitright = true
