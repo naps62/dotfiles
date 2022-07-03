@@ -75,9 +75,8 @@ nmap("g#",  [[g#<cmd>lua require('hlslens').start()<cr>]])
 
 -- terminal
 nmap("<leader>t", "<cmd>9ToggleTerm direction=float<cr>")
-tmap("<leader>t", "<cmd>9ToggleTerm direction=float<cr>")
 nmap("<leader>1t", "<cmd>1ToggleTerm direction=vertical<cr>")
-tmap("<leader>1t", "<cmd>1ToggleTerm direction=vertical<cr>")
 nmap("<leader>2t", "<cmd>2ToggleTerm direction=vertical<cr>")
-tmap("<leader>2t", "<cmd>2ToggleTerm direction=vertical<cr>")
+nmap("<leader>0t", "<cmd>ToggleTermToggleAll<cr>")
+tmap("<C-e>", "<cmd>ToggleTermToggleAll<cr>")
 nmap("<leader>g", "<cmd>lua _lazygit_toggle()<cr>")
