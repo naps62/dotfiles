@@ -16,6 +16,10 @@ function vmap(shortcut, command)
   map("v", shortcut, command)
 end
 
+function tmap(shortcut, command)
+  map("t", shortcut, command)
+end
+
 -- remove search highlight
 nmap("<leader>,", ":noh<cr>")
 
@@ -68,3 +72,11 @@ nmap("*",  [[*<cmd>lua require('hlslens').start()<cr>]])
 nmap("*",  [[*<cmd>lua require('hlslens').start()<cr>]])
 nmap("g*",  [[g*<cmd>lua require('hlslens').start()<cr>]])
 nmap("g#",  [[g#<cmd>lua require('hlslens').start()<cr>]])
+
+-- terminal
+nmap("<leader>t", "<cmd>9ToggleTerm direction=float<cr>")
+tmap("<leader>t", "<cmd>9ToggleTerm direction=float<cr>")
+nmap("<leader>1t", "<cmd>1ToggleTerm direction=vertical<cr>")
+tmap("<leader>1t", "<cmd>1ToggleTerm direction=vertical<cr>")
+nmap("<leader>2t", "<cmd>2ToggleTerm direction=vertical<cr>")
+tmap("<leader>2t", "<cmd>2ToggleTerm direction=vertical<cr>")

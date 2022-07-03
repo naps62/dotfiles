@@ -72,6 +72,9 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
+  -- integrated terminal
+  use { 'akinsho/toggleterm.nvim', tag = 'v2.*'}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
