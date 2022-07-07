@@ -1,23 +1,5 @@
 #!/bin/sh
 
-# cd ls
-# enter dir and immediately show contents
-cdls () {
-  cd $*
-  ls
-  #echo '' # open line for clarity
-}
-
-# most used commands list
-most () {
-  history | awk '{
-      cmd[$2]++; count++;
-    }
-    END {
-      for (i in cmd) print cmd[i]/count*100 "%", i
-    }' | sort -nr | head -n20 | column -c3 -s " " -t
-}
-
 # extract archive
 extract () {
   if [ -f $1 ]; then
@@ -51,30 +33,6 @@ mkcd () {
   mkdir -p "$1" && cd "$1"
 }
 
-# mark
-mark () {
-  file=~/.markfile
-  [ -f $file ] || touch $file
-  if grep "^$1=" $file > /dev/null; then
-    sed -i -e "s:$1\=.*$:$1\=${PWD}:g" $file
-    echo "entry $1 changed"
-  else
-    echo "$1=$PWD" >> $file
-    echo "entry $1 added"
-  fi
-}
-
-# goto
-goto () {
-  file=~/.markfile
-  if [ $# -eq 1 ]; then
-    dest=$(grep "^$1=" $file | cut -d= -f2)
-    cd $dest
-  else
-    echo "no mark specified"
-  fi
-}
-
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -87,34 +45,3 @@ fancy-ctrl-z () {
 
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
-custom-ls () {
-  if [[ $IS_MAC_OS == 1 ]]; then
-    flags="-G"
-  else
-    flags="--color --group-directories-first"
-  fi
-  if [[ "$@" =~ "-l" ]]; then
-    ls ${=flags} $@ | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %o ",k);print}'
-  else
-    command ls ${=flags} $@
-  fi
-}
-
-# fd - cd to selected directory
-fd () {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-nuke () {
-   ps ax | ag $@ | ag -v ag | cut -d' ' -f 1 | xargs kill -9
-}
-
-latest-screenshot () {
-name=$(ls ~/downloads/screenshots --time ctime | tail -n 1)
-
-  echo -n $HOME/downloads/screenshots/$name
-}

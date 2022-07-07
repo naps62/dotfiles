@@ -1,0 +1,11 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/naps62/lightshift/ichi/vault_rebalance_strategies
+- /home/naps62/projects/cook
+- /home/naps62/projects/dotfiles
+startuppopupversion: 5
+customcommandshistory:
+- 'echo '
+- echo 1
+- quit
+hidecommandlog: false

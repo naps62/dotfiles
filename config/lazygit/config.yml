@@ -1,0 +1,20 @@
+gui:
+  sidePanelWidth: 0.2 # number from 0 to 1
+  theme:
+    selectedLineBgColor:
+      - reverse # set to `default` to have no background colour
+    selectedRangeBgColor:
+      - reverse
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+git:
+  paging:
+    colorArg: always
+    pager:
+      delta --dark --paging=never --side-by-side
+      #useConfig: false
+  branchLogCmd: "git ls --"

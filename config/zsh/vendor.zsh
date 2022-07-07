@@ -1,11 +1,6 @@
 #!/usr/bin/env zsh
 
 #
-# erlang
-#
-[ -f ~/.config/erlang/erl.init ] && source ~/.config/erlang/erl.init
-
-#
 # fzf
 #
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
