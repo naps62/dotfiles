@@ -6,6 +6,7 @@ require('nvim-treesitter.configs').setup({
     "typescript",
     "tsx",
     "solidity",
+    "graphql",
     "toml",
     "ruby",
     "bash",
@@ -19,3 +20,10 @@ require('nvim-treesitter.configs').setup({
   },
   indentation = { enabled = true }
 })
+
+vim.api.nvim_exec([[
+  augroup treesitter-highlight
+    autocmd!
+    autocmd BufEnter *.graphql,*.gql TSBufEnable highlight
+  augroup END
+]], false)

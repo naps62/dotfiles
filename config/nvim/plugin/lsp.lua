@@ -1,4 +1,5 @@
 local lsp = require("lspconfig")
+local lsp_status = require("lsp-status")
 
 require('nvim-lsp-installer').setup({
   ensure_installed = {
@@ -12,6 +13,12 @@ require('nvim-lsp-installer').setup({
   }
 })
 
+lsp_status.register_progress()
+
+local config = {
+  capabilities = vim.tbl_extend('keep', {}, lsp_status.capabilities)
+}
+
 function disable_formatting(client, bufnr)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
@@ -22,11 +29,20 @@ function enable_formatting(client, bufnr)
   client.server_capabilities.documentRangeFormattingProvider = true
 end
 
-lsp.solang.setup({})
+lsp.solang.setup({
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilites
+})
 lsp.tsserver.setup({
-  on_attach = disable_formatting
+  on_attach = function(c, b)
+    disable_formatting(c, b)
+    lsp_status.on_attach(c, b)
+  end,
+  capabilities = lsp_status.capabilites
 })
 lsp.sumneko_lua.setup({
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilites,
   settings = {
     Lua = {
       diagnostics = {
@@ -35,11 +51,24 @@ lsp.sumneko_lua.setup({
     },
   },
 })
-lsp.sqls.setup({})
---lsp.graphql.setup({})
---lsp.tailwindcss.setup({})
+lsp.sqls.setup({
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilites
+})
+lsp.graphql.setup({
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilites
+})
+lsp.tailwindcss.setup({
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilites
+})
 lsp.eslint.setup({
-  on_attach = enable_formatting,
+  on_attach = function(c, b)
+    enable_formatting(c, b)
+    lsp_status.on_attach(c, b)
+  end,
+  capabilities = lsp_status.capabilites,
   settings = {
     enable = true,
     format = { enable = true }, -- this will enable formatting
@@ -62,4 +91,4 @@ require('trouble').setup()
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
 
 -- auto format
-vim.cmd [[autocmd BufWritePre *\(.sql\)\@<! lua vim.lsp.buf.formatting_sync(nil, 200)]]
+vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\)\@<! lua vim.lsp.buf.format()]]

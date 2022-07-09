@@ -10,5 +10,9 @@ vim.cmd [[
 ]]
 
 require('lualine').setup {
-  theme = 'sonokai'
+  theme = 'sonokai',
+  extensions = { 'nvim-tree', 'toggleterm' },
+  sections = {
+    lualine_c = { "filename", "require('lsp-status').status()" }
+  }
 }

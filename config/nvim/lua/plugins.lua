@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-path'
   use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  use 'nvim-lua/lsp-status.nvim'
 
   -- Debugging
   use { 'mfussenegger/nvim-dap', requires = { 'nvim-lua/plenary.nvim' } }
