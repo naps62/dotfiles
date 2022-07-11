@@ -8,6 +8,7 @@ config/*
 !config/sway
 !config/waybar
 !config/lazygit
+config/lazygit/state.yml
 !config/htop
 !config/nvim
 config/nvim/plugin/packer_compiled.lua
