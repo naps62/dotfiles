@@ -130,6 +130,7 @@ return require('packer').startup(function(use)
   use { 'onsails/lspkind.nvim', config = function() require 'lspkind'.init() end }
 
   -- copilot
+  -- use 'github/copilot.vim'
   use { 'zbirenbaum/copilot.lua',
     event = { 'VimEnter' },
     config = function()

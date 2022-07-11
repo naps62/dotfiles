@@ -10,6 +10,7 @@ config/*
 !config/lazygit
 !config/htop
 !config/nvim
+config/nvim/plugin/packer_compiled.lua
 !config/git
 !config/zsh
 !config/ripgrep
