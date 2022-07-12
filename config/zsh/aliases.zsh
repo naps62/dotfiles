@@ -5,7 +5,7 @@ alias open='xdg-open'
 # one-char aliases
 alias c=docker-compose
 alias d=docker
-alias g=hub
+alias g=git
 alias o=open
 alias v="neovide --multigrid"
 alias n=nvim

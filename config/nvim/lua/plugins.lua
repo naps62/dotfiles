@@ -55,7 +55,8 @@ return require('packer').startup(function(use)
           "python",
           "css",
           "markdown",
-          "json"
+          "json",
+          "elixir"
         },
         highlight = {
           enabled = true
@@ -66,6 +67,7 @@ return require('packer').startup(function(use)
     end }
   use 'tomlion/vim-solidity'
   use 'vmchale/just-vim'
+  use 'elixir-editors/vim-elixir'
 
   -- fuzzy finding
   use {
@@ -82,6 +84,7 @@ return require('packer').startup(function(use)
   use { 'windwp/nvim-autopairs', config = function() require 'nvim-autopairs'.setup() end }
   use 'sbdchd/neoformat'
   use 'nanotee/sqls.nvim'
+  use { 'terrortylor/nvim-comment', config = function() require 'nvim_comment'.setup() end }
 
   -- LSP
   use 'williamboman/nvim-lsp-installer'
@@ -130,7 +133,7 @@ return require('packer').startup(function(use)
   use { 'onsails/lspkind.nvim', config = function() require 'lspkind'.init() end }
 
   -- copilot
-  -- use 'github/copilot.vim'
+  use 'github/copilot.vim'
   use { 'zbirenbaum/copilot.lua',
     event = { 'VimEnter' },
     config = function()
