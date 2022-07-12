@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
 
   -- syntax highlight
   use { 'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
@@ -68,6 +69,15 @@ return require('packer').startup(function(use)
   use 'tomlion/vim-solidity'
   use 'vmchale/just-vim'
   use 'elixir-editors/vim-elixir'
+  use { 'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = function()
+      require 'ufo'.setup({
+        provider_selector = function(bufnr, filetype)
+          return { 'treesitter', 'indent' }
+        end
+      })
+    end }
 
   -- fuzzy finding
   use {
