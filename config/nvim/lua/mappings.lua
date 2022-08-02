@@ -52,7 +52,7 @@ nmap("<C-m>", ":NvimTreeFindFile<cr>")
 
 -- fuzzy finder
 nmap("<C-p>", "<cmd>Telescope find_files<cr>")
-nmap("<C-f>", "<cmd>Telescope live_grep<cr>")
+nmap("<C-f>", "<cmd>Rg<cr>")
 nmap("<C-.>", "<cmd>Telescope projects<cr>")
 
 -- spectre (find/replace)
@@ -110,3 +110,5 @@ nmap("g]", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 -- code action
 nmap("gf", require('lspsaga.finder').lsp_finder)
 nmap("ga", require('lspsaga.codeaction').code_action)
+
+nmap("<C-LeftMouse>", "<LeftMouse>gx<CR>")

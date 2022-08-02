@@ -9,7 +9,7 @@ end
 
 local cmp_next_item = cmp.mapping(function(fallback)
   if cmp.visible() then
-    cmp.select_next_item()
+    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
   elseif luasnip.expand_or_jumpable() then
     luasnip.expand_or_jump()
   elseif has_words_before() then
@@ -21,7 +21,7 @@ end, { "i", "s" })
 
 local cmp_prev_item = cmp.mapping(function(fallback)
   if cmp.visible() then
-    cmp.select_prev_item()
+    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
   elseif luasnip.jumpable(-1) then
     luasnip.jump(-1)
   else
@@ -37,9 +37,7 @@ cmp.setup({
       require("luasnip").lsp_expand(args.body)
     end,
   },
-  mapping = {
-    ['<C-k>'] = cmp_prev_item,
-    ['<C-j>'] = cmp_next_item,
+  mapping = cmp.mapping.preset.insert({
     -- Add tab support
     ['<S-Tab>'] = cmp_prev_item,
     ['<Tab>'] = cmp_next_item,
@@ -48,10 +46,12 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+      select = false,
     })
-  },
+  }),
+
+  -- Never select any item by default
+  preselect = cmp.PreselectMode.None,
 
   formatting = {
     format = function(entry, vim_item)
@@ -69,10 +69,10 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'copilot' },
+    --{ name = 'copilot' },
     { name = 'path' },
     { name = 'buffer' },
-  },
+  }
 })
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })

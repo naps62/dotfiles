@@ -6,8 +6,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     install_path })
 end
 
-
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -17,14 +15,19 @@ return require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      require("nvim-tree").setup({
+      require("nvim-tree").setup {
         respect_buf_cwd = true,
-        sync_root_with_cwd = true,
+        sync_root_with_cwd = false,
         update_focused_file = {
-          enabled = true,
+          enable = true,
           update_cwd = true
+        },
+        renderer = {
+          icons = {
+            git_placement = "signcolumn",
+          }
         }
-      })
+      }
     end
   }
 
@@ -82,13 +85,12 @@ return require('packer').startup(function(use)
   -- fuzzy finding
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require("telescope").setup()
-      require("telescope").load_extension("projects")
-    end
+    requires = { 'nvim-lua/plenary.nvim' }
   }
   use { 'ahmedkhalf/project.nvim', config = function() require 'project_nvim'.setup() end }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'junegunn/fzf', dir = '~/.fzf' }
+  use 'junegunn/fzf.vim'
 
   -- editing support
   use { 'windwp/nvim-autopairs', config = function() require 'nvim-autopairs'.setup() end }
@@ -143,7 +145,7 @@ return require('packer').startup(function(use)
   use { 'onsails/lspkind.nvim', config = function() require 'lspkind'.init() end }
 
   -- copilot
-  use 'github/copilot.vim'
+  -- use 'github/copilot.vim'
   use { 'zbirenbaum/copilot.lua',
     event = { 'VimEnter' },
     config = function()
@@ -151,7 +153,7 @@ return require('packer').startup(function(use)
         require("copilot").setup()
       end, 100)
     end }
-  use { 'zbirenbaum/copilot-cmp', module = 'copilot_cmp' }
+  use { 'zbirenbaum/copilot-cmp', after = 'copilot.lua', module = "copilot_cmp" }
 
   -- Debugging
   use { 'mfussenegger/nvim-dap', requires = { 'nvim-lua/plenary.nvim' } }

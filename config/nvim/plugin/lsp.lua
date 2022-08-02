@@ -9,7 +9,8 @@ require('nvim-lsp-installer').setup({
     "eslint",
     "sumneko_lua",
     "graphql",
-    "tailwindcss"
+    "tailwindcss",
+    "gopls"
   }
 })
 
@@ -83,6 +84,10 @@ lsp.eslint.setup({
     },
   }
 })
+lsp.gopls.setup({
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilites
+})
 
 
 require('trouble').setup()
@@ -91,4 +96,4 @@ require('trouble').setup()
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
 
 -- auto format
-vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\)\@<! lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\|.sol\)\@<! lua vim.lsp.buf.format()]]
