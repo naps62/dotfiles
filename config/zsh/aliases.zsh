@@ -21,6 +21,8 @@ alias ps=procs
 
 alias vim=nvim
 
+alias pass-lc="PASSWORD_STORE_DIR=~/lightshift/.password-store pass"
+
 # cd
 alias ..='cd ..'
 alias ..2='cd ../..'

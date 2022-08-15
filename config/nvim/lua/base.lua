@@ -42,7 +42,11 @@ vim.opt.history = 50
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 1000
 vim.opt.undofile = true
-vim.opt.undodir = "~/.local/share/nvim/undo"
+vim.opt.undodir = "/home/naps62/.local/share/nvim/undo"
+vim.opt.swapfile = true
+vim.opt.dir = "/home/naps62/.local/share/nvim/swap"
+vim.opt.backupdir = "/home/naps62/.local/share/nvim/backup"
+
 
 -- no swap files
 --vim.opt.nobackup = true

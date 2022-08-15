@@ -52,7 +52,8 @@ nmap("<C-m>", ":NvimTreeFindFile<cr>")
 
 -- fuzzy finder
 nmap("<C-p>", "<cmd>Telescope find_files<cr>")
-nmap("<C-f>", "<cmd>Rg<cr>")
+nmap("<C-f>", "<cmd>FzfRgSlim<cr>") -- custom command with more filters
+nmap("<C-S-f>", "<cmd>Rg<cr>") -- regular command without filters
 nmap("<C-.>", "<cmd>Telescope projects<cr>")
 
 -- spectre (find/replace)

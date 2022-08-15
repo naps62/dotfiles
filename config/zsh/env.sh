@@ -26,6 +26,7 @@ export EDITOR=nvim
 export BROWSER=/usr/bin/firefox
 export TERMINAL=/usr/bin/alacritty
 export ZK_PATH=$HOME/projects/zettelkasten
+export GOPATH=$HOME/.go
 
 
 if [ -z "$TMUX" ]; then

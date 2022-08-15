@@ -60,7 +60,8 @@ return require('packer').startup(function(use)
           "css",
           "markdown",
           "json",
-          "elixir"
+          "elixir",
+          "proto"
         },
         highlight = {
           enabled = true

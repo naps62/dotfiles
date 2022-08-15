@@ -96,4 +96,4 @@ require('trouble').setup()
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
 
 -- auto format
-vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\|.sol\)\@<! lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\|.sol\|.proto\)\@<! lua vim.lsp.buf.format()]]
