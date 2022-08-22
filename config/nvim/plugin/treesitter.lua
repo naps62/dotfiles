@@ -3,6 +3,11 @@ vim.api.nvim_exec([[
       autocmd!
       autocmd BufEnter *.graphql,*.gql,*.elixir TSBufEnable highlight
     augroup END
+
+    augroup custom-syntax
+      autocmd!
+      autocmd BufEnter *.cairo set syntax=cairo
+    augroup END
   ]],
   false)
 

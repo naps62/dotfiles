@@ -104,12 +104,12 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use { 'glepnir/lspsaga.nvim', config = function() require 'lspsaga'.init_lsp_saga() end }
   use { 'simrat39/rust-tools.nvim', config = function()
+    local rt = require 'rust-tools'
     -- taken from
     -- https://sharksforarms.dev/posts/neovim-rust/
-    require('rust-tools').setup({
+    rt.setup({
       tools = { -- rust-tools options
         autoSetHints = true,
-        hover_with_actions = true,
         inlay_hints = {
           show_parameter_hints = false,
           parameter_hints_prefix = "",
@@ -132,7 +132,12 @@ return require('packer').startup(function(use)
               command = "clippy"
             },
           }
-        }
+        },
+
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
       },
     })
   end }
