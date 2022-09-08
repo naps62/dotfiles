@@ -28,6 +28,13 @@ export TERMINAL=/usr/bin/alacritty
 export ZK_PATH=$HOME/projects/zettelkasten
 export GOPATH=$HOME/.go
 
+# move lang vars
+export DOTNET_ROOT="/home/naps62/.dotnet"
+export PATH="/home/naps62/.dotnet/tools:$PATH"
+export Z3_EXE="/home/naps62/bin/z3"
+export CVC5_EXE="/home/naps62/bin/cvc5"
+export BOOGIE_EXE="/home/naps62/.dotnet/tools/boogie"
+
 
 if [ -z "$TMUX" ]; then
   export TERM=xterm-256color

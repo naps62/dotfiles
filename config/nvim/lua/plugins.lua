@@ -32,13 +32,12 @@ return require('packer').startup(function(use)
   }
 
   -- theme
-  use 'folke/tokyonight.nvim'
+  use 'morhetz/gruvbox'
   use 'NLKNguyen/papercolor-theme'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
-  use 'sainnhe/sonokai'
 
   -- syntax highlight
   use { 'nvim-treesitter/nvim-treesitter',
@@ -73,6 +72,7 @@ return require('packer').startup(function(use)
   use 'tomlion/vim-solidity'
   use 'vmchale/just-vim'
   use 'elixir-editors/vim-elixir'
+  use 'modocache/move.vim'
   use { 'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
     config = function()
@@ -149,6 +149,7 @@ return require('packer').startup(function(use)
   use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   use 'nvim-lua/lsp-status.nvim'
   use { 'onsails/lspkind.nvim', config = function() require 'lspkind'.init() end }
+  use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
   -- copilot
   -- use 'github/copilot.vim'

@@ -4,7 +4,7 @@ local lsp_status = require("lsp-status")
 require('nvim-lsp-installer').setup({
   ensure_installed = {
     "solang",
-    "rust_analyzer",
+    -- "rust_analyzer",
     "tsserver",
     "eslint",
     "sumneko_lua",
@@ -16,34 +16,33 @@ require('nvim-lsp-installer').setup({
 
 lsp_status.register_progress()
 
-local config = {
-  capabilities = vim.tbl_extend('keep', {}, lsp_status.capabilities)
-}
-
-function disable_formatting(client, bufnr)
+function DisableFormatting(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-function enable_formatting(client, bufnr)
+function EnableFormatting(client)
   client.server_capabilities.documentFormattingProvider = true
   client.server_capabilities.documentRangeFormattingProvider = true
 end
 
-lsp.solang.setup({
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilites
-})
+local on_attach = function(client, bufnr)
+  lsp_status.on_attach(client, bufnr)
+end
+
+local capabilities = lsp_status.capabilities
+
+lsp.solang.setup({ on_attach = on_attach, capabilities = capabilities })
 lsp.tsserver.setup({
   on_attach = function(c, b)
-    disable_formatting(c, b)
+    DisableFormatting(c)
     lsp_status.on_attach(c, b)
   end,
-  capabilities = lsp_status.capabilites
+  capabilities = capabilities
 })
 lsp.sumneko_lua.setup({
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilites,
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -52,24 +51,15 @@ lsp.sumneko_lua.setup({
     },
   },
 })
-lsp.sqls.setup({
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilites
-})
-lsp.graphql.setup({
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilites
-})
-lsp.tailwindcss.setup({
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilites
-})
+lsp.sqls.setup({ on_attach = on_attach, capabilities = capabilities })
+lsp.graphql.setup({ on_attach = on_attach, capabilities = capabilities })
+lsp.tailwindcss.setup({ on_attach = on_attach, capabilities = capabilities })
 lsp.eslint.setup({
   on_attach = function(c, b)
-    enable_formatting(c, b)
-    lsp_status.on_attach(c, b)
+    EnableFormatting(c)
+    on_attach(c, b)
   end,
-  capabilities = lsp_status.capabilites,
+  capabilities = capabilities,
   settings = {
     enable = true,
     format = { enable = true }, -- this will enable formatting
@@ -84,13 +74,15 @@ lsp.eslint.setup({
     },
   }
 })
-lsp.gopls.setup({
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilites
+lsp.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
+
+vim.diagnostic.config({
+  virtual_text = false
 })
 
-
 require('trouble').setup()
+
+require('toggle_lsp_diagnostics').init()
 
 -- show diagnostic popup on cursor hold
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]

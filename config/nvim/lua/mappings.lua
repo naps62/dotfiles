@@ -112,4 +112,25 @@ nmap("g]", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 nmap("gf", require('lspsaga.finder').lsp_finder)
 nmap("ga", require('lspsaga.codeaction').code_action)
 
+--
+-- diagnostics
+--
+vim.g.virtualTextToggled = false
+function toggleVirtualText()
+  require('toggle_lsp_diagnostics').toggle_virtual_text()
+
+  local rt = require('rust-tools')
+  if vim.g.virtualTextToggled then
+    rt.inlay_hints.enable()
+    vim.g.virtualTextToggled = false
+    print("LSP virtual text enabled")
+  else
+    rt.inlay_hints.disable()
+    vim.g.virtualTextToggled = true
+    print("LSP virtual text disabled")
+  end
+end
+
+nmap("<leader>dd", toggleVirtualText)
+
 nmap("<C-LeftMouse>", "<LeftMouse>gx<CR>")
