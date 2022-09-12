@@ -1,5 +1,5 @@
 vim.api.nvim_exec([[
-  let g:neoformat_enabled_solidity = ['prettier']
+  let g:neoformat_enabled_solidity = ['prettierd']
   let g:neoformat_enabled_sql = ['pg_format']
   let g:neoformat_enabled_graphql = ['prettier']
   let g:neoformat_enabled_proto = ['clangformat']
