@@ -7,11 +7,11 @@ vim.cmd [[
   let g:sonokai_better_performance = 1
 
   set background=dark
-  colorscheme gruvbox
+  colorscheme sonokai
 ]]
 
 require('lualine').setup {
-  theme = 'gruvbox',
+  theme = 'powerline_dark',
   extensions = { 'nvim-tree', 'toggleterm' },
   sections = {
     lualine_c = { "filename", "require('lsp-status').status()" }

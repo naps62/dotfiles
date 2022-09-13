@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
   -- theme
   use 'morhetz/gruvbox'
   use 'NLKNguyen/papercolor-theme'
+  use 'sainnhe/sonokai'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' }

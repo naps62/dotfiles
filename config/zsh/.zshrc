@@ -12,4 +12,4 @@ source ~/.config/zsh/antibody.zsh
 source ~/.config/zsh/vendor.zsh
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh --cmd cd)"
+#eval "$(zoxide init zsh --cmd cd)"
