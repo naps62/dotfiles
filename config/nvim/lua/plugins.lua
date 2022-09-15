@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
   }
 
   -- theme
+  use 'tanvirtin/monokai.nvim'
   use 'morhetz/gruvbox'
   use 'NLKNguyen/papercolor-theme'
   use 'sainnhe/sonokai'

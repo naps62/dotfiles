@@ -13,6 +13,7 @@ env_dir PATH $HOME/.local/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH $HOME/.go/bin
 env_dir PATH $HOME/.foundry/bin
+env_dir PATH $HOME/.local/share/solana/install/active_release/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
 env_dir PATH "../.git/safe/../../node_modules/.bin"
@@ -27,6 +28,8 @@ export BROWSER=/usr/bin/firefox
 export TERMINAL=/usr/bin/alacritty
 export ZK_PATH=$HOME/projects/zettelkasten
 export GOPATH=$HOME/.go
+
+# solana
 
 # move lang vars
 export DOTNET_ROOT="/home/naps62/.dotnet"
