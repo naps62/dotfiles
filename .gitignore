@@ -11,9 +11,11 @@ config/*
 config/lazygit/state.yml
 !config/htop
 !config/nvim
+!config/broot
 config/nvim/plugin/packer_compiled.lua
 !config/git
 !config/zsh
+!config/qmk
 !config/ripgrep
 !config/polybar
 !config/alacritty
@@ -21,8 +23,10 @@ config/nvim/plugin/packer_compiled.lua
 !config/rofi
 !config/mimeapps.list
 !config/tmux
+!config/zellij
 !config/proselint
 !config/starship
 !config/user-dirs.conf
+!config/zathura
 
 cache
