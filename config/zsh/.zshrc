@@ -13,3 +13,5 @@ source ~/.config/zsh/vendor.zsh
 
 eval "$(starship init zsh)"
 #eval "$(zoxide init zsh --cmd cd)"
+
+source /home/naps62/.config/broot/launcher/bash/br

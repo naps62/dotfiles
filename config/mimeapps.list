@@ -17,7 +17,7 @@ x-scheme-handler/mid=userapp-Thunderbird-ITASF1.desktop;
 
 [Default Applications]
 image/png=feh.desktop
-application/pdf=zathura.desktop;
+application/pdf=zathura.desktop
 application/json=nvr-usercreated-1.desktop;
 application/x-ruby=home-usercreated-1.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
@@ -40,3 +40,8 @@ x-scheme-handler/mailto=userapp-Thunderbird-ITASF1.desktop
 message/rfc822=userapp-Thunderbird-ITASF1.desktop
 x-scheme-handler/mid=userapp-Thunderbird-ITASF1.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop
+application/x-pdf=zathura.desktop
+application/fdf=zathura.desktop
+application/xdp=zathura.desktop
+application/xfdf=zathura.desktop
+application/pdx=zathura.desktop

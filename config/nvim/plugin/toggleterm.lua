@@ -4,7 +4,7 @@ function _lazygit_toggle()
   local path = vim.fn.expand('%')
 
   local lazygit = Terminal:new({
-    cmd = "lazygit " .. path,
+    cmd = "/usr/local/bin/lazygit --path " .. path,
     direction = "float",
     hidden = true
   })

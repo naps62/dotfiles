@@ -1,0 +1,23 @@
+include catppuccin-latte
+
+set selection-clipboard clipboard
+
+set font "Fira Code Nerd Font Mono"
+set guioptions "v"
+
+# appearance
+# default; padding when statsubar opend (:something)
+set statusbar-v-padding 2
+set statusbar-h-padding 8
+# blank space between pages
+set page-padding 20
+# default
+set adjust-open best-fit
+set show-scrollbars false
+# default; on abort (<esc>) clear higlight (like :nohl)
+set abort-clear-search true
+
+# don't make window title fullpath
+set window-title-basename true
+# don't show fullpath in status bar
+set statusbar-basename true
