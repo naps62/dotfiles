@@ -7,28 +7,3 @@ MAPPINGS:
   - KEY: KEY_CAPSLOCK
     TAP: KEY_ESC
     HOLD: KEY_LEFTCTRL
-
-  # Enter to Enter on tap / Ctrl on hold
-  - KEY: KEY_ENTER
-    TAP: KEY_ENTER
-    HOLD: KEY_RIGHTCTRL
-
-  # Left Shift to ( on tap / Shift on hold
-  - KEY: KEY_LEFTSHIFT
-    TAP: [ KEY_LEFTSHIFT, KEY_9, ]
-    HOLD: KEY_LEFTSHIFT
-
-  # Right Shift to ) on tap / Shift on hold
-  - KEY: KEY_RIGHTSHIFT
-    TAP: [ KEY_RIGHTSHIFT, KEY_0, ]
-    HOLD: KEY_RIGHTSHIFT
-
-  # Left Ctrl to { on tap / Ctrl on hold
-  - KEY: KEY_LEFTCTRL
-    TAP: [ KEY_LEFTSHIFT, KEY_LEFTBRACE, ]
-    HOLD: KEY_LEFTCTRL
-      
-  # Right Ctrl to } on tap / Ctrl on hold
-  - KEY: KEY_RIGHTCTRL
-    TAP: [ KEY_RIGHTSHIFT, KEY_RIGHTBRACE, ]
-    HOLD: KEY_RIGHTCTRL
