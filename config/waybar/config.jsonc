@@ -11,12 +11,13 @@
     // Global configuration
     // -------------------------------------------------------------------------
 
-    "layer": "top",
+    "layer": "bottom",
     "output": "eDP-1",
+    "ipc": true,
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 30,
-    "position": "top",
+    "height": 50,
+    "position": "bottom",
 
     "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
     "modules-center": ["custom/wf-recorder", "sway/mode"],
