@@ -12,3 +12,4 @@ include $HOME/.config/sway/modes/*
 # xwayland disable
 
 include $HOME/.config/sway/config.d/*.conf
+include $HOME/.config/sway/host.$HOST/*.conf

@@ -98,6 +98,7 @@ vim.cmd [[
 -- code navigation
 --
 nmap("<c-]>", "<cmd>lua vim.lsp.buf.definition()<cr>")
+nmap("<c-}>", "<cmd>:vsplit | lua vim.lsp.buf.definition()<cr>")
 nmap("<S-k>", "<cmd>lua vim.lsp.buf.hover()<cr>")
 nmap("gD", "<cmd>lua vim.lsp.buf.implementation()<cr>")
 nmap("<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<cr>")

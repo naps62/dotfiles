@@ -180,14 +180,24 @@ return require('packer').startup(function(use)
   }
 
   -- integrated terminal
+  use { 'christoomey/vim-tmux-navigator', config = function()
+    vim.cmd [[
+      let g:tmux_navigator_no_mappings = 1
+
+      nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+      nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+      nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+      nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+    ]]
+  end }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*', config = function()
     require('toggleterm').setup({
       size = 50,
       open_mapping = [[<c-\>]],
-      direction = 'vertical'
+      direction = 'vertical',
+      autochdir = true,
     })
   end }
-  use 'christoomey/vim-tmux-navigator'
 
   -- wakatime
   use 'wakatime/vim-wakatime'

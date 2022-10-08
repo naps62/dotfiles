@@ -3,8 +3,9 @@
 alias open='xdg-open'
 
 # one-char aliases
-alias c=docker-compose
+alias c=cargo
 alias d=docker
+alias dc=docker-compose
 alias g=git
 alias o=open
 alias v="neovide --multigrid"
