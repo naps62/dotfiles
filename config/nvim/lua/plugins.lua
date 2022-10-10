@@ -73,8 +73,6 @@ return require('packer').startup(function(use)
     end }
   use 'tomlion/vim-solidity'
   use 'vmchale/just-vim'
-  use 'elixir-editors/vim-elixir'
-  use 'modocache/move.vim'
   use { 'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
     config = function()
