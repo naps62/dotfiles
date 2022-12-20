@@ -1,9 +1,0 @@
-TIMING:
-  TAP_MILLISEC: 200
-  DOUBLE_TAP_MILLISEC: 150
-
-MAPPINGS:
-  # Caps Lock to Esc on tap / Ctrl on hold
-  - KEY: KEY_CAPSLOCK
-    TAP: KEY_ESC
-    HOLD: KEY_LEFTCTRL

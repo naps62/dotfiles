@@ -6,3 +6,5 @@ source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/completions.zsh
 source ~/.config/zsh/history.zsh
 source ~/.config/zsh/vendor.zsh
+
+export PATH="$PATH:/home/naps62/.helios/bin"

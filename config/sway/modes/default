@@ -64,10 +64,14 @@ $bindsym $mod+$up focus up
 $bindsym $mod+$right focus right
 
 ## Navigation // Move focused window // $mod + Shift + ↑ ↓ ← → ##
-$bindsym $mod+Shift+$left move left
-$bindsym $mod+Shift+$down move down
-$bindsym $mod+Shift+$up move up
-$bindsym $mod+Shift+$right move right
+# $bindsym $mod+Shift+$left move left
+# $bindsym $mod+Shift+$down move down
+# $bindsym $mod+Shift+$up move up
+# $bindsym $mod+Shift+$right move right
+$bindsym $mod+Shift+h move left
+$bindsym $mod+Shift+j move down
+$bindsym $mod+Shift+k move up
+$bindsym $mod+Shift+l move right
 
 #
 # Workspaces:

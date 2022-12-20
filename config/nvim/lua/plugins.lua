@@ -7,6 +7,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
+  use { '~/projects/pair-gpt.nvim', config = function()
+    require('pair-gpt').setup {
+      bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
+    }
+  end }
+
   use 'wbthomason/packer.nvim'
 
   -- file explorer
@@ -71,6 +77,9 @@ return require('packer').startup(function(use)
       })
 
     end }
+  use { 'nvim-treesitter/nvim-treesitter-context', config = function()
+    require('treesitter-context').setup()
+  end }
   use 'tomlion/vim-solidity'
   use 'vmchale/just-vim'
   use { 'kevinhwang91/nvim-ufo',
@@ -131,6 +140,9 @@ return require('packer').startup(function(use)
             checkOnSave = {
               command = "clippy"
             },
+            inlayHints = {
+              reborrowHints = true
+            }
           }
         },
 
@@ -166,7 +178,7 @@ return require('packer').startup(function(use)
   use { 'mfussenegger/nvim-dap', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- search highlights
-  use 'kevinhwang91/nvim-hlslens'
+  use { 'kevinhwang91/nvim-hlslens', config = function() require('hlslens').setup() end }
 
   -- motions
   use { 'phaazon/hop.nvim', branch = 'v1', config = function() require 'hop'.setup() end }
@@ -199,6 +211,10 @@ return require('packer').startup(function(use)
 
   -- wakatime
   use 'wakatime/vim-wakatime'
+
+  -- Markdown
+  -- auto align tables
+  use 'junegunn/vim-easy-align'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

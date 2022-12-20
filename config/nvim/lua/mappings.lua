@@ -41,6 +41,7 @@ nmap("<tab>", ":b#<cr>")
 
 -- go back to normal mode
 imap("jj", "<esc>")
+imap("jk", "<esc>")
 
 -- save file
 nmap("<C-s>", ":update<cr>")
@@ -133,5 +134,10 @@ function toggleVirtualText()
 end
 
 nmap("<leader>dd", toggleVirtualText)
+
+-- align md tables
+vim.cmd [[
+  au FileType markdown map <Bar> vip :EasyAlign*<Bar><Enter>
+]]
 
 nmap("<C-LeftMouse>", "<LeftMouse>gx<CR>")

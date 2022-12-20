@@ -16,7 +16,7 @@
     "ipc": true,
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 50,
+    "height": 30,
     "position": "bottom",
 
     "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],

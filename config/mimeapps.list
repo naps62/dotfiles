@@ -1,5 +1,5 @@
 [Added Associations]
-image/jpeg=feh.desktop;firefox.desktop;eog.desktop;gimp.desktop;
+image/jpeg=gimp.desktop;feh.desktop;firefox.desktop;eog.desktop;
 image/png=gimp.desktop;firefox.desktop;firefox-bin.desktop;feh.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
@@ -14,6 +14,7 @@ text/html=firefox.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop;userapp-Telegram Desktop-Z84S30.desktop;userapp-Telegram Desktop-YYR6B1.desktop;userapp-Telegram Desktop-H37GO1.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-ITASF1.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-ITASF1.desktop;
+video/webm=mpv.desktop;
 
 [Default Applications]
 image/png=feh.desktop

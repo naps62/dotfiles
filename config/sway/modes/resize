@@ -27,5 +27,5 @@ mode --pango_markup $mode_resize {
 }
 ## Launch // Resize Mode ##
 $bindsym $mod+r mode $mode_resize
-gaps inner 5px
-gaps outer 5px
+gaps inner 3px
+gaps outer 3px
