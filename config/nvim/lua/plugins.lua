@@ -1,4 +1,17 @@
 local fn = vim.fn
+-- use { 'akinsho/git-conflict.nvim',
+--   requires = { 'https://gitlab.com/yorickpeterse/nvim-pqf' },
+--   config = function()
+--     require('git-conflict').setup({
+--       default_mappings = false,
+--       highlights = {
+--         current = 'DiffText',
+--         incoming = 'DiffAdd',
+--         parent = nil
+--       }
+--     })
+--     require('pqf').setup()
+--   end }
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -42,6 +55,7 @@ return require('packer').startup(function(use)
   use 'morhetz/gruvbox'
   use 'NLKNguyen/papercolor-theme'
   use 'sainnhe/sonokai'
+  use 'arcticicestudio/nord-vim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' }
@@ -215,6 +229,11 @@ return require('packer').startup(function(use)
   -- Markdown
   -- auto align tables
   use 'junegunn/vim-easy-align'
+
+  -- git conflicts
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', config = function()
+    require('diffview').setup({})
+  end }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
