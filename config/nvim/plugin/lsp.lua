@@ -4,7 +4,6 @@ local lsp_status = require("lsp-status")
 require('nvim-lsp-installer').setup({
   ensure_installed = {
     "solang",
-    -- "rust_analyzer",
     "tsserver",
     "eslint",
     "sumneko_lua",
@@ -82,7 +81,7 @@ vim.diagnostic.config({
 
 require('trouble').setup()
 
-require('toggle_lsp_diagnostics').init()
+require('toggle_lsp_diagnostics').init({ virtual_text = false })
 
 -- show diagnostic popup on cursor hold
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]

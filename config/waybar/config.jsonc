@@ -12,7 +12,6 @@
     // -------------------------------------------------------------------------
 
     "layer": "bottom",
-    "output": "eDP-1",
     "ipc": true,
 
     // If height property would be not present, it'd be calculated dynamically
@@ -20,7 +19,7 @@
     "position": "bottom",
 
     "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
-    "modules-center": ["custom/wf-recorder", "sway/mode"],
+    "modules-center": ["custom/wf-recorder", "sway/mode", "custom/weather"],
     "modules-right": [
         // informational
         "sway/language",

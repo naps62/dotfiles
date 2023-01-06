@@ -46,3 +46,4 @@ application/fdf=zathura.desktop
 application/xdp=zathura.desktop
 application/xfdf=zathura.desktop
 application/pdx=zathura.desktop
+x-scheme-handler/notion=notion-app.desktop

@@ -62,3 +62,7 @@ vim.opt.updatetime = 300
 
 -- highligh white spaces
 vim.opt.list = true
+
+vim.api.nvim_exec([[
+  let g:neovide_refresh_rate = 120
+]], false)

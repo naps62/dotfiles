@@ -20,11 +20,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-  use { '~/projects/pair-gpt.nvim', config = function()
-    require('pair-gpt').setup {
-      bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
-    }
-  end }
+  -- use { '~/projects/pair-gpt.nvim', config = function()
+  --   require('pair-gpt.nvim').setup {
+  --     bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
+  --   }
+  -- end }
 
   use 'wbthomason/packer.nvim'
 
@@ -51,11 +51,13 @@ return require('packer').startup(function(use)
   }
 
   -- theme
-  use 'tanvirtin/monokai.nvim'
-  use 'morhetz/gruvbox'
-  use 'NLKNguyen/papercolor-theme'
-  use 'sainnhe/sonokai'
-  use 'arcticicestudio/nord-vim'
+  use { 'navarasu/onedark.nvim',
+    config = function()
+      require('onedark').setup({
+        style = 'darker',
+      })
+    end
+  }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' }
@@ -109,10 +111,34 @@ return require('packer').startup(function(use)
   -- fuzzy finding
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local actions = require('telescope.actions')
+
+      require('telescope').setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-k>"] = actions.move_selection_previous,
+              ['<C-c>'] = actions.close
+            }
+          }
+        },
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {}
+          }
+        }
+      })
+      require("telescope").load_extension("projects")
+      require("telescope").load_extension("fzf")
+      require("telescope").load_extension("ui-select")
+    end
   }
   use { 'ahmedkhalf/project.nvim', config = function() require 'project_nvim'.setup() end }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
   use { 'junegunn/fzf', dir = '~/.fzf' }
   use 'junegunn/fzf.vim'
 
@@ -126,47 +152,7 @@ return require('packer').startup(function(use)
   use 'williamboman/nvim-lsp-installer'
   use 'neovim/nvim-lspconfig'
   use { 'glepnir/lspsaga.nvim', config = function() require 'lspsaga'.init_lsp_saga() end }
-  use { 'simrat39/rust-tools.nvim', config = function()
-    local rt = require 'rust-tools'
-    -- taken from
-    -- https://sharksforarms.dev/posts/neovim-rust/
-    rt.setup({
-      tools = { -- rust-tools options
-        autoSetHints = true,
-        inlay_hints = {
-          show_parameter_hints = false,
-          parameter_hints_prefix = "",
-          other_hints_prefix = ""
-        }
-      },
-
-      -- all the opts to send to nvim-lspconfig
-      -- these override the defaults set by rust-tools.nvim
-      -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-      server = {
-        -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
-        settings = {
-          -- to enable rust-analyzer settings visit:
-          -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-          ["rust-analyzer"] = {
-            -- enable clippy on save
-            checkOnSave = {
-              command = "clippy"
-            },
-            inlayHints = {
-              reborrowHints = true
-            }
-          }
-        },
-
-        on_attach = function(_, bufnr)
-          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-        end,
-      },
-    })
-  end }
+  use 'simrat39/rust-tools.nvim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
@@ -179,14 +165,14 @@ return require('packer').startup(function(use)
 
   -- copilot
   -- use 'github/copilot.vim'
-  use { 'zbirenbaum/copilot.lua',
-    event = { 'VimEnter' },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()
-      end, 100)
-    end }
-  use { 'zbirenbaum/copilot-cmp', after = 'copilot.lua', module = "copilot_cmp" }
+  -- use { 'zbirenbaum/copilot.lua',
+  --   event = { 'VimEnter' },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()
+  --     end, 100)
+  --   end }
+  -- use { 'zbirenbaum/copilot-cmp', after = 'copilot.lua', module = "copilot_cmp" }
 
   -- Debugging
   use { 'mfussenegger/nvim-dap', requires = { 'nvim-lua/plenary.nvim' } }

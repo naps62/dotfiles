@@ -3,15 +3,15 @@ vim.cmd [[
     set termguicolors
   endif
 
-  let g:sonokai_style = 'default'
-  let g:sonokai_better_performance = 1
-
   set background=dark
-  colorscheme sonokai
+  colorscheme onedark
+
+  " differentiate rustdoc comments from regular ones
+  highlight SpecialComment gui=bold
 ]]
 
 require('lualine').setup {
-  theme = 'powerline_dark',
+  theme = 'onedark',
   extensions = { 'nvim-tree', 'toggleterm' },
   sections = {
     lualine_c = { "filename", "require('lsp-status').status()" }

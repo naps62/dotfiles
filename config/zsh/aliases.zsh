@@ -8,7 +8,7 @@ alias d=docker
 alias dc=docker-compose
 alias g=git
 alias o=open
-alias v="neovide --multigrid"
+alias v="neovide --multigrid --novsync"
 alias n=nvim
 alias x=extract
 alias y=yay
@@ -29,3 +29,5 @@ alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 
+alias goerli="docker-compose --project-name goerli"
+alias mainnet="docker-compose --project-name mainnet"

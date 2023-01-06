@@ -7,4 +7,5 @@
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # Default wallpaper
-output * bg $background fill
+output * bg $background fill 
+output * adaptive_sync on

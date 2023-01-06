@@ -52,7 +52,7 @@ nmap("<C-n>", ":NvimTreeToggle<cr>")
 nmap("<C-m>", ":NvimTreeFindFile<cr>")
 
 -- fuzzy finder
-nmap("<C-p>", "<cmd>Telescope find_files<cr>")
+nmap("<C-p>", "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>")
 nmap("<C-f>", "<cmd>FzfRgSlim<cr>") -- custom command with more filters
 nmap("<C-S-f>", "<cmd>Rg<cr>") -- regular command without filters
 nmap("<C-.>", "<cmd>Telescope projects<cr>")
@@ -113,6 +113,36 @@ nmap("g]", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 -- code action
 nmap("gf", require('lspsaga.finder').lsp_finder)
 nmap("ga", require('lspsaga.codeaction').code_action)
+
+--
+-- quickfix navigation
+--
+nmap("[q", "<cmd>:cprev<cr>")
+nmap("]q", "<cmd>:cnext<cr>")
+-- easier navigation while inside the quickfix itself
+vim.cmd [[
+function! QuickfixMapping()
+  " Go to the previous location and stay in the quickfix window
+  nnoremap <buffer> K :cprev<CR>zz<C-w>w
+
+  " Go to the next location and stay in the quickfix window
+  nnoremap <buffer> J :cnext<CR>zz<C-w>w
+
+  " Make the quickfix list modifiable
+  nnoremap <buffer> <leader>u :set modifiable<CR>
+
+  " Save the changes in the quickfix window
+  nnoremap <buffer> <leader>w :cgetbuffer<CR>:cclose<CR>:copen<CR>
+
+  " Begin the search and replace
+  nnoremap <buffer> <leader>r :cdo s/// \| update<C-Left><C-Left><Left><Left><Left>
+endfunction
+
+augroup quickfix_group
+    autocmd!
+    autocmd filetype qf call QuickfixMapping()
+augroup END
+]]
 
 --
 -- diagnostics
