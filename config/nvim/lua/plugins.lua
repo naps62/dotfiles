@@ -144,7 +144,7 @@ return require('packer').startup(function(use)
 
   -- editing support
   use { 'windwp/nvim-autopairs', config = function() require 'nvim-autopairs'.setup() end }
-  use 'sbdchd/neoformat'
+  use { '/home/naps62/contrib/sbdchd/neoformat' }
   use 'nanotee/sqls.nvim'
   use { 'terrortylor/nvim-comment', config = function() require 'nvim_comment'.setup() end }
 
