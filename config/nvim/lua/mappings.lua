@@ -111,8 +111,8 @@ nmap("gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 nmap("g[", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 nmap("g]", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 -- code action
-nmap("gf", require('lspsaga.finder').lsp_finder)
-nmap("ga", require('lspsaga.codeaction').code_action)
+nmap("gf", "<cmd>Lspsaga lsp_finder<cr>")
+nmap("ga", "<cmd>Lspsaga code_action<cr>")
 
 --
 -- quickfix navigation

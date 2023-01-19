@@ -20,11 +20,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-  -- use { '~/projects/pair-gpt.nvim', config = function()
-  --   require('pair-gpt.nvim').setup {
-  --     bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
-  --   }
-  -- end }
+  use { 'naps62/pair-gpt.nvim', config = function()
+    require('pair-gpt').setup {
+      bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
+    }
+  end }
 
   use 'wbthomason/packer.nvim'
 
@@ -93,9 +93,9 @@ return require('packer').startup(function(use)
       })
 
     end }
-  use { 'nvim-treesitter/nvim-treesitter-context', config = function()
-    require('treesitter-context').setup()
-  end }
+  -- use { 'nvim-treesitter/nvim-treesitter-context', config = function()
+  --   require('treesitter-context').setup()
+  -- end }
   use 'tomlion/vim-solidity'
   use 'vmchale/just-vim'
   use { 'kevinhwang91/nvim-ufo',
@@ -151,7 +151,10 @@ return require('packer').startup(function(use)
   -- LSP
   use 'williamboman/nvim-lsp-installer'
   use 'neovim/nvim-lspconfig'
-  use { 'glepnir/lspsaga.nvim', config = function() require 'lspsaga'.init_lsp_saga() end }
+  use { 'glepnir/lspsaga.nvim', branch = "main", config = function() require('lspsaga').setup({
+      lightbulb = { enabled = false }
+    })
+  end }
   use 'simrat39/rust-tools.nvim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
