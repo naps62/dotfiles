@@ -54,18 +54,6 @@ cmp.setup({
   -- Never select any item by default
   preselect = cmp.PreselectMode.None,
 
-  formatting = {
-    format = function(entry, vim_item)
-      if entry.source.name == "copilot" then
-        vim_item.kind = "[] Copilot"
-        vim_item.kind_hl_group = "CmpItemKindCopilot"
-        return vim_item
-      end
-      return lspkind.cmp_format()(entry, vim_item)
-    end
-  },
-
-
   -- Installed sources
   sources = {
     { name = 'nvim_lsp' },
@@ -74,6 +62,12 @@ cmp.setup({
     { name = 'path' },
     { name = 'buffer' },
   }
+})
+
+lspkind.init({
+  symbol_map = {
+    Copilot = "",
+  },
 })
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })

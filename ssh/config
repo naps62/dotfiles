@@ -21,3 +21,8 @@ Host midgard
 Host lambert
   Hostname lambert.naps62.com
   User naps62
+
+Host konishi
+  Hostname home.naps62.com
+  User naps62
+  Port 23

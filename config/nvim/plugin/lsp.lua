@@ -1,19 +1,10 @@
+require('mason').setup()
+require('mason-lspconfig').setup()
 local lsp = require("lspconfig")
 local lsp_status = require("lsp-status")
 
-require('nvim-lsp-installer').setup({
-  ensure_installed = {
-    "solang",
-    "tsserver",
-    "eslint",
-    "sumneko_lua",
-    "graphql",
-    "tailwindcss",
-    "gopls"
-  }
-})
 
-lsp_status.register_progress()
+-- lsp_status.register_progress()
 
 function DisableFormatting(client)
   client.server_capabilities.documentFormattingProvider = false
@@ -32,6 +23,8 @@ end
 local capabilities = lsp_status.capabilities
 
 lsp.solang.setup({ on_attach = on_attach, capabilities = capabilities })
+lsp.solidity.setup({ on_attach = on_attach, capabilities = capabilities })
+lsp.solhint.setup({ on_attach = on_attach, capabilities = capabilities })
 lsp.tsserver.setup({
   on_attach = function(c, b)
     DisableFormatting(c)

@@ -1,17 +1,4 @@
 local fn = vim.fn
--- use { 'akinsho/git-conflict.nvim',
---   requires = { 'https://gitlab.com/yorickpeterse/nvim-pqf' },
---   config = function()
---     require('git-conflict').setup({
---       default_mappings = false,
---       highlights = {
---         current = 'DiffText',
---         incoming = 'DiffAdd',
---         parent = nil
---       }
---     })
---     require('pqf').setup()
---   end }
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -149,12 +136,16 @@ return require('packer').startup(function(use)
   use { 'terrortylor/nvim-comment', config = function() require 'nvim_comment'.setup() end }
 
   -- LSP
-  use 'williamboman/nvim-lsp-installer'
-  use 'neovim/nvim-lspconfig'
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
   use { 'glepnir/lspsaga.nvim', branch = "main", config = function() require('lspsaga').setup({
       lightbulb = { enabled = false }
     })
   end }
+
   use 'simrat39/rust-tools.nvim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -166,16 +157,6 @@ return require('packer').startup(function(use)
   use { 'onsails/lspkind.nvim', config = function() require 'lspkind'.init() end }
   use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
-  -- copilot
-  -- use 'github/copilot.vim'
-  -- use { 'zbirenbaum/copilot.lua',
-  --   event = { 'VimEnter' },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("copilot").setup()
-  --     end, 100)
-  --   end }
-  -- use { 'zbirenbaum/copilot-cmp', after = 'copilot.lua', module = "copilot_cmp" }
 
   -- Debugging
   use { 'mfussenegger/nvim-dap', requires = { 'nvim-lua/plenary.nvim' } }
@@ -223,6 +204,33 @@ return require('packer').startup(function(use)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', config = function()
     require('diffview').setup({})
   end }
+
+  use { '~/projects/pair-gpt.nvim', config = function()
+    require('pair-gpt').setup {
+      bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
+    }
+  end }
+
+  -- copilot
+  -- use 'github/copilot.vim'
+  use { 'zbirenbaum/copilot.lua',
+    cmd = "Copilot",
+    event = 'VimEnter',
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup(
+          {
+            suggestion = { enabled = false },
+            panel = { enabled = false }
+          }
+        )
+      end, 100)
+    end }
+  use { 'zbirenbaum/copilot-cmp',
+    after = 'copilot.lua',
+    config = function()
+      require("copilot_cmp").setup()
+    end }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

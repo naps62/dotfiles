@@ -68,9 +68,9 @@ nmap("<leader>sf", "viw:lua require('spectre').open_file_search()<cr>")
 -- hop.nvim
 nmap("ff", "<cmd>HopChar1<cr>")
 nmap("2ff", "<cmd>HopChar2<cr>")
-nmap("fl", "<cmd>HopLineStart<cr>")
-nmap("fp", "<cmd>HopPattern<cr>")
-nmap("fw", "<cmd>HopWord<cr>")
+nmap("<leader>fl", "<cmd>HopLineStart<cr>")
+nmap("<leader>fp", "<cmd>HopPattern<cr>")
+nmap("<leader>fw", "<cmd>HopWord<cr>")
 
 -- hlslens
 nmap("n", [[<cmd>execute('normal! ' . v:count1 . 'n')<cr><cmd>lua require('hlslens').start()<cr>]])
@@ -81,7 +81,8 @@ nmap("g*", [[g*<cmd>lua require('hlslens').start()<cr>]])
 nmap("g#", [[g#<cmd>lua require('hlslens').start()<cr>]])
 
 -- terminal
-nmap("<leader>t", "<cmd>9ToggleTerm direction=float<cr>")
+-- nmap("<leader>t", "<cmd>9ToggleTerm direction=float<cr>")
+nmap("<leader>t", "<cmd>Lspsaga term_toggle<cr>")
 nmap("<leader>1t", "<cmd>1ToggleTerm direction=vertical<cr>")
 nmap("<leader>2t", "<cmd>2ToggleTerm direction=vertical<cr>")
 nmap("<leader>0t", "<cmd>ToggleTermToggleAll<cr>")
@@ -101,18 +102,28 @@ vim.cmd [[
 nmap("<c-]>", "<cmd>lua vim.lsp.buf.definition()<cr>")
 nmap("<c-}>", "<cmd>:vsplit | lua vim.lsp.buf.definition()<cr>")
 nmap("<S-k>", "<cmd>lua vim.lsp.buf.hover()<cr>")
-nmap("gD", "<cmd>lua vim.lsp.buf.implementation()<cr>")
+nmap("gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+-- nmap("gD", "<cmd>lua vim.lsp.buf.implementation()<cr>")
 nmap("<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 nmap("1gD", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
 nmap("gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 nmap("g0", "<cmd>lua vim.lsp.buf.document_symbol()<cr>")
 nmap("gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>")
-nmap("gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-nmap("g[", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-nmap("g]", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+
+--
 -- code action
 nmap("gf", "<cmd>Lspsaga lsp_finder<cr>")
 nmap("ga", "<cmd>Lspsaga code_action<cr>")
+vmap("ga", "<cmd>Lspsaga code_action<cr>")
+nmap("gr", "<cmd>Lspsaga rename<cr>")
+nmap("gD", "<cmd>Lspsaga peek_definition<cr>")
+-- nmap("gd", "<cmd>Lspsaga goto_definition<cr>")
+nmap("g[", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
+nmap("g]", "<cmd>Lspsaga diagnostic_jump_next<cr>")
+nmap("go", "<cmd>Lspsaga outline<cr>")
+-- nmap("K", "<cmd>Lspsaga hover_doc<cr>")
+nmap("<leader>gi", "<cmd>Lspsaga incoming_calls<cr>")
+nmap("<leader>go", "<cmd>Lspsaga outgoing_calls<cr>")
 
 --
 -- quickfix navigation
