@@ -5,12 +5,16 @@ vim.opt.cursorcolumn = true
 vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.guifont = "FiraCode Nerd Font Mono:h12"
+vim.opt.guifont = "FiraCode Nerd Font Mono:h14"
 
 -- layout
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.signcolumn = "number"
+
+-- statusline
+-- vim.opt.signcolumn = "yes"
+vim.opt.numberwidth = 3
+vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? '  ' . v:lnum : v:lnum) : ''}%=%s"
 
 -- mouse
 vim.opt.mouse = "a"
@@ -65,4 +69,5 @@ vim.opt.list = true
 
 vim.api.nvim_exec([[
   let g:neovide_refresh_rate = 120
+  let g:instant_username = "naps62"
 ]], false)

@@ -7,6 +7,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
+  use 'jbyuki/instant.nvim'
+
   use { 'naps62/pair-gpt.nvim', config = function()
     require('pair-gpt').setup {
       bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
@@ -142,7 +144,7 @@ return require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
   }
   use { 'glepnir/lspsaga.nvim', branch = "main", config = function() require('lspsaga').setup({
-      lightbulb = { enabled = false }
+      lightbulb = { enable = false }
     })
   end }
 
@@ -204,6 +206,12 @@ return require('packer').startup(function(use)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', config = function()
     require('diffview').setup({})
   end }
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
   use { '~/projects/pair-gpt.nvim', config = function()
     require('pair-gpt').setup {
