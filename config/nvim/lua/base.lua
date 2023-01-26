@@ -5,16 +5,13 @@ vim.opt.cursorcolumn = true
 vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.guifont = "FiraCode Nerd Font Mono:h14"
+vim.opt.guifont = "FiraCode Nerd Font Mono:h12"
 
 -- layout
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- statusline
--- vim.opt.signcolumn = "yes"
-vim.opt.numberwidth = 3
-vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? '  ' . v:lnum : v:lnum) : ''}%=%s"
 
 -- mouse
 vim.opt.mouse = "a"

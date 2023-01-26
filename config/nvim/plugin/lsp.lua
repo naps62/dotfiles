@@ -3,15 +3,12 @@ require('mason-lspconfig').setup()
 local lsp = require("lspconfig")
 local lsp_status = require("lsp-status")
 
-
--- lsp_status.register_progress()
-
-function DisableFormatting(client)
+local disable_formatting = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-function EnableFormatting(client)
+local enable_formatting = function(client)
   client.server_capabilities.documentFormattingProvider = true
   client.server_capabilities.documentRangeFormattingProvider = true
 end
@@ -22,16 +19,28 @@ end
 
 local capabilities = lsp_status.capabilities
 
-lsp.solang.setup({ on_attach = on_attach, capabilities = capabilities })
-lsp.solidity.setup({ on_attach = on_attach, capabilities = capabilities })
-lsp.solhint.setup({ on_attach = on_attach, capabilities = capabilities })
+
+lsp.solc.setup({
+  on_attach = function(c, b)
+    disable_formatting(c)
+    lsp_status.on_attach(c, b)
+  end,
+  capabilities = capabilities,
+  settings = {
+    ["include-paths"] = {
+      "./lib/"
+    }
+  }
+})
+
 lsp.tsserver.setup({
   on_attach = function(c, b)
-    DisableFormatting(c)
+    disable_formatting(c)
     lsp_status.on_attach(c, b)
   end,
   capabilities = capabilities
 })
+
 lsp.sumneko_lua.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -43,12 +52,22 @@ lsp.sumneko_lua.setup({
     },
   },
 })
+
 lsp.sqls.setup({ on_attach = on_attach, capabilities = capabilities })
 lsp.graphql.setup({ on_attach = on_attach, capabilities = capabilities })
 lsp.tailwindcss.setup({ on_attach = on_attach, capabilities = capabilities })
+
+lsp.clangd.setup({
+  on_attach = function(c, b)
+    disable_formatting(c)
+    lsp_status.on_attach(c, b)
+  end,
+  capabilities = capabilities
+})
+
 lsp.eslint.setup({
   on_attach = function(c, b)
-    EnableFormatting(c)
+    enable_formatting(c)
     on_attach(c, b)
   end,
   capabilities = capabilities,
@@ -66,6 +85,7 @@ lsp.eslint.setup({
     },
   }
 })
+
 lsp.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
 
 vim.diagnostic.config({
@@ -73,7 +93,6 @@ vim.diagnostic.config({
 })
 
 require('trouble').setup()
-
 require('toggle_lsp_diagnostics').init({ virtual_text = false })
 
 -- show diagnostic popup on cursor hold

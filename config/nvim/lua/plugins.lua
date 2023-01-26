@@ -213,14 +213,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { '~/projects/pair-gpt.nvim', config = function()
-    require('pair-gpt').setup {
-      bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
-    }
-  end }
-
   -- copilot
-  -- use 'github/copilot.vim'
   use { 'zbirenbaum/copilot.lua',
     cmd = "Copilot",
     event = 'VimEnter',

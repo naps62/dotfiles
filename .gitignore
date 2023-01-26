@@ -5,6 +5,7 @@ config/nvim/.netrwhist
 config/zsh/.zcompdump
 
 config/*
+bin/zkwasm-*
 !config/sway
 !config/waybar
 !config/lazygit

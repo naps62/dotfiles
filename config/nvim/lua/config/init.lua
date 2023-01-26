@@ -1,1 +1,1 @@
-Icons = require("config.ui.icons")
+require("config.statuscolumn")
