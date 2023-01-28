@@ -15,6 +15,7 @@ x-scheme-handler/tg=userapp-Telegram Desktop-HD5GY0.desktop;userapp-Telegram Des
 x-scheme-handler/mailto=userapp-Thunderbird-ITASF1.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-ITASF1.desktop;
 video/webm=mpv.desktop;
+image/avif=google-chrome.desktop;
 
 [Default Applications]
 image/png=feh.desktop
@@ -47,3 +48,4 @@ application/xdp=zathura.desktop
 application/xfdf=zathura.desktop
 application/pdx=zathura.desktop
 x-scheme-handler/notion=notion-app.desktop
+image/avif=google-chrome.desktop

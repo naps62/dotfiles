@@ -20,22 +20,28 @@ end
 local capabilities = lsp_status.capabilities
 
 
-lsp.solc.setup({
+-- lsp.solc.setup({
+--   on_attach = function(c, b)
+--     disable_formatting(c)
+--     lsp_status.on_attach(c, b)
+--   end,
+--   capabilities = capabilities,
+--   settings = {
+--     ["include-paths"] = {
+--       "./lib/"
+--     }
+--   }
+-- })
+lsp.solidity.setup({
   on_attach = function(c, b)
     disable_formatting(c)
     lsp_status.on_attach(c, b)
   end,
-  capabilities = capabilities,
-  settings = {
-    ["include-paths"] = {
-      "./lib/"
-    }
-  }
+  capabilities = capabilities
 })
 
 lsp.tsserver.setup({
   on_attach = function(c, b)
-    disable_formatting(c)
     lsp_status.on_attach(c, b)
   end,
   capabilities = capabilities
@@ -66,24 +72,24 @@ lsp.clangd.setup({
 })
 
 lsp.eslint.setup({
-  on_attach = function(c, b)
-    enable_formatting(c)
-    on_attach(c, b)
-  end,
-  capabilities = capabilities,
-  settings = {
-    enable = true,
-    format = { enable = true }, -- this will enable formatting
-    packageManager = "npm",
-    autoFixOnSave = true,
-    codeActionsOnSave = {
-      mode = "all",
-      rules = { "!debugger", "!no-only-tests/*" },
-    },
-    lintTask = {
-      enable = true,
-    },
-  }
+  -- on_attach = function(c, b)
+  --   enable_formatting(c)
+  --   on_attach(c, b)
+  -- end,
+  -- capabilities = capabilities,
+  -- settings = {
+  --   enable = true,
+  --   format = { enable = true }, -- this will enable formatting
+  --   packageManager = "npm",
+  --   autoFixOnSave = true,
+  --   codeActionsOnSave = {
+  --     mode = "all",
+  --     rules = { "!debugger", "!no-only-tests/*" },
+  --   },
+  --   lintTask = {
+  --     enable = true,
+  --   },
+  -- }
 })
 
 lsp.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
@@ -100,3 +106,6 @@ vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = 
 
 -- auto format
 vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\|.sol\|.proto\)\@<! lua vim.lsp.buf.format()]]
+
+-- auto fix eslint
+vim.cmd [[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]

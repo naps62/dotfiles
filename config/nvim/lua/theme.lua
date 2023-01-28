@@ -8,6 +8,8 @@ vim.cmd [[
 
   " differentiate rustdoc comments from regular ones
   highlight SpecialComment gui=bold
+
+  autocmd BufNewFile,BufRead *.spec set filetype=certora
 ]]
 
 require('lualine').setup {
