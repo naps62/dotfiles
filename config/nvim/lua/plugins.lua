@@ -154,10 +154,12 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-path'
-  use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('trouble').setup() end }
   use 'nvim-lua/lsp-status.nvim'
   use { 'onsails/lspkind.nvim', config = function() require 'lspkind'.init() end }
-  use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+  use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+    config = function() require('toggle_lsp_diagnostics').init({ virtual_text = false }) end }
 
 
   -- Debugging

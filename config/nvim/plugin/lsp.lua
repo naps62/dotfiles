@@ -19,19 +19,8 @@ end
 
 local capabilities = lsp_status.capabilities
 
+local default_config = { on_attach = on_attach, capabilities = capabilities }
 
--- lsp.solc.setup({
---   on_attach = function(c, b)
---     disable_formatting(c)
---     lsp_status.on_attach(c, b)
---   end,
---   capabilities = capabilities,
---   settings = {
---     ["include-paths"] = {
---       "./lib/"
---     }
---   }
--- })
 lsp.solidity.setup({
   on_attach = function(c, b)
     disable_formatting(c)
@@ -40,12 +29,6 @@ lsp.solidity.setup({
   capabilities = capabilities
 })
 
-lsp.tsserver.setup({
-  on_attach = function(c, b)
-    lsp_status.on_attach(c, b)
-  end,
-  capabilities = capabilities
-})
 
 lsp.sumneko_lua.setup({
   on_attach = on_attach,
@@ -59,53 +42,21 @@ lsp.sumneko_lua.setup({
   },
 })
 
-lsp.sqls.setup({ on_attach = on_attach, capabilities = capabilities })
-lsp.graphql.setup({ on_attach = on_attach, capabilities = capabilities })
-lsp.tailwindcss.setup({ on_attach = on_attach, capabilities = capabilities })
-
-lsp.clangd.setup({
-  on_attach = function(c, b)
-    disable_formatting(c)
-    lsp_status.on_attach(c, b)
-  end,
-  capabilities = capabilities
-})
-
-lsp.eslint.setup({
-  -- on_attach = function(c, b)
-  --   enable_formatting(c)
-  --   on_attach(c, b)
-  -- end,
-  -- capabilities = capabilities,
-  -- settings = {
-  --   enable = true,
-  --   format = { enable = true }, -- this will enable formatting
-  --   packageManager = "npm",
-  --   autoFixOnSave = true,
-  --   codeActionsOnSave = {
-  --     mode = "all",
-  --     rules = { "!debugger", "!no-only-tests/*" },
-  --   },
-  --   lintTask = {
-  --     enable = true,
-  --   },
-  -- }
-})
-
-lsp.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
+lsp.tsserver.setup(default_config)
+lsp.sqls.setup(default_config)
+-- lsp.graphql.setup(default_config)
+lsp.tailwindcss.setup(default_config)
+lsp.gopls.setup(default_config)
 
 vim.diagnostic.config({
   virtual_text = false
 })
 
-require('trouble').setup()
-require('toggle_lsp_diagnostics').init({ virtual_text = false })
-
 -- show diagnostic popup on cursor hold
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
 
 -- auto format
-vim.cmd [[autocmd BufWritePre *\(.sql\|.graphql\|.sol\|.proto\)\@<! lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *\(.tsx\|.ts\|.sql\|.graphql\|.sol\|.proto\)\@<! lua vim.lsp.buf.format()]]
 
 -- auto fix eslint
-vim.cmd [[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]
+-- vim.cmd [[autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll]]

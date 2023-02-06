@@ -8,7 +8,8 @@ local blacklist = {
   nofile = true,
   lazygit = true,
   NvimTree = true,
-  toggleterm = true
+  toggleterm = true,
+  terminal = true
 }
 
 if _G.StatusColumn then
@@ -133,6 +134,8 @@ local function callback()
       StatusColumn.sections.sign_column,
       StatusColumn.sections.padding,
     })
+  else
+    vim.opt_local.statuscolumn = ""
   end
 end
 
