@@ -1,6 +1,4 @@
 require("base")
+require("lazy-inner")
 require("mappings")
-require("plugins")
-require("theme")
-require("functions")
 require("config")
