@@ -41,9 +41,13 @@ return {
 				sqls = {},
 				tsserver = {},
 				tailwindcss = {},
-				solidity = {},
+				solidity = {
+					settings = {
+						solidity = {},
+					},
+				},
 				rust_analyzer = {},
-				sumneko_lua = {
+				lua_ls = {
 					-- mason = false, -- set to false if you don't want this server to be installed with mason
 					settings = {
 						Lua = {

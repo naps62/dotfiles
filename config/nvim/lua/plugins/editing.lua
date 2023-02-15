@@ -100,10 +100,10 @@ return {
 
 	-- auto pairs
 	{
-		"echasnovski/mini.pairs",
+		"windwp/nvim-autopairs",
 		event = "VeryLazy",
-		config = function(_, opts)
-			require("mini.pairs").setup(opts)
+		config = function()
+			require("nvim-autopairs").setup({})
 		end,
 	},
 
@@ -129,6 +129,20 @@ return {
 		},
 		config = function(_, opts)
 			require("mini.comment").setup(opts)
+		end,
+	},
+
+	-- todo comments
+	{
+		"folke/todo-comments.nvim",
+		event = "VeryLazy",
+		opts = {
+			signs = true,
+			pattern = [[\b(KEYWORDS)\b]],
+		},
+		config = function(_, opts)
+			print(opts.pattern)
+			require("todo-comments").setup(opts)
 		end,
 	},
 }

@@ -44,6 +44,9 @@ return {
 				"markdown",
 				"markdown_inline",
 				"json",
+				"elixir",
+				"erlang",
+				"eex",
 			},
 			incremental_selection = {
 				enable = true,
@@ -62,4 +65,10 @@ return {
 
 	"tomlion/vim-solidity",
 	"vmchale/just-vim",
+	-- {
+	-- 	"mhanberg/elixir.nvim",
+	-- 	config = function()
+	-- 		require("elixir").setup()
+	-- 	end,
+	-- },
 }

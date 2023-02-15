@@ -47,6 +47,9 @@ imap("jk", "<esc>")
 nmap("<C-s>", ":update<cr>")
 imap("<C-s>", "<C-o>:update<cr><esc>")
 
+-- create new line at cursor position
+nmap("<C-CR>", "i<CR>")
+
 --
 -- quickfix navigation
 --

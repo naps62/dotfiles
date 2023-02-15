@@ -36,6 +36,7 @@ return {
 		keys = {
 			{ "<C-.>", "<cmd>luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'", mode = "i" },
 			{ "<C-.>", "<cmd>luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'", mode = "s" },
+			cmp,
 		},
 		config = function(_, opts)
 			require("luasnip").config.set_config(opts)
@@ -57,6 +58,7 @@ return {
 		opts = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -85,9 +87,12 @@ return {
 					fallback()
 				end
 			end, { "i", "s" })
+
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 			return {
 				completion = {
-					completeopt = "menu,menuone,noinsert",
+					completeopt = "menu,menuone,noselect,noinsert",
 				},
 				snippet = {
 					expand = function(args)
@@ -107,6 +112,8 @@ return {
 						select = false,
 					}),
 				}),
+				-- Never select any item by default
+				preselect = cmp.PreselectMode.None,
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
@@ -123,11 +130,11 @@ return {
 						return item
 					end,
 				},
-				experimental = {
-					ghost_text = {
-						hl_group = "LspCodeLens",
-					},
-				},
+				-- experimental = {
+				-- 	ghost_text = {
+				-- 		hl_group = "LspCodeLens",
+				-- 	},
+				-- },
 			}
 		end,
 	},
