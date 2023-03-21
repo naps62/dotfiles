@@ -7,10 +7,10 @@ return {
 		init = function()
 			vim.api.nvim_exec(
 				[[
-      augroup treesitter-highlight
-      autocmd!
-      autocmd BufEnter *.graphql,*.gql,*.elixir,*.md TSBufEnable highlight
-      augroup END
+      " augroup treesitter-highlight
+      " autocmd!
+      " autocmd BufEnter *.graphql,*.gql,*.elixir,*.md TSBufEnable highlight
+      " augroup END
 
       augroup custom-syntax
       autocmd!
@@ -25,9 +25,8 @@ return {
 			)
 		end,
 		opts = {
-			highlight = { enabled = true },
-			indent = { enabled = true },
-			context_commentstring = { enabled = true, enable_autocmd = true },
+			highlight = { enable = true },
+			indent = { enable = true },
 			ensure_installed = {
 				"rust",
 				"lua",

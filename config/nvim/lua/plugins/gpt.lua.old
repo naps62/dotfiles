@@ -1,8 +1,0 @@
-return {
-  {
-    "naps62/pair-gpt.nvim",
-    opts = {
-      bin = "~/projects/pair-gpt.nvim/target/debug/pair-gpt"
-    }
-  }
-}
