@@ -55,11 +55,11 @@ vim.opt.backupdir = "/home/naps62/.local/share/nvim/backup"
 
 -- completion
 vim.api.nvim_exec(
-	[[
+    [[
   set completeopt=menuone,noinsert,noselect
   set shortmess+=c
 ]],
-	false
+    false
 )
 vim.opt.updatetime = 300
 
@@ -67,9 +67,9 @@ vim.opt.updatetime = 300
 vim.opt.list = true
 
 vim.api.nvim_exec(
-	[[
+    [[
   let g:neovide_refresh_rate = 120
   let g:instant_username = "naps62"
 ]],
-	false
+    false
 )

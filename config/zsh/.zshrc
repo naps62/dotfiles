@@ -11,3 +11,5 @@ source ~/.config/zsh/rpc.sh
 export PATH="$PATH:/home/naps62/.helios/bin"
 
 source /home/naps62/.config/broot/launcher/bash/br
+
+[ -s "/home/naps62/.svm/svm.sh" ] && source "/home/naps62/.svm/svm.sh"

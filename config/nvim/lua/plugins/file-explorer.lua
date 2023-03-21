@@ -1,10 +1,10 @@
 return {
-	{
-		"airblade/vim-rooter",
-		init = function()
-			vim.g.rooter_patterns = { ".git", "Cargo.toml", "foundry.toml" }
-		end,
-	},
+	-- {
+	-- 	"airblade/vim-rooter",
+	-- 	init = function()
+	-- 		vim.g.rooter_patterns = { ".git", "Cargo.toml", "foundry.toml" }
+	-- 	end,
+	-- },
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
