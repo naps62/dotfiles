@@ -174,7 +174,6 @@ return {
 		},
 		config = function()
 			local rt = require("rust-tools")
-			print("rust-tools config")
 
 			local opts = {
 				tools = { -- rust-tools options
@@ -190,6 +189,20 @@ return {
 						require("plugins.lsp.keymaps").on_attach(client, buffer)
 						require("lsp-status").on_attach(client)
 					end,
+					settings = {
+						["rust-analyzer"] = {
+							-- enable clippy on save
+							-- rustfmt = {
+							-- 	extraArgs = { "+nightly" },
+							-- },
+							cargo = {
+								loadOutDirsFromCheck = true,
+							},
+							enable = true,
+							disabled = { "unresolved-proc-macro" },
+							enableExperimental = true,
+						},
+					},
 				},
 				dap = {
 					adapter = {
