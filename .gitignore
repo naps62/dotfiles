@@ -31,5 +31,6 @@ config/nvim/plugin/packer_compiled.lua
 !config/zathura
 !config/hypr
 !config/eww
+!config/kitty
 
 cache

@@ -122,7 +122,7 @@ mouse:
   faux_scrolling_lines: 1
 
 selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
 
 cursor:
   # Style of the cursor
@@ -189,11 +189,7 @@ key_bindings:
   - { key: W, mods: Command, action: Quit }
   - { key: Insert, mods: Shift, action: PasteSelection }
   - { key: Key0, mods: Control, action: ResetFontSize }
-  - {
-      key: Apostrophe,
-      mods: Control,
-      action: IncreaseFontSize
-    }
+  - { key: Apostrophe, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: Home, chars: "\eOH", mode: AppCursor }
   - { key: Home, chars: "\e[H", mode: ~AppCursor }
