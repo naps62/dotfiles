@@ -123,13 +123,13 @@ $white: $foreground;
 // Control Panel
 .control {
   padding: 0.5rem;
-  font-family: Material Icons;
+  font-family: "Font Awesome 6 Free";
   font-size: 1.6em;
   background-color: $black;
   border-radius: 5px;
 }
 .bat {
-  font-family: JetBrainsMono Nerd Font;
+  font-family: "Font Awesome 6 Free";
   font-size: 1.2em;
   padding-right: 0.5rem;
   color: $blue;
@@ -224,7 +224,6 @@ calendar:indeterminate {
   font-size: 1.4em;
   font-weight: bold;
 }
-.button-bspres,
 .button-reb,
 .button-lock,
 .button-quit,
@@ -234,9 +233,6 @@ calendar:indeterminate {
 .button-off {
   margin-bottom: 0.5rem;
   color: $red;
-}
-.button-bspres {
-  color: $green;
 }
 .button-reb {
   color: $yellow;

@@ -64,6 +64,7 @@ return {
 
 	"tomlion/vim-solidity",
 	"vmchale/just-vim",
+	"elkowar/yuck.vim",
 	-- {
 	-- 	"mhanberg/elixir.nvim",
 	-- 	config = function()
