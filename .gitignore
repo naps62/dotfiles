@@ -29,5 +29,7 @@ config/nvim/plugin/packer_compiled.lua
 !config/starship
 !config/user-dirs.conf
 !config/zathura
+!config/hypr
+!config/eww
 
 cache

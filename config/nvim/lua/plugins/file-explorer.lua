@@ -19,6 +19,15 @@ return {
 			window = {
 				width = 30,
 			},
+			filesystem = {
+				filtered_items = {
+					always_show = {
+						".gitignore",
+						".cargo",
+						".github",
+					},
+				},
+			},
 		},
 		keys = {
 			{

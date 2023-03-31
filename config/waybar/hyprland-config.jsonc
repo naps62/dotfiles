@@ -11,14 +11,14 @@
   // Global configuration
   // -------------------------------------------------------------------------
 
-  "layer": "bottom",
+  "layer": "top",
   "ipc": true,
 
   // If height property would be not present, it'd be calculated dynamically
   "height": 30,
-  "position": "bottom",
+  "position": "top",
 
-  "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
+  "modules-left": ["custom/menu", "wlr/workspaces", "custom/scratchpad"],
   "modules-center": ["custom/wf-recorder", "sway/mode", "custom/weather"],
   "modules-right": [
     // informational
@@ -50,6 +50,13 @@
   // -------------------------------------------------------------------------
   // Modules
   // -------------------------------------------------------------------------
+
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-click": "activate"
+  },
 
   "battery": {
     "interval": 30,
