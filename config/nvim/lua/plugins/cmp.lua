@@ -108,7 +108,7 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Insert,
+						behavior = cmp.ConfirmBehavior.Replace,
 						select = false,
 					}),
 				}),
