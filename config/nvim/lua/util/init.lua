@@ -1,6 +1,6 @@
 local M = {}
 
-M.root_patterns = { ".git", "lua", "Cargo.lock", "foundry.toml" }
+M.root_patterns = { ".git", "Cargo.lock", "foundry.toml" }
 
 ---@param on_attach fun(client, buffer)
 function M.on_attach(on_attach)
@@ -48,7 +48,7 @@ function M.telescope(builtin, opts)
 	return function()
 		builtin = params.builtin
 		opts = params.opts
-		opts = vim.tbl_deep_extend("force", { }, opts or {})
+		opts = vim.tbl_deep_extend("force", {}, opts or {})
 		if builtin == "files" then
 			if vim.loop.fs_stat((opts.cwd or vim.loop.cwd()) .. "/.git") then
 				opts.show_untracked = true

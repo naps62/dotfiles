@@ -46,7 +46,6 @@ return {
 						solidity = {},
 					},
 				},
-				rust_analyzer = {},
 				lua_ls = {
 					-- mason = false, -- set to false if you don't want this server to be installed with mason
 					settings = {
@@ -199,7 +198,9 @@ return {
 								loadOutDirsFromCheck = true,
 							},
 							enable = true,
-							disabled = { "unresolved-proc-macro" },
+							diagnostics = {
+								disabled = { "unresolved-proc-macro", "inactive-code" },
+							},
 							enableExperimental = true,
 						},
 					},
