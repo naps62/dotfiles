@@ -13,6 +13,9 @@ window:
 
 draw_bold_text_with_bright_colors: true
 
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml
+
 # Font configuration (changes require restart)
 #
 # Important font attributes like antialiasing, subpixel aa, and hinting can be
@@ -264,61 +267,3 @@ key_bindings:
   - { key: F10, mods: Super, chars: "\e[21;3~" }
   - { key: F11, mods: Super, chars: "\e[23;3~" }
   - { key: F12, mods: Super, chars: "\e[24;3~" }
-
-themes:
-  dark: &theme_dark
-    name: Eighties (dark)
-    author: Chris Kempson
-    primary:
-      background: "#2d2d2d"
-      foreground: "#d3d0c8"
-    cursor:
-      text: "#2d2d2d"
-      cursor: "#d3d0c8"
-    normal:
-      black: "#2d2d2d"
-      red: "#f2777a"
-      green: "#99cc99"
-      yellow: "#ffcc66"
-      blue: "#6699cc"
-      magenta: "#cc99cc"
-      cyan: "#66cccc"
-      white: "#d3d0c8"
-    bright:
-      black: "#747369"
-      red: "#f2777a"
-      green: "#99cc99"
-      yellow: "#ffcc66"
-      blue: "#6699cc"
-      magenta: "#cc99cc"
-      cyan: "#66cccc"
-      white: "#f2f0ec"
-  light: &theme_light
-    name: Eighties (light)
-    author: Chris Kempson
-    primary:
-      background: "#f2f0ec"
-      foreground: "#515151"
-    cursor:
-      text: "#f2f0ec"
-      cursor: "#515151"
-    normal:
-      black: "#2d2d2d"
-      red: "#f2777a"
-      green: "#99cc99"
-      yellow: "#ffcc66"
-      blue: "#6699cc"
-      magenta: "#cc99cc"
-      cyan: "#66cccc"
-      white: "#d3d0c8"
-    bright:
-      black: "#747369"
-      red: "#f2777a"
-      green: "#99cc99"
-      yellow: "#ffcc66"
-      blue: "#6699cc"
-      magenta: "#cc99cc"
-      cyan: "#66cccc"
-      white: "#f2f0ec"
-
-colors: *theme_dark

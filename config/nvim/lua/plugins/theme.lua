@@ -1,19 +1,26 @@
 return {
-
 	{
-		"navarasu/onedark.nvim",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		init = function()
-			require("onedark").setup({ style = "darker" })
-			vim.cmd([[
-      if has('termguicolors')
-        set termguicolors
-      endif
-
-      set background=dark
-      colorscheme onedark
-      highlight SpecialComment gui=bold
-    ]])
+			vim.cmd.colorscheme("catppuccin-mocha")
+			require("catppuccin").setup({
+				native_lsp = {
+					enabled = true,
+					virtual_text = {
+						errors = { "italic" },
+						hints = { "italic" },
+						warnings = { "italic" },
+						information = { "italic" },
+					},
+					underlines = {
+						errors = { "underline" },
+						hints = { "underline" },
+						warnings = { "underline" },
+						information = { "underline" },
+					},
+				},
+			})
 		end,
 	},
 

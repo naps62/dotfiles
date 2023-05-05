@@ -50,7 +50,7 @@ return {
 
 			return {
 				options = {
-					theme = "auto",
+					theme = "catppuccin-mocha",
 					globalstatus = true,
 					disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
 				},
@@ -184,8 +184,38 @@ return {
 		"folke/which-key.nvim",
 		init = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 0
+			vim.o.timeoutlen = 300
 			require("which-key").setup({})
+		end,
+	},
+
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+		init = function()
+			require("noice").setup({
+				presets = {
+					command_palette = true,
+				},
+				routes = {
+					{
+						filter = {
+							event = "msg_show",
+							kind = "",
+							find = "written",
+						},
+						opts = { skip = true },
+					},
+				},
+				lsp = {
+					override = {
+						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.stylize_markdown"] = true,
+						["cmp.entry.get_documentation"] = true,
+					},
+				},
+			})
 		end,
 	},
 }

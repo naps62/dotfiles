@@ -141,7 +141,6 @@ return {
 			pattern = [[\b(KEYWORDS)\b]],
 		},
 		config = function(_, opts)
-			print(opts.pattern)
 			require("todo-comments").setup(opts)
 		end,
 	},
