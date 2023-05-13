@@ -13,3 +13,11 @@ export PATH="$PATH:/home/naps62/.helios/bin"
 source /home/naps62/.config/broot/launcher/bash/br
 
 [ -s "/home/naps62/.svm/svm.sh" ] && source "/home/naps62/.svm/svm.sh"
+
+# pnpm
+export PNPM_HOME="/home/naps62/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
