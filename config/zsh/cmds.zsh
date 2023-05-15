@@ -46,4 +46,5 @@ anvim() {
 
   # nohup alacritty --config-file ~/.config/alacritty/anvim.yml \
   nohup kitty -e "nvim" >/dev/null &
+  disown
 }

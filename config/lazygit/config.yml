@@ -1,16 +1,25 @@
 gui:
   sidePanelWidth: 0.2 # number from 0 to 1
   theme:
+    lightTheme: false
+    activeBorderColor:
+      - "#a6e3a1" # Green
+      - bold
+    inactiveBorderColor:
+      - "#cdd6f4" # Text
+    optionsTextColor:
+      - "#89b4fa" # Blue
     selectedLineBgColor:
-      - reverse # set to `default` to have no background colour
+      - "#313244" # Surface0
     selectedRangeBgColor:
-      - reverse
+      - "#313244" # Surface0
     cherryPickedCommitBgColor:
-      - cyan
+      - "#94e2d5" # Teal
     cherryPickedCommitFgColor:
-      - blue
+      - "#89b4fa" # Blue
     unstagedChangesColor:
-      - red
+      - red # Red
+
 git:
   paging:
     colorArg: always

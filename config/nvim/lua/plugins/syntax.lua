@@ -15,6 +15,7 @@ return {
       augroup custom-syntax
       autocmd!
       autocmd BufEnter *.cairo set syntax=cairo
+      autocmd BufEnter *.wit set syntax=typescript
       autocmd Syntax *.sol syntax match solNatspecTag "\v\@\w+" containedin=solComment,solLineComment
       autocmd Syntax *.sol syntax match solNatspecRef "\v\{\w+\}" containedin=solComment,solLineComment
       autocmd Syntax *.sol highlight! link solNatspecTag solKeyword
@@ -65,4 +66,5 @@ return {
 	"tomlion/vim-solidity",
 	"vmchale/just-vim",
 	"elkowar/yuck.vim",
+	"imsnif/kdl.vim",
 }

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source /home/naps62/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 #
 # antidote plugins
 #

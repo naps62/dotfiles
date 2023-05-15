@@ -32,5 +32,8 @@ config/nvim/plugin/packer_compiled.lua
 !config/hypr
 !config/eww
 !config/kitty
+!config/bat
+!config/spicetify/config-xpui.ini
+!config/swww
 
 cache
