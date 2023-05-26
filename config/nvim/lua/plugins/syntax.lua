@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-    enable = false,
 		version = false,
 		build = ":TSUpdate",
 		event = "BufReadPre",
@@ -64,6 +63,6 @@ return {
 		end,
 	},
 
-	{ "tomlion/vim-solidity", lazy = true },
-	{ "vmchale/just-vim", lazy = true },
+	{ "tomlion/vim-solidity" },
+	{ "vmchale/just-vim" },
 }

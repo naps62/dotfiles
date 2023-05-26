@@ -48,12 +48,13 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		version = false,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
 		},
 		opts = function()
 			local cmp = require("cmp")

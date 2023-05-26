@@ -59,9 +59,6 @@ return {
 		dependencies = "nvim-lua/plenary.nvim",
 		opts = {
 			view = {
-				default = {
-					layout = "diff4_mixed",
-				},
 				merge_tool = {
 					layout = "diff4_mixed",
 				},
