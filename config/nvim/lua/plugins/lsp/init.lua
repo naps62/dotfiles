@@ -42,7 +42,6 @@ return {
 			lsp.on_attach(function(client, bufnr)
 				lsp.default_keymaps({ buffer = bufnr })
 
-				print(client.server_capabilities.documentSymbolProvider)
 				if client.server_capabilities.documentSymbolProvider then
 					require("nvim-navic").attach(client, bufnr)
 				end
@@ -85,10 +84,7 @@ return {
 					},
 					settings = {
 						["rust-analyzer"] = {
-							numThreads = 2,
-							cachePriming = {
-								numThreads = 2,
-							},
+							enable = true,
 							imports = {
 								granularity = {
 									enforce = true,
@@ -115,7 +111,6 @@ return {
 			require("typescript").setup({
 				server = {
 					on_attach = function(client, buffer)
-						print(client.server_capabilities.documentSymbolProvider)
 						client.server_capabilities.documentFormattingProvider = false
 						-- keymaps
 						require("plugins.lsp.keymaps").on_attach(client, buffer)

@@ -1,6 +1,4 @@
 return {
-	"nanotee/sqls.nvim",
-
 	{
 		"kevinhwang91/nvim-hlslens",
 		lazy = true,

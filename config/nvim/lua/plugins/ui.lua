@@ -2,18 +2,6 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		opts = {},
-		-- init = function()
-		-- 	---@diagnostic disable-next-line: duplicate-set-field
-		-- 	vim.ui.select = function(...)
-		-- 		require("lazy").load({ plugins = { "dressing.nvim" } })
-		-- 		return vim.ui.select(...)
-		-- 	end
-		-- 	---@diagnostic disable-next-line: duplicate-set-field
-		-- 	vim.ui.input = function(...)
-		-- 		require("lazy").load({ plugins = { "dressing.nvim" } })
-		-- 		return vim.ui.input(...)
-		-- 	end
-		-- end,
 	},
 
 	{
@@ -21,7 +9,7 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
-			"nvim-lua/lsp-status.nvim",
+			-- "nvim-lua/lsp-status.nvim",
 		},
 		opts = function()
 			local icons = require("config.icons")
@@ -73,11 +61,11 @@ return {
 						},
 					},
 					lualine_x = {
-						{
-							function()
-								return require("lsp-status").status()
-							end,
-						},
+						-- {
+						-- function()
+						-- 	return require("lsp-status").status()
+						-- end,
+						-- },
 						{
 							require("lazy.status").updates,
 							cond = require("lazy.status").has_updates,
@@ -135,6 +123,28 @@ return {
 			require("mini.indentscope").setup(opts)
 		end,
 	},
+
+	-- {
+	-- 	"SmiteshP/nvim-navic",
+	-- 	dependencies = { "neovim/nvim-lspconfig" },
+	-- 	lazy = false,
+	-- 	init = function()
+	-- 		vim.g.navic_silence = false
+	-- 		require("util").on_attach(function(client, buffer)
+	-- 			if client.server_capabilities.documentSymbolProvider then
+	-- 				require("nvim-navic").attach(client, buffer)
+	-- 			end
+	-- 		end)
+	-- 	end,
+	-- 	opts = function()
+	-- 		return {
+	-- 			separator = " ",
+	-- 			highlight = true,
+	-- 			depth_limit = 5,
+	-- 			icons = require("config.icons").kinds,
+	-- 		}
+	-- 	end,
+	-- },
 
 	-- ui components
 	{ "MunifTanjim/nui.nvim", lazy = true },

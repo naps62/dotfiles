@@ -47,6 +47,7 @@ return {
 				"elixir",
 				"erlang",
 				"eex",
+				"kdl",
 			},
 			incremental_selection = {
 				enable = true,
