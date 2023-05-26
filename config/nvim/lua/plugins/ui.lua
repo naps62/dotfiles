@@ -1,19 +1,5 @@
 return {
 	{
-		"rcarriga/nvim-notify",
-		keys = {},
-		opts = {
-			timeout = 3000,
-			max_height = function()
-				return math.floor(vim.o.lines * 0.75)
-			end,
-			max_widht = function()
-				return math.floor(vim.o.columns * 0.75)
-			end,
-		},
-	},
-
-	{
 		"stevearc/dressing.nvim",
 		lazy = true,
 		init = function()
@@ -124,26 +110,21 @@ return {
 		end,
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "BufReadPost",
-		opts = {
-			char = "│",
-			filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "nvim-tree", "Trouble", "lazy" },
-			show_trailing_blankline_indent = false,
-			show_current_context = false,
-		},
-	},
-
 	-- active indent guide and indent text objects
 	{
 		"echasnovski/mini.indentscope",
 		version = false, -- wait til new 0.7.0 release to put it back on semver
 		event = "BufReadPre",
-		opts = {
-			symbol = "│",
-			options = { try_as_border = true },
-		},
+		opts = function()
+			return {
+				draw = {
+					delay = 0,
+					animation = require("mini.indentscope").gen_animation.none(),
+				},
+				symbol = "│",
+				options = { try_as_border = true },
+			}
+		end,
 		config = function(_, opts)
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = { "help", "alpha", "dashboard", "neo-tree", "nvim-tree", "Trouble", "lazy", "mason" },
@@ -186,36 +167,6 @@ return {
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 			require("which-key").setup({})
-		end,
-	},
-
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
-		init = function()
-			require("noice").setup({
-				presets = {
-					command_palette = true,
-				},
-				routes = {
-					{
-						filter = {
-							event = "msg_show",
-							kind = "",
-							find = "written",
-						},
-						opts = { skip = true },
-					},
-				},
-				lsp = {
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-				},
-			})
 		end,
 	},
 }

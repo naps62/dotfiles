@@ -3,7 +3,7 @@ return {
 
 	{
 		"kevinhwang91/nvim-hlslens",
-		lazy = false,
+		lazy = true,
 		init = function()
 			require("hlslens").setup()
 		end,
@@ -29,6 +29,7 @@ return {
 
 	{
 		"phaazon/hop.nvim",
+		event = "VeryLazy",
 		branch = "v2",
 		init = function()
 			require("hop").setup()
@@ -54,18 +55,27 @@ return {
 	-- git conflicts
 	{
 		"sindrets/diffview.nvim",
+		event = "VeryLazy",
 		dependencies = "nvim-lua/plenary.nvim",
+		opts = {
+			view = {
+				default = {
+					layout = "diff4_mixed",
+				},
+				merge_tool = {
+					layout = "diff4_mixed",
+				},
+			},
+		},
 	},
 
 	-- auto align tables
-	"junegunn/vim-easy-align",
-
-	-- debugging
-	{ "mfussenegger/nvim-dap", dependencies = { "nvim-lua/plenary.nvim" } },
+	{ "junegunn/vim-easy-align", event = "VeryLazy" },
 
 	-- folding
 	{
 		"kevinhwang91/nvim-ufo",
+		enabled = false,
 		dependencies = "kevinhwang91/promise-async",
 		init = function()
 			require("ufo").setup({
@@ -110,25 +120,18 @@ return {
 	-- surround
 	{
 		"echasnovski/mini.surround",
+		even = "VeryLazy",
 		config = function(_, opts)
 			require("mini.surround").setup(opts)
 		end,
 	},
 
 	-- commenting
-	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 	{
-		"echasnovski/mini.comment",
+		"numToStr/Comment.nvim",
 		event = "VeryLazy",
-		opts = {
-			hooks = {
-				pre = function()
-					require("ts_context_commentstring.internal").update_commentstring({})
-				end,
-			},
-		},
 		config = function(_, opts)
-			require("mini.comment").setup(opts)
+			require("Comment").setup(opts)
 		end,
 	},
 

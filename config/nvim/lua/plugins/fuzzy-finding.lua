@@ -4,6 +4,7 @@ return {
 	{
 
 		"ahmedkhalf/project.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("project_nvim").setup({})
 		end,
@@ -16,6 +17,7 @@ return {
 
 	{
 		"nvim-telescope/telescope.nvim",
+		lazy = true,
 		cmd = "Telescope",
 		version = false,
 		dependencies = { "nvim-lua/plenary.nvim" },

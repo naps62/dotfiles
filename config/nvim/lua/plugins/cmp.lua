@@ -2,6 +2,7 @@ return {
 	-- snippets
 	{
 		"L3MON4D3/LuaSnip",
+		lazy = true,
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			config = function()
@@ -36,7 +37,6 @@ return {
 		keys = {
 			{ "<C-.>", "<cmd>luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'", mode = "i" },
 			{ "<C-.>", "<cmd>luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'", mode = "s" },
-			cmp,
 		},
 		config = function(_, opts)
 			require("luasnip").config.set_config(opts)
@@ -48,7 +48,7 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		version = false,
-		event = "InsertEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -142,7 +142,7 @@ return {
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
-		event = "InsertEnter",
+		event = "VeryLazy",
 		config = function()
 			require("copilot").setup({
 				suggestion = { enabled = false },
@@ -153,6 +153,7 @@ return {
 
 	{
 		"zbirenbaum/copilot-cmp",
+		event = "VeryLazy",
 		config = function()
 			require("copilot_cmp").setup()
 		end,

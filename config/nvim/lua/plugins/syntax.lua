@@ -1,9 +1,10 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+    enable = false,
 		version = false,
 		build = ":TSUpdate",
-		event = "BufReadPost",
+		event = "BufReadPre",
 		init = function()
 			vim.api.nvim_exec(
 				[[
@@ -63,8 +64,6 @@ return {
 		end,
 	},
 
-	"tomlion/vim-solidity",
-	"vmchale/just-vim",
-	"elkowar/yuck.vim",
-	"imsnif/kdl.vim",
+	{ "tomlion/vim-solidity", lazy = true },
+	{ "vmchale/just-vim", lazy = true },
 }

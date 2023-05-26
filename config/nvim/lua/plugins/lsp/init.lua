@@ -6,6 +6,7 @@ return {
 		dependencies = {
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			{
@@ -39,7 +40,11 @@ return {
 			servers = {
 				jsonls = {},
 				sqls = {},
-				tsserver = {},
+				tsserver = {
+					on_attach = function(client)
+						client.resolved_capabilities.document_formatting = false
+					end,
+				},
 				tailwindcss = {},
 				solidity = {
 					settings = {
@@ -47,7 +52,6 @@ return {
 					},
 				},
 				lua_ls = {
-					-- mason = false, -- set to false if you don't want this server to be installed with mason
 					settings = {
 						Lua = {
 							workspace = {
@@ -55,6 +59,17 @@ return {
 							},
 							completion = {
 								callSnippet = "Replace",
+							},
+						},
+					},
+				},
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								allFeatures = true,
+								command = "clippy",
+								extraArgs = { "--all", "--", "-W", "clippy::all", "-W", "clippy::dbg_macro" },
 							},
 						},
 					},
@@ -164,62 +179,68 @@ return {
 		end,
 	},
 
-	{
-		"simrat39/rust-tools.nvim",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"nvim-lua/plenary.nvim",
-			"mfussenegger/nvim-dap",
-		},
-		config = function()
-			local rt = require("rust-tools")
-
-			local opts = {
-				tools = { -- rust-tools options
-					executor = require("rust-tools/executors").termopen,
-					runnables = {
-						use_telescope = true,
-					},
-				},
-				server = {
-					standalone = true,
-					on_attach = function(client, buffer)
-						require("plugins.lsp.format").on_attach(client, buffer)
-						require("plugins.lsp.keymaps").on_attach(client, buffer)
-						require("lsp-status").on_attach(client)
-					end,
-					settings = {
-						["rust-analyzer"] = {
-							checkOnSave = {
-								command = "clippy",
-								extraArgs = { "--all", "--", "-W", "clippy::all" },
-							},
-							procMacro = {
-								enable = true,
-							},
-							cargo = {
-								loadOutDirsFromCheck = true,
-							},
-							enable = true,
-							diagnostics = {
-								disabled = { "unresolved-proc-macro", "inactive-code" },
-							},
-							enableExperimental = true,
-						},
-					},
-				},
-				dap = {
-					adapter = {
-						type = "executable",
-						command = "lldb-vscode",
-						name = "rt_lldb",
-					},
-				},
-			}
-
-			rt.setup(opts)
-		end,
-	},
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		local rt = require("rust-tools")
+	--
+	-- 		local opts = {
+	-- 			tools = { -- rust-tools options
+	-- 				executor = require("rust-tools/executors").termopen,
+	-- 				runnables = {
+	-- 					use_telescope = true,
+	-- 				},
+	-- 			},
+	-- 			server = {
+	-- 				standalone = true,
+	-- 				on_attach = function(client, buffer)
+	-- 					require("plugins.lsp.keymaps").on_attach(client, buffer)
+	-- 					require("lsp-status").on_attach(client)
+	-- 				end,
+	-- 				settings = {
+	-- 					["rust-analyzer"] = {
+	-- 						checkOnSave = {
+	-- 							command = "clippy",
+	-- 							extraArgs = { "--all", "--", "-W", "clippy::all", "-W", "clippy::dbg_macro" },
+	-- 						},
+	-- 						-- procMacro = {
+	-- 						-- 	enable = true,
+	-- 						-- },
+	-- 						cargo = {
+	-- 							loadOutDirsFromCheck = true,
+	-- 						},
+	-- 						enable = true,
+	-- 						diagnostics = {
+	-- 							disabled = { "unresolved-proc-macro", "inactive-code" },
+	-- 						},
+	-- 						enableExperimental = true,
+	-- 						hover = {
+	-- 							actions = {
+	-- 								debug = {
+	-- 									enable = false,
+	-- 								},
+	-- 							},
+	-- 							memoryLayout = {
+	-- 								enable = false,
+	-- 							},
+	-- 						},
+	-- 						imports = {
+	-- 							granularity = {
+	-- 								enforce = false,
+	-- 							},
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		}
+	--
+	-- 		rt.setup(opts)
+	-- 	end,
+	-- },
 
 	-- formatters
 	{

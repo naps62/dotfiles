@@ -8,6 +8,7 @@ return {
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		lazy = true,
 		branch = "v2.x",
 		requires = {
 			"nvim-lua/plenary.nvim",

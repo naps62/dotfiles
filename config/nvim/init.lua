@@ -1,3 +1,4 @@
+vim.loader.enable()
 require("base")
 require("lazy-inner")
 require("mappings")
