@@ -50,6 +50,7 @@ return {
 		version = false,
 		event = "InsertEnter",
 		dependencies = {
+
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
@@ -130,6 +131,9 @@ return {
 						end
 						return item
 					end,
+				},
+				performance = {
+					debounce = 150,
 				},
 				-- experimental = {
 				-- 	ghost_text = {

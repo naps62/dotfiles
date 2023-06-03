@@ -8,7 +8,6 @@ function M.get()
 	M._keys = M._keys
 		or {
 			{ "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-			{ "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
 			{ "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
 			{ "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
 			{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },

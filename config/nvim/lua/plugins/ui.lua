@@ -9,7 +9,6 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
-			-- "nvim-lua/lsp-status.nvim",
 		},
 		opts = function()
 			local icons = require("config.icons")
@@ -61,11 +60,6 @@ return {
 						},
 					},
 					lualine_x = {
-						-- {
-						-- function()
-						-- 	return require("lsp-status").status()
-						-- end,
-						-- },
 						{
 							require("lazy.status").updates,
 							cond = require("lazy.status").has_updates,
@@ -95,6 +89,13 @@ return {
 				},
 				extensions = { "nvim-tree", "toggleterm" },
 			}
+		end,
+	},
+
+	{
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup({})
 		end,
 	},
 

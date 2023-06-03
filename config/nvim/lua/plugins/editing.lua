@@ -70,33 +70,27 @@ return {
 	-- folding
 	{
 		"kevinhwang91/nvim-ufo",
-		enabled = false,
 		dependencies = "kevinhwang91/promise-async",
 		init = function()
-			require("ufo").setup({
-				provider_selector = function(bufnr, filetype)
-					return { "treesitter", "indent" }
-				end,
-			})
+			require("ufo").setup()
 
 			vim.o.foldcolumn = "1"
 			vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-			vim.o.foldlevelstart = -1
+			vim.o.foldlevelstart = 99
 			vim.o.foldenable = true
-			vim.o.foldcolumn = "auto"
 		end,
 		keys = {
 			{
 				"zR",
 				function()
-					return require("ufo").openAllFolds()
+					require("ufo").openAllFolds()
 				end,
 				"open all folds",
 			},
 			{
 				"zM",
 				function()
-					return require("ufo").closeAllFolds()
+					require("ufo").closeAllFolds()
 				end,
 				"close all folds",
 			},

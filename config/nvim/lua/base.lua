@@ -1,7 +1,7 @@
 vim.opt.scrolloff = 5
-vim.opt.autowrite = true
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+-- vim.opt.autowrite = true
+-- vim.opt.cursorline = true
+-- vim.opt.cursorcolumn = true
 -- vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 vim.opt.clipboard = "unnamedplus"
@@ -39,19 +39,14 @@ vim.opt.smartcase = true
 vim.opt.gdefault = true
 
 -- undo buffer
-vim.opt.history = 50
-vim.opt.undolevels = 1000
-vim.opt.undoreload = 1000
-vim.opt.undofile = true
-vim.opt.undodir = "/home/naps62/.local/share/nvim/undo"
-vim.opt.swapfile = true
-vim.opt.dir = "/home/naps62/.local/share/nvim/swap"
-vim.opt.backupdir = "/home/naps62/.local/share/nvim/backup"
-
--- no swap files
---vim.opt.nobackup = true
---vim.opt.nowritebackup = true
---vim.opt.noswapfile = true
+-- vim.opt.history = 50
+-- vim.opt.undolevels = 1000
+-- vim.opt.undoreload = 1000
+-- vim.opt.undofile = true
+-- vim.opt.undodir = "/home/naps62/.local/share/nvim/undo"
+-- vim.opt.swapfile = true
+-- vim.opt.dir = "/home/naps62/.local/share/nvim/swap"
+-- vim.opt.backupdir = "/home/naps62/.local/share/nvim/backup"
 
 -- completion
 vim.api.nvim_exec(
@@ -65,13 +60,5 @@ vim.opt.updatetime = 300
 
 -- highligh white spaces
 vim.opt.list = true
-
-vim.api.nvim_exec(
-	[[
-  let g:neovide_refresh_rate = 120
-  let g:instant_username = "naps62"
-]],
-	false
-)
 
 vim.opt.fillchars:append({ diff = " " })
