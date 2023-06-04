@@ -1,0 +1,32 @@
+layout {
+  default_tab_template {
+    children
+
+    pane size=1 borderless=true {
+      cwd "/home/naps62/iron/iron"
+      plugin location="zellij:tab-bar"
+    }
+  }
+
+  tab name="bacon" focus=true {
+    pane command="bacon" {
+      cwd "/home/naps62/iron/iron"
+    }
+  }
+
+  tab name="dev" {
+    pane {
+      cwd "/home/naps62/iron/iron"
+      command "just"
+      args "dev" 
+    }
+  }
+
+  tab name="web3-demo" {
+    pane {
+      cwd "/home/naps62/iron/web3-demo"
+      command "just"
+      args "dev" 
+    }
+  }
+}

@@ -48,6 +48,7 @@ return {
 				"erlang",
 				"eex",
 				"kdl",
+				"yuck",
 			},
 			incremental_selection = {
 				enable = true,

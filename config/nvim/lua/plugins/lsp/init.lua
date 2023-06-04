@@ -155,6 +155,7 @@ return {
 				sources = {
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.diagnostics.solhint,
 					null_ls.builtins.formatting.forge_fmt,
 					require("typescript.extensions.null-ls.code-actions"),
 				},
