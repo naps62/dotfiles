@@ -1,6 +1,6 @@
 #!/bin/bash
 
-eww="eww -c $HOME/.config/eww/bar"
+eww="eww -c $HOME/.config/eww"
 name="window_$1"
 lock="$HOME/.cache/eww-${name}.lock"
 

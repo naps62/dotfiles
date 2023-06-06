@@ -1,0 +1,20 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = true
+
+[keys.normal]
+C-s = ":w"
+
+[keys.insert]
+j = { k = "normal_mode", j = "normal_mode" } 
+C-s = ["normal_mode", ":w"]

@@ -11,6 +11,7 @@ alias o=open
 alias n="nvim"
 alias v="anvim"
 alias gv="neovide --multigrid"
+alias h=helix
 alias n=nvim
 alias x=extract
 alias y=yay
