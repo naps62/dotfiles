@@ -1,6 +1,7 @@
 ;; Variables
 (defpoll clock_time :interval "5m" "date +\%I:%M")
 (defpoll clock_date :interval "10h" "date '+%d/%m'")
+(defvar volume_percent 0)
 ;; (defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 ;; (defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 ;; (defpoll brightness_percent :interval "5s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
@@ -16,6 +17,7 @@
 (defvar vol_reveal false)
 (defvar br_reveal false)
 (defvar music_reveal false)
+(defvar bar_hover false)
 (defvar wifi_rev false)
 (defvar time_rev false)
 (deflisten workspace "scripts/workspace")
@@ -44,13 +46,13 @@
 (defwidget widget_wifi [] 
 (eventbox :onhover "${eww} update wifi_rev=true"
     :onhoverlost "${eww} update wifi_rev=false"
-    (box :vexpand "false" :hexpand "false" :space-evenly "false"
-      (button :class "module-wif" :onclick "/home/naps62/.config/rofi/network-manager/run.sh" :wrap "false" :limit-width 12 :style "color: ${COL_WLAN};" "")
+    (box :class "revealer" :vexpand "false" :hexpand "false" :space-evenly "false"
+      (button :class "wifi revealer-icon" :onclick "/home/naps62/.config/rofi/network-manager/run.sh" :wrap "false" :limit-width 12 :style "color: ${COL_WLAN};" "")
       (revealer :transition "slideright"
         :reveal wifi_rev
         :duration "350ms"
-        (label    :class "module_essid"
-          :text WLAN_NAME
+        (label    :class "revealer-label wifi-label"
+          :text "${WLAN_NAME}TODO"
           :orientation "h"
   )))))
 
@@ -61,7 +63,7 @@
 ;; (defwidget widget_battery []
 ;;   (box :class "system_module" :vexpand "false" :hexpand "false" 
 ;;   (circular-progress :value battery
-;;       :class "bar battery"
+;;       :class "circle battery"
 ;;       :thickness 4
 ;;     (button 
 ;;         :class "icon"
@@ -74,7 +76,7 @@
 (defwidget widget_ram []
   (box :class "system_module" :vexpand "false" :hexpand "false" 
   (circular-progress :value memory
-      :class "bar memory"
+      :class "circle memory"
       :thickness 4
     (button 
         :class "icon"
@@ -87,7 +89,7 @@
 (defwidget widget_cpu []
   (box :class "system_module" :vexpand "false" :hexpand "false" 
   (circular-progress :value cpu
-      :class "bar cpu"
+      :class "circle cpu"
       :thickness 4
     (button 
         :class "icon"
@@ -96,9 +98,11 @@
         :onclick "$HOME/.config/eww/scripts/pop system"
         ""))))
 
-(defwidget widget_sep []
-  (box :class "module-2" :vexpand "false" :hexpand "false"
-    (label :class "divider" :text "|")))
+(defwidget widget_divider []
+    (label :class "divider" :text "|"))
+
+(defwidget widget_space []
+    (box :class "space" :text " "))
 
 (defwidget widget_clock []
 (eventbox :onhover "${eww} update time_rev=true"
@@ -109,21 +113,21 @@
         :onclick "$HOME/.config/eww/scripts/pop calendar" clock_date
       ))))
   
-;; (defwidget widget_volume []
-;; (eventbox :onhover "${eww} update vol_reveal=true"
-;;     :onhoverlost "${eww} update vol_reveal=false"
-;;   (box :class "module-2" :space-evenly "false" :orientation "h" :spacing "3" 
-;;       (button   :onclick "scripts/pop audio"   :class "volume_icon" "")
-;;       (revealer :transition "slideleft"
-;;         :reveal vol_reveal
-;;         :duration "350ms"
-;;         (scale    :class "bar volume"
-;;           :value volume_percent
-;;           :orientation "h"
-;;           :tooltip "${volume_percent}%"
-;;           :max 100
-;;           :min 0
-;;           :onchange "amixer -D pulse sset Master {}%" )))))
+(defwidget widget_volume []
+(eventbox :onhover "${eww} update vol_reveal=true"
+    :onhoverlost "${eww} update vol_reveal=false"
+  (box :class "revealer" :space-evenly "false" :orientation "h" :spacing "3" 
+      (button   :onclick "scripts/pop audio"   :class "revealer-icon" "")
+      (revealer :transition "slideleft"
+        :reveal vol_reveal
+        :duration "350ms"
+        (scale    :class "revealer-label slider volume"
+          :value volume_percent
+          :orientation "h"
+          :tooltip "${volume_percent}%"
+          :max 100
+          :min 0
+          :onchange "amixer -D pulse sset Master {}%" )))))
 
 ;; (defwidget widget_bright []
 ;; (eventbox :onhover "${eww} update br_reveal=true" :onhoverlost "${eww} update br_reveal=false"
@@ -132,7 +136,7 @@
 ;;       (revealer :transition "slideleft"
 ;;         :reveal br_reveal
 ;;         :duration "350ms"
-;;         (scale    :class "bar brightness"
+;;         (scale    :class "slider brightness"
 ;;           :value brightness_percent
 ;;           :orientation "h"
 ;;           :tooltip "${brightness_percent}%"
@@ -163,6 +167,7 @@
     :space-evenly false  
     :halign "start"
     :class "right_modules"
+  (widget_space)
   (widget_workspaces)))
 
 (defwidget center []
@@ -178,21 +183,26 @@
     :halign "end"
     :class "left_modules"
   ;; (widget_bright)
-  ;; (widget_volume)
+  (widget_volume)
   (widget_wifi)
-  (widget_sep)
+  (widget_divider)
   ;; (widget_battery)
   (widget_ram)
   (widget_cpu)
-  (widget_sep)
-  (widget_clock)))
+  (widget_divider)
+  (widget_clock)
+  (widget_space)))
 
 (defwidget bar_inner []
-(box :class "bar"
-    :orientation "h"
-  (left)
-  (center)
-  (right)))
+(eventbox
+    :onhover "${eww} update bar_hover=true"
+    :onhoverlost "${eww} update bar_hover=false"
+  (box
+      :class "${bar_hover ? 'bar hover' : 'bar not-hover'}"
+      :orientation "h"
+    (left)
+    (center)
+    (right))))
 
 ;;
 ;; main window
@@ -202,8 +212,8 @@
     geometry 
     :x "0%"
     :y "0px"
-    :width "98%"
-    :height "25px"
+    :width "50%"
+    :height "20px"
     :anchor "top center")
   :stacking "fg"
   :exclusive true
@@ -277,7 +287,7 @@
         :year calendar_year))))
 
 (defwindow window_calendar
-  :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "270px" :height "60px")
+  :geometry (geometry :x "1200px" :y "5" :anchor "top right" :width "270px" :height "60px")
   :stacking "fg"
   :exclusive true
   :monitor 0
@@ -329,7 +339,7 @@
 ;; system popup
 ;;
 (defwindow window_system
-  :geometry (geometry :x "100px" :y "5" :anchor "top right" :width "300px" :height "100px")
+  :geometry (geometry :x "1300px" :y "5" :anchor "top right" :width "300px" :height "100px")
   :stacking "fg"
   :exclusive true
   :monitor 0
