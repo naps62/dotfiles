@@ -6,7 +6,7 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { SwitchToMode "tab"; }
         bind "Ctrl s" { SwitchToMode "scroll"; }
         bind "Ctrl o" { SwitchToMode "session"; }
-        bind "Ctrl h" { SwitchToMode "move"; }
+        // bind "Ctrl h" { SwitchToMode "move"; }
         bind "Ctrl b" { SwitchToMode "tmux"; }
         bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
@@ -28,7 +28,7 @@ keybinds clear-defaults=true {
         bind "Ctrl p" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Ctrl s" { SwitchToMode "scroll"; }
         bind "Ctrl o" { SwitchToMode "session"; }
-        bind "Ctrl h" { SwitchToMode "move"; }
+        // bind "Ctrl h" { SwitchToMode "move"; }
         bind "Ctrl b" { SwitchToMode "tmux"; }
         bind "Ctrl q" { Quit; }
         bind "h" "Left" { MoveFocus "Left"; }
@@ -60,7 +60,7 @@ keybinds clear-defaults=true {
         bind "Ctrl n" { SwitchToMode "resize"; }
         bind "Ctrl t" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Ctrl s" { SwitchToMode "scroll"; }
-        bind "Ctrl h" { SwitchToMode "move"; }
+        // bind "Ctrl h" { SwitchToMode "move"; }
         bind "Ctrl b" { SwitchToMode "tmux"; }
         bind "Ctrl o" { SwitchToMode "session"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }

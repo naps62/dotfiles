@@ -14,7 +14,12 @@ hidden = true
 
 [keys.normal]
 C-s = ":w"
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
 
 [keys.insert]
 j = { k = "normal_mode", j = "normal_mode" } 
 C-s = ["normal_mode", ":w"]
+

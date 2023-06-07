@@ -5,3 +5,16 @@ auto-format = true
 [[language]]
 name = "typescript"
 auto-format = true
+
+[[language]]
+name = "typst"
+scope = "source.typst"
+injection-regex = "typst"
+roots = []
+comment-token = "//"
+file-types = ["typ"]
+indent = { tab-width = 2, unit = " " }
+language-server = { command = "typst-lsp" }
+text-width = 100
+rulers = [100]
+soft-wrap.wrap-at-text-width = true

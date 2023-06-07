@@ -1,0 +1,10 @@
+#!/bin/sh
+
+hyprctl clients -j |\
+  jq '.[] | select(.workspace.id == 2) | .pid' |\
+  xargs kill -9
+
+hyprctl dispatch exec "[workspace 2 silent]" "google-chrome-stable --profile-directory=Default"
+sleep 0.5
+hyprctl dispatch exec "[workspace 2 silent]" alacritty
+hyprctl dispatch exec "[workspace 2 silent]" "kitty -e nvim"

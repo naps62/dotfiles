@@ -214,9 +214,8 @@
     :y "0px"
     :width "50%"
     :height "20px"
-    :anchor "top center")
+    :anchor "bottom center")
   :stacking "fg"
-  :exclusive true
   :monitor 0
   :wm-ignore false
 (bar_inner))
@@ -287,7 +286,7 @@
         :year calendar_year))))
 
 (defwindow window_calendar
-  :geometry (geometry :x "1200px" :y "5" :anchor "top right" :width "270px" :height "60px")
+  :geometry (geometry :x "1200px" :y "35" :anchor "bottom right" :width "270px" :height "60px")
   :stacking "fg"
   :exclusive true
   :monitor 0
@@ -327,7 +326,7 @@
 ;;             :min 0))))))
 
 (defwindow window_audio
-  :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "280px" :height "60px")
+  :geometry (geometry :x "-20px" :y "7%" :anchor "bottom right" :width "280px" :height "60px")
   :stacking "fg"
   :exclusive true
   :monitor 0
@@ -339,7 +338,7 @@
 ;; system popup
 ;;
 (defwindow window_system
-  :geometry (geometry :x "1300px" :y "5" :anchor "top right" :width "300px" :height "100px")
+  :geometry (geometry :x "1300px" :y "35" :anchor "bottom right" :width "300px" :height "100px")
   :stacking "fg"
   :exclusive true
   :monitor 0
@@ -364,9 +363,8 @@
         (scale :onscroll "mpc -q seek {}" :min 0 :active "true" :max 100 :value current_status)))))
 
 (defwindow window_music
-  :geometry (geometry :x "0" :y "7%" :width 428 :height 104 :anchor "top center")
+  :geometry (geometry :x "0" :y "30" :width 428 :height 104 :anchor "bottom center")
   :stacking "fg"
-  :exclusive true
   :monitor 0
   :wm-ignore false
   (music_pop))

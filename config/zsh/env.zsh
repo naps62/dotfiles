@@ -24,7 +24,7 @@ env_dir LD_LIBRARY_PATH /usr/local/lib
 
 export LANG=en_US.utf-8
 export EDITOR=nvim
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/bin/google-chrome-stable
 export TERMINAL=/usr/bin/alacritty
 export ZK_PATH=$HOME/projects/zettelkasten
 export GOPATH=$HOME/.go

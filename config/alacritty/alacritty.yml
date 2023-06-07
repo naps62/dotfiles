@@ -178,7 +178,7 @@ key_bindings:
   - { key: End, chars: "\e[F", mode: ~AppCursor }
   - { key: PageUp, mods: Shift, chars: "\e[5;2~" }
   - { key: PageUp, mods: Control, chars: "\e[5;5~" }
-  - { key: PageUp, chars: "\e[5~" }
+  # - { key: PageUp, chars: "\e[5~" }
   - { key: PageDown, mods: Shift, chars: "\e[6;2~" }
   - { key: PageDown, mods: Control, chars: "\e[6;5~" }
   - { key: PageDown, chars: "\e[6~" }
