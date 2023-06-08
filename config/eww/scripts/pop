@@ -5,7 +5,7 @@ name="window_$1"
 lock="$HOME/.cache/eww-${name}.lock"
 
 if [[ ! -f "$lock" ]]; then
-  ${eww} close calendar system music audio
+  ${eww} close system
   touch "$lock"
   ${eww} open ${name} && echo "ok good!"
 else

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ethernet=$(nmcli device | grep enp6s0 | grep -vE "disconnected")
+wifi=$(nmcli device | grep wlp5s0 | grep -vE "disconnected")
+
+# status=$(nmcli g | grep -oE "disconnected")
+# essid=$(nmcli c | grep wlp2s0 | awk '{print ($1)}')
+
+# echo $wifi > /dev/stderr
+
+if [[ ! -z "$ethernet" ]]; then
+  icon="󰈁"
+  name=$(echo $ethernet | tr -s ' ' | cut -d' ' -f4-)
+  class="connected"
+elif [[ ! -z "$wifi" ]]; then
+  icon="󰖩"
+  name=$(echo $wifi | tr -s ' ' | cut -d' ' -f4-)
+  class="connected"
+else
+  icon="󰤮"
+  name=""
+  class="disconnected"
+fi
+
+case $1 in
+  "name")
+    echo $name
+    ;;
+  "icon")
+    echo $icon
+    ;;
+  "class")
+    echo $class
+    ;;
+esac

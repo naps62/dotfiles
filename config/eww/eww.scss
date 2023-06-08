@@ -2,7 +2,7 @@
 // catppuccin-mocha
 //
 $rosewater: #f5e0dc;
-$flaming: #f2cdcd;
+$flamingo: #f2cdcd;
 $pink: #ff3ac6;
 $mauve: #cba6f7;
 $red: #f38ba8;
@@ -30,16 +30,13 @@ $crust: #11111b;
 
 * {
   all: unset;
-  font-family: Ionicons, Roboto;
+  font-family: Material Design Icons, Fira Code;
 }
+
 
 //
 // color theming
 //
-
-* {
-  color: $text;
-}
 
 tooltip.background,
 .window,
@@ -57,45 +54,35 @@ tooltip.background,
   color: $red;
 }
 
+.clock {
+  color: $text;
+}
+
 //
 // General
 //
 
 .bar {
-  border-radius: 1px;
-  transition: opacity 0.1s ease-in-out;
-  // transform: translateY(50px);
+  // min-height: 30px;
+  font-size: 18;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px 10px 0 0;
 }
 
 .bar.not-hover {
   opacity: 0;
   background-color: transparent;
-  // transform: translateY(50px);
+
 }
 
 // TODO: test stuff
-// .bar.not-hover {
-//   opacity: 1;
-//   background-color: $crust;
-// }
+ // .bar.not-hover {
+ //   opacity: 1;
+ //   background-color: $crust;
+ // }
 
 .bar.hover {
   opacity: 1;
-  // transform: translateY(0);
-}
-
-.module {
-  // margin: 0px 0px 0px 0px;
-  border-radius: 10px 16px 0px 10px;
-}
-
-.system_module {
-  border-radius: 16px;
-  // margin: 0px 10px 0px 3px;
-}
-
-.divider {
-  margin: 0px 10px;
 }
 
 .space {
@@ -120,12 +107,9 @@ tooltip label {
 // clock
 //
 
-.clock_time {
-}
-
-.clock_time {
+.clock-time {
   font-weight: bold;
-  // margin-right: 5px;
+  margin-right: 5px;
 }
 
 
@@ -135,26 +119,13 @@ tooltip label {
 
 .circle {
   border-radius: 10px;
+  margin: 0 5;
 }
 
 .circle .icon {
+  font-size: 18px;
   // font-size: 12;
   padding: 10px;
-}
-
-//
-// revealer
-//
-
-.revealer {
-}
-
-.revealer-icon {
-  font-size: 20px;
-}
-
-.revealer-label {
-
 }
 
 //
@@ -168,346 +139,78 @@ tooltip label {
 
 
 //
-// wifi
+// network
 //
 
-.wifi {
-  font-size: 12;
-  color: #a1bdce;
-  border-radius: 100%;
-  margin: 0px 10px 0px 5px;
+.network,
+.volume {
+  margin: 0 5px;
+
+  & button {
+    margin-right: 10;
+  }
+
+  .connected {
+    color: $green;
+  }
+
+  .disconnected {
+    color: $peach;
+  }
 }
 
-.wifi-label {
-  font-size: 18;
-  color: #a1bdce;
-  margin: 0px 10px 0px 0px;
-}
+
 
 //
 // brightness
 //
 
-.slider.brightness trough highlight {
-  background-image: linear-gradient(to right, #e4c9af 30%, #f2cdcd 50%, #e0b089 100% *50);
-}
 .bright_icon {
   font-size: 12;
   color: #e4c9af;
-  // margin: 0px 10px 0px 10px;
 }
 
 //
-// volume
+// sliders
 //
 
-.slider.volume trough highlight {
-  background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
+.slider trough highlight {
+  background-image: linear-gradient(to right, $yellow 30%, $peach 50%, $red 100% *50);
 }
-
-
-//
-// wifi
-//
-
-
 
 scale trough {
-  all: unset;
-  background-color: #22242b;
-  box-shadow: 0 2px 3px 2px #06060b;
+  background-color: $surface1;
   border-radius: 16px;
   min-height: 10px;
-  min-width: 70px;
-  // margin: 0px 10px 0px 0px;
+  min-width: 100px;
 }
 
-.works {
-  font-size: 27px;
-  font-weight: normal;
-  // margin: 5px 0px 0px 20px;
-  background-color: #0f0f17;
-}
+//
+// workspaces
+//
 
-.0 , .01, .02, .03, .04, .05, .06,
-.011, .022, .033, .044, .055, .066{
-  // margin: 0px 10px 0px 0px;
-}
-
-/* Unoccupied */
-.0 {
-  color: #3e424f;
-}
-
-/* Occupied */
-.01, .02, .03, .04, .05, .06 {
-  color: #bfc9db;
-}
-
-/* Focused */
-.011, .022, .033, .044, .055, .066 {
-  color: #a1bdce;
-}
-
-
-.song_cover_art {
-  background-size: cover;	
-  background-position: center;
-  min-height: 16px;
-  min-width: 24px;
-  // margin: 10px;
-  border-radius: 100px;
-}
-
-.song {
-  color: #a1bdce;
-  font-size : 18px;
-  font-weight : bold;
-  // margin : 3px 5px 0px 0px;
-}
-
-.song_btn_play {
-  color: #a1bdce;
-  font-size : 18px;
-  // margin : 3px 0px 0px 5px;
-
-}
-
-
-.song_btn_prev, .song_btn_next {
-  color: #bfc9db;
-  font-size : 24px;
-  // margin : 3px 0px 0px 5px;
-
-}
-// Calendar
-.cal {
-  background-color: #0f0f17;
-  font-family: JetBrainsMono Nerd Font;
+.0 , .01, .02, .03, .04, .05, .06, .011, .022, .033, .044, .055, .066{
+  border-radius: 10px;
   font-size: 18px;
-  font-weight: normal;
-
-  .cal-in {
-    padding: 0px 10px 0px 10px;
-    color: #bfc9db;
-
-    .cal {
-      &.highlight {
-        padding: 20px;
-      }
-
-      padding: 5px 5px 5px 5px;
-      // margin-left: 10px;
-    }
-  }
+  padding: 5px 5;
+  min-height: 30px;
+  min-width: 60px;
 }
 
-calender {
-  color: #bfc9db;
-}
-calendar:selected {
-  color: #a1bdce;
+// Unoccupied
+.0 {
+  color: $overlay0;
 }
 
-calendar.header {
-  color: #a1bdce;
+// Occupied
+.01, .02, .03, .04, .05, .06 {
+  color: $text;
+}
+
+// Focused 
+.011, .022, .033, .044, .055, .066 {
+  font-size: 20px;
+  background-color: $sky;
+  color: $crust;
   font-weight: bold;
 }
-
-calendar.button {
-  color: #afbea2;
-}
-
-calendar.highlight {
-  color: #a1bdce;
-  font-weight: bold;
-}
-
-calendar:indeterminate {
-  color: #bfc9db;
-}
-
-
-
-
-
-
-
-.sys_sep {
-  font-size: 18;
-  // margin: 0px 10px 0px 10px;
-}
-.sys_text_bat_sub, .sys_text_mem_sub {
-  font-size: 16;
-  // margin: 5px 0px 0px 25px;
-}
-.sys_text_bat, .sys_text_mem {
-  font-size: 21;
-  font-weight: bold;
-  // margin: 14px 0px 0px 25px;
-}
-.sys_icon_bat, .sys_icon_mem, .sys_icon_cpu {
-  font-size: 30;
-  // margin: 30px;
-}
-.sys_bat {
-  background-color: #38384d;
-  border-radius: 10px;
-}
-.sys_mem {
-  background-color: #38384d;
-  border-radius: 10px;
-}
-.sys_bat_box {
-  border-radius: 16px;
-  // margin: 15px 10px 10px 20px;
-}
-.sys_mem_box {
-  border-radius: 16px;
-  // margin: 10px 10px 15px 20px;
-}
-
-
-
-.music_pop {
-  background-color: #0f0f17;
-  border-radius: 16px;
-}
-.music_cover_art {
-  background-size: cover;
-  background-position: center;
-  min-height: 80px;
-  box-shadow: 5px 5px 5px 5px #06060b;
-  min-width: 170px;
-  // margin: 20px;
-  border-radius: 20px;
-}
-
-.music {
-  color: #a1bdce;
-  font-size : 20px;
-  font-weight : bold;
-  // margin : 20px 0px 0px -15px;
-}
-
-.music_artist {
-  color: #bbc5d7;
-  font-size : 16px;
-  font-weight : normal;
-  // margin : 0px 0px 0px 0px;
-}
-
-.music_btn_prev, .music_btn_play, .music_btn_next {
-  font-family: Iosevka Nerd Font;
-}
-.music_btn_prev {
-  color: #bbc5d7;
-  font-size : 32px;
-  font-weight : normal;
-  // margin: 0px 0px 0px 0px;
-}
-.music_btn_play {
-  color: #a1bdce;
-  font-size : 48px;
-  font-weight : normal;
-  // margin: 0px 0px 0px 0px;
-}
-.music_btn_next {
-  color: #bbc5d7;
-  font-size : 32px;
-  font-weight : normal;
-  // margin: 0px 0px 0px 0px;
-}
-
-.music_bar scale trough highlight {
-  all: unset;
-  background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
-  border-radius: 24px;
-}
-.music_bar scale trough {
-  all: unset;
-  background-color: #232232;
-  box-shadow: 0 6px 5px 2px #06060b;
-  border-radius: 24px;
-  min-height: 13px;
-  min-width: 190px;
-  // margin : -10px 10px 20px 0px;
-}
-
-.audio-box {
-  background-color: #0f0f17;
-  border-radius: 16px;
-}
-.speaker_icon {
-  background-size: cover;
-  background-image: url('images/speaker.png');
-  background-position: center;
-  min-height: 70px;
-  min-width: 75px;
-  // margin: 10px 20px 5px 20px;
-  border-radius: 12px;
-}
-
-.speaker_text {
-  color: #a1bdce;
-  font-size : 26px;
-  font-weight : bold;
-  // margin: 20px 0px 0px 0px;
-}
-
-.speaker_bar scale trough highlight {
-  all: unset;
-  background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
-  border-radius: 24px;
-}
-.speaker_bar scale trough {
-  all: unset;
-  background-color: #232232;
-  box-shadow: 0 6px 5px 2px #06060b;
-  border-radius: 24px;
-  min-height: 13px;
-  min-width: 120px;
-  // margin : 0px 0px 5px 0px;
-}
-
-
-
-
-.mic_icon {
-  background-size: cover;
-  background-image: url('images/mic.png');
-  background-position: center;
-  min-height: 50px;
-  min-width: 75px;
-  // margin: 5px 20px 20px 20px;
-  border-radius: 12px;
-}
-
-.mic_text {
-  color: #a1bdce;
-  font-size : 26px;
-  font-weight : bold;
-  // margin: 0px 0px 0px 0px;
-}
-
-.mic_bar scale trough highlight {
-  all: unset;
-  background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
-  border-radius: 24px;
-}
-.mic_bar scale trough {
-  all: unset;
-  box-shadow: 0 6px 5px 2px #06060b;
-  background-color: #232232;
-  border-radius: 24px;
-  min-height: 13px;
-  min-width: 120px;
-  // margin : 0px 0px 20px 0px;
-}
-
-.audio_sep {
-  color: #38384d;
-  font-size: 18;
-  // margin : 0px 0px 0px 0px;
-}
-
