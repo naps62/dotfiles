@@ -10,9 +10,9 @@ MUSIC_DIR="$HOME/Music"
 get_status() {
   STATUS="$(spotifycli --playbackstatus)"
 	if [[ $STATUS == *"▮▮"* ]]; then
-		echo ""
-	else
 		echo "奈"
+	else
+		echo ""
 	fi
 }
 
