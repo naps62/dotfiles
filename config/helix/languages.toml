@@ -1,10 +1,29 @@
+#
+# rust
+#
+
 [[language]]
 name = "rust"
 auto-format = true
 
+#
+# typescript
+# 
 [[language]]
 name = "typescript"
 auto-format = true
+language-servers = [{name = "typescript-language-server", except-features = ["format"]}]
+formatter = { command = 'prettier', args = ["--stdin", "--parser", "typescript"] }
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = [{name = "typescript-language-server", except-features = ["format"]}]
+formatter = { command = 'prettier', args = ["--stdin", "--parser", "typescript"] }
+
+#
+# typst
+#
 
 [[language]]
 name = "typst"
@@ -14,7 +33,7 @@ roots = []
 comment-token = "//"
 file-types = ["typ"]
 indent = { tab-width = 2, unit = " " }
-language-server = { command = "typst-lsp" }
+language-servers = [ "typst-lsp" ]
 text-width = 100
 rulers = [100]
 soft-wrap.wrap-at-text-width = true

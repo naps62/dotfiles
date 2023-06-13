@@ -1,21 +1,6 @@
 env:
   TERM: xterm-256color
 
-window:
-  dimensions:
-    columns: 0
-    lines: 0
-  padding:
-    x: 0
-    y: 0
-  dynamic_title: true
-  opacity: 1
-
-draw_bold_text_with_bright_colors: true
-
-import:
-  - ~/.config/alacritty/catppuccin-mocha.yml
-
 # Font configuration (changes require restart)
 #
 # Important font attributes like antialiasing, subpixel aa, and hinting can be
@@ -49,6 +34,21 @@ font:
     family: VictorMono Nerd Font Mono
     style: Bold Oblique
   size: 12.0
+
+window:
+  dimensions:
+    columns: 0
+    lines: 0
+  padding:
+    x: 0
+    y: 0
+  dynamic_title: true
+  opacity: 1
+
+draw_bold_text_with_bright_colors: true
+
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml
 
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
 # rung, the terminal background will be set to white and transition back to the

@@ -1,10 +1,62 @@
 #!/bin/sh
 
-hyprctl clients -j |\
-  jq '.[] | select(.workspace.id == 2) | .pid' |\
-  xargs kill -9
+path=$1
+name=$(echo $path | grep -o '[^/]*$')
+w=$(hyprctl activewindow -j | jq '.workspace.id')
+chrome_profile="Default"
+zellij_session=$name
+zellij_layout="compact"
+export NAPS62_WORK_HELIX=1
 
-hyprctl dispatch exec "[workspace 2 silent]" "google-chrome-stable --profile-directory=Default"
-sleep 0.5
-hyprctl dispatch exec "[workspace 2 silent]" alacritty
-hyprctl dispatch exec "[workspace 2 silent]" "kitty -e nvim"
+# 1. sleep for a bit (to prevent zellij rendering issues while window is being animated)
+# 2. NAPS62_WORK tells zsh to not start default zellij
+# 3. sourcing .zshrc to make sure asdf and others are loaded
+zsh_init_cmd="sleep 0.5; export NAPS62_WORK=1; source $HOME/.config/zsh/.zshrc"
+editor_init_cmd="$HOME/.bin/work-editor"
+
+# custom opts for specific projects
+case $path in
+  *iron-wallet/iron*)
+    chrome_profile="Profile 1"
+    zellij_layout="iron"
+    ;;
+esac
+
+
+# 1. attempt to attach to the named session
+zellij_cmd="zellij attach ${zellij_session} && exit || zellij --layout ${zellij_layout} --session ${zellij_session}"
+
+# kill everything in current workspace
+clean_workspace() {
+  # sends SIGINT to all windows in this workspace
+  hyprctl clients -j |\
+    jq ".[] | select(.class != \"google-chrome\") | select(.workspace.id == $w) | .pid" |\
+    xargs kill -s int -9
+
+  # google-chrome needs to be closed differently
+  hyprctl clients -j |\
+    jq ".[] | select(.class == \"google-chrome\") | select(.workspace.id == $w) | .address" |\
+    xargs -n 1 -I {} hyprctl dispatch closewindow address:{}
+}
+
+
+# opens the default layout
+# browser
+# nvim
+# alacritty w/ zellij
+default() {
+  browser="google-chrome-stable --profile-directory='${chrome_profile}'"
+  term="alacritty --working-directory '$path' -e zsh -c '${zsh_init_cmd}; ${zellij_cmd}'"
+  editor="kitty -d '$path' '${editor_init_cmd}'"
+  echo $term > $HOME/out
+
+  hyprctl keyword windowrulev2 "tile, class:google-chrome"
+  hyprctl dispatch exec "[tile; workspace $w silent]" "$browser"
+  sleep 0.3
+  hyprctl keyword windowrulev2 "float, class:google-chrome"
+  hyprctl dispatch exec "[tile; workspace $w silent]" "$term"
+  hyprctl dispatch exec "[tile; workspace $w silent]" "$editor"
+}
+
+clean_workspace
+default

@@ -1,6 +1,6 @@
 [Added Associations]
-image/jpeg=gimp.desktop;feh.desktop;firefox.desktop;eog.desktop;
-image/png=gimp.desktop;firefox.desktop;firefox-bin.desktop;feh.desktop;
+image/jpeg=imv-dir.desktop;gimp.desktop;feh.desktop;firefox.desktop;eog.desktop;imv.desktop;
+image/png=gimp.desktop;firefox.desktop;firefox-bin.desktop;feh.desktop;imv-dir.desktop;
 image/svg+xml=eog.desktop;
 video/mp4=mpv.desktop;
 application/x-mobipocket-ebook=calibre-gui.desktop;
@@ -27,7 +27,7 @@ application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 
 [Default Applications]
-image/png=feh.desktop
+image/png=imv-dir.desktop
 application/pdf=zathura.desktop
 application/json=nvr-usercreated-1.desktop;
 application/x-ruby=home-usercreated-1.desktop;
@@ -65,3 +65,4 @@ application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
+image/jpeg=imv-dir.desktop

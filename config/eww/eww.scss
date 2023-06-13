@@ -50,6 +50,9 @@ tooltip.background,
 .cpu * {
   color: $peach;
 }
+.cputemp * {
+  color: $red;
+}
 .battery * {
   color: $red;
 }

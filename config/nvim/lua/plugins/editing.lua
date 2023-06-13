@@ -65,7 +65,18 @@ return {
 	},
 
 	-- auto align tables
-	{ "junegunn/vim-easy-align", event = "VeryLazy" },
+	{
+		"junegunn/vim-easy-align",
+		event = "VeryLazy",
+		-- keys = {
+		-- 	{
+		-- 		"la",
+		-- 		"<Plug>(EasyAlign)",
+		-- 		desc = "Start interactive EasyAlign",
+		-- 		mode = { "n", "v" },
+		-- 	},
+		-- },
+	},
 
 	-- folding
 	{

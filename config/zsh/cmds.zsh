@@ -48,3 +48,19 @@ anvim() {
   nohup kitty -e "nvim" >/dev/null &
   disown
 }
+
+anhx() {
+  local target="${PWD}"
+  if [ -n "${1}" ]; then
+    target=$(realpath "$1")
+  fi
+
+  local wdir="${target}"
+  if [ -f "${target}" ]; then
+    wdir=$(dirname "${target}")
+  fi
+
+  # nohup alacritty --config-file ~/.config/alacritty/anvim.yml \
+  nohup kitty -e "hx" >/dev/null &
+  disown
+}

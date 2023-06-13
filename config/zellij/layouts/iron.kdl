@@ -3,20 +3,19 @@ layout {
     children
 
     pane size=1 borderless=true {
-      cwd "/home/naps62/iron/iron"
+      cwd "/home/naps62/projects/iron-wallet/iron"
       plugin location="zellij:tab-bar"
     }
   }
 
   tab name="bacon" focus=true {
-    pane command="bacon" {
-      cwd "/home/naps62/iron/iron"
+    pane {
+      command "bacon"
     }
   }
 
   tab name="dev" {
     pane {
-      cwd "/home/naps62/iron/iron"
       command "just"
       args "dev" 
     }
@@ -24,7 +23,7 @@ layout {
 
   tab name="web3-demo" {
     pane {
-      cwd "/home/naps62/iron/web3-demo"
+      cwd "/home/naps62/projects/iron-wallet/web3-demo"
       command "just"
       args "dev" 
     }

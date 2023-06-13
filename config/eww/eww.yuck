@@ -10,6 +10,7 @@
 ;; (defpoll battery_status :interval "1m" "./scripts/battery --bat-st")
 (defpoll memory :interval "5s" :initial 0 "scripts/memory")
 (defpoll cpu :interval "5s" :initial 0 "scripts/cpu")
+(defpoll cputemp :interval "5s" :initial 0 "scripts/cputemp")
 (defpoll memory_used_mb :interval "2m" "scripts/mem-ad used")
 (defpoll memory_total_mb :interval "2m" "scripts/mem-ad total")
 (defpoll memory_free_mb :interval "2m" "scripts/mem-ad free")
@@ -52,10 +53,20 @@
 ;;         :wrap false
 ;;         "󰂁"))))
 
+
+(defwidget widget_cputemp []
+  (circular-progress :value cputemp
+      :class "circle cputemp"
+      :thickness 4
+    (button 
+        :class "icon"
+        :onclick "$HOME/.config/eww/scripts/pop system"
+        "󰔏")))
+
 (defwidget widget_ram []
   (circular-progress :value memory
       :class "circle memory"
-      :thickness 2
+      :thickness 4
     (button 
         :class "icon"
         :tooltip "using ${memory}% ram"
@@ -65,7 +76,7 @@
 (defwidget widget_cpu []
   (circular-progress :value cpu
       :class "circle cpu"
-      :thickness 2
+      :thickness 4
     (button 
         :class "icon"
         :tooltip "using ${memory}% CPU"
@@ -131,6 +142,7 @@
   ;; (widget_battery)
   (widget_ram)
   (widget_cpu)
+  (widget_cputemp)
   (widget_space)
   (widget_clock)
   (widget_space)))
