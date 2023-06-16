@@ -38,5 +38,6 @@ config/nvim/plugin/packer_compiled.lua
 !config/helix
 !config/imv
 !config/atuin
+!config/systemd
 
 cache
