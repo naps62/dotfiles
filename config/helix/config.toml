@@ -16,7 +16,6 @@ hidden = true
 display-inlay-hints = true
 
 [keys.normal]
-C-s = ":w"
 C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"

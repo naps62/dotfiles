@@ -52,7 +52,7 @@ eval "$(zoxide init zsh --cmd cd)"
 #
 # zellij
 #
-[[ -z $NVIM && -z $ASCIINAME_REC && -z $NAPS62_WORK ]] && eval "$(zellij setup --generate-auto-start zsh)"
+# [[ -z $NVIM && -z $ASCIINAME_REC && -z $NAPS62_WORK ]] && eval "$(zellij setup --generate-auto-start zsh)"
 
 #
 # misc

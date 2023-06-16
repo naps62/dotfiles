@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+  atuin:
+    restart: always
+    image: ghcr.io/ellie/atuin:main
+    command: server start
+    volumes:
+      - "./config:/config"
+    links:
+      - postgresql:db
+    ports:
+      - 8888:8888
+    environment:
+      ATUIN_HOST: "0.0.0.0"
+      ATUIN_OPEN_REGISTRATION: "true"
+      ATUIN_DB_URI: postgres://naps62:naps62@db/atuin
+  postgresql:
+    image: postgres:14
+    restart: unless-stopped
+    volumes: # Don't remove permanent storage for index database files!
+      - "/home/naps62/services/atuin/database:/var/lib/postgresql/data/"
+    environment:
+      POSTGRES_USER: naps62
+      POSTGRES_PASSWORD: naps62
+      POSTGRES_DB: atuin

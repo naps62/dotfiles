@@ -6,19 +6,20 @@ w=$(hyprctl activewindow -j | jq '.workspace.id')
 chrome_profile="Default"
 zellij_session=$name
 zellij_layout="compact"
-export NAPS62_WORK_HELIX=1
 
 # 1. sleep for a bit (to prevent zellij rendering issues while window is being animated)
 # 2. NAPS62_WORK tells zsh to not start default zellij
 # 3. sourcing .zshrc to make sure asdf and others are loaded
 zsh_init_cmd="sleep 0.5; export NAPS62_WORK=1; source $HOME/.config/zsh/.zshrc"
-editor_init_cmd="$HOME/.bin/work-editor"
+editor_init_cmd="export NAPS62_WORK=1; soruce $HOME/.config/zsh/.zshrc"
+editor_cmd="nvim"
 
 # custom opts for specific projects
 case $path in
   *iron-wallet/iron*)
     chrome_profile="Profile 1"
     zellij_layout="iron"
+    editor_cmd="hx"
     ;;
 esac
 
@@ -47,7 +48,7 @@ clean_workspace() {
 default() {
   browser="google-chrome-stable --profile-directory='${chrome_profile}'"
   term="alacritty --working-directory '$path' -e zsh -c '${zsh_init_cmd}; ${zellij_cmd}'"
-  editor="kitty -d '$path' '${editor_init_cmd}'"
+  editor="kitty -d '$path' zsh -c '${editor_init_cmd}; ${editor_cmd}'"
   echo $term > $HOME/out
 
   hyprctl keyword windowrulev2 "tile, class:google-chrome"
