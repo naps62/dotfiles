@@ -4,8 +4,9 @@ path=$1
 name=$(echo $path | grep -o '[^/]*$')
 w=$(hyprctl activewindow -j | jq '.workspace.id')
 chrome_profile="Default"
-zellij_session=$name
-zellij_layout="compact"
+# zellij_session=$name
+# zellij_layout="compact"
+kitty_session="work-default"
 
 # 1. sleep for a bit (to prevent zellij rendering issues while window is being animated)
 # 2. NAPS62_WORK tells zsh to not start default zellij
@@ -18,7 +19,7 @@ editor_cmd="nvim"
 case $path in
   *iron-wallet/iron*)
     chrome_profile="Profile 1"
-    zellij_layout="iron"
+    kitty_session="iron"
     editor_cmd="hx"
     ;;
 esac
@@ -47,7 +48,7 @@ clean_workspace() {
 # alacritty w/ zellij
 default() {
   browser="google-chrome-stable --profile-directory='${chrome_profile}'"
-  term="alacritty --working-directory '$path' -e zsh -c '${zsh_init_cmd}; ${zellij_cmd}'"
+  term="kitty --session '~/.config/kitty/sessions/${kitty_session}.conf'"
   editor="kitty -d '$path' zsh -c '${editor_init_cmd}; ${editor_cmd}'"
   echo $term > $HOME/out
 

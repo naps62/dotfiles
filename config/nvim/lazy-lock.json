@@ -49,6 +49,7 @@
   "typescript.nvim": { "branch": "main", "commit": "5b3680e5c386e8778c081173ea0c978c14a40ccb" },
   "typst.vim": { "branch": "main", "commit": "6750b01970045affed30efe063d7e21b399f1efc" },
   "vim-easy-align": { "branch": "master", "commit": "12dd6316974f71ce333e360c0260b4e1f81169c3" },
+  "vim-kitty": { "branch": "main", "commit": "9a90c68655d20e22f5ff249232c83ab46870f74d" },
   "vim-solidity": { "branch": "master", "commit": "569bbbedc3898236d5912fed0caf114936112ae4" },
   "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" },
   "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }

@@ -68,4 +68,5 @@ return {
 	{ "tomlion/vim-solidity" },
 	{ "vmchale/just-vim" },
 	{ "kaarmu/typst.vim" },
+	{ "fladson/vim-kitty" },
 }

@@ -59,3 +59,8 @@ eval "$(zoxide init zsh --cmd cd)"
 #
 # broot: directory tree viewer
 source /home/naps62/.config/broot/launcher/bash/br
+
+#
+# atuin
+#
+eval "$(atuin init zsh)"

@@ -8,14 +8,16 @@ alias d=docker
 alias dc=docker-compose
 alias g=git
 alias o=open
-alias n="nvim"
-alias v="anvim"
+alias v="nvim"
+alias wv="anvim"
+alias wh="anhx"
 alias gv="neovide --multigrid"
 alias h=helix
 alias n=nvim
 alias x=extract
 alias y=yay
 alias j=just
+alias icat="kitty +kitten icat"
 
 # rust replacements
 # https://zaiste.net/posts/shell-commands-rust
