@@ -39,5 +39,6 @@ config/nvim/plugin/packer_compiled.lua
 !config/imv
 !config/atuin
 !config/systemd
+!config/broot
 
 cache
