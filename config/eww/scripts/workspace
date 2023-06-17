@@ -34,7 +34,7 @@ function workspace_button() {
   lf=$3
   label=$4
 
-  echo "(button :onclick 'hyprctl dispatch workspace $ln' :class '0$lo$lf' '${label}')"
+  echo "(button :onclick 'hyprctl dispatch workspace $ln' :class 'w0$lo$lf' '${label}')"
 }
 
 #output eww widget

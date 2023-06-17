@@ -1,8 +1,5 @@
 return {
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
+	{ "stevearc/dressing.nvim", opts = {} },
 
 	{
 		"nvim-lualine/lualine.nvim",
@@ -94,6 +91,7 @@ return {
 
 	{
 		"j-hui/fidget.nvim",
+    branch = "legacy",
 		config = function()
 			require("fidget").setup({})
 		end,

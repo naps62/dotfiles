@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ethernet=$(nmcli device | grep enp6s0 | grep -vE "disconnected")
+ethernet=$(nmcli device | grep -E "enp6s0|wlp0s20f3" | grep -vE "disconnected")
 wifi=$(nmcli device | grep wlp5s0 | grep -vE "disconnected")
 
 # status=$(nmcli g | grep -oE "disconnected")

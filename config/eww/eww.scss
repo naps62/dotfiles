@@ -192,7 +192,7 @@ scale trough {
 // workspaces
 //
 
-.0 , .01, .02, .03, .04, .05, .06, .011, .022, .033, .044, .055, .066{
+.w0 , .w01, .w02, .w03, .w04, .w05, .w06, .w011, .w022, .w033, .w044, .w055, .w066{
   border-radius: 10px;
   font-size: 18px;
   padding: 5px 5;
@@ -201,17 +201,17 @@ scale trough {
 }
 
 // Unoccupied
-.0 {
+.w0 {
   color: $overlay0;
 }
 
 // Occupied
-.01, .02, .03, .04, .05, .06 {
+.w01, .w02, .w03, .w04, .w05, .w06 {
   color: $text;
 }
 
 // Focused 
-.011, .022, .033, .044, .055, .066 {
+.w011, .w022, .w033, .w044, .w055, .w066 {
   font-size: 20px;
   background-color: $sky;
   color: $crust;

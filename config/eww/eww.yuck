@@ -17,7 +17,7 @@
 (defvar bar_hover false)
 (deflisten workspace "scripts/workspace")
 
-(defvar eww "/usr/bin/eww -c $HOME/.config/eww")
+(defvar eww "eww -c $HOME/.config/eww")
 (defvar exec_audio_control "hyprctl dispatch exec '[center]' pavucontrol")
 (defvar exec_nmtui "hyprctl dispatch exec '[center]' 'kitty --class eww-nmtui -e nmtui'")
 (defvar exec_workspace_scroll "echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace")
@@ -165,72 +165,7 @@
     geometry 
     :x "0%"
     :y "0px"
-    :width "30%"
+    :width "1920px"
     :anchor "bottom center")
   :monitor 0
 (bar_inner))
-
-
-(defwidget system []
-  (box :class "window sys_win" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false" :spacing 0
-  ;; (box :class "battery sys_bat_box" :orientation "h" :space-evenly "false"
-  ;;     (circular-progress :value battery
-  ;;               :class "sys_bat"
-  ;;               :thickness 9
-  ;;           (label :text ""
-  ;;               :class "sys_icon_bat"
-  ;;               :limit-width 2
-  ;;               :wrap false))
-  ;;           (box :orientation "v" :space-evenly "false" :spacing 0 :hexpand "false" :vexpand "false"
-  ;;           (label :text "battery"
-  ;;               :halign "start"
-  ;;               :class "sys_text_bat"
-  ;;               :limit-width 9
-  ;;               :wrap false)
-  ;;           (label :text "${battery}%"
-  ;;               :halign "start"
-  ;;               :class "sys_text_bat_sub"
-  ;;               :limit-width 22
-  ;;               :wrap false)
-  ;;           (label :text "${battery_status}"
-  ;;               :halign "start"
-  ;;               :class "sys_text_bat_sub"
-  ;;               :limit-width 22
-  ;;               :wrap false)))
-            ;; (label :text "" :class "sys_sep" :halign "center")
-  (box :class "memory sys_mem_box" :orientation "h" :space-evenly "false" :halign "start"
-      (circular-progress :value memory
-                :class "sys_mem"
-                :thickness 9
-            (label :text ""
-                :class "sys_icon_mem"
-                :limit-width 2
-                :wrap false
-                :angle 0.0))
-            (box :orientation "v" :space-evenly "false" :spacing 0 :hexpand "false" :vexpand "false"
-            (label :text "memory"
-                :halign "start"
-                :class "sys_text_mem"
-                :limit-width 9
-                :wrap false)
-            (label :text "${memory_used_mb} | ${memory_total_mb}mb "
-                :halign "start"
-                :class "sys_text_mem_sub"
-                :limit-width 22
-                :wrap false)
-            (label :text "${memory_free_mb}mb free"
-                :halign "start"
-                :class "sys_text_mem_sub"
-                :limit-width 22
-                :wrap false)))))
-
-;;
-;; system popup
-;;
-(defwindow window_system
-  :geometry (geometry :x "1800px" :y "35" :anchor "bottom right" :width "300px" :height "100px")
-  :stacking "fg"
-  :exclusive true
-  :monitor 0
-  :wm-ignore false
-(system))

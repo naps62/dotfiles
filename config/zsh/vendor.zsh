@@ -5,7 +5,7 @@ source /home/naps62/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 #
 # antidote plugins
 #
-source  $HOME/.antidote/antidote.zsh
+source  /usr/share/zsh-antidote/antidote.zsh
 antidote load ~/.config/zsh/antidote.plugins.txt
 
 # zsh-history-substring-search
