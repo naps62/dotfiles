@@ -1,8 +1,0 @@
-#   yaourtrc  - Configuration for yaourt
-#
-#   See yaourtrc(5) for more information
-#
-
-# Prompt
-BUILD_NOCONFIRM=1  # Only prompt for editing files
-EDITFILES=0

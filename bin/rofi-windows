@@ -1,6 +1,0 @@
-#!/bin/sh
-
-rofi \
-  -theme ~/.config/rofi/themes/launcher \
-  -i -fuzzy -p "Windows" \
-  -show window

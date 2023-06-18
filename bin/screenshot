@@ -1,8 +1,0 @@
-#/bin/sh
-
-args=$@
-
-timestamp=`date '+%m-%d_%H-%M-%S'`
-window_name=$(xdotool getwindowfocus getwindowname | tr -d '[:space:]')
-
-scrot --quality 100 $args ~/downloads/screenshots/%m-%d-%T-${window_name}.png

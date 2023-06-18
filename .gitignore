@@ -5,25 +5,17 @@ config/nvim/.netrwhist
 config/zsh/.zcompdump
 
 config/*
-bin/zkwasm-*
-!config/sway
-!config/waybar
 !config/lazygit
 config/lazygit/state.yml
 !config/htop
 !config/nvim
 !config/broot
-config/nvim/plugin/packer_compiled.lua
 !config/git
 !config/zsh
-!config/qmk
 !config/ripgrep
-!config/polybar
 !config/alacritty
-!config/feh
-!config/rofi
+!config/rofm
 !config/mimeapps.list
-!config/tmux
 !config/zellij
 !config/proselint
 !config/starship
@@ -38,7 +30,6 @@ config/nvim/plugin/packer_compiled.lua
 !config/helix
 !config/imv
 !config/atuin
-!config/systemd
-!config/broot
+!config/broo
 
 cache

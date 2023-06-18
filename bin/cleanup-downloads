@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-dir=/home/naps62/downloads
-
-find_downloads="find $dir"
-
-$find_downloads -mtime +2 -type f | xargs rm
-$find_downloads -type d -empty

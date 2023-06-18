@@ -9,7 +9,7 @@
 
 # Screenshot directory
 dir="$HOME/downloads/screenshots"
-title=$(hyprctl activewindow -j | jq -r '.title')
+title=$(hyprctl activewindow -j | jq -r '.title' | tr '/' '-')
 recorder_flag="$HOME/.cache/rofi-screenshot-recording"
 
 # Default date format
