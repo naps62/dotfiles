@@ -10,6 +10,7 @@ config/lazygit/state.yml
 !config/htop
 !config/nvim
 !config/broot
+config/broot/launcher
 !config/git
 !config/zsh
 !config/ripgrep
