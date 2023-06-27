@@ -7,13 +7,8 @@ chrome_profile="Default"
 # zellij_session=$name
 # zellij_layout="compact"
 kitty_session="work-default"
-
-# 1. sleep for a bit (to prevent zellij rendering issues while window is being animated)
-# 2. NAPS62_WORK tells zsh to not start default zellij
-# 3. sourcing .zshrc to make sure asdf and others are loaded
-zsh_init_cmd="sleep 0.5; export NAPS62_WORK=1; source $HOME/.config/zsh/.zshrc"
-editor_init_cmd="export NAPS62_WORK=1; soruce $HOME/.config/zsh/.zshrc"
 editor_cmd="nvim"
+editor_kitty_opts="enabled_layouts=tall:bias=80"
 
 # custom opts for specific projects
 case $path in
@@ -49,14 +44,17 @@ clean_workspace() {
 default() {
   browser="google-chrome-stable --profile-directory='${chrome_profile}'"
   term="kitty --session '~/.config/kitty/sessions/${kitty_session}.conf'"
-  editor="kitty -d '$path' zsh -c '${editor_init_cmd}; ${editor_cmd}'"
+  editor="kitty -o '${editor_kitty_opts}' -d '$path' zsh -i -c '${editor_cmd}'"
   echo $term > $HOME/out
 
   hyprctl keyword windowrulev2 "tile, class:google-chrome"
   hyprctl dispatch exec "[tile; workspace $w silent]" "$browser"
   sleep 0.3
+
   hyprctl keyword windowrulev2 "float, class:google-chrome"
   hyprctl dispatch exec "[tile; workspace $w silent]" "$term"
+  sleep 0.1
+
   hyprctl dispatch exec "[tile; workspace $w silent]" "$editor"
 }
 

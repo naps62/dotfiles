@@ -21,6 +21,15 @@ auto-format = true
 language-servers = [{name = "typescript-language-server", except-features = ["format"]}]
 formatter = { command = 'prettier', args = ["--stdin", "--parser", "typescript"] }
 
+[language-server.typescript-language-server.config.typescript.inlayHints]
+includeInlayEnumMemberValueHints = false 
+includeInlayFunctionLikeReturnTypeHints = false 
+includeInlayFunctionParameterTypeHints = false 
+includeInlayParameterNameHints = "none" 
+includeInlayParameterNameHintsWhenArgumentMatchesName = false 
+includeInlayPropertyDeclarationTypeHints = false 
+includeInlayVariableTypeHints = false
+
 #
 # typst
 #

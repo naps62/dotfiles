@@ -24,6 +24,7 @@ C-p = "file_picker"
 C-f = "global_search"
 C-e = "scroll_down"
 C-y = "scroll_up"
+"space" = { g = ":run-shell-command kitty @ launch --type=tab lazygit" }
 
 [keys.insert]
 j = { k = "normal_mode", j = "normal_mode" } 
