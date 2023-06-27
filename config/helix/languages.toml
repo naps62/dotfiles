@@ -22,13 +22,13 @@ language-servers = [{name = "typescript-language-server", except-features = ["fo
 formatter = { command = 'prettier', args = ["--stdin", "--parser", "typescript"] }
 
 [language-server.typescript-language-server.config.typescript.inlayHints]
-includeInlayEnumMemberValueHints = false 
-includeInlayFunctionLikeReturnTypeHints = false 
-includeInlayFunctionParameterTypeHints = false 
-includeInlayParameterNameHints = "none" 
-includeInlayParameterNameHintsWhenArgumentMatchesName = false 
-includeInlayPropertyDeclarationTypeHints = false 
-includeInlayVariableTypeHints = false
+includeInlayEnumMemberValueHints = false
+includeInlayFunctionLikeReturnTypeHints = false
+includeInlayFunctionParameterTypeHints = false
+includeInlayParameterNameHints = false
+includeInlayParameterNameHintsWhenArgumentMatchesName = false
+includeInlayPropertyDeclarationTypeHints = false
+includeInlayVariableTypeHints = true
 
 #
 # typst
