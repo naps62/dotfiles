@@ -7,3 +7,5 @@ source ~/.config/zsh/completions.zsh
 source ~/.config/zsh/history.zsh
 source ~/.config/zsh/vendor.zsh
 source ~/.config/zsh/rpc.sh
+
+source /home/naps62/.config/broot/launcher/bash/br

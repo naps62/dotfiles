@@ -31,6 +31,14 @@ includeInlayPropertyDeclarationTypeHints = false
 includeInlayVariableTypeHints = true
 
 #
+# solidity
+#
+[[language]]
+name = "solidity"
+auto-format = true
+formatter = { command = "/home/naps62/.foundry/bin/forge", args = ["fmt", "--raw", "-"] }
+
+#
 # typst
 #
 
