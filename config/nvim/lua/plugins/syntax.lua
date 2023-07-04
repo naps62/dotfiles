@@ -32,7 +32,6 @@ return {
 				"rust",
 				"lua",
 				"regex",
-				"help",
 				"html",
 				"javascript",
 				"typescript",
