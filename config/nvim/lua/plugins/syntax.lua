@@ -68,4 +68,5 @@ return {
 	{ "vmchale/just-vim" },
 	{ "kaarmu/typst.vim" },
 	{ "fladson/vim-kitty" },
+	{ "terrastruct/d2-vim" },
 }

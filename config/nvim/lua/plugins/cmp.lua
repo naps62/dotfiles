@@ -48,9 +48,8 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		version = false,
-		event = "InsertEnter",
+		--event = "InsertEnter",
 		dependencies = {
-
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
@@ -159,6 +158,7 @@ return {
 	{
 		"zbirenbaum/copilot-cmp",
 		event = "VeryLazy",
+		dependencies = { "hrsh7th/cmp-nvim-lsp" },
 		config = function()
 			require("copilot_cmp").setup()
 		end,
