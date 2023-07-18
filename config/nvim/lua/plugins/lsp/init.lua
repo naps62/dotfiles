@@ -23,6 +23,7 @@ return {
 			"SmiteshP/nvim-navic",
 			"jose-elias-alvarez/typescript.nvim",
 			"jose-elias-alvarez/null-ls.nvim",
+			"simrat39/rust-tools.nvim",
 
 			{
 				"SmiteshP/nvim-navbuddy",
@@ -35,95 +36,100 @@ return {
 			},
 		},
 		config = function()
-			-- This is where all the LSP shenanigans will live
-			local lsp = require("lsp-zero")
+			vim.api.nvim_create_autocmd("LspAttach", {
+				desc = "LSP actions",
+				callback = function(event)
+					-- Create your keybindings here...
+				end,
+			})
 
-			lsp.on_attach(function(client, bufnr)
-				lsp.default_keymaps({ buffer = bufnr })
-				require("plugins.lsp.keymaps").on_attach(client, bufnr)
-
-				if client.server_capabilities.documentSymbolProvider then
-					require("nvim-navic").attach(client, bufnr)
-				end
-			end)
-
-			lsp.set_server_config({
-				capabilities = {
-					textDocument = {
-						foldingRange = {
-							dynamicRegistration = false,
-							lineFoldingOnly = true,
-						},
-					},
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					-- Replace these with whatever servers you want to install
+					"rust_analyzer",
+					"tsserver",
 				},
 			})
 
-			lsp.format_on_save({
-				format_opts = {
-					async = false,
-					timeout_ms = 10000,
-				},
-				servers = {
-					["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "solidity" },
-				},
+			local lspconfig = require("lspconfig")
+			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			require("mason-lspconfig").setup_handlers({
+				function(server_name)
+					lspconfig[server_name].on_attach(function(client, bufnr)
+						require("plugins.lsp.keymaps").on_attach(client, bufnr)
+						if client.server_capabilities.documentSymbolProvider then
+							require("nvim-navic").attach(client, bufnr)
+						end
+
+						if client.supports_method("textDocument/formatting") then
+							vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+							vim.api.nvim_create_autocmd("BufWritePre", {
+								group = augroup,
+								buffer = bufnr,
+								callback = function()
+									vim.lsp.buf.format()
+								end,
+							})
+						end
+					end)
+					lspconfig[server_name].setup({
+						capabilities = lsp_capabilities,
+					})
+				end,
 			})
-
-			lsp.configure("rust_analyzer", {
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = {
-							allFeatures = true,
-							command = "clippy",
-							extraArgs = { "--all", "--", "-W", "clippy::all" },
-						},
-					},
-				},
-				flags = {
-					debounce_text_changes = 150,
-				},
-			})
-
-			lsp.skip_server_setup({ "tsserver" })
-
-			vim.cmd([[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]])
-
-			-- (Optional) Configure lua language server for neovim
-			require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-
-			lsp.setup()
 
 			--
 			-- rust
 			--
-			-- local rust_tools = require("rust-tools")
-			-- rust_tools.setup({
-			-- 	server = {
-			-- 		on_attach = function(client, buffer)
-			-- 			-- keymaps
-			-- 			require("plugins.lsp.keymaps").on_attach(client, buffer)
-			--
-			-- 			-- navic
-			-- 			if client.server_capabilities.documentSymbolProvider then
-			-- 				require("nvim-navic").attach(client, buffer)
-			-- 			end
-			-- 		end,
-			-- 		settings = {
-			-- 			["rust-analyzer"] = {
-			-- 				enable = true,
-			-- 				imports = {
-			-- 					granularity = {
-			-- 						enforce = true,
-			-- 						group = "module",
-			-- 					},
-			-- 					prefix = "self",
-			-- 				},
-			-- 				cargo = {
-			-- 					allFeatures = true,
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	},
-			-- })
+			local rust_tools = require("rust-tools")
+			local rust_augroup = vim.api.nvim_create_augroup("RustToolsFormatting", {})
+			rust_tools.setup({
+				server = {
+					on_attach = function(client, buffer)
+						-- keymaps
+						require("plugins.lsp.keymaps").on_attach(client, buffer)
+
+						-- navic
+						if client.server_capabilities.documentSymbolProvider then
+							require("nvim-navic").attach(client, buffer)
+						end
+
+						if client.supports_method("textDocument/formatting") then
+							vim.api.nvim_clear_autocmds({ group = rust_augroup, buffer = buffer })
+							vim.api.nvim_create_autocmd("BufWritePre", {
+								group = augroup,
+								buffer = bufnr,
+								callback = function()
+									vim.lsp.buf.format()
+								end,
+							})
+						end
+					end,
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								allFeatures = true,
+								command = "clippy",
+								extraArgs = { "--all", "--", "-W", "clippy::all" },
+							},
+							enable = true,
+							imports = {
+								granularity = {
+									enforce = true,
+									group = "module",
+								},
+								prefix = "self",
+							},
+							cargo = {
+								allFeatures = true,
+							},
+						},
+					},
+				},
+			})
 
 			--
 			-- typescript
@@ -146,12 +152,17 @@ return {
 					end,
 				},
 			})
+		end,
+	},
 
-			--
-			-- null-ls
-			--
+	-- formatters
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		event = "BufReadPre",
+		dependencies = { "mason.nvim", "jose-elias-alvarez/typescript.nvim" },
+		opts = function()
 			local null_ls = require("null-ls")
-			null_ls.setup({
+			return {
 				sources = {
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.formatting.stylua,
@@ -159,7 +170,7 @@ return {
 					null_ls.builtins.formatting.forge_fmt,
 					require("typescript.extensions.null-ls.code-actions"),
 				},
-			})
+			}
 		end,
 	},
 
