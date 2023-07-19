@@ -49,6 +49,7 @@ return {
 					-- Replace these with whatever servers you want to install
 					"rust_analyzer",
 					"tsserver",
+					"lua_ls",
 				},
 			})
 
@@ -58,26 +59,28 @@ return {
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
-					lspconfig[server_name].on_attach(function(client, bufnr)
-						require("plugins.lsp.keymaps").on_attach(client, bufnr)
-						if client.server_capabilities.documentSymbolProvider then
-							require("nvim-navic").attach(client, bufnr)
-						end
+					if lspconfig[server_name].on_attach then
+						lspconfig[server_name].on_attach(function(client, bufnr)
+							require("plugins.lsp.keymaps").on_attach(client, bufnr)
+							if client.server_capabilities.documentSymbolProvider then
+								require("nvim-navic").attach(client, bufnr)
+							end
 
-						if client.supports_method("textDocument/formatting") then
-							vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-							vim.api.nvim_create_autocmd("BufWritePre", {
-								group = augroup,
-								buffer = bufnr,
-								callback = function()
-									vim.lsp.buf.format()
-								end,
-							})
-						end
-					end)
-					lspconfig[server_name].setup({
-						capabilities = lsp_capabilities,
-					})
+							if client.supports_method("textDocument/formatting") then
+								vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+								vim.api.nvim_create_autocmd("BufWritePre", {
+									group = augroup,
+									buffer = bufnr,
+									callback = function()
+										vim.lsp.buf.format()
+									end,
+								})
+							end
+						end)
+						lspconfig[server_name].setup({
+							capabilities = lsp_capabilities,
+						})
+					end
 				end,
 			})
 
@@ -164,12 +167,25 @@ return {
 			local null_ls = require("null-ls")
 			return {
 				sources = {
+					null_ls.builtins.formatting.taplo,
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.diagnostics.solhint,
 					null_ls.builtins.formatting.forge_fmt,
 					require("typescript.extensions.null-ls.code-actions"),
 				},
+				on_attach = function(client, bufnr)
+					if client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({ bufnr = bufnr })
+							end,
+						})
+					end
+				end,
 			}
 		end,
 	},

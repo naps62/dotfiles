@@ -2,11 +2,12 @@ local util = require("util")
 
 return {
 	{
-
 		"ahmedkhalf/project.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("project_nvim").setup({})
+			require("project_nvim").setup({
+        detection_methods = { "pattern" },
+  		})
 		end,
 	},
 
