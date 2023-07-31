@@ -15,7 +15,7 @@ case $path in
   *iron-wallet/iron*)
     chrome_profile="Profile 1"
     kitty_session="iron"
-    editor_cmd="hx"
+    #editor_cmd="hx"
     ;;
 esac
 
@@ -43,7 +43,7 @@ clean_workspace() {
 # alacritty w/ zellij
 default() {
   browser="google-chrome-stable --profile-directory='${chrome_profile}'"
-  term="kitty --session '~/.config/kitty/sessions/${kitty_session}.conf'"
+  term="kitty -d '$path' --session '~/.config/kitty/sessions/${kitty_session}.conf'"
   editor="kitty -o '${editor_kitty_opts}' -d '$path' zsh -i -c '${editor_cmd}'"
   echo $term > $HOME/out
 

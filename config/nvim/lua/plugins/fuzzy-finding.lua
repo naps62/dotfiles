@@ -6,8 +6,9 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("project_nvim").setup({
-        detection_methods = { "pattern" },
-  		})
+				detection_methods = { "pattern" },
+				patterns = { ".git", "yarn.lock" },
+			})
 		end,
 	},
 
@@ -27,8 +28,8 @@ return {
 
 			vim.api.nvim_exec(
 				[[
-      command! -bang -nargs=* FzfRgSlim call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --ignore-file lib/ -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
-      ]],
+	      command! -bang -nargs=* FzfRgSlim call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --ignore-file lib/ -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+	      ]],
 				false
 			)
 
@@ -65,6 +66,7 @@ return {
 			require("telescope").setup(opts)
 			require("telescope").load_extension("projects")
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("harpoon")
 		end,
 		keys = {
 			{ "<C-p>", util.telescope("files"), desc = "Find Files (root dir)" },

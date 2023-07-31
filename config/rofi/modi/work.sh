@@ -1,17 +1,18 @@
 #!/bin/sh
 
 list() {
-  for p in $(find $HOME/projects -maxdepth 4 -name .git -type d -prune); do
+  for p in $(find $HOME -maxdepth 4 -name .git -type d -prune); do
     name=${p%/.git}
-    name=${name#$HOME/projects/}
+    name=${name#$HOME/}
     echo $name
   done
+
 }
 
 run () {
-  for p in $(find $HOME/projects -maxdepth 4 -name .git -type d -prune); do
+  for p in $(find $HOME -maxdepth 4 -name .git -type d -prune); do
     project_path=${p%/.git}
-    name=${project_path#$HOME/projects/}
+    name=${project_path#$HOME/}
 
     if [[ "$1" == "$name" ]]; then
       $HOME/.bin/work $project_path > /dev/null

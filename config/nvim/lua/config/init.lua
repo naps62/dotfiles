@@ -1,1 +1,1 @@
--- require("config.statuscolumn")
+require("config.statuscolumn")
