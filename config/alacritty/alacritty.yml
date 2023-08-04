@@ -47,9 +47,6 @@ window:
 
 draw_bold_text_with_bright_colors: true
 
-import:
-  - ~/.config/alacritty/catppuccin-mocha.yml
-
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
 # rung, the terminal background will be set to white and transition back to the
 # default background color. You can control the rate of this transition by
