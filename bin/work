@@ -44,7 +44,7 @@ clean_workspace() {
 default() {
   browser="google-chrome-stable --profile-directory='${chrome_profile}'"
   term="kitty -d '$path' --session '~/.config/kitty/sessions/${kitty_session}.conf'"
-  editor="kitty -o '${editor_kitty_opts}' -d '$path' zsh -i -c '${editor_cmd}'"
+  editor="kitty -o '${editor_kitty_opts}' -d '$path' zsh -i -c '${editor_cmd}; zsh'"
   echo $term > $HOME/out
 
   hyprctl keyword windowrulev2 "tile, class:google-chrome"

@@ -8,7 +8,20 @@ function M.get()
 	M._keys = M._keys
 		or {
 			{ "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-			{ "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
+			{
+				"gd",
+				function()
+					require("telescope.builtin").lsp_definitions()
+				end,
+				desc = "Goto Definition",
+			},
+			{
+				"gv",
+				function()
+					require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" })
+				end,
+				desc = "Goto Definition",
+			},
 			{ "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
 			{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
 			{ "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },

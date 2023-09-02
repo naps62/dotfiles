@@ -1,7 +1,9 @@
 #!/bin/sh
 
+find='fd ".git$" --prune -u -t d -E ".cache" -E ".asdf" -E ".cargo" -E ".local" -E ".go" -x echo {//}'
+
 list() {
-  for p in $(find $HOME -maxdepth 4 -name .git -type d -prune); do
+  for p in $(eval $find); do
     name=${p%/.git}
     name=${name#$HOME/}
     echo $name
@@ -10,7 +12,7 @@ list() {
 }
 
 run () {
-  for p in $(find $HOME -maxdepth 4 -name .git -type d -prune); do
+  for p in $(eval $find); do
     project_path=${p%/.git}
     name=${project_path#$HOME/}
 
