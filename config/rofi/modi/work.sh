@@ -1,6 +1,6 @@
 #!/bin/sh
 
-find='fd ".git$" --prune -u -t d -E ".cache" -E ".asdf" -E ".cargo" -E ".local" -E ".go" -x echo {//}'
+find='fd ".git$" --prune -u --type d projects --max-depth 4 -x echo {//}'
 
 list() {
   for p in $(eval $find); do

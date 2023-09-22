@@ -21,7 +21,7 @@ alias icat="kitty +kitten icat"
 
 # rust replacements
 # https://zaiste.net/posts/shell-commands-rust
-alias ls=exa
+alias ls=eza
 alias cat=bat
 alias ps=procs
 
