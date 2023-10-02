@@ -30,9 +30,10 @@ $crust: #11111b;
 
 * {
   all: unset;
-  font-family: Material Design Icons, Fira Code;
+  font-family:
+    Material Design Icons,
+    Fira Code;
 }
-
 
 //
 // color theming
@@ -67,22 +68,15 @@ tooltip.background,
 
 .bar {
   // min-height: 30px;
-  font-size: 18;
-  transition: all 0.3s ease-in-out;
+  font-size: 16;
+  transition: all 0.1s ease-out;
   border-radius: 10px 10px 0 0;
 }
 
 .bar.not-hover {
   opacity: 0;
   background-color: transparent;
-
 }
-
-// TODO: test stuff
- // .bar.not-hover {
- //   opacity: 1;
- //   background-color: $crust;
- // }
 
 .bar.hover {
   opacity: 1;
@@ -91,7 +85,6 @@ tooltip.background,
 .space {
   margin: 0px 10px;
 }
-
 
 //
 // tooltip
@@ -102,9 +95,7 @@ tooltip.background {
 }
 
 tooltip label {
-  // margin: 6px;
 }
-
 
 //
 // clock
@@ -114,7 +105,6 @@ tooltip label {
   font-weight: bold;
   margin-right: 5px;
 }
-
 
 //
 // circular bars
@@ -126,8 +116,7 @@ tooltip label {
 }
 
 .circle .icon {
-  font-size: 18px;
-  // font-size: 12;
+  font-size: 16px;
   padding: 10px;
 }
 
@@ -139,7 +128,6 @@ tooltip label {
 .slider trough highlight {
   border-radius: 10px;
 }
-
 
 //
 // network
@@ -162,8 +150,6 @@ tooltip label {
   }
 }
 
-
-
 //
 // brightness
 //
@@ -178,7 +164,12 @@ tooltip label {
 //
 
 .slider trough highlight {
-  background-image: linear-gradient(to right, $yellow 30%, $peach 50%, $red 100% *50);
+  background-image: linear-gradient(
+    to right,
+    $yellow 30%,
+    $peach 50%,
+    $red 100% * 50
+  );
 }
 
 scale trough {
@@ -192,11 +183,23 @@ scale trough {
 // workspaces
 //
 
-.w0 , .w01, .w02, .w03, .w04, .w05, .w06, .w011, .w022, .w033, .w044, .w055, .w066{
+.w0,
+.w01,
+.w02,
+.w03,
+.w04,
+.w05,
+.w06,
+.w011,
+.w022,
+.w033,
+.w044,
+.w055,
+.w066 {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 16px;
   padding: 5px 5;
-  min-height: 30px;
+  min-height: 25px;
   min-width: 60px;
 }
 
@@ -206,13 +209,23 @@ scale trough {
 }
 
 // Occupied
-.w01, .w02, .w03, .w04, .w05, .w06 {
+.w01,
+.w02,
+.w03,
+.w04,
+.w05,
+.w06 {
   color: $text;
 }
 
-// Focused 
-.w011, .w022, .w033, .w044, .w055, .w066 {
-  font-size: 20px;
+// Focused
+.w011,
+.w022,
+.w033,
+.w044,
+.w055,
+.w066 {
+  font-size: 16px;
   background-color: $sky;
   color: $crust;
   font-weight: bold;
