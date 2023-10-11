@@ -55,6 +55,7 @@
         "/home/naps62/.local/share/nvim/lazy/telescope-ui-select.nvim/lua",
         "/home/naps62/.local/share/nvim/lazy/nvim-hlslens/lua",
         "/home/naps62/projects/dotfiles/config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }
