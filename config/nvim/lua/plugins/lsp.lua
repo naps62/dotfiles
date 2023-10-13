@@ -38,6 +38,11 @@ return {
           null_ls.builtins.diagnostics.solhint,
           null_ls.builtins.formatting.forge_fmt,
           require("typescript.extensions.null-ls.code-actions"),
+          null_ls.builtins.formatting.clang_format.with({
+            filetypes = {
+              "glsl",
+            },
+          }),
         },
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
