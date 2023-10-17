@@ -122,7 +122,9 @@ function generic_lsp(server_name, lspconfig, lsp_capabilities, augroup)
         vim.api.nvim_create_autocmd("BufWritePre", {
           group = augroup,
           buffer = bufnr,
-          callback = vim.lsp.buf.format,
+          callback = function()
+            vim.lsp.buf.format()
+          end,
         })
       end
     end,
@@ -140,7 +142,9 @@ function rust_analyzer(augroup)
         vim.api.nvim_create_autocmd("BufWritePre", {
           group = augroup,
           buffer = buffer,
-          callback = vim.lsp.buf.format,
+          callback = function()
+            vim.lsp.buf.format()
+          end,
         })
       end,
       settings = {
