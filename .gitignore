@@ -34,3 +34,6 @@ config/broot/launcher
 !config/broo
 
 cache
+cargo/registry
+cargo/db
+cargo/git
