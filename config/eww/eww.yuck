@@ -137,6 +137,8 @@
   (widget_cpu)
   (widget_cputemp)
   (widget_space)
+  (systray)
+  (widget_space)
   (widget_clock)
   (widget_space)))
 
