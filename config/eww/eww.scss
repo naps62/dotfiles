@@ -28,7 +28,7 @@ $base: #1e1e2e;
 $mantle: #181825;
 $crust: #11111b;
 
-* {
+:not(menu):not(menuitem) {
   all: unset;
   font-family:
     Material Design Icons,
@@ -41,6 +41,8 @@ $crust: #11111b;
 
 tooltip.background,
 .window,
+menu,
+menuitem,
 .bar.hover {
   background-color: $crust;
 }
@@ -177,6 +179,28 @@ scale trough {
   border-radius: 16px;
   min-height: 10px;
   min-width: 100px;
+}
+
+//
+// systray
+//
+
+menu  {
+  border-radius: 16px;
+}
+
+menuitem {
+  padding: 8px;
+  border-radius: 8px;
+  color: $text;
+
+  &:disabled {
+    color: $overlay2;
+  }
+
+  &:hover {
+    background-color: $surface2;
+  }
 }
 
 //

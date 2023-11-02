@@ -4,8 +4,6 @@ path=$1
 name=$(echo $path | grep -o '[^/]*$')
 w=$(hyprctl activewindow -j | jq '.workspace.id')
 chrome_profile="Default"
-# zellij_session=$name
-# zellij_layout="compact"
 kitty_session="work-default"
 editor_cmd="nvim"
 editor_kitty_opts=""
@@ -20,42 +18,33 @@ case $path in
 esac
 
 
-# 1. attempt to attach to the named session
-zellij_cmd="zellij attach ${zellij_session} && exit || zellij --layout ${zellij_layout} --session ${zellij_session}"
-
 # kill everything in current workspace
 clean_workspace() {
   # sends SIGINT to all windows in this workspace
   hyprctl clients -j |\
-    jq ".[] | select(.class != \"google-chrome\") | select(.workspace.id == $w) | .pid" |\
+    jq ".[] | select(.workspace.id == 5) | .pid" |\
     xargs kill -s int -9
 
-  # google-chrome needs to be closed differently
   hyprctl clients -j |\
-    jq ".[] | select(.class == \"google-chrome\") | select(.workspace.id == $w) | .address" |\
-    xargs -n 1 -I {} hyprctl dispatch closewindow address:{}
+    jq ".[] | select(.workspace.id == 2) | .pid" |\
+    xargs kill -s int -9
+
+  # # google-chrome needs to be closed differently
+  # hyprctl clients -j |\
+  #   jq ".[] | select(.class == \"google-chrome\") | select(.workspace.id == $w) | .address" |\
+  #   xargs -n 1 -I {} hyprctl dispatch closewindow address:{}
 }
 
 
 # opens the default layout
 # browser
-# nvim
-# alacritty w/ zellij
+# kitty
 default() {
   browser="google-chrome-stable --profile-directory='${chrome_profile}'"
   term="kitty -d '$path' --session '~/.config/kitty/sessions/${kitty_session}.conf'"
-  editor="kitty -o '${editor_kitty_opts}' -d '$path' zsh -i -c 'direnv reload; ${editor_cmd}; zsh'"
-  echo $term > $HOME/out
 
-  hyprctl keyword windowrulev2 "tile, class:google-chrome"
-  hyprctl dispatch exec "[tile; workspace $w silent]" "$browser"
-  sleep 0.3
-
-  hyprctl keyword windowrulev2 "float, class:google-chrome"
-  hyprctl dispatch exec "[tile; workspace $w silent]" "$term"
-  sleep 0.1
-
-  hyprctl dispatch exec "[tile; workspace $w silent]" "$editor"
+  hyprctl dispatch exec "[tile; workspace 5 silent]" "$browser"
+  hyprctl dispatch exec "[tile; workspace 2 silent]" "$term"
 }
 
 clean_workspace

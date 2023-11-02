@@ -21,6 +21,7 @@ return {
       return {
         sources = {
           null_ls.builtins.formatting.taplo,
+          null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.prettierd.with({
             filetypes = {
               "html",
