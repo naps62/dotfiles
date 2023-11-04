@@ -3,7 +3,7 @@
 (defpoll clock_date :interval "1m" "date '+%d/%m'")
 (defpoll volume_percent :interval "3s" :initial 0 "pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | cut -d'/' -f 2 | xargs | tr -d '%'")
 ;; (defpoll brightness_percent :interval "5s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
-(defpoll battery :interval "15s" "./scripts/battery --bat")
+(defpoll bwindowrulesattery :interval "15s" "./scripts/battery --bat")
 (defpoll battery_status :interval "1m" "./scripts/battery --bat-st")
 (defpoll memory :interval "5s" :initial 0 "scripts/memory")
 (defpoll cpu :interval "5s" :initial 0 "scripts/cpu")
@@ -160,7 +160,7 @@
     geometry 
     :x "0%"
     :y "0px"
-    :width "1920px"
+    :width "1020px"
     :anchor "bottom center")
   :monitor 0
 (bar_inner))
