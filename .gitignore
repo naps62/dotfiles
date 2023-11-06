@@ -33,6 +33,7 @@ config/broot/launcher
 !config/atuin
 !config/broo
 
+config/hypr/host
 cache
 cargo/registry
 cargo/db
