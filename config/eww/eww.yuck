@@ -37,14 +37,14 @@
     (literal :content workspace))
   )
 
-(defwidget widget_battery []
-  (circular-progress :value battery
-      :class "circle battery"
-      :thickness 4
-    (button 
-        :class "icon"
-        :tooltip "battery on ${battery}%"
-        "󰂁")))
+;; (defwidget widget_battery []
+;;   (circular-progress :value battery
+;;       :class "circle battery"
+;;       :thickness 4
+;;     (button 
+;;         :class "icon"
+;;         :tooltip "battery on ${battery}%"
+;;         "󰂁")))
 
 
 (defwidget widget_cputemp []
@@ -132,7 +132,7 @@
   (widget_volume)
   (widget_network)
   (widget_space)
-  (widget_battery)
+  ;; (widget_battery)
   (widget_ram)
   (widget_cpu)
   (widget_cputemp)
