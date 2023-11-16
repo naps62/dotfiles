@@ -1,3 +1,6 @@
 [Unit]
 Description=Sepolia local node
 Wants=sepolia-reth.service sepolia-lighthouse.service prometheus.service grafana.service
+
+[Install]
+WantedBy=multi-user.target

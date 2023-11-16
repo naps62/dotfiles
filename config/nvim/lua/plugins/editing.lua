@@ -129,9 +129,14 @@ return {
   -- commenting
   {
     "numToStr/Comment.nvim",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     event = "VeryLazy",
-    config = function(_, opts)
-      require("Comment").setup(opts)
+    config = function(_)
+      require("Comment").setup({
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      })
     end,
   },
 

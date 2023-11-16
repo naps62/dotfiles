@@ -1,12 +1,15 @@
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		version = false,
-		build = ":TSUpdate",
-		event = "BufReadPre",
-		init = function()
-			vim.api.nvim_exec(
-				[[
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
+    version = false,
+    build = ":TSUpdate",
+    event = "BufReadPre",
+    init = function()
+      vim.api.nvim_exec(
+        [[
       " augroup treesitter-highlight
       " autocmd!
       " autocmd BufEnter *.graphql,*.gql,*.elixir,*.md TSBufEnable highlight
@@ -22,51 +25,52 @@ return {
       autocmd Syntax *.sol highlight! link solNatspecRef solFuncName
       augroup END
       ]],
-				false
-			)
-		end,
-		opts = {
-			highlight = { enable = true, use_languagetree = true },
-			indent = { enable = true },
-			ensure_installed = {
-				"rust",
-				"lua",
-				"regex",
-				"html",
-				"javascript",
-				"typescript",
-				"tsx",
-				"solidity",
-				"toml",
-				"bash",
-				"css",
-				"markdown",
-				"markdown_inline",
-				"json",
-				"elixir",
-				"erlang",
-				"eex",
-				"kdl",
-				"yuck",
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_icnremental = "<C-space>",
-					scope_incremental = "<nop>",
-					node_decremental = "<bs>",
-				},
-			},
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-		end,
-	},
+        false
+      )
+    end,
+    opts = {
+      highlight = { enable = true, use_languagetree = true },
+      indent = { enable = true },
+      ensure_installed = {
+        "rust",
+        "lua",
+        "regex",
+        "html",
+        "javascript",
+        "typescript",
+        "tsx",
+        "solidity",
+        "toml",
+        "bash",
+        "css",
+        "markdown",
+        "markdown_inline",
+        "json",
+        "elixir",
+        "erlang",
+        "eex",
+        "kdl",
+        "yuck",
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_icnremental = "<C-space>",
+          scope_incremental = "<nop>",
+          node_decremental = "<bs>",
+        },
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+      vim.treesitter.language.register('markdown', 'mdx')
+    end,
+  },
 
-	{ "tomlion/vim-solidity" },
-	{ "vmchale/just-vim" },
-	{ "kaarmu/typst.vim" },
-	{ "fladson/vim-kitty" },
-	{ "terrastruct/d2-vim" },
+  { "tomlion/vim-solidity" },
+  { "vmchale/just-vim" },
+  { "kaarmu/typst.vim" },
+  { "fladson/vim-kitty" },
+  { "terrastruct/d2-vim" },
 }
