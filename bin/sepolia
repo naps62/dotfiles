@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DIR=/mnt/data/eth/sepolia
+
+AUTHRPC_PORT=8552
+ETH1_METRICS_PORT=9301
+ETH2_METRICS_PORT=9302
+
+export RUST_LOG=info
+
+mkdir -p $DIR
+
+if [[ $1 == "reth" ]]; then
+  reth node \
+    --chain sepolia \
+    --datadir $DIR/reth \
+    --metrics 0.0.0.0:$ETH1_METRICS_PORT \
+    --authrpc.addr 127.0.0.1 \
+    --authrpc.port $AUTHRPC_PORT \
+    --http \
+    --ws \
+    --http.api all \
+    --ws.api all
+elif [[ $1 == "lighthouse" ]]; then
+  lighthouse bn \
+    --network sepolia \
+    --datadir $DIR/lighthouse \
+    --metrics \
+    --metrics-port $ETH2_METRICS_PORT \
+    --execution-endpoint http://localhost:$AUTHRPC_PORT \
+    --execution-jwt $DIR/reth/jwt.hex \
+    --checkpoint-sync-url https://checkpoint-sync.sepolia.ethpandaops.io \
+    --disable-deposit-contract-sync
+fi

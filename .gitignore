@@ -4,13 +4,11 @@ ssh/*
 config/nvim/.netrwhist
 config/zsh/.zcompdump
 
+# default to excluding everything in config/ for security purposes
 config/*
-!config/lazygit
-config/lazygit/state.yml
-!config/htop
+
+# include various config files
 !config/nvim
-!config/broot
-config/broot/launcher
 !config/git
 !config/zsh
 !config/ripgrep
@@ -22,7 +20,6 @@ config/broot/launcher
 !config/starship
 !config/user-dirs.conf
 !config/zathura
-!config/hypr
 !config/eww
 !config/kitty
 !config/bat
@@ -33,7 +30,30 @@ config/broot/launcher
 !config/atuin
 !config/broo
 
+# include lazy-git, except for state
+!config/lazygit
+config/lazygit/state.yml
+
+# include custom systemd units, but exclude auto-generated ones
+!config/systemd/user/*
+config/systemd/user/default.target.wants
+config/systemd/user/socket.target.wants
+
+# this is annoying when using multiple computers.
+# might as well update individually
+config/nvim/lazy-lock.json
+
+config/user-dirs.conf
+config/user-dirs.dirs
+config/mimeapps.list
+
+# include hyper, except for host-specific symlink
+!config/hypr
 config/hypr/host
+
+!config/broot
+config/broot/launcher
+
 cache
 cargo/registry
 cargo/db
