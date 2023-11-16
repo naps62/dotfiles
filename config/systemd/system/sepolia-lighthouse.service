@@ -1,0 +1,19 @@
+[Unit]
+Description=Sepolia - Lighthouse
+After=network.target
+StartLimitIntervalSec=0
+PartOf=sepolia.target
+Requires=sepolia-reth.service
+Wants=sepolia-reth.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=eth
+Group=eth
+UMask=0002
+ExecStart=/usr/local/bin/sepolia lighthouse
+
+[Install]
+WantedBy=multi-user.target

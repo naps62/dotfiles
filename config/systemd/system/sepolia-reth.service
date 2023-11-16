@@ -1,0 +1,17 @@
+[Unit]
+Description=Sepolia - Reth
+After=network.target
+StartLimitIntervalSec=0
+PartOf=sepolia.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=eth
+Group=eth
+UMask=0002
+ExecStart=/usr/local/bin/sepolia reth
+
+[Install]
+WantedBy=multi-user.target
