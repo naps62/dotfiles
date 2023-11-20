@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for autostart_app in ~/.config/autostart/*.desktop; do
+    exec_line=$(grep '^Exec=' "$autostart_app")
+    command_to_run=${exec_line#Exec=}
+    $command_to_run &
+done

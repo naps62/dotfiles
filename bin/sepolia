@@ -18,8 +18,10 @@ if [[ $1 == "reth" ]]; then
     --authrpc.addr 127.0.0.1 \
     --authrpc.port $AUTHRPC_PORT \
     --http \
-    --ws \
+    --http.port 8555 \
     --http.api all \
+    --ws \
+    --ws.port 8556 \
     --ws.api all
 elif [[ $1 == "lighthouse" ]]; then
   lighthouse bn \

@@ -52,3 +52,7 @@ export FZF_DEFAULT_OPTS=" \
 [ -f $HOME/.secrets.zsh ] && source $HOME/.secrets.zsh
 
 stty -ixon
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

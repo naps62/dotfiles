@@ -72,7 +72,7 @@ record_region_mp4() {
   n_id=$(notify-send --app-name="screenshot" "$title" "Select a region to record" --print-id)
 
   touch "$recorder_flag"
-  wf-recorder -g "$(slurp && countdown $n_id "$title")" -f "$path"
+  wf-recorder -g "$(slurp && countdown $n_id "$title")" -f "$path" --pixel-format yuv420p
 
   notify-send --app-name="screenshot" "$title" "$path" --replace-id=$n_id
 }
@@ -196,9 +196,6 @@ main() {
       ;;
     '     MP4')
       record_region_mp4 "$dt"
-      ;;
-    '     Stop recording')
-      stop_recording
       ;;
   esac
 
