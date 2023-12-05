@@ -5,9 +5,6 @@ return {
     lazy = true,
     dependencies = {
       "rafamadriz/friendly-snippets",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end,
     },
     opts = function()
       local types = require("luasnip.util.types")
@@ -41,6 +38,7 @@ return {
     config = function(_, opts)
       require("luasnip").config.set_config(opts)
       require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })
+      require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
 
@@ -63,7 +61,6 @@ return {
 
       local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        -- print(vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col))
         return col ~= 0
             and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
       end
@@ -118,7 +115,7 @@ return {
         preselect = cmp.PreselectMode.None,
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "luasnip" },
+          -- { name = "luasnip" },
           { name = "copilot" },
           { name = "path" },
           { name = "buffer" },

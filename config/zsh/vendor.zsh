@@ -50,11 +50,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 
 #
-# zellij
-#
-# [[ -z $NVIM && -z $ASCIINAME_REC && -z $NAPS62_WORK ]] && eval "$(zellij setup --generate-auto-start zsh)"
-
-#
 # misc
 #
 # broot: directory tree viewer

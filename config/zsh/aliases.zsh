@@ -8,16 +8,13 @@ alias d=docker
 alias dc=docker-compose
 alias g=git
 alias o=open
-alias v="nvim"
-alias wv="anvim"
-alias wh="anhx"
-alias gv="neovide --multigrid"
+alias v=nvim
+alias vim=nvim
 alias h=helix
 alias n=nvim
 alias x=extract
 alias y=yay
 alias j=just
-alias icat="kitty +kitten icat"
 
 # rust replacements
 # https://zaiste.net/posts/shell-commands-rust
@@ -25,8 +22,7 @@ alias ls=eza
 alias cat=bat
 alias ps=procs
 
-alias vim=nvim
-
+alias sql="pgcli"
 alias pass="PASSWORD_STORE_DIR=~/sync/pass pass"
 
 # cd

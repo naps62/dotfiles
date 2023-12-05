@@ -15,7 +15,6 @@ config/*
 !config/alacritty
 !config/rofm
 !config/mimeapps.list
-!config/zellij
 !config/proselint
 !config/starship
 !config/user-dirs.conf
@@ -58,3 +57,5 @@ cache
 cargo/registry
 cargo/db
 cargo/git
+cargo/bin
+cargo/.crates*
