@@ -1,4 +1,5 @@
 [v1]
+"cargo-bloat 0.11.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-bloat"]
 "cargo-upgrades 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-upgrades"]
 "cargo-watch 8.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-watch"]
 "diesel_cli 2.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["diesel"]
@@ -7,4 +8,5 @@
     "sea",
     "sea-orm-cli",
 ]
+"tauri-cli 1.5.7 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-tauri"]
 "tokio-console 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)" = ["tokio-console"]

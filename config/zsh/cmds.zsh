@@ -32,3 +32,7 @@ extract () {
 mkcd () {
   mkdir -p "$1" && cd "$1"
 }
+
+parufind() {
+  paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S
+}
