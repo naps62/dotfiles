@@ -28,6 +28,7 @@ config/*
 !config/imv
 !config/atuin
 !config/broo
+!config/i3
 
 # include lazy-git, except for state
 !config/lazygit

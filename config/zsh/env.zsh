@@ -28,8 +28,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 export TERMINAL=/usr/bin/alacritty
 export ZK_PATH=$HOME/projects/zettelkasten
 export GOPATH=$HOME/.go
-
-
+export QT_QPA_PLATFORM=qt5ct
 
 if [ -z "$TMUX" ]; then
   export TERM=xterm-256color

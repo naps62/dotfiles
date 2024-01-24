@@ -1,0 +1,3 @@
+return {
+  "habamax/vim-godot"
+}

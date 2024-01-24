@@ -44,6 +44,8 @@ return {
               "glsl",
             },
           }),
+          null_ls.builtins.diagnostics.gdlint,
+          null_ls.builtins.formatting.gdformat
         },
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
