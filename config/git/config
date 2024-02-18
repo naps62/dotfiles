@@ -45,6 +45,8 @@
   update = !git fetch && git rebase
   home = rev-parse --show-toplevel
   mine = !git branch -a --color | grep mp[/-]
+	fp = push
+	bb = better-branch
 [core]
   editor = nvim
   pager = delta
@@ -91,3 +93,8 @@
 	defaultBranch = main
 [hub]
 	protocol = ssh
+[rerere]
+	enabled = true
+	autoUpdate = true
+[branch]
+	sort = -committerdate

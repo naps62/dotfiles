@@ -7,6 +7,8 @@ env_dir() {
   export $var=$val:$old
 }
 
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+
 # path
 env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.local/bin
@@ -19,6 +21,7 @@ env_dir PATH ./.git/safe/../../bin
 env_dir PATH "../.git/safe/../../node_modules/.bin"
 env_dir PATH "../../.git/safe/../../.bin"
 env_dir PATH $HOME/projects/zk/bin
+env_dir PATH $JAVA_HOME/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
@@ -28,7 +31,13 @@ export BROWSER=/usr/bin/google-chrome-stable
 export TERMINAL=/usr/bin/alacritty
 export ZK_PATH=$HOME/projects/zettelkasten
 export GOPATH=$HOME/.go
-export QT_QPA_PLATFORM=qt5ct
+
+# sway-nvidia
+if [[ $(hostname) == "konishi" ]]; then
+  export WLR_RENDERER=vulkan
+  export XWAYLAND_NO_GLAMOR=1
+  export WLR_NO_HARDWARE_CURSORS=1
+fi
 
 if [ -z "$TMUX" ]; then
   export TERM=xterm-256color

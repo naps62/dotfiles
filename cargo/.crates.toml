@@ -4,7 +4,7 @@
 "cargo-watch 8.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-watch"]
 "diesel_cli 2.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["diesel"]
 "reth 0.1.0-alpha.11 (path+file:///home/naps62/contrib/paradigmxyz/reth/bin/reth)" = ["reth"]
-"sea-orm-cli 0.12.6 (registry+https://github.com/rust-lang/crates.io-index)" = [
+"sea-orm-cli 0.12.14 (registry+https://github.com/rust-lang/crates.io-index)" = [
     "sea",
     "sea-orm-cli",
 ]

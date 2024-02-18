@@ -162,5 +162,5 @@
     :y "0px"
     :width "1020px"
     :anchor "bottom center")
-  :monitor 0
+  :monitor 1
 (bar_inner))

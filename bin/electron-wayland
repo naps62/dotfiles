@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ "$XDG_BACKEND" == "wayland" ]]; then
+  "$@" --enable-features=UseOzonePlatform --ozone-platform=wayland
+else
+  "$@"
+fi

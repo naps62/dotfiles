@@ -3,6 +3,7 @@ include ~/.config/i3/keybindings.conf
 include ~/.config/i3/style.conf
 include ~/.config/i3/xf86.conf
 include ~/.config/i3/startup.conf
+include ~/.config/i3/host.conf
 
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
@@ -13,5 +14,6 @@ tiling_drag modifier titlebar
 # finds out, if available)
 bar {
         status_command i3status
+        output HDMI-0
 }
 

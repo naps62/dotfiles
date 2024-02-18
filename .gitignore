@@ -29,6 +29,7 @@ config/*
 !config/atuin
 !config/broo
 !config/i3
+!config/sway
 
 # include lazy-git, except for state
 !config/lazygit
