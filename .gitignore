@@ -61,3 +61,5 @@ cargo/db
 cargo/git
 cargo/bin
 cargo/.crates*
+
+*.zwc

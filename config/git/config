@@ -24,7 +24,7 @@
   dc   = diff --cached
   co   = checkout
   s    = status -sb
-  b    = browse
+	b = better-branch
   rb   = rebase
   rbc  = rebase --continue
   up   = update
