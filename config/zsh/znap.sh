@@ -6,4 +6,5 @@
 source ~/.znap/znap/znap.zsh  # Start Znap
 
 znap source marlonrichert/zsh-autocomplete
+znap source hlissner/zsh-autopair
 znap install zsh-users/zsh-completions
