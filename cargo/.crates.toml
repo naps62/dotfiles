@@ -2,6 +2,7 @@
 "cargo-bloat 0.11.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-bloat"]
 "cargo-deny 0.14.11 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-deny"]
 "cargo-outdated 0.14.0 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-outdated"]
+"cargo-udeps 0.1.46 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-udeps"]
 "cargo-upgrades 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-upgrades"]
 "cargo-watch 8.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-watch"]
 "diesel_cli 2.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["diesel"]
@@ -9,6 +10,10 @@
 "sea-orm-cli 0.12.14 (registry+https://github.com/rust-lang/crates.io-index)" = [
     "sea",
     "sea-orm-cli",
+]
+"sqlx-cli 0.7.3 (registry+https://github.com/rust-lang/crates.io-index)" = [
+    "cargo-sqlx",
+    "sqlx",
 ]
 "tauri-cli 1.5.10 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-tauri"]
 "tokio-console 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)" = ["tokio-console"]

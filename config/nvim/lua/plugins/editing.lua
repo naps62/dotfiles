@@ -1,15 +1,5 @@
 return {
   {
-    'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = {
-      { "-", "<CMD>Oil<CR>", { desc = "Open parent directory" } }
-    }
-  },
-
-  {
     "kevinhwang91/nvim-hlslens",
     lazy = true,
     init = function()
@@ -78,14 +68,6 @@ return {
   {
     "junegunn/vim-easy-align",
     event = "VeryLazy",
-    -- keys = {
-    -- 	{
-    -- 		"la",
-    -- 		"<Plug>(EasyAlign)",
-    -- 		desc = "Start interactive EasyAlign",
-    -- 		mode = { "n", "v" },
-    -- 	},
-    -- },
   },
 
   -- folding
@@ -145,7 +127,7 @@ return {
     event = "VeryLazy",
     config = function(_)
       require("Comment").setup({
-        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       })
     end,
   },
@@ -162,11 +144,4 @@ return {
       require("todo-comments").setup(opts)
     end,
   },
-
-  {
-    "abecodes/tabout.nvim",
-    config = function()
-      require("tabout").setup({})
-    end
-  }
 }

@@ -103,7 +103,7 @@ local function rust_analyzer(augroup)
 end
 
 local function tsserver()
-  require("typescript").setup({
+  require("typescript-tools").setup({
     server = {
       on_attach = function(client, buffer)
         client.server_capabilities.documentFormattingProvider = false
@@ -121,14 +121,14 @@ end
 -- end
 
 local function lua_ls()
-  require('lspconfig').lua_ls.setup({
+  require("lspconfig").lua_ls.setup({
     settings = {
       Lua = {
         diagnostics = {
-          globals = { 'vim' }
-        }
-      }
-    }
+          globals = { "vim", "augroup" },
+        },
+      },
+    },
   })
 end
 
@@ -156,6 +156,7 @@ local M = {
       { "williamboman/mason.nvim", build = ":MasonUpdate" },
       "SmiteshP/nvim-navic",
       "jose-elias-alvarez/typescript.nvim",
+      "pmizio/typescript-tools.nvim",
       "jose-elias-alvarez/null-ls.nvim",
       "simrat39/rust-tools.nvim",
     },
@@ -173,10 +174,10 @@ local M = {
           "rust_analyzer",
           "tsserver",
           "svelte",
-        }
+        },
       })
 
-      require('lspconfig').gdscript.setup({})
+      require("lspconfig").gdscript.setup({})
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       mason_lspconfig.setup_handlers({
         function(server_name)
@@ -198,7 +199,6 @@ local M = {
         -- ["gdtoolkit"] = function()
         --   gdtoolkit()
         -- end,
-
       })
 
       keymaps()

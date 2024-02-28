@@ -2,12 +2,6 @@
 
 source /home/naps62/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
-#
-# antidote plugins
-#
-# source  /usr/share/zsh-antidote/antidote.zsh
-# antidote load ~/.config/zsh/antidote.plugins.txt
-
 # zsh-history-substring-search
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -17,14 +11,14 @@ bindkey -M vicmd 'j' history-substring-search-down
 #
 # fzf
 #
-if [ -f /usr/share/fzf/key-bindings.zsh ]; then
-  source /usr/share/fzf/key-bindings.zsh
-  source /usr/share/fzf/completion.zsh
-elif [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-  source /usr/share/doc/fzf/examples/completion.zsh
-fi
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file $HOME/.config/ripgrep/ignore"
+# if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+#   source /usr/share/fzf/key-bindings.zsh
+#   source /usr/share/fzf/completion.zsh
+# elif [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+#   source /usr/share/doc/fzf/examples/key-bindings.zsh
+#   source /usr/share/doc/fzf/examples/completion.zsh
+# fi
+# export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --ignore-file $HOME/.config/ripgrep/ignore"
 
 #
 # asdf
@@ -54,11 +48,6 @@ eval "$(zoxide init zsh --cmd cd)"
 #
 # broot: directory tree viewer
 source /home/naps62/.config/broot/launcher/bash/br
-
-#
-# atuin
-#
-eval "$(atuin init zsh)"
 
 
 # bun

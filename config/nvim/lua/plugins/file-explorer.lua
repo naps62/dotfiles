@@ -16,6 +16,7 @@ return {
       filesystem = {
         filtered_items = {
           always_show = {
+            ".github",
             ".gitignore",
             ".cargo",
             ".github",
@@ -27,11 +28,11 @@ return {
       {
         "<C-n>",
         function()
-          require("neo-tree.command").execute({ toggle = true })
+          require("neo-tree.command").execute({ toggle = true, position = "right" })
         end,
         desc = "Neotree",
       },
-      { "<C-m>", "<cmd>Neotree reveal<cr>", desc = "Neotree reveal" },
+      { "<C-m>", "<cmd>Neotree reveal right<cr>", desc = "Neotree reveal" },
     },
   },
 }

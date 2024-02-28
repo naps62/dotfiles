@@ -10,3 +10,6 @@ setopt HIST_IGNORE_SPACE  # Don't store commands that start with spaces
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward

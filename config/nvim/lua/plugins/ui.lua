@@ -23,7 +23,7 @@ return {
 
       return {
         options = {
-          theme = "catppuccin-mocha",
+          theme = "catppuccin-latte",
           globalstatus = true,
           disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
         },
@@ -51,9 +51,6 @@ return {
             },
             { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
             {
-              -- function()
-              --   return require("nvim-navic").get_location()
-              -- end,
               cond = function()
                 return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
               end,
@@ -79,9 +76,11 @@ return {
             { "location", padding = { left = 0, right = 1 } },
           },
           lualine_z = {
-            function()
-              return os.date("%R")
-            end,
+            {
+              function()
+                return os.date("%R")
+              end,
+            },
           },
         },
         winbar = {
@@ -103,7 +102,7 @@ return {
   -- active indent guide and indent text objects
   {
     "echasnovski/mini.indentscope",
-    version = false, -- wait til new 0.7.0 release to put it back on semver
+    version = false,
     event = "BufReadPre",
     opts = function()
       return {
@@ -125,9 +124,6 @@ return {
       require("mini.indentscope").setup(opts)
     end,
   },
-
-  -- ui components
-  { "MunifTanjim/nui.nvim",   lazy = true },
 
   {
     "folke/which-key.nvim",

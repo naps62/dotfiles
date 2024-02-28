@@ -13,7 +13,6 @@ alias vim=nvim
 alias h=helix
 alias n=nvim
 alias x=extract
-alias y=yay
 alias j=just
 
 # rust replacements
@@ -22,7 +21,6 @@ alias ls=eza
 alias cat=bat
 alias ps=procs
 
-alias sql="pgcli"
 alias pass="PASSWORD_STORE_DIR=~/sync/pass pass"
 
 # cd

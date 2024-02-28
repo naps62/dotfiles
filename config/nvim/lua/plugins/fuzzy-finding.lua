@@ -26,13 +26,6 @@ return {
     opts = function()
       local actions = require("telescope.actions")
 
-      -- vim.api.nvim_exec(
-      --   [[
-      --  command! -bang -nargs=* FzfRgSlim call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --ignore-file lib/ -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
-      --  ]],
-      --   false
-      -- )
-
       return {
         defaults = {
           file_ignore_patterns = { "*.svg" },
@@ -63,7 +56,7 @@ return {
           pickers = {
             find_files = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-          }
+          },
         },
       }
     end,

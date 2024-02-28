@@ -3,6 +3,8 @@ return {
   {
     "L3MON4D3/LuaSnip",
     lazy = true,
+    version = "v2.*",
+    build = "make install_jsregexp",
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
@@ -37,7 +39,7 @@ return {
     },
     config = function(_, opts)
       require("luasnip").config.set_config(opts)
-      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })
+      require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/snippets" } })
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
@@ -60,9 +62,9 @@ return {
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
       local has_words_before = function()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0
-            and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+            and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
       local cmp_next_item = cmp.mapping(function(fallback)
@@ -132,11 +134,6 @@ return {
         performance = {
           debounce = 150,
         },
-        -- experimental = {
-        -- 	ghost_text = {
-        -- 		hl_group = "LspCodeLens",
-        -- 	},
-        -- },
       }
     end,
   },
