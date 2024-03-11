@@ -6,6 +6,10 @@
 "cargo-upgrades 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-upgrades"]
 "cargo-watch 8.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-watch"]
 "diesel_cli 2.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = ["diesel"]
+"nexus-tools 0.1.0 (git+https://github.com/nexus-xyz/nexus-zkvm#9ad03cb99935d1df2c11240dec458fefa50369f4)" = [
+    "cargo-nexus",
+    "nexus-run",
+]
 "reth 0.1.0-alpha.11 (path+file:///home/naps62/contrib/paradigmxyz/reth/bin/reth)" = ["reth"]
 "sea-orm-cli 0.12.14 (registry+https://github.com/rust-lang/crates.io-index)" = [
     "sea",

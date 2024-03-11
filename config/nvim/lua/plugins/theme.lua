@@ -4,7 +4,7 @@ return {
     name = "catppuccin",
     lazy = false,
     init = function()
-      vim.cmd.colorscheme("catppuccin-latte")
+      vim.cmd.colorscheme("catppuccin-mocha")
       require("catppuccin").setup({
         native_lsp = {
           enabled = true,

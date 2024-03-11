@@ -27,7 +27,7 @@ video_to_gif() {
 
 countdown() {
   n_id=$1
-  $title=$2
+  title=$2
 
   notify-send --app-name="screenshot" "$title" "Recording in 3" -t 1000 --replace-id=$n_id
   sleep 1
@@ -56,7 +56,9 @@ record_region_gif() {
   n_id=$(notify-send --app-name="screenshot" "$title" "Select a region to record" --print-id)
 
   touch "$recorder_flag"
-  wf-recorder -g "$(slurp && countdown $n_id "$title")" -f "$tmppath"
+  geo=$(slurp)
+  countdown $n_id "$title"
+  wf-recorder -g "$geo" -f "$tmppath"
 
   notify-send --app-name="screenshot" "$title" "Converting to gif… (can take a while)" --replace-id=$n_id
   video_to_gif "$tmppath" "$path"
