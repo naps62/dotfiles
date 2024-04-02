@@ -11,6 +11,7 @@
 dir="$HOME/downloads/screenshots"
 title=$(hyprctl activewindow -j | jq -r '.title' | tr '/' '-')
 recorder_flag="$HOME/.cache/rofi-screenshot-recording"
+grimblast="$HOME/.bin/grimblast"
 
 # Default date format
 default_date_format="+%d-%m-%Y_%H:%M:%S"
@@ -43,7 +44,7 @@ screenshot_region_copysave() {
 
   n_id=$(notify-send --app-name="screenshot" "$title" "Select a region to capture" --print-id)
 
-  grimblast copysave area "$path"
+  $grimblast copysave area "$path"
 
   notify-send --app-name="screenshot" "$title" "$path" --replace-id=$n_id
 }

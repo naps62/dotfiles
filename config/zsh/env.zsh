@@ -27,9 +27,11 @@ env_dir PATH $BUN_INSTALL/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
+export ANDROID_HOME=$HOME/.android/sdk
+export NDK_HOME=$ANDROID_HOME/ndk/26.1.10909125
 export LANG=en_US.utf-8
 export EDITOR=nvim
-export BROWSER=/usr/bin/firefox-developer-edition
+export BROWSER=/usr/bin/google-chrome-stable
 export ZK_PATH=$HOME/projects/zettelkasten
 
 # sway-nvidia

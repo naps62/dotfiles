@@ -14,7 +14,7 @@
 (defvar bar_hover false)
 (deflisten workspace "scripts/workspace")
 
-(defvar eww "eww -c $HOME/.config/eww")
+(defvar eww "/home/naps62/.bin/eww -c $HOME/.config/eww")
 (defvar exec_audio_control "hyprctl dispatch exec '[center]' pavucontrol")
 (defvar exec_nmtui "hyprctl dispatch exec '[center]' 'kitty --class eww-nmtui -e nmtui'")
 (defvar exec_workspace_scroll "echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace")

@@ -34,11 +34,11 @@ vim.opt.gdefault = true
 
 -- completion
 vim.api.nvim_exec2(
-  [[
+	[[
   set completeopt=menuone,noinsert,noselect
   set shortmess+=c
 ]],
-  {}
+	{}
 )
 vim.opt.updatetime = 300
 

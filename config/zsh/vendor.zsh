@@ -5,8 +5,8 @@ source /home/naps62/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 #
 # asdf
 #
-[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-[ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
+# [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
+# [ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
 
 #
 # direnv
