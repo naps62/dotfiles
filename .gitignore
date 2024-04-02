@@ -56,10 +56,7 @@ config/hypr/host
 config/broot/launcher
 
 cache
-cargo/registry
-cargo/db
-cargo/git
-cargo/bin
-cargo/.crates*
+cargo/
+!cargo/config.toml
 
 *.zwc
