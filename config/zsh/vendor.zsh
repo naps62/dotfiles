@@ -37,3 +37,6 @@ source /home/naps62/.config/broot/launcher/bash/br
 
 # thefuck
 eval $(thefuck --alias)
+
+# fzf history
+eval "$(fzf --zsh)"

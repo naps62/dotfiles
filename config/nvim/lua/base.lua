@@ -2,6 +2,7 @@ vim.opt.scrolloff = 5
 vim.opt.clipboard = "unnamedplus"
 vim.opt.guifont = "FiraCode Nerd Font Mono:h12"
 vim.opt.cmdheight = 0
+vim.opt.shortmess = "csCFSW"
 
 vim.g.mapleader = " "
 

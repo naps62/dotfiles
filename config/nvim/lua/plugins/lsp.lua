@@ -22,8 +22,8 @@ return {
 				filetype = {
 					lua = { require("formatter.filetypes.lua").stylua },
 					toml = { require("formatter.filetypes.toml").taplo },
-					typescript = { defaults.eslint_d, defaults.prettierd },
-					typescriptreact = { defaults.eslint_d, defaults.prettierd },
+					typescript = { defaults.prettierd },
+					-- typescriptreact = { defaults.eslint_d, defaults.prettierd },
 					json = { defaults.prettierd },
 					css = { defaults.prettierd },
 					markdown = { defaults.prettierd },
@@ -57,19 +57,6 @@ return {
 		keys = {
 			{ "<leader>xx", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
 		},
-	},
-
-	{
-		"SmiteshP/nvim-navbuddy",
-		opts = { lsp = { auto_attach = true } },
-		dependencies = {
-			{ "SmiteshP/nvim-navic", opts = { lsp = { auto_attach = true } } },
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			require("nvim-navbuddy").setup({ lsp = { auto_attach = true } })
-		end,
-		keys = { { "<leader>b", "<cmd>Navbuddy<CR>" } },
 	},
 
 	{

@@ -56,24 +56,7 @@ return {
 		keys = {
 			{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
 			{ "<C-f>", "<cmd>Rg<cr>", desc = "fuzzy find file contents" },
-			{
-				"<leader>ss",
-				util.telescope("lsp_document_symbols", {
-					symbols = {
-						"Class",
-						"Function",
-						"Method",
-						"Constructor",
-						"Interface",
-						"Module",
-						"Struct",
-						"Trait",
-						"Field",
-						"Property",
-					},
-				}),
-				desc = "Go to Symbol",
-			},
+			{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
 		},
 	},
 
@@ -88,7 +71,6 @@ return {
 			{
 				"<leader>af",
 				function()
-					print("list")
 					local file_paths = {}
 					local harpoon = require("harpoon")
 					for _, item in ipairs(harpoon:list().items) do
