@@ -15,15 +15,19 @@ return {
 		"mhartington/formatter.nvim",
 		lazy = false,
 		config = function()
-			local util = require("formatter.util")
 			local defaults = require("formatter.defaults")
 
 			require("formatter").setup({
 				filetype = {
 					lua = { require("formatter.filetypes.lua").stylua },
 					toml = { require("formatter.filetypes.toml").taplo },
-					typescript = { defaults.prettierd },
-					-- typescriptreact = { defaults.eslint_d, defaults.prettierd },
+					typescript = {
+						defaults.eslint_d,
+						defaults.prettierd,
+						defaults.biome,
+					},
+					yaml = { defaults.prettierd },
+					typescriptreact = { defaults.eslint_d, defaults.prettierd },
 					json = { defaults.prettierd },
 					css = { defaults.prettierd },
 					markdown = { defaults.prettierd },

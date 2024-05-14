@@ -43,7 +43,6 @@ return {
 						},
 					},
 					pickers = {
-						find_files = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 					},
 				},
@@ -54,7 +53,16 @@ return {
 			require("telescope").load_extension("fzf")
 		end,
 		keys = {
-			{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+			{
+				"<C-p>",
+				function()
+					require("telescope.builtin").find_files({
+						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					})
+				end,
+				"<cmd>Telescope find_files<cr>",
+				desc = "Find Files (root dir)",
+			},
 			{ "<C-f>", "<cmd>Rg<cr>", desc = "fuzzy find file contents" },
 			{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
 		},

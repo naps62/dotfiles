@@ -14,6 +14,8 @@ alias vim=nvim
 alias h=helix
 alias x=extract
 alias j=just
+alias m=mise
+alias mr="mise run"
 
 # rust replacements
 # https://zaiste.net/posts/shell-commands-rust

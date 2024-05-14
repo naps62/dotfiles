@@ -26,3 +26,6 @@ Host konishi
   Hostname home.naps62.com
   User naps62
   Port 23
+
+Host 192.168.68.3
+  HostkeyAlgorithms +ssh-rsa

@@ -24,7 +24,7 @@ return {
 
 			return {
 				options = {
-					theme = "catppuccin-mocha",
+					theme = "catppuccin-latte",
 					globalstatus = true,
 					disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
 				},

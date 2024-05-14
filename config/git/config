@@ -54,8 +54,6 @@
   ui = true
 [push]
   default = upstream
-[web]
-  browser = google-chrome
 [interactive]
   singlekey = true
   diffFilter = delta --color-only

@@ -18,6 +18,7 @@ return {
 						previewer = true,
 					},
 				},
+				pre_save_cmd = { "NeoTreeClose" },
 			})
 		end,
 		keys = {

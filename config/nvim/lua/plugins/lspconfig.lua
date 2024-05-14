@@ -19,7 +19,22 @@ local function keymaps()
 
 			-- code actions
 			vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-			vim.keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Code Actions" })
+			vim.keymap.set({ "n", "v" }, "ga", function()
+				vim.lsp.buf.code_action({
+					context = {
+						only = {
+							"",
+							"quickfix",
+							"refactor",
+							"refactor.extract",
+							"refactor.inline",
+							"refactor.rewrite",
+							"source",
+							"source.organizeImports",
+						},
+					},
+				})
+			end, { buffer = ev.buf, desc = "Code Actions2" })
 
 			-- diagnostics
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
@@ -104,6 +119,14 @@ end
 
 local function tsserver()
 	require("typescript-tools").setup({
+		code_lens = "on",
+		expose_as_code_action = {
+			"fix_all",
+			"add_missing_imports",
+			-- "remove_unused",
+			-- "remove_unused_imports",
+			"organize_imports",
+		},
 		server = {
 			on_attach = function(client, buffer)
 				client.server_capabilities.documentFormattingProvider = false
@@ -114,16 +137,7 @@ local function tsserver()
 			end,
 		},
 	})
-	require("null-ls").setup({
-		sources = {
-			require("typescript.extensions.null-ls.code-actions"),
-		},
-	})
 end
-
--- local function gdtoolkit()
---   require('lspconfig').gdscript.setup({})
--- end
 
 local function lua_ls()
 	require("lspconfig").lua_ls.setup({
@@ -179,7 +193,6 @@ local M = {
 					"eslint",
 					"rust_analyzer",
 					"tsserver",
-					"svelte",
 				},
 			})
 
