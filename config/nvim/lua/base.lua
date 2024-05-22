@@ -48,3 +48,7 @@ vim.opt.updatetime = 300
 vim.opt.list = true
 
 vim.opt.fillchars:append({ diff = " " })
+
+-- neovide
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_refresh_rate_idle = 5

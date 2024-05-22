@@ -130,6 +130,39 @@ local M = {
 		"mrcjkb/rustaceanvim",
 		version = "^4", -- Recommended
 		lazy = false, -- This plugin is already lazy
+		config = function()
+			vim.g.rustaceanvim = { tools = { test_executor = "background" } }
+		end,
+	},
+
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"mrcjbk/rustaceanvim",
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("neotest").setup({ adapters = { require("rustaceanvim.neotest") } })
+		end,
+		keys = {
+			{
+				"<leader>tt",
+				function()
+					require("neotest").run.run()
+				end,
+				desc = "Run nearest test",
+			},
+			{
+				"<leader>tf",
+				function()
+					require("neotest").run.run(vim.fn.expand("%"))
+				end,
+				desc = "Run current file",
+			},
+		},
 	},
 
 	-- LSP

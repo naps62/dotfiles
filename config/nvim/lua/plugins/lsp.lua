@@ -88,10 +88,20 @@ return {
 				},
 			})
 		end,
-		keys = { {
-			"<leader>o",
-			"<cmd>Outline<CR>",
-			desc = "Toggle symbol outline",
-		} },
+		keys = {
+			{
+				"<leader>o",
+				function()
+					vim.cmd.OutlineOpen()
+					vim.cmd.OutlineFocusOutline()
+				end,
+				desc = "Toggle symbol outline",
+			},
+			{
+				"<leader>O",
+				vim.cmd.Outline,
+				desc = "Toggle symbol outline",
+			},
+		},
 	},
 }

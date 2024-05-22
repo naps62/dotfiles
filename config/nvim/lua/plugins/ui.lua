@@ -12,7 +12,7 @@ return {
 		opts = function()
 			vim.opt.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
-			local icons = require("config.icons")
+			local icons = require("util.icons")
 
 			local function fg(name)
 				return function()
