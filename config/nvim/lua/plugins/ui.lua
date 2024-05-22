@@ -24,7 +24,7 @@ return {
 
 			return {
 				options = {
-					theme = "catppuccin-latte",
+					theme = "catppuccin-mocha",
 					globalstatus = true,
 					disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
 				},
@@ -125,15 +125,6 @@ return {
 				end,
 			})
 			require("mini.indentscope").setup(opts)
-		end,
-	},
-
-	{
-		"folke/which-key.nvim",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-			require("which-key").setup({})
 		end,
 	},
 }

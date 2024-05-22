@@ -10,6 +10,7 @@ local function keymaps()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		callback = function(ev)
+			print(ev.buf.filetype)
 			local opts = { buffer = ev.buf }
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 			vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts)
@@ -78,45 +79,6 @@ local function generic_lsp(server_name, lspconfig, lsp_capabilities, augroup)
 	-- end
 end
 
-local function rust_analyzer(augroup)
-	require("rust-tools").setup({
-		server = {
-			on_attach = function(client, buffer)
-				require("nvim-navic").attach(client, buffer)
-
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = buffer,
-					callback = function()
-						vim.lsp.buf.format()
-					end,
-				})
-			end,
-			settings = {
-				["rust-analyzer"] = {
-					checkOnSave = {
-						allFeatures = true,
-						command = "clippy",
-						extraArgs = { "--all", "--", "-W", "clippy::all" },
-					},
-					enable = true,
-					imports = {
-						granularity = {
-							enforce = true,
-							group = "module",
-						},
-						prefix = "self",
-					},
-					cargo = {
-						allFeatures = true,
-					},
-				},
-			},
-		},
-	})
-end
-
 local function tsserver()
 	require("typescript-tools").setup({
 		code_lens = "on",
@@ -164,6 +126,12 @@ local M = {
 		end,
 	},
 
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^4", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
+
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
@@ -177,7 +145,8 @@ local M = {
 			"jose-elias-alvarez/typescript.nvim",
 			"pmizio/typescript-tools.nvim",
 			"jose-elias-alvarez/null-ls.nvim",
-			"simrat39/rust-tools.nvim",
+			-- "simrat39/rust-tools.nvim",
+			-- "mrcjkb/rustaceanvim",
 			"pmizio/typescript-tools.nvim",
 		},
 
@@ -186,12 +155,14 @@ local M = {
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local mason_lspconfig = require("mason-lspconfig")
 
+			vim.lsp.inlay_hint.enable()
+
 			require("mason").setup()
 			mason_lspconfig.setup({
 				ensure_installed = {
 					"lua_ls",
 					"eslint",
-					"rust_analyzer",
+					-- "rust_analyzer",
 					"tsserver",
 				},
 			})
@@ -207,16 +178,16 @@ local M = {
 					lua_ls()
 				end,
 
-				["rust_analyzer"] = function()
-					rust_analyzer(augroup)
-				end,
+				-- ["rust_analyzer"] = function()
+				-- 	rust_analyzer(augroup)
+				-- end,
 
 				["tsserver"] = function()
 					tsserver()
 				end,
 			})
 
-			keymaps()
+			-- keymaps()
 		end,
 	},
 }

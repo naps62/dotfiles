@@ -1,0 +1,43 @@
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: rss
+            limit: 10
+            collapse-after: 3
+            cache: 3h
+            feeds:
+
+          - type: twitch-channels
+            channels:
+              - theprimeagen
+              - GMNaroditsky
+              - chess
+
+      - size: full
+        widgets:
+          - type: hacker-news
+
+          - type: videos
+            channels:
+              - UCUyeluBRhGPCW4rPe_UvBZQ
+              - UCXuqSBlHAE6Xw-yeJA0Tunw
+
+          - type: reddit
+            subreddit: homeassistant
+
+      - size: small
+        widgets:
+          - type: calendar
+
+          - type: weather
+            location: Braga, Portugal
+
+theme:
+  light: true
+  background-color: 220 23 95
+  contrast-multiplier: 1.0
+  primary-color: 220 91 54
+  positive-color: 109 58 40
+  negative-color: 347 87 44

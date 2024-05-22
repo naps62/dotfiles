@@ -4,7 +4,7 @@ return {
 		name = "catppuccin",
 		lazy = false,
 		init = function()
-			vim.cmd.colorscheme("catppuccin-latte")
+			vim.cmd.colorscheme("catppuccin-mocha")
 			require("catppuccin").setup({
 				native_lsp = {
 					enabled = true,
@@ -29,6 +29,22 @@ return {
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
+		end,
+	},
+
+	{
+		"levouh/tint.nvim",
+		config = function()
+			require("tint").setup({
+				tint = -10,
+				tint_background_colors = true,
+
+				window_ignore_function = function(winid)
+					local bufid = vim.api.nvim_win_get_buf(winid)
+					local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufid })
+					return buftype == "nofile"
+				end,
+			})
 		end,
 	},
 }

@@ -31,6 +31,11 @@ return {
 					json = { defaults.prettierd },
 					css = { defaults.prettierd },
 					markdown = { defaults.prettierd },
+					rust = {
+						function()
+							return { exe = "rustfmt", args = { "+nightly", "--edition 2021" }, stdin = true }
+						end,
+					},
 					solidity = {
 						function()
 							return {

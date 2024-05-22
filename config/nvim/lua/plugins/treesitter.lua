@@ -60,9 +60,6 @@ return {
 	},
 
 	{ "tomlion/vim-solidity" },
-	{ "vmchale/just-vim" },
 	{ "kaarmu/typst.vim" },
 	{ "fladson/vim-kitty" },
-	{ "0xmovses/move.vim" },
-	{ "lepture/vim-jinja" },
 }

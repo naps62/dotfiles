@@ -1,6 +1,8 @@
 #!/bin/bash
 
 DIR=/mnt/data/eth/sepolia
+RETH=/home/naps62/.cargo/bin/reth
+LIGHTHOUSE=/usr/bin/lighthouse
 
 AUTHRPC_PORT=8552
 ETH1_METRICS_PORT=9301
@@ -11,7 +13,7 @@ export RUST_LOG=info
 mkdir -p $DIR
 
 if [[ $1 == "reth" ]]; then
-  reth node \
+  $RETH node \
     --chain sepolia \
     --datadir $DIR/reth \
     --metrics 0.0.0.0:$ETH1_METRICS_PORT \
@@ -24,7 +26,7 @@ if [[ $1 == "reth" ]]; then
     --ws.port 8556 \
     --ws.api all
 elif [[ $1 == "lighthouse" ]]; then
-  lighthouse bn \
+  $LIGHTHOUSE bn \
     --network sepolia \
     --datadir $DIR/lighthouse \
     --metrics \
