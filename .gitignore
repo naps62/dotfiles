@@ -30,6 +30,7 @@ config/*
 !config/broo
 !config/i3
 !config/sway
+!config/swayidle
 !config/glance
 
 # include lazy-git, except for state

@@ -15,7 +15,7 @@ env_dir PATH $HOME/.bin
 env_dir PATH $HOME/.local/bin
 env_dir PATH $HOME/.cargo/bin
 env_dir PATH $HOME/.go/bin
-env_dir PATH $HOME/.foundry/bin
+env_dir PATH $HOME/.config/.foundry/bin
 env_dir PATH $HOME/.local/share/solana/install/active_release/bin
 env_dir PATH ./.git/safe/../../node_modules/.bin
 env_dir PATH ./.git/safe/../../bin
@@ -36,7 +36,6 @@ export ZK_PATH=$HOME/projects/zettelkasten
 
 # sway-nvidia
 if [[ $(hostname) == "konishi" ]]; then
-  export WLR_RENDERER=vulkan
   export XWAYLAND_NO_GLAMOR=1
   export WLR_NO_HARDWARE_CURSORS=1
 fi

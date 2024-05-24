@@ -39,7 +39,7 @@ return {
 					solidity = {
 						function()
 							return {
-								exe = "forge",
+								exe = "/home/naps62/.config/.foundry/bin/forge",
 								args = { "fmt", "--raw", "-" },
 								stdin = true,
 							}

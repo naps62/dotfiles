@@ -138,14 +138,18 @@ local M = {
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
-			"mrcjbk/rustaceanvim",
+			"mrcjkb/rustaceanvim",
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
+			"llllvvuu/neotest-foundry",
 		},
 		config = function()
-			require("neotest").setup({ adapters = { require("rustaceanvim.neotest") } })
+			local rust = require("rustaceanvim.neotest")
+			local foundry =
+				require("neotest-foundry")({ foundryCommand = "/home/naps62/.config/.foundry/bin/forge test" })
+			require("neotest").setup({ adapters = { rust, foundry } })
 		end,
 		keys = {
 			{

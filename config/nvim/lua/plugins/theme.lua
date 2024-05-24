@@ -57,7 +57,7 @@ return {
 				segments = {
 					{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
 					{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-					{ text = { "%s" }, maxwidth = 1, click = "v:lua.ScSa" },
+					{ sign = { name = { ".*" }, maxwidth = 1, colwidth = 1 }, click = "v:lua.ScSa" },
 				},
 			})
 		end,
