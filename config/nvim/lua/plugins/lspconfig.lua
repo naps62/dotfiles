@@ -10,8 +10,11 @@ local function keymaps()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		callback = function(ev)
-			print(ev.buf.filetype)
 			local opts = { buffer = ev.buf }
+			if vim.bo[ev.buf].filetype == "rust" then
+				return
+			end
+
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 			vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts)
 			vim.keymap.set("n", "gv", function()
@@ -224,7 +227,7 @@ local M = {
 				end,
 			})
 
-			-- keymaps()
+			keymaps()
 		end,
 	},
 }

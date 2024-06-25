@@ -143,11 +143,14 @@
   (widget_space)))
 
 (defwidget bar_inner []
+(eventbox
+    :onhover "${eww} update bar_hover=true"
+    :onhoverlost "${eww} update bar_hover=false"
   (box
       :class "${bar_hover ? 'bar hover' : 'bar not-hover'}"
       :orientation "h"
     (left)
-    (right)))
+    (right))))
 
 ;;
 ;; main window
@@ -157,9 +160,7 @@
     geometry 
     :x "0%"
     :y "0px"
-    :width "2080px"
-    :anchor "top center")
-  :windowtype "dock"
+    :width "1020px"
+    :anchor "bottom center")
   :monitor 1
-  :exclusive true
 (bar_inner))

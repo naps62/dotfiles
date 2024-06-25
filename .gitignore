@@ -33,6 +33,7 @@ config/*
 !config/swayidle
 !config/glance
 !config/paru
+!config/wezterm
 
 # include lazy-git, except for state
 !config/lazygit

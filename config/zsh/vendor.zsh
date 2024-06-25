@@ -40,8 +40,5 @@ source /home/naps62/.config/broot/launcher/bash/br
 # bun
 [ -s "/home/naps62/.bun/_bun" ] && source "/home/naps62/.bun/_bun"
 
-# thefuck
-eval $(thefuck --alias)
-
 # fzf history
 eval "$(fzf --zsh)"

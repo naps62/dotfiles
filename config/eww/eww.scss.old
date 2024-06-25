@@ -32,7 +32,7 @@ $crust: #11111b;
   all: unset;
   font-family:
     Material Design Icons,
-    FiraCode Nerd Font;
+    Fira Code;
 }
 
 //
@@ -43,7 +43,7 @@ tooltip.background,
 .window,
 menu,
 menuitem,
-.bar {
+.bar.hover {
   background-color: $crust;
 }
 
@@ -72,10 +72,15 @@ menuitem,
   // min-height: 30px;
   font-size: 16;
   transition: all 0.1s ease-out;
-  border-radius: 0px 0px 10 10;
+  border-radius: 10px 10px 0 0;
 }
 
-.bar {
+.bar.not-hover {
+  opacity: 0;
+  background-color: transparent;
+}
+
+.bar.hover {
   opacity: 1;
 }
 
@@ -188,10 +193,13 @@ menuitem {
   padding: 8px;
   border-radius: 8px;
   color: $text;
-    background-color: $surface2;
 
   &:disabled {
     color: $overlay2;
+  }
+
+  &:hover {
+    background-color: $surface2;
   }
 }
 

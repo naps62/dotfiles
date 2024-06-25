@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo asd "$@" asd $(($@ / 100))% dsa >> ~/asd
+wpctl set-volume @DEFAULT_AUDIO_SINK@ $(($1 / 100))%
