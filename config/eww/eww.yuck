@@ -160,6 +160,6 @@
     :width "2080px"
     :anchor "top center")
   :windowtype "dock"
-  :monitor 1
+  :monitor 0
   :exclusive true
 (bar_inner))
