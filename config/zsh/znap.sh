@@ -11,4 +11,4 @@ znap install zsh-users/zsh-completions
 znap source Aloxaf/fzf-tab
 znap source zsh-users/zsh-autosuggestions
 
-eval "$(fzf --zsh)"
+# eval "$(fzf --zsh)"

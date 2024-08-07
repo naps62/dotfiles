@@ -23,12 +23,11 @@ return {
 					toml = { require("formatter.filetypes.toml").taplo },
 					typescript = {
 						defaults.eslint_d,
-						defaults.prettierd,
 						defaults.biome,
 					},
-					yaml = { defaults.prettierd },
-					typescriptreact = { defaults.eslint_d, defaults.prettierd },
-					json = { defaults.prettierd },
+					yaml = { defaults.biome },
+					typescriptreact = { defaults.biome, defaults.eslint_d },
+					json = { defaults.biome },
 					css = { defaults.prettierd },
 					markdown = { defaults.prettierd },
 					rust = {
@@ -60,11 +59,15 @@ return {
 
 	{
 		"folke/trouble.nvim",
-		cmd = { "TroubleToggle", "Trouble" },
+		cmd = { "Trouble" },
 		dependencies = "kyazdani42/nvim-web-devicons",
 		opts = { use_diagnostic_signs = true },
 		keys = {
-			{ "<leader>xx", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle filter = { severity=vim.diagnostic.severity.ERROR }<cr>",
+				desc = "Document Diagnostics (Trouble)",
+			},
 		},
 	},
 

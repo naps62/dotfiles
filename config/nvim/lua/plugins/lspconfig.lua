@@ -201,7 +201,8 @@ local M = {
 			mason_lspconfig.setup({
 				ensure_installed = {
 					"lua_ls",
-					"eslint",
+					-- "eslint",
+					"biome",
 					-- "rust_analyzer",
 					"tsserver",
 				},
