@@ -144,10 +144,28 @@ return {
 		event = "VeryLazy",
 		opts = {
 			signs = true,
-			pattern = [[\b(KEYWORDS)\b]],
+			highlight = {
+				pattern = [[.*<(KEYWORDS)\s*:?]],
+			},
+			search = {
+				pattern = [[\b(KEYWORDS)\b]],
+			},
 		},
 		config = function(_, opts)
 			require("todo-comments").setup(opts)
 		end,
+	},
+
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {
+			restricted_keys = {
+				["w"] = { "n", "x" },
+				["W"] = { "n", "x" },
+				["b"] = { "n", "x" },
+				["B"] = { "n", "x" },
+			},
+		},
 	},
 }

@@ -13,7 +13,7 @@ config/*
 !config/zsh
 !config/ripgrep
 !config/alacritty
-!config/rofm
+!config/rofi
 !config/mimeapps.list
 !config/proselint
 !config/starship
@@ -30,10 +30,13 @@ config/*
 !config/broo
 !config/i3
 !config/sway
+!config/waybar
 !config/swayidle
+!config/swaync
 !config/glance
 !config/paru
 !config/wezterm
+!config/flameshot
 
 # include lazy-git, except for state
 !config/lazygit

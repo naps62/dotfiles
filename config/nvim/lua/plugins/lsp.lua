@@ -65,46 +65,76 @@ return {
 		keys = {
 			{
 				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle filter = { severity=vim.diagnostic.severity.ERROR }<cr>",
-				desc = "Document Diagnostics (Trouble)",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
 			},
-		},
-	},
-
-	{
-		"hedyhli/outline.nvim",
-		config = function()
-			local outline = require("outline")
-
-			outline.setup({
-				outline_window = {
-					width = 10,
-				},
-				preview_window = {
-					open_hover_on_preview = true,
-				},
-				keymaps = {
-					goto_location = "<CR>",
-					goto_and_close = "<S-CR>",
-					down_and_jump = "j",
-					up_and_jump = "k",
-				},
-			})
-		end,
-		keys = {
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xt",
+				"<cmd>Trouble todo toggle<cr>",
+				desc = "Todos (Trouble)",
+			},
 			{
 				"<leader>o",
-				function()
-					vim.cmd.OutlineOpen()
-					vim.cmd.OutlineFocusOutline()
-				end,
-				desc = "Toggle symbol outline",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols Outline (Trouble)",
 			},
 			{
-				"<leader>O",
-				vim.cmd.Outline,
-				desc = "Toggle symbol outline",
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
 			},
 		},
 	},
+
+	-- {
+	-- 	"hedyhli/outline.nvim",
+	-- 	config = function()
+	-- 		local outline = require("outline")
+	--
+	-- 		outline.setup({
+	-- 			outline_window = {
+	-- 				width = 10,
+	-- 			},
+	-- 			preview_window = {
+	-- 				open_hover_on_preview = true,
+	-- 			},
+	-- 			keymaps = {
+	-- 				goto_location = "<CR>",
+	-- 				goto_and_close = "<S-CR>",
+	-- 				down_and_jump = "j",
+	-- 				up_and_jump = "k",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>o",
+	-- 			function()
+	-- 				vim.cmd.OutlineOpen()
+	-- 				vim.cmd.OutlineFocusOutline()
+	-- 			end,
+	-- 			desc = "Toggle symbol outline",
+	-- 		},
+	-- 		{
+	-- 			"<leader>O",
+	-- 			vim.cmd.Outline,
+	-- 			desc = "Toggle symbol outline",
+	-- 		},
+	-- 	},
+	-- },
 }
