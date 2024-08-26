@@ -36,5 +36,5 @@ Host proxmox
   Port 22022
 
 Host ha
-  User root
-  Hostname 10.1.10.4
+  User naps62
+  Hostname 10.6.10.4
