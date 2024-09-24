@@ -26,14 +26,29 @@ return {
 	},
 
 	{
-		"phaazon/hop.nvim",
+		"smoka7/hop.nvim",
 		event = "VeryLazy",
-		branch = "v2",
-		init = function()
-			require("hop").setup()
-		end,
+		version = "*",
+		opts = {
+			keys = "etovxqpdygfblzhckisuran",
+		},
 		keys = {
-			{ "ff", "<cmd>HopChar1<cr>", desc = "go to char" },
+			{
+				"ff",
+				function()
+					local dir = require("hop.hint").HintDirection
+					require("hop").hint_char1({ direction = dir.AFTER_CURSOR })
+				end,
+				desc = "go to char (forward)",
+			},
+			{
+				"FF",
+				function()
+					local dir = require("hop.hint").HintDirection
+					require("hop").hint_char1({ direction = dir.BEFORE_CURSOR })
+				end,
+				desc = "go to char (backward)",
+			},
 			{ "2ff", "<cmd>HopChar2<cr>", desc = "go to bigram" },
 			{ "<leader>fl", "<cmd>HopLineStart<cr>" },
 			{ "<leader>fp", "<cmd>HopPattern<cr>" },
@@ -167,5 +182,12 @@ return {
 				["B"] = { "n", "x" },
 			},
 		},
+	},
+
+	{
+		"tzachar/local-highlight.nvim",
+		config = function()
+			require("local-highlight").setup()
+		end,
 	},
 }

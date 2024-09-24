@@ -2,4 +2,4 @@
 
 git add .
 git commit -m "committing everything"
-git publish
+git push

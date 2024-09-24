@@ -12,50 +12,62 @@ return {
 	},
 
 	{
-		"mhartington/formatter.nvim",
-		lazy = false,
-		config = function()
-			local defaults = require("formatter.defaults")
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				-- Conform will run multiple formatters sequentially
+				python = { "isort", "black" },
+				-- You can customize some of the format options for the filetype (:help conform.format)
+				rust = { "rustfmt", lsp_format = "fallback" },
+				-- Conform will run the first available formatter
+				javascript = { "biome" },
+				typescript = { "biome" },
+				yaml = { "biome" },
+				solidity = { "forge_fmt" },
+			},
+			format_on_save = function()
+				local buf_path = vim.api.nvim_buf_get_name(0)
+				if buf_path:find("/contrib/") then
+					return nil
+				end
 
-			require("formatter").setup({
-				filetype = {
-					lua = { require("formatter.filetypes.lua").stylua },
-					toml = { require("formatter.filetypes.toml").taplo },
-					typescript = {
-						defaults.eslint_d,
-						defaults.biome,
-					},
-					yaml = { defaults.biome },
-					typescriptreact = { defaults.biome, defaults.eslint_d },
-					json = { defaults.biome },
-					css = { defaults.prettierd },
-					markdown = { defaults.prettierd },
-					rust = {
-						function()
-							return { exe = "rustfmt", args = { "+nightly", "--edition 2021" }, stdin = true }
-						end,
-					},
-					solidity = {
-						function()
-							return {
-								exe = "/home/naps62/.config/.foundry/bin/forge",
-								args = { "fmt", "--raw", "-" },
-								stdin = true,
-							}
-						end,
-					},
-				},
-			})
-
-			local augroup = vim.api.nvim_create_augroup
-			local autocmd = vim.api.nvim_create_autocmd
-			augroup("__formatter__", { clear = true })
-			autocmd("BufWritePost", {
-				group = "__formatter__",
-				command = ":FormatWrite",
-			})
-		end,
+				return {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				}
+			end,
+		},
 	},
+
+	-- {
+	-- 	"mhartington/formatter.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		local defaults = require("formatter.defaults")
+	--
+	-- 		print(vim.fn.expand("%"))
+	--
+	-- 		require("formatter").setup({
+	-- 			filetype = {
+	-- 				toml = { require("formatter.filetypes.toml").taplo },
+	-- 				yaml = { defaults.biome },
+	-- 				typescriptreact = { defaults.biome, defaults.eslint_d },
+	-- 				json = { defaults.biome },
+	-- 				css = { defaults.prettierd },
+	-- 				markdown = { defaults.prettierd },
+	-- 			},
+	-- 		})
+	--
+	-- 		local augroup = vim.api.nvim_create_augroup
+	-- 		local autocmd = vim.api.nvim_create_autocmd
+	-- 		augroup("__formatter__", { clear = true })
+	-- 		autocmd("BufWritePost", {
+	-- 			group = "__formatter__",
+	-- 			command = ":FormatWrite",
+	-- 		})
+	-- 	end,
+	-- },
 
 	{
 		"folke/trouble.nvim",

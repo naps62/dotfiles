@@ -47,6 +47,7 @@
   mine = !git branch -a --color | grep mp[/-]
 	fp = push
 	bb = better-branch
+  pa = push-all
 [core]
   editor = nvim
   pager = delta

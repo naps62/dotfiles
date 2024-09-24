@@ -38,3 +38,7 @@ Host proxmox
 Host ha
   User naps62
   Hostname 10.6.10.4
+
+Host router
+  User root
+  Hostname 10.1.10.1

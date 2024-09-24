@@ -12,6 +12,7 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 			ensure_installed = {
+				"vimdoc",
 				"rust",
 				"lua",
 				"regex",
@@ -43,7 +44,45 @@ return {
 				},
 			},
 			textobjects = {
-				select = { enable = true },
+				lsp_interop = {
+					enable = true,
+					peek_definition_code = {
+						["df"] = "@function.outer",
+						["dc"] = "@class.outer",
+					},
+				},
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ac"] = "@function.outer",
+						["ic"] = "@function.inner",
+						["ae"] = "@block.outer",
+						["ie"] = "@block.inner",
+						["as"] = "@statement.outer",
+						["is"] = "@statement.inner",
+						["am"] = "@call.outer",
+						["im"] = "@call.inner",
+					},
+				},
+				move = {
+					enable = true,
+					set_jumps = true,
+					goto_next_start = {
+						["]m"] = "@function.outer",
+					},
+					goto_next_end = {
+						["]M"] = "@function.outer",
+					},
+					goto_previous_start = {
+						["[m"] = "@function.outer",
+					},
+					goto_previous_end = {
+						["[M"] = "@function.outer",
+					},
+				},
 			},
 		},
 		config = function(_, opts)

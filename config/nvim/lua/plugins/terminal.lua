@@ -8,33 +8,33 @@ _G.set_terminal_keymaps = function()
 end
 
 return {
-	{
-		"akinsho/toggleterm.nvim",
-		tag = "v2.10.0",
-		lazy = false,
-		config = function()
-			require("toggleterm").setup({
-				size = 50,
-				open_mapping = [[<c-\>]],
-				direction = "vertical",
-				autochdir = true,
-			})
-
-			vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-		end,
-		keys = {
-			{
-				"<leader>g",
-				function()
-					local Terminal = require("toggleterm.terminal").Terminal
-					local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-
-					lazygit:toggle()
-				end,
-				desc = "lazygit",
-			},
-		},
-	},
+	-- {
+	-- 	"akinsho/toggleterm.nvim",
+	-- 	tag = "v2.10.0",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require("toggleterm").setup({
+	-- 			size = 50,
+	-- 			open_mapping = [[<c-\>]],
+	-- 			direction = "vertical",
+	-- 			autochdir = true,
+	-- 		})
+	--
+	-- 		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+	-- 	end,
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>g",
+	-- 			function()
+	-- 				local Terminal = require("toggleterm.terminal").Terminal
+	-- 				local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+	--
+	-- 				lazygit:toggle()
+	-- 			end,
+	-- 			desc = "lazygit",
+	-- 		},
+	-- 	},
+	-- },
 
 	{
 		"pwntester/octo.nvim",
@@ -56,6 +56,23 @@ return {
 			{ "<leader>hI", ":Octo issue create<CR>", desc = "Github Issues" },
 			{ "<leader>hp", ":Octo pr list is:open<CR>", desc = "Github PRs" },
 			{ "<leader>hP", ":Octo pr create<CR>", desc = "Github PRs" },
+		},
+	},
+
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			-- Only one of these is needed.
+			"nvim-telescope/telescope.nvim", -- optional
+			"ibhagwan/fzf-lua", -- optional
+			"echasnovski/mini.pick", -- optional
+		},
+		config = true,
+		keys = {
+			{ "<leader>g", "<cmd>Neogit<CR>", desc = "Neogit" },
 		},
 	},
 }

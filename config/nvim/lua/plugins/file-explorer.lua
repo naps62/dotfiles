@@ -1,39 +1,28 @@
 return {
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		lazy = false,
-		branch = "v2.x",
-		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
+		"stevearc/oil.nvim",
 		opts = {
-			close_if_last_window = true,
-			auto_clean_after_session_restore = true,
-			window = {
-				width = 30,
-			},
-			filesystem = {
-				filtered_items = {
-					always_show = {
-						".github",
-						".gitignore",
-						".cargo",
-						".github",
-					},
-				},
-			},
+			keymaps = { ["<C-p>"] = false },
 		},
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		keys = {
 			{
 				"<C-n>",
 				function()
-					require("neo-tree.command").execute({ toggle = true, position = "right" })
+					require("oil").open()
 				end,
-				desc = "Neotree",
+				desc = "Open file explorer",
 			},
-			{ "<C-m>", "<cmd>Neotree reveal right<cr>", desc = "Neotree reveal" },
+			{
+				"<C-m>",
+				function()
+					local root = vim.system({ "git", "rev-parse", "--show-toplevel" }, { text = true }):wait()
+					print(root.stdout)
+					print("asd")
+					require("oil").open(vim.trim(root.stdout))
+				end,
+				desc = "Open parent directory",
+			},
 		},
 	},
 }

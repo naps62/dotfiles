@@ -204,7 +204,7 @@ local M = {
 					-- "eslint",
 					"biome",
 					-- "rust_analyzer",
-					"tsserver",
+					"ts_ls",
 				},
 			})
 
@@ -223,7 +223,7 @@ local M = {
 				-- 	rust_analyzer(augroup)
 				-- end,
 
-				["tsserver"] = function()
+				["ts_ls"] = function()
 					tsserver()
 				end,
 			})

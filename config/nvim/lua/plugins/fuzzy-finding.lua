@@ -60,11 +60,23 @@ return {
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 					})
 				end,
-				"<cmd>Telescope find_files<cr>",
 				desc = "Find Files (root dir)",
 			},
-			{ "<C-f>", "<cmd>Rg<cr>", desc = "fuzzy find file contents" },
+			{
+				"<C-f>",
+				"<cmd>Rg<CR>",
+				desc = "fuzzy find file contents",
+			},
 			{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+			{
+				"<C-f>",
+				function()
+					local selection = vim.fn.getregion(vim.fn.getpos("."), vim.fn.getpos("v"), { mode = vim.fn.mode() })
+					require("telescope.builtin").live_grep({ default_text = table.concat(selection) })
+				end,
+				desc = "fuzzy find selection",
+				mode = "v",
+			},
 		},
 	},
 

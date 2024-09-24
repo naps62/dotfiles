@@ -1,4 +1,5 @@
 return {
+
 	-- snippets
 	{
 		"L3MON4D3/LuaSnip",
@@ -55,11 +56,13 @@ return {
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
+			"tzachar/cmp-ai",
 		},
-		opts = function()
+		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local cmp_ai = require("cmp_ai.config")
 
 			local has_words_before = function()
 				local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
@@ -91,7 +94,7 @@ return {
 
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-			return {
+			cmp.setup({
 				completion = {
 					completeopt = "menu,menuone,noselect,noinsert",
 				},
@@ -117,8 +120,9 @@ return {
 				preselect = cmp.PreselectMode.None,
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
+					-- { name = "cmp_ai" },
 					-- { name = "luasnip" },
-					{ name = "copilot" },
+					-- { name = "copilot" },
 					{ name = "path" },
 					{ name = "buffer" },
 				}),
@@ -133,29 +137,51 @@ return {
 				},
 				performance = {
 					debounce = 150,
+					fetching_timeout = 2000,
 				},
-			}
-		end,
-	},
+			})
 
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "VeryLazy",
-		config = function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
+			cmp_ai:setup({
+				max_lines = 1000,
+				provider = "Tabby",
+				notify = true,
+				provider_options = {
+					-- These are optional
+					user = "naps62",
+					-- temperature = 0.2,
+					-- seed = 'randomstring',
+				},
+				notify_callback = function(msg)
+					vim.notify(msg)
+				end,
+				run_on_every_keystroke = true,
+				ignored_file_types = {
+					-- default is not to ignore
+					-- uncomment to ignore in lua:
+					-- lua = true
+				},
 			})
 		end,
 	},
 
-	{
-		"zbirenbaum/copilot-cmp",
-		event = "VeryLazy",
-		dependencies = { "hrsh7th/cmp-nvim-lsp" },
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("copilot").setup({
+	-- 			suggestion = { enabled = false },
+	-- 			panel = { enabled = false },
+	-- 		})
+	-- 	end,
+	-- },
+	--
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = { "hrsh7th/cmp-nvim-lsp" },
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- },
 }

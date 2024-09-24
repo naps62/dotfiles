@@ -24,6 +24,7 @@ env_dir PATH "../../.git/safe/../../.bin"
 env_dir PATH $HOME/projects/zk/bin
 env_dir PATH $JAVA_HOME/bin
 env_dir PATH $BUN_INSTALL/bin
+env_dir PATH $HOME/.cyfrin/bin
 
 env_dir LD_LIBRARY_PATH /usr/local/lib
 
